@@ -1,15 +1,22 @@
 import title_logo from './title_logo.png';
-import search_btn from './search_btn.png';
-import main_slide1 from './main_slide_1.jpg';
-import main_slide2 from './main_slide_2.jpg';
-import main_slide3 from './main_slide_3.jpg';
-import main_slide4 from './main_slide_4.jpg';
-import main_sample from './main_sample.jpg';
+import searchBtn from './search_btn.png';
+import mainSlide1 from './main_slide_1.jpg';
+import mainSlide2 from './main_slide_2.jpg';
+import mainSlide3 from './main_slide_3.jpg';
+import mainSlide4 from './main_slide_4.jpg';
+import mainEdgeUp from './mainEdgeUp.png';
+import mainEdgeDown from './mainEdgeDown.png';
+import ham from './hamburger.png';
+import dc990s from './990s.png';
+import main_1_886 from './main_1_886.png'
 import footer_logo from './footer_logo.png';
 import youtube_logo from './youtube_logo.png';
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import './App.css';
+
+
 
 
 
@@ -21,39 +28,113 @@ function App() {
       width: '214',
       playerVars: {
         // https://developers.google.com/youtube/player_parameters
-        autoplay: 1,
+        autoplay: 0,
       },
     };
 
 
+    const stuffBox = {
+      float: "center",
+      backgroundColor: "white",
+      width: "210px",
+      height: "400px",
+      margin: "10px",
+      padding: "40px",
+    };
+
+    const textBox = {
+      float: "center",
+      backgroundColor: "none",
+      width: "200px",
+      height: "50px",
+      margin: "10px",
+      padding: "10px",
+    };
+
 
   return (
   <><div className="App">
-      <div>
+      
         <div className="nav">
           <div className="navbar_logo">
             <a href="http://www.naver.com"><img src={title_logo} /></a>
           </div>
 
           <ul className="navbar_menu">
-            <li><a href=""><h4>JK인터내셔널</h4></a></li>
-            <li><a href=""><h4>브랜드</h4></a></li>
-            <li><a href=""><h4>제품리뷰</h4></a></li>
-            <li><a href=""><h4>공지사항</h4></a></li>
-            <li><a href=""><h4>고객지원</h4></a></li>
+            <li className="navbar_menu1">
+              <button className="dropdownBtn"><h4>JK인터내셔널</h4></button>
+              <div className="dropdownContent">
+                <a href="#">회사소개</a>
+              </div>
+              </li>
+            <li className="navbar_menu1">
+              <button className="dropdownBtn"><h4>브랜드</h4></button>
+              <div className="dropdownContent">
+                <a href="#">티찹</a>
+                <a href="#">블루샤크</a>
+                <a href="#">워디툴</a>
+                <a href="#">기타</a>
+              </div>
+            </li>
+            <li className="navbar_menu1">
+              <button className="dropdownBtn"><h4>제품리뷰</h4></button>
+              <div className="dropdownContent">
+                <a href="#">동영상리뷰</a>
+              </div>
+            </li>
+            <li className="navbar_menu1">
+              <button className="dropdownBtn"><h4>공지사항</h4></button>
+              <div className="dropdownContent">
+                <a href="#"></a>
+              </div>
+            </li>
+            <li className="navbar_menu1">
+              <button className="dropdownBtn"><h4>고객지원</h4></button>
+              <div className="dropdownContent">
+                <a href="#">찾아오시는길</a>
+              </div>
+            </li>
           </ul>
 
           <div className="navbar_search">
             <input type="text" placeholder="제품 찾기"/>
-            <button><img src={search_btn} /></button>
+            <button id="searchBtn"><img src={searchBtn} /></button>
           </div>
         </div>
-      </div>
 
 
-        <div className="mainBanner">
-            <img srcSet={`${main_slide1} 1980w`} src={main_slide1} />
+
+        <div className="navSmall">
+          <div className="targetHam">
+          <button className="dropdownBtn1"><img className="hamburger" src={ham} /></button>
+              <div className="dropdownContentS">
+                <a href="#">JK인터내셔널</a>
+                <a href="#">브랜드</a>
+                <a href="#">제품리뷰</a>
+                <a href="#">공지사항</a>
+                <a href="#">고객지원</a>
+              </div>
+            </div>
+          <img className="navbar_logo_s" src={title_logo} />
+          <button id="searchBtn"><img className="search_btn_s" src={searchBtn} /></button>
         </div>
+
+
+
+        <img srcSet={`${mainEdgeUp} 1800w`} src={mainEdgeUp} />
+        <div className="mainBannerBack">
+          <div className="mainBannerRect" id="mainBannerRect">
+            <span><img id="mainBannerImg" srcSet={`${main_1_886} 1800w`} src={main_1_886} /></span>
+            <span className="mainBannerText1">
+                <p id="mainBannerText1_1">BRUSHLESS MORTORED</p>
+                <p id="mainBannerText1_2">COMPRESSOR</p>
+                <p id="mainBannerText1_3">DC-886</p>
+            </span>
+          </div>
+        </div>
+        <img srcSet={`${mainEdgeDown} 1800w`} src={mainEdgeDown} />
+        
+
 
 
         <div className="fix_width">
@@ -62,19 +143,35 @@ function App() {
           </div>
       
           <div>
-            <ul className="container1">
-              <li id="na_image1">
-                <a href=""><img src={main_sample} /></a>
-              </li>
-              <li id="na_image2">
-                <a href=""><img src={main_sample} /></a>
-              </li>
-              <li id="na_image3">
-                <a href=""><img src={main_sample} /></a>
-              </li>
-              <li id="na_image4">
-                <a href=""><img src={main_sample} /></a>
-              </li>
+            <ul className="container0">
+              <a className="stuffBoxSwitch" href="">
+                <li id="stuffBox" style={stuffBox}>
+                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                  <p id="stuffName">DC-990S</p>
+                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
+                </li>
+              </a>
+              <a className="stuffBoxSwitch" href="">
+                <li id="stuffBox" style={stuffBox}>
+                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                  <p id="stuffName">DC-990S</p>
+                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
+                </li>
+              </a>
+              <a className="stuffBoxSwitch" href="">
+                  <li id="stuffBox" style={stuffBox}>
+                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                  <p id="stuffName">DC-990S</p>
+                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
+                </li>
+              </a>
+              <a className="stuffBoxSwitch" href="">
+                <li id="stuffBox" style={stuffBox}>
+                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                  <p id="stuffName">DC-990S</p>
+                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
+                </li>
+              </a>
             </ul>
           </div>
 
@@ -83,29 +180,45 @@ function App() {
           </div>
       
           <div>
-            <ul className="container2">
-              <li id="bi_image1">
-                <a href=""><img src={main_sample} /></a>
-              </li>
-              <li id="bi_image2">
-                <a href=""><img src={main_sample} /></a>
-              </li>
-              <li id="bi_image3">
-                <a href=""><img src={main_sample} /></a>
-              </li>
-              <li id="bi_image4">
-                <a href=""><img src={main_sample} /></a>
-              </li>
+            <ul className="container0">
+              <a className="stuffBoxSwitch" href="">
+                <li id="stuffBox" style={stuffBox}>
+                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                  <p id="stuffName">DC-990S</p>
+                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
+                </li>
+              </a>
+              <a className="stuffBoxSwitch" href="">
+                <li id="stuffBox" style={stuffBox}>
+                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                  <p id="stuffName">DC-990S</p>
+                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
+                </li>
+              </a>
+              <a className="stuffBoxSwitch" href="">
+                  <li id="stuffBox" style={stuffBox}>
+                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                  <p id="stuffName">DC-990S</p>
+                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
+                </li>
+              </a>
+              <a className="stuffBoxSwitch" href="">
+                <li id="stuffBox" style={stuffBox}>
+                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                  <p id="stuffName">DC-990S</p>
+                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
+                </li>
+              </a>
             </ul>
           </div>
-        
+
           <div className="section3">
             HOT VIDEO
           </div>
 
           <div className="container3">
             <ul className="link1">
-              <li><YouTube videoId="vkdCwT_zFo8" /></li>
+              <li><YouTube id="flexMovie" videoId="vkdCwT_zFo8" /></li>
               <li>
                 <ul className="link1_title">
                   <li><img src={youtube_logo} width="50" height="auto" /></li>
@@ -141,8 +254,7 @@ function App() {
           </div>
       </div>
 
-
-      <div className="footer_back">
+      <div className="footerBack">
       <div className="footer">
         <ul className="information">
           <li><h5>JK인터내셔널</h5></li>
@@ -192,7 +304,6 @@ function App() {
     <script>
 
 
-
     </script>
 
   </>
@@ -201,4 +312,3 @@ function App() {
 }
 
 export default App;
-
