@@ -108,11 +108,29 @@ function App() {
           <div className="targetHam">
           <button className="dropdownBtn1"><img className="hamburger" src={ham} /></button>
               <div className="dropdownContentS">
-                <a href="#">JK인터내셔널</a>
-                <a href="#">브랜드</a>
-                <a href="#">제품리뷰</a>
-                <a href="#">공지사항</a>
-                <a href="#">고객지원</a>
+                <a href="#"><button className="dropdownBtn11">JK인터내셔널</button></a>
+                  <div className="dropdownContentS1">
+                    <a href="#">회사소개</a>
+                  </div>
+                <a href="#"><button className="dropdownBtn12">브랜드</button></a>
+                  <div className="dropdownContentS2">
+                    <a href="#">티찹</a>
+                    <a href="#">블루샤크</a>
+                    <a href="#">워디툴</a>
+                    <a href="#">기타</a>
+                  </div>
+                <a href="#"><button className="dropdownBtn13">제품리뷰</button></a>
+                  <div className="dropdownContentS3">
+                    <a href="#">동영상리뷰</a>
+                  </div>
+                <a href="#"><button className="dropdownBtn14">공지사항</button></a>
+                  <div className="dropdownContentS4">
+                    <a href="#"></a>
+                  </div>
+                <a href="#"><button className="dropdownBtn15">고객지원</button></a>
+                  <div className="dropdownContentS5">
+                    <a href="#">찾아오시는길</a>
+                  </div>
               </div>
             </div>
           <img className="navbar_logo_s" src={title_logo} />
