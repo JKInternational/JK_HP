@@ -108,34 +108,45 @@ function App() {
           <div className="targetHam">
           <button className="dropdownBtn1"><img className="hamburger" src={ham} /></button>
               <div className="dropdownContentS">
-                <a href="#"><button className="dropdownBtn11">JK인터내셔널</button></a>
-                  <div className="dropdownContentS1">
-                    <a href="#">회사소개</a>
+                <div id="dcs1">
+                  <a href="#">JK인터내셔널</a>
+                    <div className="dropdownContentS1">
+                      <a href="#">회사소개</a>
+                    </div>
+                </div>
+                <div id="dcs2">
+                  <a href="#">브랜드</a>
+                    <div className="dropdownContentS2">
+                      <a href="#">티찹</a>
+                      <a href="#">블루샤크</a>
+                      <a href="#">워디툴</a>
+                      <a href="#">기타</a>
+                    </div>
                   </div>
-                <a href="#"><button className="dropdownBtn12">브랜드</button></a>
-                  <div className="dropdownContentS2">
-                    <a href="#">티찹</a>
-                    <a href="#">블루샤크</a>
-                    <a href="#">워디툴</a>
-                    <a href="#">기타</a>
-                  </div>
-                <a href="#"><button className="dropdownBtn13">제품리뷰</button></a>
-                  <div className="dropdownContentS3">
-                    <a href="#">동영상리뷰</a>
-                  </div>
-                <a href="#"><button className="dropdownBtn14">공지사항</button></a>
-                  <div className="dropdownContentS4">
-                    <a href="#"></a>
-                  </div>
-                <a href="#"><button className="dropdownBtn15">고객지원</button></a>
-                  <div className="dropdownContentS5">
-                    <a href="#">찾아오시는길</a>
-                  </div>
+                <div id="dcs3">
+                  <a href="#">제품리뷰</a>
+                    <div className="dropdownContentS3">
+                      <a href="#">동영상리뷰</a>
+                    </div>
+                </div>
+                <div id="dcs4">
+                  <a href="#">공지사항</a>
+                    <div className="dropdownContentS4">
+                      <a href="#"></a>
+                    </div>
+                </div>
+                <div id="dcs5">
+                  <a href="#">고객지원</a>
+                    <div className="dropdownContentS5">
+                      <a href="#">찾아오시는길</a>
+                    </div>
+                </div>
               </div>
             </div>
           <img className="navbar_logo_s" src={title_logo} />
           <button id="searchBtn"><img className="search_btn_s" src={searchBtn} /></button>
         </div>
+
 
 
 
@@ -152,6 +163,8 @@ function App() {
         </div>
         <img srcSet={`${mainEdgeDown} 1800w`} src={mainEdgeDown} />
         
+
+
 
 
 

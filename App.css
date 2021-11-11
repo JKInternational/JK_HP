@@ -187,11 +187,13 @@ a:active {
   left: 180px;
   right: 0px;
   background-color: #f1f1f1;
-  width: 100%;
+  width: 56.5%;
   height: 100%;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   padding: 0px 0px;
+  animation-duration: 0.5s;
+  animation-name: dropdownAni1;
 }
 
 .dropdownContentS1 a,
@@ -200,6 +202,7 @@ a:active {
 .dropdownContentS4 a,
 .dropdownContentS5 a {
   color: black;
+  margin: 30px 0px -30px 0px;
   padding: 20px 50px;
   text-decoration: none;
   display: block;
@@ -218,29 +221,16 @@ a:active {
   background-color: #ddd;
 }
 
-.dropdownContentS:hover .dropdownContentS1,
-.dropdownContentS:hover .dropdownContentS2,
-.dropdownContentS:hover .dropdownContentS3,
-.dropdownContentS:hover .dropdownContentS4,
-.dropdownContentS:hover .dropdownContentS5 {
+#dcs1:hover .dropdownContentS1,
+#dcs2:hover .dropdownContentS2,
+#dcs3:hover .dropdownContentS3,
+#dcs4:hover .dropdownContentS4,
+#dcs5:hover .dropdownContentS5 {
   display: block;
 }
 
-.dropdownContentS:hover .dropdownBtn11,
-.dropdownContentS:hover .dropdownBtn12,
-.dropdownContentS:hover .dropdownBtn13,
-.dropdownContentS:hover .dropdownBtn14,
-.dropdownContentS:hover .dropdownBtn15 {
-  background-color: #ddd;
-}
-
-.dropdownContentS1,
-.dropdownContentS2,
-.dropdownContentS3,
-.dropdownContentS4,
-.dropdownContentS5 {
-  animation-duration: 0.5s;
-  animation-name: dropdownAni1;
+#dcs1 {
+  margin-top: 30px;
 }
 
 @keyframes dropdownAni1 {
@@ -253,6 +243,15 @@ a:active {
     margin-left: 0%;
     width: 100%;
   }
+}
+
+#dcsSearch {
+  position: absolute;
+  top: 40px;
+  left: 10%;
+  width: 80%;
+  height: 20px;
+  margin: ;
 }
 
 /* 여기까지 모바일 Navbar*/
