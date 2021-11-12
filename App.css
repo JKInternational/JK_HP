@@ -3,6 +3,7 @@
   margin: 0;
   background: rgb(240, 240, 240);
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   overflow: hidden;
@@ -122,7 +123,7 @@ a:active {
   width: 100vw;
   height: 100%;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 2;
   padding: 0px 0px;
 }
 
@@ -256,19 +257,48 @@ a:active {
 
 /* 여기까지 모바일 Navbar*/
 
+.slideShow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 0%;
+  width: 500vw;
+}
+
+.slides {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  float: left;
+}
+
+.slide1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.slideShowNav {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  height: auto;
+  position: absolute;
+  padding-bottom: 0%;
+  z-index: 1;
+  opacity: 0.8;
+}
+
 .mainBannerBack {
   display: flex;
   justify-content: center;
   width: 100%;
   max-height: auto;
+  margin: 0%;
   background-color: lightgoldenrodyellow;
   background: radial-gradient(circle, white, #fae4b3);
-}
-
-#mainBannerImg {
-  min-height: 170px;
-  width: auto;
-  padding: 0px 10px 0px 0px;
 }
 
 .mainBannerRect {
@@ -276,9 +306,12 @@ a:active {
   justify-content: center;
   justify-content: space-around;
   align-items: center;
-  max-width: 100%;
-  height: auto;
-  padding: 20px 0px 20px 0px;
+}
+
+#mainBannerImg {
+  min-height: 170px;
+  width: auto;
+  padding: 10px 10px 10px 0px;
 }
 
 .mainBannerText1 {

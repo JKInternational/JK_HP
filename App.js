@@ -1,12 +1,10 @@
 import title_logo from './title_logo.png';
 import searchBtn from './search_btn.png';
-import mainSlide1 from './main_slide_1.jpg';
-import mainSlide2 from './main_slide_2.jpg';
-import mainSlide3 from './main_slide_3.jpg';
-import mainSlide4 from './main_slide_4.jpg';
 import mainEdgeUp from './mainEdgeUp.png';
 import mainEdgeDown from './mainEdgeDown.png';
 import ham from './hamburger.png';
+import spriteLeft from './spriteLeft.png';
+import spriteRight from './spriteRight.png';
 import dc990s from './990s.png';
 import main_1_886 from './main_1_886.png'
 import footer_logo from './footer_logo.png';
@@ -15,8 +13,6 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import './App.css';
-
-
 
 
 
@@ -101,6 +97,7 @@ function App() {
             <button id="searchBtn"><img src={searchBtn} /></button>
           </div>
         </div>
+        {/* 여기까지 Navbar PC화면 */}
 
 
 
@@ -146,26 +143,54 @@ function App() {
           <img className="navbar_logo_s" src={title_logo} />
           <button id="searchBtn"><img className="search_btn_s" src={searchBtn} /></button>
         </div>
+        {/* 여기까지 Navbar 모바일 화면 */}
 
 
+        <div className="slideShow">
+            <div className="slideShowNav">
+              <a href="" className="prev"><img src={spriteLeft} /></a>
+              <a href="" className="next"><img src={spriteRight} /></a>
+            </div>
+            
+          <div className="slides">
+            <a className="slide1" href="">
+              <div><img id="edge1" srcSet={`${mainEdgeUp} 1940w`} src={mainEdgeUp} /></div>
+              <div className="mainBannerBack">
+                <div className="mainBannerRect">
+                  <span><img id="mainBannerImg" srcSet={`${main_1_886} 1800w`} src={main_1_886} /></span>
+                  <span className="mainBannerText1">
+                    <p id="mainBannerText1_1">BRUSHLESS MORTORED</p>
+                    <p id="mainBannerText1_2">COMPRESSOR</p>
+                    <p id="mainBannerText1_3">DC-886</p>
+                  </span>
+                </div>
+              </div>
+              <div><img id="edge1" srcSet={`${mainEdgeDown} 1940w`} src={mainEdgeDown} /></div>
+            </a>
+            <a className="slide2" href="">
+              <div><img id="edge1" srcSet={`${mainEdgeUp} 1940w`} src={mainEdgeUp} /></div>
+              <div className="mainBannerBack">
+                <div className="mainBannerRect">
+                  <span><img id="mainBannerImg" srcSet={`${main_1_886} 1800w`} src={main_1_886} /></span>
+                  <span className="mainBannerText1">
+                    <p id="mainBannerText1_1">BRUSHLESS MORTORED</p>
+                    <p id="mainBannerText1_2">COMPRESSOR</p>
+                    <p id="mainBannerText1_3">DC-990</p>
+                  </span>
+                </div>
+              </div>
+              <div><img id="edge1" srcSet={`${mainEdgeDown} 1940w`} src={mainEdgeDown} /></div>
+            </a>
 
-
-        <img srcSet={`${mainEdgeUp} 1800w`} src={mainEdgeUp} />
-        <div className="mainBannerBack">
-          <div className="mainBannerRect" id="mainBannerRect">
-            <span><img id="mainBannerImg" srcSet={`${main_1_886} 1800w`} src={main_1_886} /></span>
-            <span className="mainBannerText1">
-                <p id="mainBannerText1_1">BRUSHLESS MORTORED</p>
-                <p id="mainBannerText1_2">COMPRESSOR</p>
-                <p id="mainBannerText1_3">DC-886</p>
-            </span>
+          </div>{/* 여기까지 MainBanner*/}
+          <div className="indicator">
+            <a href=""><button className="btn1">1</button></a>
+            <a href=""><button className="btn2">2</button></a>
+            <a href=""><button className="btn3">3</button></a>
           </div>
+
         </div>
-        <img srcSet={`${mainEdgeDown} 1800w`} src={mainEdgeDown} />
-        
-
-
-
+        {/* 여기까지 MainBanner Slide 적용*/}
 
 
         <div className="fix_width">
@@ -326,13 +351,16 @@ function App() {
       </div>
       </div>
 
-
-
     </div>
 
 
-
     <script>
+
+      {/* transform: translate(-100vw) */}
+
+      document.querySelector('.btn2').addEventListener('click', function(){
+        document.querySelector('.slides').style.transform = 'translate(100vw)';
+      });
 
 
     </script>
