@@ -10,22 +10,48 @@ import main_1_886 from './main_1_886.png'
 import footer_logo from './footer_logo.png';
 import youtube_logo from './youtube_logo.png';
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import './App.css';
 
 
 
-function App() {
+class App extends React.Component {
 
+  constructor(props) {
+      super(props);
+      this.handleClickEvent = this.handleClickEvent1.bind(this);
+  }
+
+
+
+  handleClickEvent1() {
+    const element = document.querySelector('.slides')
+    {element.style.transform = 'translate(0vw)'}
+  }
+
+  handleClickEvent2() {
+    const element = document.querySelector('.slides')
+    {element.style.transform = 'translate(-100vw)'}
+  }
+
+  handleClickEvent3() {
+    const element = document.querySelector('.slides')
+    {element.style.transform = 'translate(-200vw)'}
+  }
+  // Indicator 이동 버튼
+
+      // MainBanner Slider 구현 by 헌진쓰
+
+
+render() {
 
     const opts = {
       height: '130',
       width: '214',
       playerVars: {
         // https://developers.google.com/youtube/player_parameters
-        autoplay: 0,
-      },
+        autoplay: 0
+      }
     };
 
 
@@ -47,9 +73,10 @@ function App() {
       padding: "10px",
     };
 
+    
 
-  return (
-  <><div className="App">
+  return<>
+  <div className="App">
       
         <div className="nav">
           <div className="navbar_logo">
@@ -148,10 +175,9 @@ function App() {
 
         <div className="slideShow">
             <div className="slideShowNav">
-              <a href="" className="prev"><img src={spriteLeft} /></a>
-              <a href="" className="next"><img src={spriteRight} /></a>
+              <button onClick={this.handleClickEventPrev} className="prev"><img src={spriteLeft} /></button>
+              <button onClick={this.handleClickEventNext} className="next"><img src={spriteRight} /></button>
             </div>
-            
           <div className="slides">
             <a className="slide1" href="">
               <div><img id="edge1" srcSet={`${mainEdgeUp} 1940w`} src={mainEdgeUp} /></div>
@@ -181,17 +207,30 @@ function App() {
               </div>
               <div><img id="edge1" srcSet={`${mainEdgeDown} 1940w`} src={mainEdgeDown} /></div>
             </a>
+            <a className="slide3" href="">
+              <div><img id="edge1" srcSet={`${mainEdgeUp} 1940w`} src={mainEdgeUp} /></div>
+              <div className="mainBannerBack">
+                <div className="mainBannerRect">
+                  <span><img id="mainBannerImg" srcSet={`${main_1_886} 1800w`} src={main_1_886} /></span>
+                  <span className="mainBannerText1">
+                    <p id="mainBannerText1_1">BRUSHLESS MORTORED</p>
+                    <p id="mainBannerText1_2">COMPRESSOR</p>
+                    <p id="mainBannerText1_3">DC-1090</p>
+                  </span>
+                </div>
+              </div>
+              <div><img id="edge1" srcSet={`${mainEdgeDown} 1940w`} src={mainEdgeDown} /></div>
+            </a>
 
           </div>{/* 여기까지 MainBanner*/}
           <div className="indicator">
-            <a href=""><button className="btn1">1</button></a>
-            <a href=""><button className="btn2">2</button></a>
-            <a href=""><button className="btn3">3</button></a>
+            <button className="btn1" onClick={this.handleClickEvent1}>1</button>
+            <button className="btn2" onClick={this.handleClickEvent2}>2</button>
+            <button className="btn3" onClick={this.handleClickEvent3}>3</button>
           </div>
 
         </div>
         {/* 여기까지 MainBanner Slide 적용*/}
-
 
         <div className="fix_width">
           <div className="section1">
@@ -353,21 +392,10 @@ function App() {
 
     </div>
 
-
-    <script>
-
-      {/* transform: translate(-100vw) */}
-
-      document.querySelector('.btn2').addEventListener('click', function(){
-        document.querySelector('.slides').style.transform = 'translate(100vw)';
-      });
-
-
-    </script>
-
   </>
-  );
-  
+
+
+}
 }
 
 export default App;
