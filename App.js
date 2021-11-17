@@ -14,37 +14,62 @@ import YouTube from 'react-youtube';
 import './App.css';
 
 
-
 class App extends React.Component {
 
-  constructor(props) {
-      super(props);
-      this.handleClickEvent = this.handleClickEvent1.bind(this);
-  }
 
+    constructor(props) {
+        super(props);
 
+        this.showRightImage = this.showRightImage.bind(this);
+        this.showLeftImage = this.showLeftImage.bind(this);
+        this.showImage = this.showImage.bind(this);
+        this.getAllSlides = this.getAllSlides.bind(this);
 
-  handleClickEvent1() {
-    const element = document.querySelector('.slides')
-    {element.style.transform = 'translate(0vw)'}
-  }
+        this.imageNo = 0;
+    }
 
-  handleClickEvent2() {
-    const element = document.querySelector('.slides')
-    {element.style.transform = 'translate(-100vw)'}
-  }
+    getAllSlides() {
+        var e = document.querySelectorAll(".slideElement")
+        if (e) {
+            return e.length
+        } else {
+            return 0
+        }
+    }
 
-  handleClickEvent3() {
-    const element = document.querySelector('.slides')
-    {element.style.transform = 'translate(-200vw)'}
-  }
-  // Indicator 이동 버튼
+    showRightImage() {
+        this.imageNo += 1;
+        if(this.imageNo >= this.getAllSlides()) {
+            this.imageNo = 0;
+        }
+        this.showImage(this.imageNo);
+    }
 
-      // MainBanner Slider 구현 by 헌진쓰
+    showLeftImage() {
+        this.imageNo -= 1;
+        if(this.imageNo < 0) {
+            this.imageNo = this.getAllSlides() -1;
+        }
+        this.showImage(this.imageNo);
+    }
 
+    showImage(imgNo) {
+        const element = document.querySelector('.slides')
+        if(element) {
+            var move = -100 * imgNo
+            element.style.transform = 'translate(' + move.toString() + 'vw)'
+        }
+    }
 
-render() {
+    /*
+    componentDidMount() {
+        this is function that intended to run after dom is rendred,
+        but in practically, it is executed duing dom is rendering.
+        do not use this function to add eventhandler.
+    }
+    */
 
+  render() {
     const opts = {
       height: '130',
       width: '214',
@@ -54,11 +79,10 @@ render() {
       }
     };
 
-
     const stuffBox = {
       float: "center",
       backgroundColor: "white",
-      width: "210px",
+      width: "200px",
       height: "400px",
       margin: "10px",
       padding: "40px",
@@ -73,10 +97,9 @@ render() {
       padding: "10px",
     };
 
-    
 
-  return<>
-  <div className="App">
+      return <>
+      <div className="App">
       
         <div className="nav">
           <div className="navbar_logo">
@@ -126,8 +149,6 @@ render() {
         </div>
         {/* 여기까지 Navbar PC화면 */}
 
-
-
         <div className="navSmall">
           <div className="targetHam">
           <button className="dropdownBtn1"><img className="hamburger" src={ham} /></button>
@@ -172,15 +193,15 @@ render() {
         </div>
         {/* 여기까지 Navbar 모바일 화면 */}
 
-
         <div className="slideShow">
-            <div className="slideShowNav">
-              <button onClick={this.handleClickEventPrev} className="prev"><img src={spriteLeft} /></button>
-              <button onClick={this.handleClickEventNext} className="next"><img src={spriteRight} /></button>
-            </div>
+          <div className="slideShowNav">
+            <a className="prev" onClick={this.showLeftImage.bind(this)}><img src={spriteLeft} /></a>
+            <a className="next" onClick={this.showRightImage.bind(this)}><img src={spriteRight} /></a>
+          </div>
+            
           <div className="slides">
-            <a className="slide1" href="">
-              <div><img id="edge1" srcSet={`${mainEdgeUp} 1940w`} src={mainEdgeUp} /></div>
+            <a className="slide1 slideElement" href="">
+              <div><img id="edge1" src={mainEdgeUp} /></div>
               <div className="mainBannerBack">
                 <div className="mainBannerRect">
                   <span><img id="mainBannerImg" srcSet={`${main_1_886} 1800w`} src={main_1_886} /></span>
@@ -191,46 +212,62 @@ render() {
                   </span>
                 </div>
               </div>
-              <div><img id="edge1" srcSet={`${mainEdgeDown} 1940w`} src={mainEdgeDown} /></div>
+              <div><img id="edge1" src={mainEdgeDown} /></div>
             </a>
-            <a className="slide2" href="">
-              <div><img id="edge1" srcSet={`${mainEdgeUp} 1940w`} src={mainEdgeUp} /></div>
+            <a className="slide2 slideElement" href="">
+              <div><img id="edge1" src={mainEdgeUp} /></div>
               <div className="mainBannerBack">
                 <div className="mainBannerRect">
                   <span><img id="mainBannerImg" srcSet={`${main_1_886} 1800w`} src={main_1_886} /></span>
                   <span className="mainBannerText1">
                     <p id="mainBannerText1_1">BRUSHLESS MORTORED</p>
                     <p id="mainBannerText1_2">COMPRESSOR</p>
-                    <p id="mainBannerText1_3">DC-990</p>
+                    <p id="mainBannerText1_3">서비트</p>
                   </span>
                 </div>
               </div>
-              <div><img id="edge1" srcSet={`${mainEdgeDown} 1940w`} src={mainEdgeDown} /></div>
+              <div><img id="edge1" src={mainEdgeDown} /></div>
             </a>
-            <a className="slide3" href="">
-              <div><img id="edge1" srcSet={`${mainEdgeUp} 1940w`} src={mainEdgeUp} /></div>
+            <a className="slide3 slideElement" href="">
+              <div><img id="edge1" src={mainEdgeUp} /></div>
               <div className="mainBannerBack">
                 <div className="mainBannerRect">
                   <span><img id="mainBannerImg" srcSet={`${main_1_886} 1800w`} src={main_1_886} /></span>
                   <span className="mainBannerText1">
                     <p id="mainBannerText1_1">BRUSHLESS MORTORED</p>
                     <p id="mainBannerText1_2">COMPRESSOR</p>
-                    <p id="mainBannerText1_3">DC-1090</p>
+                    <p id="mainBannerText1_3">정호영</p>
                   </span>
                 </div>
               </div>
-              <div><img id="edge1" srcSet={`${mainEdgeDown} 1940w`} src={mainEdgeDown} /></div>
+              <div><img id="edge1" src={mainEdgeDown} /></div>
             </a>
-
+            <a className="slide4 slideElement" href="">
+              <div><img id="edge1" src={mainEdgeUp} /></div>
+              <div className="mainBannerBack">
+                <div className="mainBannerRect">
+                  <span><img id="mainBannerImg" srcSet={`${main_1_886} 1800w`} src={main_1_886} /></span>
+                  <span className="mainBannerText1">
+                    <p id="mainBannerText1_1">BRUSHLESS MORTORED</p>
+                    <p id="mainBannerText1_2">COMPRESSOR</p>
+                    <p id="mainBannerText1_3">정호준</p>
+                  </span>
+                </div>
+              </div>
+              <div><img id="edge1" src={mainEdgeDown} /></div>
+            </a>
           </div>{/* 여기까지 MainBanner*/}
           <div className="indicator">
-            <button className="btn1" onClick={this.handleClickEvent1}>1</button>
-            <button className="btn2" onClick={this.handleClickEvent2}>2</button>
-            <button className="btn3" onClick={this.handleClickEvent3}>3</button>
+            { /*https://stackoverflow.com/questions/34226076/why-is-my-onclick-being-called-on-render-react-js */ }
+            <button className="btn1" onClick={this.showImage.bind(this, 0)} />
+            <button className="btn2" onClick={() => this.showImage(1)} />
+            <button className="btn3" onClick={this.showImage.bind(this, 2)} />
+            <button className="btn3" onClick={this.showImage.bind(this, 3)} />
           </div>
-
         </div>
+
         {/* 여기까지 MainBanner Slide 적용*/}
+
 
         <div className="fix_width">
           <div className="section1">
@@ -241,28 +278,28 @@ render() {
             <ul className="container0">
               <a className="stuffBoxSwitch" href="">
                 <li id="stuffBox" style={stuffBox}>
-                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                  <p><img className="stuffBoxImg" src={dc990s} /></p>
                   <p id="stuffName">DC-990S</p>
                   <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
                 </li>
               </a>
               <a className="stuffBoxSwitch" href="">
                 <li id="stuffBox" style={stuffBox}>
-                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                  <p><img className="stuffBoxImg" src={dc990s} /></p>
                   <p id="stuffName">DC-990S</p>
                   <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
                 </li>
               </a>
               <a className="stuffBoxSwitch" href="">
                   <li id="stuffBox" style={stuffBox}>
-                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                  <p><img className="stuffBoxImg" src={dc990s} /></p>
                   <p id="stuffName">DC-990S</p>
                   <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
                 </li>
               </a>
               <a className="stuffBoxSwitch" href="">
                 <li id="stuffBox" style={stuffBox}>
-                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                  <p><img className="stuffBoxImg" src={dc990s} /></p>
                   <p id="stuffName">DC-990S</p>
                   <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
                 </li>
@@ -278,28 +315,28 @@ render() {
             <ul className="container0">
               <a className="stuffBoxSwitch" href="">
                 <li id="stuffBox" style={stuffBox}>
-                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                <p><img className="stuffBoxImg" src={dc990s} /></p>
                   <p id="stuffName">DC-990S</p>
                   <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
                 </li>
               </a>
               <a className="stuffBoxSwitch" href="">
                 <li id="stuffBox" style={stuffBox}>
-                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                  <p><img className="stuffBoxImg" src={dc990s} /></p>
                   <p id="stuffName">DC-990S</p>
                   <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
                 </li>
               </a>
               <a className="stuffBoxSwitch" href="">
                   <li id="stuffBox" style={stuffBox}>
-                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                  <p><img className="stuffBoxImg" src={dc990s} /></p>
                   <p id="stuffName">DC-990S</p>
                   <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
                 </li>
               </a>
               <a className="stuffBoxSwitch" href="">
                 <li id="stuffBox" style={stuffBox}>
-                  <p><img srcSet={`${dc990s} media=all and (min-width: 414px)`} src={dc990s} /></p>
+                <p><img className="stuffBoxImg" src={dc990s} /></p>
                   <p id="stuffName">DC-990S</p>
                   <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
                 </li>
@@ -389,13 +426,11 @@ render() {
         </div>
       </div>
       </div>
-
     </div>
 
-  </>
 
-
-}
+    </>;
+  }
 }
 
 export default App;
