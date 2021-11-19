@@ -3,11 +3,9 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  max-width: 100vw;
   height: auto;
   margin: 0;
-  background: rgb(240, 240, 240);
-  overflow: hidden;
 }
 
 body {
@@ -22,12 +20,17 @@ a:active {
   color: inherit;
 }
 
-.width {
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   max-width: 1500px;
-  height: auto;
+  background-color: rgb(240, 240, 240);
 }
 
 .category {
   display: flex;
   justify-content: flex-start;
+  color: gray;
+  font-size: 5px;
 }

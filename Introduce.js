@@ -14,7 +14,7 @@ class Introduce extends React.Component {
     return<>
 
       <div className="Introduce">
-        <div className="width">
+        <div className="container">
           <div className="category">
             <span>Home</span>
             <span>></span>
@@ -23,7 +23,7 @@ class Introduce extends React.Component {
             <span>회사소개</span>
           </div>
         
-        <p>회사소개</p>
+        <p><h1>회사소개</h1></p>
 
         <p> JK인터내셔널은 2014년 창사이래 오늘날까지 각종 산업용재 및 작업공구 등 다양한 제품을 생산하여 공급하고 있으며,
             300여 곳의 거래처로부터 그 품질과 기술을 높이 평가받고 있습니다.</p>
