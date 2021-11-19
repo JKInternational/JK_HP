@@ -1,0 +1,763 @@
+.Main,
+.Navbar,
+.Footer {
+  max-width: 100%;
+  margin: 0;
+  background: rgb(240, 240, 240);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+body {
+  font-family: "NanumSquare, sans-serif";
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+}
+
+.navbar_logo,
+.navbar_logo_s {
+  padding: 15px 40px;
+}
+
+.navbar_menu {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.navbar_menu li {
+  padding: 0px 12px;
+}
+
+.dropdownBtn {
+  color: black;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdownContent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdownContent a:visited,
+.dropdownContent a:hover {
+  background-color: #ddd;
+}
+
+.navbar_menu1:hover .dropdownContent {
+  display: block;
+}
+
+.navbar_menu1:hover .dropdownBtn {
+  background-color: #ddd;
+}
+
+.navbar_search {
+  display: flex;
+  align-items: center;
+  padding: 8px 50px;
+}
+
+#searchBtn {
+  border: 0;
+}
+
+/* 여기까지 PC Navbar*/
+
+.navSmall {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hamburger {
+  padding: 8px 0px;
+}
+
+.dropdownBtn1 {
+  color: black;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdownContentS {
+  display: none;
+  position: absolute;
+  right: 0px;
+  background-color: #f1f1f1;
+  width: 100vw;
+  height: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  padding: 0px 0px;
+}
+
+.dropdownContentS p {
+  color: black;
+  padding: 20px 50px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdownContentS p:visited,
+.dropdownContentS p:hover {
+  background-color: #ddd;
+}
+
+.targetHam:hover .dropdownContentS {
+  display: block;
+}
+
+.targetHam:hover .dropdownBtn1 {
+  background-color: #ddd;
+}
+
+.dropdownContentS {
+  animation-duration: 0.5s;
+  animation-name: dropdownAni;
+}
+
+@keyframes dropdownAni {
+  from {
+    margin-top: 0%;
+    height: 0%;
+  }
+
+  to {
+    margin-top: 0%;
+    height: 100%;
+  }
+}
+
+/* 여기부터 dropdown 소카테고리*/
+
+.dropdownBtn11,
+.dropdownBtn12,
+.dropdownBtn13,
+.dropdownBtn14,
+.dropdownBtn15 {
+  color: black;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdownContentS1,
+.dropdownContentS2,
+.dropdownContentS3,
+.dropdownContentS4,
+.dropdownContentS5 {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 180px;
+  right: 0px;
+  background-color: #f1f1f1;
+  width: 56.5%;
+  height: 100%;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding: 0px 0px;
+  animation-duration: 0.5s;
+  animation-name: dropdownAni1;
+}
+
+.dropdownContentS1 a,
+.dropdownContentS2 a,
+.dropdownContentS3 a,
+.dropdownContentS4 a,
+.dropdownContentS5 a {
+  color: black;
+  margin: 30px 0px -30px 0px;
+  padding: 20px 50px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdownContentS1 a:visited,
+.dropdownContentS1 a:hover,
+.dropdownContentS2 a:visited,
+.dropdownContentS2 a:hover,
+.dropdownContentS3 a:visited,
+.dropdownContentS3 a:hover,
+.dropdownContentS4 a:visited,
+.dropdownContentS4 a:hover,
+.dropdownContentS5 a:visited,
+.dropdownContentS5 a:hover {
+  background-color: #ddd;
+}
+
+#dcs1:hover .dropdownContentS1,
+#dcs2:hover .dropdownContentS2,
+#dcs3:hover .dropdownContentS3,
+#dcs4:hover .dropdownContentS4,
+#dcs5:hover .dropdownContentS5 {
+  display: block;
+}
+
+#dcs1 {
+  margin-top: 30px;
+}
+
+@keyframes dropdownAni1 {
+  from {
+    margin-left: 0%;
+    width: 0%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+#dcsSearch {
+  position: absolute;
+  top: 40px;
+  left: 10%;
+  width: 80%;
+  height: 20px;
+  margin: ;
+}
+
+/* 여기까지 모바일 Navbar*/
+
+.slideShow {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 0%;
+  width: 100vw;
+  height: auto;
+}
+
+.slideShow .slideShowNav a {
+  opacity: 70%;
+}
+
+.slideShow .slideShowNav a:hover,
+.slideShow .slideShowNav a:active {
+  cursor: pointer;
+  opacity: 100%;
+}
+
+.slides {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  float: left;
+  transition-duration: 0.5s;
+  margin: 0px;
+}
+
+#edge1 {
+  width: 100%;
+  height: 20px;
+  margin: 0%;
+}
+
+.slideElement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.slideShowNav {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  height: auto;
+  position: absolute;
+  padding-bottom: 0%;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.mainBannerBack {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  max-height: auto;
+  margin: 0%;
+  padding: 0%;
+  background-color: lightgoldenrodyellow;
+  background: radial-gradient(circle, white, #fae4b3);
+}
+
+.mainBannerRect {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#mainBannerImg {
+  min-height: 170px;
+  width: auto;
+  padding: 10px 10px 10px 0px;
+}
+
+.mainBannerText1 {
+  display: flex;
+  flex-direction: column;
+  color: rgb(255, 183, 0);
+  font-weight: bolder;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  padding: 0px 0px 0px 10px;
+}
+
+#mainBannerText1_1 {
+  font-size: 20px;
+  font-style: italic;
+  text-shadow: 1px 1px 1px black;
+  margin: 0;
+  padding: 0;
+}
+
+#mainBannerText1_2 {
+  font-size: 34px;
+  font-style: italic;
+  line-height: 40px;
+  text-shadow: 1px 1px 1px black;
+  margin: 0;
+  padding: 0;
+}
+
+#mainBannerText1_3 {
+  font-size: 63px;
+  font-style: italic;
+  line-height: 50px;
+  text-shadow: 1px 1px 1px black;
+  margin: 0;
+  padding: 0;
+}
+
+.indicator {
+  position: absolute;
+  bottom: 10%;
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  width: 80px;
+  height: 15px;
+}
+
+.slideShow .indicator button {
+  border: 0;
+  border-radius: 50%;
+  background-color: lightgray;
+  width: 15px;
+  height: 15px;
+}
+
+.slideShow .indicator button:hover,
+.slideShow .indicator button:visited {
+  background-color: dimgray;
+  cursor: pointer;
+}
+
+/* 여기까지 mainbanner*/
+
+.fix_width {
+  max-width: 1500px;
+}
+
+.section1 {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: black;
+  font-size: 12px;
+  margin: 8px 20px;
+  padding: 100px 30px 30px 30px;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.section1::before,
+.section1::after {
+  content: "";
+  flex-grow: 1;
+  background: dimgray;
+  height: 2px;
+  font-size: 0px;
+  line-height: 0px;
+  margin: 0px 15px;
+}
+
+.container0 {
+  max-width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 20px 20px;
+  padding: 0px 0px;
+}
+
+#stuffBox {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.stuffBoxImg {
+  max-width: 414px;
+  height: auto;
+}
+
+#stuffName {
+  font-size: 30px;
+  font-weight: bold;
+  color: dimgray;
+}
+
+#stuffSpec {
+  font-size: 17px;
+  font-weight: lighter;
+  color: gray;
+}
+
+#na_image1,
+#na_image2,
+#na_image3,
+#na_image4 {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: center;
+  margin: 0px;
+  padding: 10px 10px;
+}
+
+.section2 {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: black;
+  font-size: 12px;
+  margin: 8px 20px;
+  padding: 100px 30px 30px 30px;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.section2::before,
+.section2::after {
+  content: "";
+  flex-grow: 1;
+  background: dimgray;
+  height: 2px;
+  font-size: 0px;
+  line-height: 0px;
+  margin: 0px 15px;
+}
+
+#bi_image1,
+#bi_image2,
+#bi_image3,
+#bi_image4 {
+  margin: 0px;
+  padding: 10px 10px;
+}
+
+.section3 {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: black;
+  font-size: 12px;
+  margin: 8px 20px;
+  padding: 100px 30px 30px 30px;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.section3::before,
+.section3::after {
+  content: "";
+  flex-grow: 1;
+  background: dimgray;
+  height: 2px;
+  font-size: 0px;
+  line-height: 0px;
+  margin: 0px 15px;
+}
+
+.container3 {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 20px 0px 150px 0px;
+  padding: 0%;
+}
+
+.link1 {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  max-width: 100vw;
+  height: auto;
+  margin: 0px;
+  padding: 0px;
+}
+
+.link2 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.link3 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0px;
+  padding: 95px 0px 0px 0px;
+}
+
+.link2_3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  list-style: none;
+  margin-top: 0px;
+  padding-left: 20px;
+}
+
+#more {
+  margin: 0px;
+  padding-left: 0px;
+}
+
+.link1_title {
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 50px 0px;
+  padding-left: 0px;
+  list-style: none;
+}
+
+.link2_title {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: auto;
+  margin-top: 0px;
+  padding-left: 0px;
+  list-style: none;
+}
+
+.link3_title {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: auto;
+  margin-top: 0px;
+  padding-left: 0px;
+  list-style: none;
+}
+
+#hv_title1 {
+  margin: 0px;
+  padding: 10px;
+}
+
+#yt_logo {
+  margin: 0px;
+  padding: 10px;
+}
+
+#flexMovie {
+  position: relative;
+  max-width: 100%;
+}
+
+/* 여기부터 footer*/
+
+.footerBack {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  background-color: rgb(78, 36, 20);
+}
+
+.footer {
+  width: 1294px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  color: white;
+}
+
+.information {
+  list-style: none;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  line-height: 5px;
+}
+
+.sitemap {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  color: white;
+  list-style: none;
+}
+
+.sitemap1,
+.sitemap2,
+.sitemap3,
+.sitemap4,
+.sitemap5 {
+  color: rgb(255, 255, 255);
+  list-style: none;
+}
+
+/* 여기서부터 모바일 적용 */
+
+@media screen and (max-width: 1100px) {
+  .navbar_search {
+    padding: 8px 50px 50px 40px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .navSmall {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav {
+    display: none;
+  }
+  .mainBannerBack {
+    height: 200px;
+  }
+
+  #edge1 {
+    width: 100%;
+    height: 15px;
+  }
+
+  #stuffBox {
+    transform: scale(60%, 60%);
+    max-width: 600px;
+    height: auto;
+  }
+  .stuffBoxSwitch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 180px;
+    max-height: 300px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+  }
+  .section1,
+  .section2,
+  .section3 {
+    padding: 30px 40px 20px 40px;
+  }
+  .link2_3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    margin-top: 0px;
+    padding-left: 20px;
+  }
+  .link3 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    list-style: none;
+    margin: 0px;
+    padding: 0px 0px 0px 0px;
+  }
+  .container3 {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 20px 0px 40px 0px;
+    padding: 0%;
+  }
+  .sitemap {
+    display: none;
+  }
+  .footerBack {
+    display: flex;
+    align-items: center;
+    height: 200px;
+  }
+  .information {
+    font-size: 50%;
+    font-weight: lighter;
+  }
+}
