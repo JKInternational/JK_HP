@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body>
+    <div>
+    <input type="button" value="Night" onclick="
+    document.querySelector('body').style.backgroundColor='black';
+    document.querySelector('body').style.color='white';
+    "/>
+
+    <input type="button" value="Day" onclick="
+    document.querySelector('body').style.backgroundColor='white';
+    document.querySelector('body').style.color='black';
+    "/>
+    </div>
+
+    <br><br><br>
+
+    <div>
+    <input type="button" value="h1"
+    onclick="alert('hi')">
+    <input type="text" placeholder="바뀌면 알림창"
+    onchange="alert('무언가 바뀌었기 때문에 알림창이 뜬 거다. 이 상태에서 아무것도 바뀌지 않으면 아무리 엔터를 쳐봐도 나오는 건 없지.')">
+    <input type="text" placeholder="뭐 쓰면 알림창"
+    onkeydown="alert('그걸 또 써봤대요.')">
+    </div>
+
+    <br><br>
+
+    <div>
+      <h1>JavaScript</h1>
+      <p>"document.write(1+1)"이라고 쓰면</p>
+      <script>
+        document.write(1+1)
+      </script>
+      <- 이건 실제 스크립트를 사용해 얻은 결과값.
+      <h1>html</h1>
+      <p>"1+1" 이라고 쓰면</p>
+      1+1
+    </div>
+
+
+  </body>
+
+ 
+
+</html>
