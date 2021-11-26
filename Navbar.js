@@ -102,7 +102,7 @@ render() {
               </div>
             </div>
           </div>
-        <img className="navbar_logo_s" src={title_logo} />
+        <Link to="/"><img className="navbar_logo_s" src={title_logo} /></Link>
         <button id="searchBtn"><img className="search_btn_s" src={searchBtn} /></button>
       </div>
       {/* 여기까지 Navbar 모바일 화면 */}

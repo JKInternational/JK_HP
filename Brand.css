@@ -1,0 +1,349 @@
+.Tichop {
+  max-width: 100%;
+  margin: 0;
+  background: rgb(240, 240, 240);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+body {
+  font-family: "NanumSquare, sans-serif";
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.mainBanner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: auto;
+}
+.mainBannerParents {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  height: auto;
+}
+
+#mainBannerImg {
+  min-height: 170px;
+  width: 100%;
+  min-height: 150px;
+}
+
+#mainBannerText {
+  position: absolute;
+  color: rgb(255, 183, 0);
+  font-weight: bolder;
+  font-size: 63px;
+  font-style: italic;
+  text-shadow: 1px 1px 1px black;
+  z-index: 1;
+}
+
+/* 여기까지 mainbanner*/
+
+.fix_width {
+  position: relative;
+  max-width: 1500px;
+}
+
+.section {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: black;
+  font-size: 12px;
+  margin: 8px 20px;
+  padding: 100px 30px 30px 30px;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.section::before,
+.section::after {
+  content: "";
+  flex-grow: 1;
+  background: dimgray;
+  height: 2px;
+  font-size: 0px;
+  line-height: 0px;
+  margin: 0px 15px;
+}
+
+.container0 {
+  max-width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 20px 20px;
+  padding: 0px 0px;
+}
+
+#stuffBox {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.stuffBoxImg {
+  max-width: 414px;
+  height: auto;
+}
+
+#stuffName {
+  font-size: 30px;
+  font-weight: bold;
+  color: dimgray;
+}
+
+#stuffSpec {
+  font-size: 17px;
+  font-weight: lighter;
+  color: gray;
+}
+
+.link1 {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  max-width: 100vw;
+  height: auto;
+  margin: 0px;
+  padding: 0px;
+}
+
+.link2 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.link3 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0px;
+  padding: 95px 0px 0px 0px;
+}
+
+.link2_3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  list-style: none;
+  margin-top: 0px;
+  padding-left: 20px;
+}
+
+#more {
+  margin: 0px;
+  padding-left: 0px;
+}
+
+.link1_title {
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 50px 0px;
+  padding-left: 0px;
+  list-style: none;
+}
+
+.link2_title {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: auto;
+  margin-top: 0px;
+  padding-left: 0px;
+  list-style: none;
+}
+
+.link3_title {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: auto;
+  margin-top: 0px;
+  padding-left: 0px;
+  list-style: none;
+}
+
+#hv_title1 {
+  margin: 0px;
+  padding: 10px;
+}
+
+#yt_logo {
+  margin: 0px;
+  padding: 10px;
+}
+
+#flexMovie {
+  position: relative;
+  max-width: 100%;
+}
+
+/* 여기서부터 모바일 적용 */
+
+@media screen and (max-width: 1100px) {
+  .navbar_search {
+    padding: 8px 50px 50px 40px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .navSmall {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav {
+    display: none;
+  }
+  .mainBannerBack {
+    height: 200px;
+  }
+
+  #edge1 {
+    width: 100%;
+    height: 15px;
+  }
+
+  #stuffBox {
+    transform: scale(60%, 60%);
+    max-width: 600px;
+    height: auto;
+  }
+  .stuffBoxSwitch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 180px;
+    max-height: 300px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+  }
+  .section1,
+  .section2,
+  .section3 {
+    padding: 30px 40px 20px 40px;
+  }
+  .link2_3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    margin-top: 0px;
+    padding-left: 20px;
+  }
+  .link3 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    list-style: none;
+    margin: 0px;
+    padding: 0px 0px 0px 0px;
+  }
+  .container3 {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 20px 0px 40px 0px;
+    padding: 0%;
+  }
+  .sitemap {
+    display: none;
+  }
+  .footerBack {
+    display: flex;
+    align-items: center;
+    height: 200px;
+  }
+  .information {
+    font-size: 50%;
+    font-weight: lighter;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  background-color: white;
+}
+
+.innerContainer1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 80%;
+  margin: 50px;
+}
+
+.category {
+  display: flex;
+  justify-content: flex-start;
+  color: gray;
+  font-size: 5px;
+}
+
+#line {
+  max-width: 100%;
+  height: 1px;
+  background-color: dimgray;
+  margin-bottom: 5%;
+}
+
+#jk {
+  font-weight: bold;
+}
+
+#logo {
+  display: flex;
+  align-self: flex-end;
+  margin-top: 70px;
+}
+
+.innerContainer2 {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  margin: 50px 0px;
+  padding: 0px;
+}
+
+.test {
+  max-width: 20vw;
+}

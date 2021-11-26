@@ -3,29 +3,28 @@ import drills from "./imgs/drills.png";
 import cleanDisk from "./imgs/cleanDisk.png";
 import title_logo from "./imgs/title_logo.png";
 import React from 'react';
-import './Introduce.css';
+import './Notice.css';
 
 
-class Introduce extends React.Component {
+class Notice extends React.Component {
 
 
   render() {
 
     return<>
 
-      <div className="Introduce">
+      <div className="Notice">
         <div className="container">
           <div className="innerContainer1">
             <div className="category">
               <span>Home</span>
               <span>></span>
-              <span>JK인터내셔널</span>
+              <span>공지사항</span>
               <span>></span>
-              <span>회사소개</span>
+              <span>알림</span>
             </div>
-            <p><h1>회사소개</h1></p>
-            <div id="line" />
-            <p><span id="jk">JK인터내셔널</span>은 2014년 창사이래 오늘날까지 각종 산업용재 및 작업공구 등 다양한 제품을 생산하여 공급하고 있으며,
+            <p><h1>알림</h1></p>
+            <p> <span id="jk">JK인터내셔널</span>은 2014년 창사이래 오늘날까지 각종 산업용재 및 작업공구 등 다양한 제품을 생산하여 공급하고 있으며,
               300여 곳의 거래처로부터 그 품질과 기술을 높이 평가받고 있습니다.</p>
             <p>신생업체만의 젊음과 열정을 가지고 고객 여러분을 위하여 최상의 품질과 최고의 제품을 공급함은 물론 당사에서 판매한
               모든 제품에 대하여 고객이 만족할 때까지 에프터서비스를 해드릴 것을 약속드립니다.</p>
@@ -47,4 +46,4 @@ class Introduce extends React.Component {
   }
 }
 
-export default Introduce;
+export default Notice;
