@@ -1,7 +1,3 @@
-import main_1_886 from "./imgs/main_1_886.png";
-import drills from "./imgs/drills.png";
-import cleanDisk from "./imgs/cleanDisk.png";
-import title_logo from "./imgs/title_logo.png";
 import React from 'react';
 import './Notice.css';
 
@@ -9,10 +5,31 @@ import './Notice.css';
 class Notice extends React.Component {
 
 
+  constructor(props) {
+    super(props);
+    this.showHiddenBlock = this.showHiddenBlock.bind(this);
+    console.log(props);
+  }
+
+  showHiddenBlock(targetId) {
+    let block = document.querySelector(targetId)
+    if(!block) {
+      return;
+    }
+    var currentState = block.getAttribute("style", "display") || "display: none"
+    if(currentState.indexOf("block") >= 0) {
+      block.setAttribute("style", "display: none")
+    } else {
+      block.setAttribute("style", "display: block")
+    }
+  }
+
+
   render() {
 
-    return<>
 
+    return<>
+    
       <div className="Notice">
         <div className="container">
           <div className="innerContainer1">
@@ -21,29 +38,78 @@ class Notice extends React.Component {
               <span>></span>
               <span>공지사항</span>
               <span>></span>
-              <span>알림</span>
+              <span>소식</span>
             </div>
-            <p><h1>알림</h1></p>
-            <p> <span id="jk">JK인터내셔널</span>은 2014년 창사이래 오늘날까지 각종 산업용재 및 작업공구 등 다양한 제품을 생산하여 공급하고 있으며,
-              300여 곳의 거래처로부터 그 품질과 기술을 높이 평가받고 있습니다.</p>
-            <p>신생업체만의 젊음과 열정을 가지고 고객 여러분을 위하여 최상의 품질과 최고의 제품을 공급함은 물론 당사에서 판매한
-              모든 제품에 대하여 고객이 만족할 때까지 에프터서비스를 해드릴 것을 약속드립니다.</p>
-            <p>끊임없는 신상품 개발을 통해 회사의 성장과 고객의 만족을 도모하는 기업이 되겠습니다.</p>
-            <img id="logo" src={title_logo} />
+            <p><h1>소식</h1></p>
+            <div id="search">
+              <form action="#">
+                <select id="select">
+                  <option className="select1" value="title">제목</option>
+                  <option className="select2" value="content">내용</option>
+                </select>
+                <input className="search1" type="search" placeholder="내용을 입력해주세요." />
+                <input className="search2" type="submit"  value="검색" />
+              </form>
+            </div>
+            <div id="line" />
           </div>
-          <ul className="innerContainer2">
-            <li><img className="test" src={main_1_886} /></li>            
-            <li><img className="test" src={drills} /></li>            
-            <li><img className="test" src={cleanDisk} /></li>
-          </ul>
         </div>
 
 
 
-      </div>
+        <div className="boardContainer">
+          <ul className="boardTitle">
+            <li id="no">글번호</li>
+            <li id="title">글제목</li>
+            <li id="date">날짜</li>
+            <li id="click">조회수</li>
+          </ul>
+          <div id="line1" />
+          <ul className="boardContent">
+            <li id="no">1</li>
+            <ul className="boardContent1">
+              <li id="title"><button id="boardBtn" type="button" onClick={() => this.showHiddenBlock("#content1")}>홈페이지 오픈 예정</button></li>
+              <li id="content1">
+                제가 이번에 정말 정말 열심히 노력해서 회사 홈페이지를 제작하고 있습니다.
+                비록 많은 시간이 소요되겠지만 그래도 기다려주시면 기대에 미치지는 못 하더라도
+                당사의 제품을 잘 소개할 수 있는 멋진 홈페이지가 될 수 있도록 노력하겠습니다. 감사합니다.
+              </li>
+            </ul>
+            <li id="date">2021.12.01</li>
+            <li id="click">1</li>
+          </ul>
+          <div id="line1" />
+          <ul className="boardContent">
+            <li id="no">2</li>
+            <ul className="boardContent1">
+              <li id="title"><button id="boardBtn" type="button" onClick={() => this.showHiddenBlock("#content2")}>오픈할 줄 알았지?</button></li>
+              <li id="content2">
+                하겠냐?
+              </li>
+            </ul>
+            <li id="date">2021.12.30</li>
+            <li id="click">100</li>
+          </ul>
 
+
+
+
+
+
+        </div>    
+
+
+
+      </div>
+    
     </>;
   }
 }
+
+
+
+
+
+
 
 export default Notice;

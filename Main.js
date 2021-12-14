@@ -1,13 +1,18 @@
-import mainEdgeUp from "./imgs/mainEdgeUp.png";
-import mainEdgeDown from "./imgs/mainEdgeDown.png";
+import bannerTichop from "./imgs/bannerTichop.jpg";
+import bannerTichopComp from "./imgs/bannerTichopComp.jpg";
+import bannerBlueshark from "./imgs/bannerBlueshark.jpg";
+import bannerWorthytool from "./imgs/bannerWorthytool.jpg";
 import spriteLeft from "./imgs/spriteLeft.png";
 import spriteRight from "./imgs/spriteRight.png";
-import dc990s from "./imgs/990s.png";
-import main_1_886 from "./imgs/main_1_886.png";
+import tsd16bl from "./imgs/tsd16bl.png";
+import tsd16blb from "./imgs/tsd16blb.png";
+import tid16bl from "./imgs/tid16bl.png";
+import tid16blb from "./imgs/tid16blb.png";
 import youtube_logo from "./imgs/youtube_logo.png";
 import React from 'react';
 import YouTube from 'react-youtube';
 import './Main.css';
+import {Link} from 'react-router-dom';
 
 
 class Main extends React.Component {
@@ -104,60 +109,33 @@ class Main extends React.Component {
             
           <div className="slides">
             <a className="slide1 slideElement" href="">
-              <div><img id="edge1" src={mainEdgeUp} /></div>
-              <div className="mainBannerBack">
-                <div className="mainBannerRect">
-                  <span><img id="mainBannerImg" srcSet={`${main_1_886} 1800w`} src={main_1_886} /></span>
-                  <span className="mainBannerText1">
-                    <p id="mainBannerText1_1">BRUSHLESS MORTORED</p>
-                    <p id="mainBannerText1_2">COMPRESSOR</p>
-                    <p id="mainBannerText1_3">DC-886</p>
-                  </span>
+              <div className="mainBanner">
+                <div className="mainBannerParents">
+                  <img id="mainBannerImg" src={bannerTichop} />
                 </div>
               </div>
-              <div><img id="edge1" src={mainEdgeDown} /></div>
             </a>
-            <a className="slide2 slideElement" href="">
-              <div><img id="edge1" src={mainEdgeUp} /></div>
-              <div className="mainBannerBack">
-                <div className="mainBannerRect">
-                  <span><img id="mainBannerImg" srcSet={`${main_1_886} 1800w`} src={main_1_886} /></span>
-                  <span className="mainBannerText1">
-                    <p id="mainBannerText1_1">BRUSHLESS MORTORED</p>
-                    <p id="mainBannerText1_2">COMPRESSOR</p>
-                    <p id="mainBannerText1_3">서비트</p>
-                  </span>
+
+            <a className="slide1 slideElement" href="">
+              <div className="mainBanner">
+                <div className="mainBannerParents">
+                  <img id="mainBannerImg" src={bannerTichopComp} />
                 </div>
               </div>
-              <div><img id="edge1" src={mainEdgeDown} /></div>
             </a>
-            <a className="slide3 slideElement" href="">
-              <div><img id="edge1" src={mainEdgeUp} /></div>
-              <div className="mainBannerBack">
-                <div className="mainBannerRect">
-                  <span><img id="mainBannerImg" srcSet={`${main_1_886} 1800w`} src={main_1_886} /></span>
-                  <span className="mainBannerText1">
-                    <p id="mainBannerText1_1">BRUSHLESS MORTORED</p>
-                    <p id="mainBannerText1_2">COMPRESSOR</p>
-                    <p id="mainBannerText1_3">정호영</p>
-                  </span>
+            <a className="slide1 slideElement" href="">
+              <div className="mainBanner">
+                <div className="mainBannerParents">
+                  <img id="mainBannerImg" src={bannerBlueshark} />
                 </div>
               </div>
-              <div><img id="edge1" src={mainEdgeDown} /></div>
             </a>
-            <a className="slide4 slideElement" href="">
-              <div><img id="edge1" src={mainEdgeUp} /></div>
-              <div className="mainBannerBack">
-                <div className="mainBannerRect">
-                  <span><img id="mainBannerImg" srcSet={`${main_1_886} 1800w`} src={main_1_886} /></span>
-                  <span className="mainBannerText1">
-                    <p id="mainBannerText1_1">BRUSHLESS MORTORED</p>
-                    <p id="mainBannerText1_2">COMPRESSOR</p>
-                    <p id="mainBannerText1_3">정호준</p>
-                  </span>
+            <a className="slide1 slideElement" href="">
+              <div className="mainBanner">
+                <div className="mainBannerParents">
+                  <img id="mainBannerImg" src={bannerWorthytool} />
                 </div>
               </div>
-              <div><img id="edge1" src={mainEdgeDown} /></div>
             </a>
           </div>{/* 여기까지 MainBanner*/}
           <div className="indicator">
@@ -176,34 +154,36 @@ class Main extends React.Component {
             NEW ARRIVAL
           </div>
       
-          <div>
+          <div className="stuffgroup">
             <ul className="container0">
-              <a className="stuffBoxSwitch" href="">
+            <a className="stuffBoxSwitch" href="">
                 <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={dc990s} /></p>
-                  <p id="stuffName">DC-990S</p>
-                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
+                  <p><img className="stuffBoxImg" src={tsd16bl} /></p>
+                  <p id="stuffName">TSD-16BL</p>
+                  <p id="stuffSpec" style={textBox}>스크류드라이버 / 16V / 2.0Ah / 2단 속도</p>
                 </li>
               </a>
               <a className="stuffBoxSwitch" href="">
                 <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={dc990s} /></p>
-                  <p id="stuffName">DC-990S</p>
-                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
+                  <p><img className="stuffBoxImg" src={tsd16blb} /></p>
+                  <p id="stuffName">TSD-16BL-B</p>
+                  <p id="stuffSpec" style={textBox}>스크류드라이버 / 16V / 2.0Ah / 2단 속도 / 베어툴</p>
                 </li>
               </a>
+              </ul>
+              <ul className="container0">
               <a className="stuffBoxSwitch" href="">
                   <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={dc990s} /></p>
-                  <p id="stuffName">DC-990S</p>
-                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
-                </li>
+                  <p><img className="stuffBoxImg" src={tid16bl} /></p>
+                  <p id="stuffName">TID-16BL</p>
+                  <p id="stuffSpec" style={textBox}>임팩트드릴 / 16V / 2.0Ah / 2단 속도</p>
+                  </li>
               </a>
               <a className="stuffBoxSwitch" href="">
                 <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={dc990s} /></p>
-                  <p id="stuffName">DC-990S</p>
-                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
+                  <p><img className="stuffBoxImg" src={tid16blb} /></p>
+                  <p id="stuffName">TID-16BL-B</p>
+                  <p id="stuffSpec" style={textBox}>임팩트드릴 / 16V / 2.0Ah / 2단 속도 / 베어툴</p>
                 </li>
               </a>
             </ul>
@@ -213,34 +193,36 @@ class Main extends React.Component {
             BEST ITEM
           </div>
       
-          <div>
+          <div className="stuffgroup">
             <ul className="container0">
-              <a className="stuffBoxSwitch" href="">
+            <a className="stuffBoxSwitch" href="">
                 <li id="stuffBox" style={stuffBox}>
-                <p><img className="stuffBoxImg" src={dc990s} /></p>
-                  <p id="stuffName">DC-990S</p>
-                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
+                  <p><img className="stuffBoxImg" src={tsd16bl} /></p>
+                  <p id="stuffName">TSD-16BL</p>
+                  <p id="stuffSpec" style={textBox}>스크류드라이버 / 16V / 2.0Ah / 2단 속도</p>
                 </li>
               </a>
               <a className="stuffBoxSwitch" href="">
                 <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={dc990s} /></p>
-                  <p id="stuffName">DC-990S</p>
-                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
+                  <p><img className="stuffBoxImg" src={tsd16blb} /></p>
+                  <p id="stuffName">TSD-16BL-B</p>
+                  <p id="stuffSpec" style={textBox}>스크류드라이버 / 16V / 2.0Ah / 2단 속도 / 베어툴</p>
                 </li>
               </a>
+              </ul>
+              <ul className="container0">
               <a className="stuffBoxSwitch" href="">
                   <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={dc990s} /></p>
-                  <p id="stuffName">DC-990S</p>
-                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
-                </li>
+                  <p><img className="stuffBoxImg" src={tid16bl} /></p>
+                  <p id="stuffName">TID-16BL</p>
+                  <p id="stuffSpec" style={textBox}>임팩트드릴 / 16V / 2.0Ah / 2단 속도</p>
+                  </li>
               </a>
               <a className="stuffBoxSwitch" href="">
                 <li id="stuffBox" style={stuffBox}>
-                <p><img className="stuffBoxImg" src={dc990s} /></p>
-                  <p id="stuffName">DC-990S</p>
-                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
+                  <p><img className="stuffBoxImg" src={tid16blb} /></p>
+                  <p id="stuffName">TID-16BL-B</p>
+                  <p id="stuffSpec" style={textBox}>임팩트드릴 / 16V / 2.0Ah / 2단 속도 / 베어툴</p>
                 </li>
               </a>
             </ul>
@@ -283,7 +265,13 @@ class Main extends React.Component {
                   </li>
                 </ul>
               </li>
-              <li><a href=""><h5 id="more">+ 더보기</h5></a></li>
+              <li>
+                <h5 id="more">
+                  <Link to="movie">
+                    + 더보기
+                  </Link>
+                </h5>                
+              </li>
             </ul>
           </div>
       </div>

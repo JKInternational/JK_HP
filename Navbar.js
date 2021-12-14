@@ -30,7 +30,13 @@ render() {
           <li className="navbar_menu1">
             <button className="dropdownBtn"><h4>브랜드</h4></button>
             <div className="dropdownContent">
-              <Link to="tichop">티찹</Link>
+              <div className="dropdownContentinner">
+                <button className="dropdownBtnAbove"><h4>티찹</h4></button>
+                  <div className="dropdownContent1">
+                    <Link to="tichoppower">전동공구</Link>
+                    <Link to="tichopcomp">컴프레서</Link>
+                  </div>
+                </div>
               <Link to="blueshark">블루샤크</Link>
               <Link to="worthytool">워디툴</Link>
               <Link to="etc">기타</Link>
@@ -45,7 +51,7 @@ render() {
           <li className="navbar_menu1">
             <button className="dropdownBtn"><h4>공지사항</h4></button>
             <div className="dropdownContent">
-              <Link to="notice">알림</Link>
+              <Link to="notice">소식</Link>
             </div>
           </li>
           <li className="navbar_menu1">

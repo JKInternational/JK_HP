@@ -21,7 +21,16 @@ a:active {
   color: inherit;
 }
 
-.container {
+button,
+button:visited,
+button:hover,
+button:active {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.Notice .container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +38,7 @@ a:active {
   background-color: white;
 }
 
-.innerContainer1 {
+.Notice .innerContainer1 {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -37,33 +46,137 @@ a:active {
   margin: 50px;
 }
 
-.category {
+.Notice .category {
   display: flex;
   justify-content: flex-start;
   color: gray;
   font-size: 5px;
 }
 
-#jk {
-  font-weight: bold;
-}
-
-#logo {
+#search {
   display: flex;
-  align-self: flex-end;
-  margin-top: 70px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 2%;
 }
 
-.innerContainer2 {
+#select {
+  width: 60px;
+  height: 30px;
+}
+
+.select1:hover,
+.select2:hover {
+  background-color: gray;
+}
+
+.search1 {
+  width: auto;
+  height: 30px;
+  margin: 5px;
+}
+
+.search2 {
+  width: auto;
+  height: 30px;
+}
+
+#line {
+  width: 100vw;
+  height: 1px;
+  background-color: dimgray;
+  margin-bottom: 0;
+}
+
+.Notice .container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  height: auto;
+  background-color: white;
+}
+
+.boardContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  height: auto;
+  background-color: white;
+  padding-bottom: 5%;
+}
+
+.boardTitle,
+.boardContent {
+  width: 80%;
+  height: auto;
   list-style: none;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  width: 80%;
-  margin: 50px 0px;
-  padding: 0px;
+  padding: 0;
 }
 
-.test {
-  max-width: 20vw;
+.boardContent1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+}
+
+#line1 {
+  width: 80%;
+  height: 1px;
+  background-color: dimgray;
+  margin-bottom: 0;
+}
+
+#no {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+}
+
+#title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+#date {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+#click {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+}
+
+#boardBtn {
+  border: 0;
+  background-color: white;
+  font-size: 16px;
+}
+
+#content1,
+#content2 {
+  display: none;
+  width: 80%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+@media screen and (max-width: 600px) {
+  .boardTitle li,
+  .boardContent li {
+    font-size: 12px;
+  }
 }

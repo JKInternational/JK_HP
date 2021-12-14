@@ -21,7 +21,7 @@ a:active {
   color: inherit;
 }
 
-.container {
+.Contact .container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +29,7 @@ a:active {
   background-color: white;
 }
 
-.innerContainer1 {
+.Contact .innerContainer1 {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -37,33 +37,51 @@ a:active {
   margin: 50px;
 }
 
-.category {
+.Contact .category {
   display: flex;
   justify-content: flex-start;
   color: gray;
   font-size: 5px;
 }
 
-#jk {
-  font-weight: bold;
+#line {
+  width: 100vw;
+  height: 1px;
+  background-color: dimgray;
+  margin-bottom: 0;
 }
 
-#logo {
+.adress {
   display: flex;
-  align-self: flex-end;
-  margin-top: 70px;
-}
-
-.innerContainer2 {
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
   list-style: none;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   width: 80%;
-  margin: 50px 0px;
-  padding: 0px;
+  height: auto;
+  padding: 0;
 }
 
-.test {
-  max-width: 20vw;
+#bold {
+  font-weight: 1000;
+}
+
+#blank {
+  font-size: 14px;
+  padding-bottom: 20px;
+}
+
+#map {
+  display: block;
+  border: none;
+  width: 60vw;
+  height: 40vh;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 600px) {
+  .adress,
+  #blank {
+    font-size: 10px;
+  }
 }

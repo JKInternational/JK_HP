@@ -1,7 +1,3 @@
-import main_1_886 from "./imgs/main_1_886.png";
-import drills from "./imgs/drills.png";
-import cleanDisk from "./imgs/cleanDisk.png";
-import title_logo from "./imgs/title_logo.png";
 import React from 'react';
 import './Contact.css';
 
@@ -24,17 +20,16 @@ class Contact extends React.Component {
               <span>찾아오시는 길</span>
             </div>
             <p><h1>찾아오시는 길</h1></p>
-            <p> <span id="jk">JK인터내셔널</span>은 2014년 창사이래 오늘날까지 각종 산업용재 및 작업공구 등 다양한 제품을 생산하여 공급하고 있으며,
-              300여 곳의 거래처로부터 그 품질과 기술을 높이 평가받고 있습니다.</p>
-            <p>신생업체만의 젊음과 열정을 가지고 고객 여러분을 위하여 최상의 품질과 최고의 제품을 공급함은 물론 당사에서 판매한
-              모든 제품에 대하여 고객이 만족할 때까지 에프터서비스를 해드릴 것을 약속드립니다.</p>
-            <p>끊임없는 신상품 개발을 통해 회사의 성장과 고객의 만족을 도모하는 기업이 되겠습니다.</p>
-            <img id="logo" src={title_logo} />
+            <div id="line" />
           </div>
-          <ul className="innerContainer2">
-            <li><img className="test" src={main_1_886} /></li>            
-            <li><img className="test" src={drills} /></li>            
-            <li><img className="test" src={cleanDisk} /></li>
+
+          <ul className="adress">
+            <li>Tel. <span id="bold">031-973-3788</span> (AS문의)</li>
+            <li>Fax. <span id="bold">031-979-3788</span></li>
+            <li>E-mail. <span id="bold">j-kinternational@naver.com</span></li>
+            <li>신주소. <span id="bold">경기도 고양시 고봉로658번길 61-36 나동 JK인터내셔널</span></li>
+            <li id="blank">(구주소. 경기도 고양시 일산동구 성석동 1075-125 나동 JK인터내셔널)</li>
+            <li><iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1876.7014258163617!2d126.79196606163406!3d37.71444308923019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c91c2d7d3763f%3A0xb4db1a80099ac847!2z6rK96riw64-EIOqzoOyWkeyLnCDsnbzsgrDrj5nqtawg7ISx7ISd64-ZIDEwNzUtMTI1!5e0!3m2!1sko!2skr!4v1638171982653!5m2!1sko!2skr" allowfullscreen="" loading="lazy" /></li>
           </ul>
         </div>
 

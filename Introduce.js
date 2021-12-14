@@ -33,9 +33,9 @@ class Introduce extends React.Component {
             <img id="logo" src={title_logo} />
           </div>
           <ul className="innerContainer2">
-            <li><img className="test" src={main_1_886} /></li>            
-            <li><img className="test" src={drills} /></li>            
-            <li><img className="test" src={cleanDisk} /></li>
+            <li><img src={main_1_886} /></li>            
+            <li><img src={drills} /></li>            
+            <li><img src={cleanDisk} /></li>
           </ul>
         </div>
 
