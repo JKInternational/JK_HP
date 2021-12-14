@@ -4,7 +4,8 @@ import './index.css';
 import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import Introduce from "./components/Introduce";
-import Tichop from "./components/Tichop";
+import TichopPower from "./components/TichopPower";
+import TichopComp from "./components/TichopComp";
 import Worthytool from "./components/Worthytool";
 import Blueshark from "./components/Blueshark";
 import Etc from "./components/Etc";
@@ -24,7 +25,8 @@ function App(){
       <Routes>
         <Route exact path="/" element={<Main />} />
         <Route path="/introduce" element={<Introduce />} />
-        <Route path="/tichop" element={<Tichop />} />
+        <Route path="/tichoppower" element={<TichopPower />} />
+        <Route path="/tichopcomp" element={<TichopComp />} />
         <Route path="/blueshark" element={<Blueshark />} />
         <Route path="/worthytool" element={<Worthytool />} />
         <Route path="/etc" element={<Etc />} />
