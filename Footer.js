@@ -21,7 +21,7 @@ class Footer extends React.Component {
           <li><h5>Tel. 031-973-3788 / Fax. 031-979-3788</h5></li>
           <li><h5>E-mail. j-kinternational@naver.com</h5></li>
           <li><img src={footer_logo} /></li>
-          <li><h5>Copyright ⓒ JKinternational. all right reserved.</h5></li>
+          <li><h5>ⓒ JKinternational. all rights reserved.</h5></li>
         </ul>
         <div className="sitemap">
           <ul className="sitemap1">

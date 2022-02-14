@@ -9,10 +9,12 @@ import tsd16blb from "./imgs/tsd16blb.png";
 import tid16bl from "./imgs/tid16bl.png";
 import tid16blb from "./imgs/tid16blb.png";
 import youtube_logo from "./imgs/youtube_logo.png";
+
 import React from 'react';
 import YouTube from 'react-youtube';
 import './Main.css';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 
 class Main extends React.Component {
@@ -62,6 +64,26 @@ class Main extends React.Component {
         }
     }
 
+    state = {
+      newArrival: {},
+      bestItem: {},
+      error: null,
+    };
+  
+    componentDidMount = async () => {
+      try {
+        const response = await axios.get('http://localhost:1337/api/items/?_limit=-1&populate=*&filters[newArrival]=1&sort[0]=newArrivalOrder:desc' );
+        this.setState({ newArrival: response });
+      } catch (error) {
+        this.setState({ error });
+      }
+      try {
+        const response = await axios.get('http://localhost:1337/api/items/?_limit=-1&populate=*&filters[bestItem]=1&sort[0]=bestItemOrder:desc' );
+        this.setState({ bestItem: response });
+      } catch (error) {
+        this.setState({ error });
+      }
+    };
     /*
     componentDidMount() {
         this is function that intended to run after dom is rendred,
@@ -97,6 +119,11 @@ class Main extends React.Component {
       margin: "10px",
       padding: "10px",
     };
+
+
+    if(this.state.newArrival.data) {
+        console.log(this.state.newArrival.data.data);
+        }
 
       return <>
       <div className="Main">
@@ -153,79 +180,56 @@ class Main extends React.Component {
           <div className="section1">
             NEW ARRIVAL
           </div>
-      
+
           <div className="stuffgroup">
-            <ul className="container0">
-            <a className="stuffBoxSwitch" href="">
+
+          { this.state.newArrival.data && this.state.newArrival.data.data.map ? this.state.newArrival.data.data.map(
+                      item => {
+                        return (
+                          <ul className="container0">
+                          <Link to={ "/detail/" + item.id } className="stuffBoxSwitch" href="">
+                            <li id="stuffBox" style={stuffBox}>
+                              <p><img className="stuffBoxImg" src={"http://localhost:1337" + item.attributes.mainImage.data.attributes.url} /></p>
+                              <p id="stuffName">{ item.attributes.name }</p>
+                              <p id="stuffSpec" style={textBox}>{ item.attributes.mainDescription }</p>
+                            </li>
+                          </Link>
+                        </ul>
+                        );
+                      }
+                    ) : "" }
+          </div>
+
+            {/* <ul className="container0">
+              <Link to="detail/2" className="stuffBoxSwitch" href="">
                 <li id="stuffBox" style={stuffBox}>
                   <p><img className="stuffBoxImg" src={tsd16bl} /></p>
                   <p id="stuffName">TSD-16BL</p>
                   <p id="stuffSpec" style={textBox}>스크류드라이버 / 16V / 2.0Ah / 2단 속도</p>
                 </li>
-              </a>
-              <a className="stuffBoxSwitch" href="">
-                <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={tsd16blb} /></p>
-                  <p id="stuffName">TSD-16BL-B</p>
-                  <p id="stuffSpec" style={textBox}>스크류드라이버 / 16V / 2.0Ah / 2단 속도 / 베어툴</p>
-                </li>
-              </a>
-              </ul>
-              <ul className="container0">
-              <a className="stuffBoxSwitch" href="">
-                  <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={tid16bl} /></p>
-                  <p id="stuffName">TID-16BL</p>
-                  <p id="stuffSpec" style={textBox}>임팩트드릴 / 16V / 2.0Ah / 2단 속도</p>
-                  </li>
-              </a>
-              <a className="stuffBoxSwitch" href="">
-                <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={tid16blb} /></p>
-                  <p id="stuffName">TID-16BL-B</p>
-                  <p id="stuffSpec" style={textBox}>임팩트드릴 / 16V / 2.0Ah / 2단 속도 / 베어툴</p>
-                </li>
-              </a>
-            </ul>
-          </div>
+              </Link>
+            </ul> */}
+
 
           <div className="section2">
             BEST ITEM
           </div>
-      
-          <div className="stuffgroup">
-            <ul className="container0">
-            <a className="stuffBoxSwitch" href="">
-                <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={tsd16bl} /></p>
-                  <p id="stuffName">TSD-16BL</p>
-                  <p id="stuffSpec" style={textBox}>스크류드라이버 / 16V / 2.0Ah / 2단 속도</p>
-                </li>
-              </a>
-              <a className="stuffBoxSwitch" href="">
-                <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={tsd16blb} /></p>
-                  <p id="stuffName">TSD-16BL-B</p>
-                  <p id="stuffSpec" style={textBox}>스크류드라이버 / 16V / 2.0Ah / 2단 속도 / 베어툴</p>
-                </li>
-              </a>
-              </ul>
-              <ul className="container0">
-              <a className="stuffBoxSwitch" href="">
-                  <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={tid16bl} /></p>
-                  <p id="stuffName">TID-16BL</p>
-                  <p id="stuffSpec" style={textBox}>임팩트드릴 / 16V / 2.0Ah / 2단 속도</p>
-                  </li>
-              </a>
-              <a className="stuffBoxSwitch" href="">
-                <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={tid16blb} /></p>
-                  <p id="stuffName">TID-16BL-B</p>
-                  <p id="stuffSpec" style={textBox}>임팩트드릴 / 16V / 2.0Ah / 2단 속도 / 베어툴</p>
-                </li>
-              </a>
-            </ul>
+          <div>
+          { this.state.bestItem.data && this.state.bestItem.data.data.map ? this.state.bestItem.data.data.map(
+                      item => {
+                        return (
+                          <ul className="container0">
+                          <Link to={ "/detail/" + item.id } className="stuffBoxSwitch" href="">
+                            <li id="stuffBox" style={stuffBox}>
+                              <p><img className="stuffBoxImg" src={"http://localhost:1337" + item.attributes.mainImage.data.attributes.url} /></p>
+                              <p id="stuffName">{ item.attributes.name }</p>
+                              <p id="stuffSpec" style={textBox}>{ item.attributes.mainDescription }</p>
+                            </li>
+                          </Link>
+                        </ul>
+                        );
+                      }
+                    ) : "" }
           </div>
 
           <div className="section3">

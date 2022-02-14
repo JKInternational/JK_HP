@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-import tsd16bltop from "./imgs/tsd16bltop.jpg";
 import './Detail.css';
 import withRouter from './util.js';
 
@@ -9,73 +8,75 @@ import withRouter from './util.js';
 class Detail extends React.Component {
   constructor(props) {
     super(props);
-    this.params = {id : -1}
   }
 
+  
+
   state = {
-    items: [],
+    data: {},
     error: null,
   };
 
   componentDidMount = async () => {
     try {
-      const response = await axios.get('http://localhost:1337/api/items/2');
-      this.setState({ items: response.data });
+      const response = await axios.get('http://localhost:1337/api/items/' + String(this.props.params.id) + '?populate=*' );
+      this.setState({ data: response });
     } catch (error) {
       this.setState({ error });
     }
+    if(!this.state.data.data || this.state.error) {
+      alert("페이지 주소가 잘못되었습니다.");
+      this.props.navigate(-1);
+    }
   };
+
+
 
   render() {
 
-    const { error, item } = this.state;
+    // if(this.state.data.data) {
+    //   console.log(this.state.data.data.data.attributes.detailImage);
+    //   }
 
-    // Print errors if any
-    if (error) {
-      return <div>An error occured: {error.message}</div>;
-    }
+    //   if(this.state.data.data) {
+    //     console.log(this.state.data.data.data.attributes.mainImage);
+    //     }
+    
+    //     if(this.state.data.data) {
+    //       console.log(this.state.data.data);
+    //       }
 
-    console.log(this.props.params)
-    if(this.props.params.id) {
-      this.params.id = this.props.params.id;
-    }
-
-    var tableData = [{"title":"a", "desc":"1"}, {"title":"b","desc":"2"}]
-
-      return <>
+    return <>
       
-        <div className="App">
-          <ul>
-            {this.state.items.map(item => (
-              <li key={item.id}>{item.name}</li>
-            ))}
-          </ul>
-        </div>
-        
         <div className='Detail'>
-        <h1>{this.params.id}</h1>
+        
           <ul className='topContainer'>
             <li>
               <ul className='topLeft'>
                 <li id='topImgLi'>
-                  <img className='topImg' src={tsd16bltop} />
+                  <img className='topImg' src={ this.state.data.data && this.state.data.data.data.attributes.mainImage.data ?
+                    "http://localhost:1337" + this.state.data.data.data.attributes.mainImage.data.attributes.url : "" } />
                 </li>
                 <li>
+                { this.state.data.data && this.state.data.data.data.attributes.Spec && this.state.data.data.data.attributes.Spec.map ? 
                   <button className='spec'>
                     <h3>제품사양</h3>
                   </button>
+                  : "" }
                 </li>
                 <li>
                   <table>
                     <tbody>
-                      {tableData.map(item => {
+                    { this.state.data.data && this.state.data.data.data.attributes.Spec && this.state.data.data.data.attributes.Spec.map ? this.state.data.data.data.attributes.Spec.map(
+                      item => {
                         return (
                           <tr>
-                            <td>{item.title}</td>
-                            <td>{item.desc}</td>
+                            <th><h4>{item[0]}</h4></th>
+                            <td><h4>{item[1]}</h4></td>
                           </tr>
                         );
-                      })}
+                      }
+                    ) : "" }
                     </tbody>
                   </table>
                 </li>
@@ -89,16 +90,28 @@ class Detail extends React.Component {
             <li>
               <ul className='topRight'>
                 <li>
-                  <h1>TSD-16BL</h1>
+                  <h1>{ this.state.data.data ? this.state.data.data.data.attributes.name : "" }</h1>
                 </li>
                   <hr id='topLine' />
                 <li>
-                  <h3>16V 스크루 드릴 드라이버</h3>
+                  <h3>{ this.state.data.data ? this.state.data.data.data.attributes.description : "" }</h3>
                 </li>
               </ul>
             </li>
           </ul>
-          <img className='bottomImg' src={tsd16bltop} />
+          {/* <img className='bottomImg' src={ this.state.data.data && this.state.data.data.data.attributes.detailImage.data ?
+                    "http://localhost:1337" + this.state.data.data.data.attributes.detailImage.data[0].attributes.url : ""  } />
+          <img className='bottomImg' src={ this.state.data.data && this.state.data.data.data.attributes.detailImage.data ?
+                    "http://localhost:1337" + this.state.data.data.data.attributes.detailImage.data[1].attributes.url : ""  } /> */}
+
+                  { this.state.data.data && this.state.data.data.data.attributes.detailImage.data ? 
+                  this.state.data.data.data.attributes.detailImage.data.map(
+                      item => {
+                        return (
+                          <img className='bottomImg' src={"http://localhost:1337" + item.attributes.url} />
+                        );
+                      }
+                    ) : "" }
 
           </div>
 

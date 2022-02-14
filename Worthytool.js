@@ -1,3 +1,4 @@
+import none from "./imgs/none.jpg";
 import wt2007 from "./imgs/wt2007.png";
 import wt3007 from "./imgs/wt3007.png";
 import wt3081 from "./imgs/wt3081.png";
@@ -171,6 +172,13 @@ class Worthytool extends React.Component {
                     <p id="stuffSpec" style={textBox}>DC18V / AC / 5L / AL TANK</p>
                   </li>
                 </a>
+                <a className="stuffBoxSwitch" id="none" href="">
+                  <li id="stuffBox" style={stuffBox}>
+                    <p><img className="stuffBoxImg" src={none} /></p>
+                    <p id="stuffName"></p>
+                    <p id="stuffSpec" style={textBox}></p>
+                  </li>
+                </a>
               </ul>
             </div>
 
@@ -249,8 +257,8 @@ class Worthytool extends React.Component {
                     <p id="stuffSpec" style={textBox}>AC / 17L / AL TANK</p>
                   </li>
                 </a>
-                </ul>
-                <ul className="container0">
+              </ul>
+              <ul className="container0">
                 <a className="stuffBoxSwitch" href="">
                     <li id="stuffBox" style={stuffBox}>
                     <p><img className="stuffBoxImg" src={wt105x40} /></p>
@@ -281,8 +289,8 @@ class Worthytool extends React.Component {
                     <p id="stuffSpec" style={textBox}>AC / 17L / AL TANK</p>
                   </li>
                 </a>
-                </ul>
-                <ul className="container0">
+              </ul>
+              <ul className="container0">
                 <a className="stuffBoxSwitch" href="">
                     <li id="stuffBox" style={stuffBox}>
                     <p><img className="stuffBoxImg" src={wt355x72} /></p>

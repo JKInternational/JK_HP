@@ -19,11 +19,55 @@ import tcs165bl from "./imgs/tcs165bl.png";
 import tjs18b from "./imgs/tjs18b.png";
 import tsa18 from "./imgs/tsa18.png";
 import bannerTichop from "./imgs/bannerTichop.jpg";
+
 import React from 'react';
+import axios from 'axios';
+import {Link} from 'react-router-dom';
 import './Brand.css';
 
 
 class TichopPower extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  state = {
+    connect: {},
+    cut: {},
+    etc: {},
+    acc: {},
+    error: null,
+  }
+
+  componentDidMount = async () => {
+    try {
+      const response = await axios.get('http://localhost:1337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_power&filters[category][1]=connect' );
+      this.setState({ connect: response });
+    } catch (error) {
+      this.setState({ error });
+    }
+    try {
+      const response = await axios.get('http://localhost:1337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_power&filters[category][1]=cut' );
+      this.setState({ cut: response });
+    } catch (error) {
+      this.setState({ error });
+    }
+    try {
+      const response = await axios.get('http://localhost:1337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_power&filters[category][1]=etc' );
+      this.setState({ etc: response });
+    } catch (error) {
+      this.setState({ error });
+    }
+    try {
+      const response = await axios.get('http://localhost:1337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_power&filters[category][1]=acc' );
+      this.setState({ acc: response });
+    } catch (error) {
+      this.setState({ error });
+    }
+  };
+    
+
 
 
   render() {
@@ -97,70 +141,32 @@ class TichopPower extends React.Component {
             </div>
         
             <div className="stuffgroup">
-              <ul className="container0">
-                <a className="stuffBoxSwitch" href="">
-                  <li id="stuffBox" style={stuffBox}>
-                    <p><img className="stuffBoxImg" src={tsd16bl} /></p>
-                    <p id="stuffName">TSD-16BL</p>
-                    <p id="stuffSpec" style={textBox}>스크류드라이버 / 16V / 2.0Ah / 2단 속도</p>
-                  </li>
-                </a>
-                <a className="stuffBoxSwitch" href="">
-                  <li id="stuffBox" style={stuffBox}>
-                    <p><img className="stuffBoxImg" src={tsd16blb} /></p>
-                    <p id="stuffName">TSD-16BL-B</p>
-                    <p id="stuffSpec" style={textBox}>스크류드라이버 / 16V / 2.0Ah / 2단 속도 / 베어툴</p>
-                  </li>
-                </a>
-                </ul>
-                <ul className="container0">
-                <a className="stuffBoxSwitch" href="">
-                    <li id="stuffBox" style={stuffBox}>
-                    <p><img className="stuffBoxImg" src={tid16bl} /></p>
-                    <p id="stuffName">TID-16BL</p>
-                    <p id="stuffSpec" style={textBox}>임팩트드릴 / 16V / 2.0Ah / 2단 속도</p>
-                  </li>
-                </a>
-                <a className="stuffBoxSwitch" href="">
-                  <li id="stuffBox" style={stuffBox}>
-                    <p><img className="stuffBoxImg" src={tid16blb} /></p>
-                    <p id="stuffName">TID-16BL-B</p>
-                    <p id="stuffSpec" style={textBox}>임팩트드릴 / 16V / 2.0Ah / 2단 속도 / 베어툴</p>
-                  </li>
-                </a>
-              </ul>
-              <ul className="container0">
-                <a className="stuffBoxSwitch" href="">
-                  <li id="stuffBox" style={stuffBox}>
-                    <p><img className="stuffBoxImg" src={thd18bl} /></p>
-                    <p id="stuffName">THD-18BL</p>
-                    <p id="stuffSpec" style={textBox}>해머드라이버 / 18V / 2.2Ah / 2단 속도</p>
-                  </li>
-                </a>
-                <a className="stuffBoxSwitch" href="">
-                  <li id="stuffBox" style={stuffBox}>
-                    <p><img className="stuffBoxImg" src={thd18blb} /></p>
-                    <p id="stuffName">THD-18BL-B</p>
-                    <p id="stuffSpec" style={textBox}>해머드라이버 / 18V / 2.2Ah / 2단 속도 / 베어툴</p>
-                  </li>
-                </a>
-                </ul>
-                <ul className="container0">
-                <a className="stuffBoxSwitch" href="">
-                    <li id="stuffBox" style={stuffBox}>
-                    <p><img className="stuffBoxImg" src={tid18bl} /></p>
-                    <p id="stuffName">TID-18BL</p>
-                    <p id="stuffSpec" style={textBox}>임팩트드릴 / 18V / 2.2Ah / 2단 속도</p>
-                  </li>
-                </a>
+
+            { this.state.connect.data && this.state.connect.data.data.map ? this.state.connect.data.data.map(
+                      item => {
+                        return (
+                          <ul className="container0">
+                          <Link to={ "/detail/" + item.id } className="stuffBoxSwitch" href="">
+                            <li id="stuffBox" style={stuffBox}>
+                              <p><img className="stuffBoxImg" src={"http://localhost:1337" + item.attributes.mainImage.data.attributes.url} /></p>
+                              <p id="stuffName">{ item.attributes.name }</p>
+                              <p id="stuffSpec" style={textBox}>{ item.attributes.mainDescription }</p>
+                            </li>
+                          </Link>
+                        </ul>
+                        );
+                      }
+                    ) : "" }
+
+{/* 
                 <a className="stuffBoxSwitch" href="">
                   <li id="stuffBox" style={stuffBox}>
                     <p><img className="stuffBoxImg" src={tid18blb} /></p>
                     <p id="stuffName">TID-18BL-B</p>
                     <p id="stuffSpec" style={textBox}>임팩트드릴 / 18V / 2.2Ah / 2단 속도 / 베어툴</p>
                   </li>
-                </a>
-              </ul>
+                </a> */}
+
             </div>
 
             <div className="section">

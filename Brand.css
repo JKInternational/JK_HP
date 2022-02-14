@@ -223,6 +223,10 @@ button:active {
   padding: 0px;
 }
 
+#none {
+  opacity: 0;
+}
+
 #stuffBox {
   max-width: 100%;
   display: flex;

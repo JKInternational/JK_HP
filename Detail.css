@@ -1,0 +1,177 @@
+.Detail {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin: 0px;
+  background: rgb(255, 255, 255);
+  margin: 80px 0px;
+}
+
+body {
+  font-family: "NanumSquare, sans-serif";
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.topContainer {
+  list-style: none;
+  background-color: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: top;
+  margin: 50px 0px 50px 0px;
+  padding: 0;
+}
+
+.topImg {
+  width: 100%;
+  height: auto;
+  border: solid gray;
+  border-width: 0.1px;
+}
+
+.bottomImg {
+  width: 50%;
+  height: auto;
+}
+
+.topLeft {
+  list-style: none;
+  background-color: none;
+  margin: 0px 25px 0px 25px;
+  padding: 0;
+}
+
+.topRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+  background-color: none;
+  width: 100%;
+  margin: 0px 25px;
+  padding: 0;
+}
+
+#topLine {
+  border: 0;
+  width: 504px;
+  height: 1px;
+  background: gray;
+  margin: 0px;
+}
+
+.Detail h1,
+.Detail h2,
+.Detail h3,
+.Detail h4,
+.Detail h5 {
+  color: rgb(60, 60, 60);
+}
+
+.width1054 {
+  max-width: 1054px;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0px;
+  padding: 0px;
+}
+
+.spec {
+  width: 120px;
+  height: 50px;
+  background-color: lightgray;
+  margin: 50px 0px 10px 0px;
+  padding: 0px;
+  border: 0;
+  cursor: default;
+}
+
+.spec:hover,
+.spec:active,
+.spec:visited {
+  cursor: default;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 1px;
+  text-align: center;
+  line-height: 1;
+  border: 1px solid #ccc;
+  margin: 0px 0px 10px 0px;
+}
+
+th {
+  width: 200px;
+  height: 50px;
+  padding: 0px;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  background-color: #efefef;
+}
+
+td {
+  width: 300px;
+  height: 50px;
+  padding: 0px;
+  font-weight: lighter;
+  border-bottom: 1px solid #ccc;
+}
+
+@media screen and (max-width: 740px) {
+  .topContainer {
+    display: flex;
+    flex-flow: wrap column-reverse;
+    align-items: flex-start;
+    align-items: center;
+  }
+
+  #topImgLi {
+    display: flex;
+    justify-content: center;
+  }
+
+  .bottomImg {
+    width: 100%;
+    height: auto;
+  }
+
+  .topTitle {
+    list-style: none;
+    background-color: none;
+    width: 300px;
+    padding: 0;
+  }
+
+  #topLine {
+    border: 0;
+    width: 340px;
+    height: 1px;
+    background: gray;
+    margin: 0px;
+  }
+
+  .Detail {
+    margin: 0px 0px 100px 0px;
+  }
+}
+
+.topRight {
+  list-style: none;
+  background-color: none;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}

@@ -1,11 +1,38 @@
 import dc990s from "./imgs/990s.png";
 import bannerBlueshark from "./imgs/bannerBlueshark.jpg";
+
 import React from 'react';
+import axios from 'axios';
+import {Link} from 'react-router-dom';
 import './Brand.css';
 
 
 class Blueshark extends React.Component {
 
+  constructor(props) {
+    super(props);
+  }
+
+  state = {
+    cutting_stone: {},
+    polishing_stone: {},
+  }
+
+  componentDidMount = async () => {
+    try {
+      const response = await axios.get('http://localhost:1337/api/items/?_limit=-1&populate=*&filters[brand][0]=blueshark&filters[category][1]=cutting_stone' );
+      this.setState({ cutting_stone: response });
+    } catch (error) {
+      this.setState({ error });
+    }
+    try {
+      const response = await axios.get('http://localhost:1337/api/items/?_limit=-1&populate=*&filters[brand][0]=blueshark&filters[category][1]=polishing_stone' );
+      this.setState({ polishing_stone: response });
+    } catch (error) {
+      this.setState({ error });
+    }
+  };
+    
 
   render() {
 
@@ -63,36 +90,22 @@ class Blueshark extends React.Component {
           </div>
       
           <div>
-            <ul className="container0">
-              <a className="stuffBoxSwitch" href="">
-                <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={dc990s} /></p>
-                  <p id="stuffName">DC-990S</p>
-                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
-                </li>
-              </a>
-              <a className="stuffBoxSwitch" href="">
-                <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={dc990s} /></p>
-                  <p id="stuffName">DC-990S</p>
-                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
-                </li>
-              </a>
-              <a className="stuffBoxSwitch" href="">
-                  <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={dc990s} /></p>
-                  <p id="stuffName">DC-990S</p>
-                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
-                </li>
-              </a>
-              <a className="stuffBoxSwitch" href="">
-                <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={dc990s} /></p>
-                  <p id="stuffName">DC-990S</p>
-                  <p id="stuffSpec" style={textBox}>4마력 / 1L탱크 / 308L/min / 1.0MPa</p>
-                </li>
-              </a>
-            </ul>
+            
+          { this.state.cutting_stone.data && this.state.cutting_stone.data.data.map ? this.state.cutting_stone.data.data.map(
+                      item => {
+                        return (
+                          <ul className="container0">
+                          <Link to={ "/detail/" + item.id } className="stuffBoxSwitch" href="">
+                            <li id="stuffBox" style={stuffBox}>
+                              <p><img className="stuffBoxImg" src={"http://localhost:1337" + item.attributes.mainImage.data.attributes.url} /></p>
+                              <p id="stuffName">{ item.attributes.name }</p>
+                              <p id="stuffSpec" style={textBox}>{ item.attributes.mainDescription }</p>
+                            </li>
+                          </Link>
+                        </ul>
+                        );
+                      }
+                    ) : "" }
           </div>
 
           <div className="section">
