@@ -199,7 +199,7 @@ class Main extends React.Component {
                                 className="stuffBoxImg"
                                 src={
                                   "http://localhost:1337" +
-                                  item.attributes.mainImage.data.attributes.url
+                                  item.attributes.indexImage.data.attributes.url
                                 }
                               />
                             </p>
@@ -242,7 +242,7 @@ class Main extends React.Component {
                                 className="stuffBoxImg"
                                 src={
                                   "http://localhost:1337" +
-                                  item.attributes.mainImage.data.attributes.url
+                                  item.attributes.indexImage.data.attributes.url
                                 }
                               />
                             </p>
