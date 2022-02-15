@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 import reportWebVitals from "./reportWebVitals";
 
 import "./index.css";
@@ -22,7 +23,7 @@ const App = () => {
   return (
     <Router>
       <Navbar />
-      <scrollToTop>
+      <ScrollToTop>
         <Routes>
           <Route exact path="/" element={<Main />} />
           <Route path="/introduce" element={<Introduce />} />
@@ -37,7 +38,7 @@ const App = () => {
           <Route path="/detail/:id" element={<Detail />} />
           <Route path="/:dummy" element={<h1>정확히 좀 눌러라.</h1>} />
         </Routes>
-      </scrollToTop>
+      </ScrollToTop>
       <Footer />
     </Router>
   );
