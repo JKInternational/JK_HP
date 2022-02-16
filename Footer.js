@@ -26,28 +26,26 @@ class Footer extends React.Component {
         <div className="sitemap">
           <ul className="sitemap1">
             <li><h4>JK인터내셔널</h4></li>
-            <li><a href=""><h5>회사소개</h5></a></li>
+            <li><a href="/introduce"><h5>회사소개</h5></a></li>
           </ul>
           <ul className="sitemap2">
             <li><h4>브랜드</h4></li>
-            <li><a href=""><h5>티찹</h5></a></li>
-            <li><a href=""><h5>블루샤크</h5></a></li>
-            <li><a href=""><h5>워디툴</h5></a></li>
+            <li><a href="/tichoppower"><h5>티찹 전동공구</h5></a></li>
+            <li><a href="/tichopcomp"><h5>티찹 컴프레서</h5></a></li>
+            <li><a href="/blueshark"><h5>블루샤크</h5></a></li>
+            <li><a href="/worthytool"><h5>워디툴</h5></a></li>
           </ul>
           <ul className="sitemap3">
             <li><h4>제품리뷰</h4></li>
-            <li><a href=""><h5>동영상 리뷰</h5></a></li>
+            <li><a href="/movie"><h5>동영상 리뷰</h5></a></li>
           </ul>
           <ul className="sitemap4">
             <li><h4>공지사항</h4></li>
-            <li><a href=""><h5>이벤트</h5></a></li>
+            <li><a href="/notice"><h5>소식</h5></a></li>
           </ul>
           <ul className="sitemap5">
             <li><h4>고객지원</h4></li>
-            <li><a href=""><h5>자주하는 질문</h5></a></li>
-            <li><a href=""><h5>문의하기</h5></a></li>
-            <li><a href=""><h5>제품메뉴얼</h5></a></li>
-            <li><a href=""><h5>안전작업</h5></a></li>
+            <li><a href="/contact"><h5>찾아오시는 길</h5></a></li>
           </ul>
         </div>
       </div>

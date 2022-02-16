@@ -82,7 +82,13 @@ render() {
               <div id="dcs2">
                 <p>브랜드</p>
                   <div className="dropdownContentS2">
-                    <a href="tichop">티찹</a>
+                    <div id="dcs6">
+                      <p className="margin">티찹</p>
+                        <div className="dropdownContentS6">
+                          <a href="/tichoppower">파워툴</a>
+                          <a href="/tichopcomp">컴프레서</a>
+                        </div>
+                      </div>
                     <a href="blueshark">블루샤크</a>
                     <a href="worthytool">워디툴</a>
                     <a href="etc">기타</a>

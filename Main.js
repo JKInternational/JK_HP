@@ -4,10 +4,6 @@ import bannerBlueshark from "./imgs/bannerBlueshark.jpg";
 import bannerWorthytool from "./imgs/bannerWorthytool.jpg";
 import spriteLeft from "./imgs/spriteLeft.png";
 import spriteRight from "./imgs/spriteRight.png";
-import tsd16bl from "./imgs/tsd16bl.png";
-import tsd16blb from "./imgs/tsd16blb.png";
-import tid16bl from "./imgs/tid16bl.png";
-import tid16blb from "./imgs/tid16blb.png";
 import youtube_logo from "./imgs/youtube_logo.png";
 
 import React from "react";
