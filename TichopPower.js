@@ -21,7 +21,7 @@ class TichopPower extends React.Component {
   componentDidMount = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:1337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_power&filters[category][1]=connect"
+        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_power&filters[category][1]=connect"
       );
       this.setState({ connect: response });
     } catch (error) {
@@ -29,7 +29,7 @@ class TichopPower extends React.Component {
     }
     try {
       const response = await axios.get(
-        "http://localhost:1337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_power&filters[category][1]=cut"
+        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_power&filters[category][1]=cut"
       );
       this.setState({ cut: response });
     } catch (error) {
@@ -37,7 +37,7 @@ class TichopPower extends React.Component {
     }
     try {
       const response = await axios.get(
-        "http://localhost:1337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_power&filters[category][1]=etc"
+        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_power&filters[category][1]=etc"
       );
       this.setState({ etc: response });
     } catch (error) {
@@ -45,7 +45,7 @@ class TichopPower extends React.Component {
     }
     try {
       const response = await axios.get(
-        "http://localhost:1337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_power&filters[category][1]=acc"
+        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_power&filters[category][1]=acc"
       );
       this.setState({ acc: response });
     } catch (error) {
@@ -127,7 +127,7 @@ class TichopPower extends React.Component {
                                 <img
                                   className="stuffBoxImg"
                                   src={
-                                    "http://localhost:1337" +
+                                    "http://jkintl.iptime.org:10337" +
                                     item.attributes.indexImage.data.attributes
                                       .url
                                   }
@@ -171,7 +171,7 @@ class TichopPower extends React.Component {
                                 <img
                                   className="stuffBoxImg"
                                   src={
-                                    "http://localhost:1337" +
+                                    "http://jkintl.iptime.org:10337" +
                                     item.attributes.indexImage.data.attributes
                                       .url
                                   }
@@ -206,7 +206,7 @@ class TichopPower extends React.Component {
                                 <img
                                   className="stuffBoxImg"
                                   src={
-                                    "http://localhost:1337" +
+                                    "http://jkintl.iptime.org:10337" +
                                     item.attributes.indexImage.data.attributes
                                       .url
                                   }
@@ -241,7 +241,7 @@ class TichopPower extends React.Component {
                                 <img
                                   className="stuffBoxImg"
                                   src={
-                                    "http://localhost:1337" +
+                                    "http://jkintl.iptime.org:10337" +
                                     item.attributes.indexImage.data.attributes
                                       .url
                                   }

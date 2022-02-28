@@ -66,7 +66,7 @@ class Main extends React.Component {
   componentDidMount = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:1337/api/items/?_limit=-1&populate=*&filters[newArrival]=1&sort[0]=newArrivalOrder:desc"
+        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[newArrival]=1&sort[0]=newArrivalOrder:desc"
       );
       this.setState({ newArrival: response });
     } catch (error) {
@@ -74,7 +74,7 @@ class Main extends React.Component {
     }
     try {
       const response = await axios.get(
-        "http://localhost:1337/api/items/?_limit=-1&populate=*&filters[bestItem]=1&sort[0]=bestItemOrder:desc"
+        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[bestItem]=1&sort[0]=bestItemOrder:desc"
       );
       this.setState({ bestItem: response });
     } catch (error) {
@@ -194,7 +194,7 @@ class Main extends React.Component {
                               <img
                                 className="stuffBoxImg"
                                 src={
-                                  "http://localhost:1337" +
+                                  "http://jkintl.iptime.org:10337" +
                                   item.attributes.indexImage.data.attributes.url
                                 }
                               />
@@ -237,7 +237,7 @@ class Main extends React.Component {
                               <img
                                 className="stuffBoxImg"
                                 src={
-                                  "http://localhost:1337" +
+                                  "http://jkintl.iptime.org:10337" +
                                   item.attributes.indexImage.data.attributes.url
                                 }
                               />

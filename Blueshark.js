@@ -18,7 +18,7 @@ class Blueshark extends React.Component {
   componentDidMount = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:1337/api/items/?_limit=-1&populate=*&filters[brand][0]=blueshark&filters[category][1]=cutting_stone"
+        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=blueshark&filters[category][1]=cutting_stone"
       );
       this.setState({ cutting_stone: response });
     } catch (error) {
@@ -26,7 +26,7 @@ class Blueshark extends React.Component {
     }
     try {
       const response = await axios.get(
-        "http://localhost:1337/api/items/?_limit=-1&populate=*&filters[brand][0]=blueshark&filters[category][1]=polishing_stone"
+        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=blueshark&filters[category][1]=polishing_stone"
       );
       this.setState({ polishing_stone: response });
     } catch (error) {
@@ -99,7 +99,7 @@ class Blueshark extends React.Component {
                               <img
                                 className="stuffBoxImg"
                                 src={
-                                  "http://localhost:1337" +
+                                  "http://jkintl.iptime.org:10337" +
                                   item.attributes.indexImage.data.attributes.url
                                 }
                               />
@@ -134,7 +134,7 @@ class Blueshark extends React.Component {
                               <img
                                 className="stuffBoxImg"
                                 src={
-                                  "http://localhost:1337" +
+                                  "http://jkintl.iptime.org:10337" +
                                   item.attributes.indexImage.data.attributes.url
                                 }
                               />

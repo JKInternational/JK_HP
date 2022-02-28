@@ -31,7 +31,7 @@ render() {
             <button className="dropdownBtn"><h4>브랜드</h4></button>
             <div className="dropdownContent">
               <div className="dropdownContentinner">
-                <button className="dropdownBtnAbove"><h4>티찹</h4></button>
+                <button className="dropdownBtnAbove">티찹</button>
                   <div className="dropdownContent1">
                     <Link to="tichoppower">전동공구</Link>
                     <Link to="tichopcomp">컴프레서</Link>
