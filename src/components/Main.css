@@ -56,7 +56,7 @@ a:active {
   flex-wrap: wrap;
   list-style: none;
   padding-left: 20px;
-  font-weight: bold;
+  font-weight: normal;
   color: black;
 }
 
@@ -76,9 +76,9 @@ a:active {
   color: black;
   font-size: 16px;
   border: none;
-  height: 55px;
-  padding: 0px 16px;
-  text-decoration: none;
+  min-width: 140px;
+  height: 45px;
+  padding: 0px 77px 0px 0px;
   display: block;
   background-color: transparent;
 }
