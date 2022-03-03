@@ -10,8 +10,6 @@ class Detail extends React.Component {
     super(props);
   }
 
-  
-
   state = {
     data: {},
     error: null,
