@@ -74,7 +74,7 @@ a:active {
 
 .dropdownBtnAbove {
   color: black;
-  font-size: 16px;
+  font-size: 15.5px;
   border: none;
   min-width: 140px;
   height: 45px;
@@ -106,7 +106,6 @@ a:active {
 .dropdownContent a {
   color: black;
   padding: 12px 16px;
-  text-decoration: none;
   display: block;
 }
 
@@ -334,14 +333,13 @@ a:active {
   }
 }
 
-#dcsSearch {
+/* #dcsSearch {
   position: absolute;
   top: 40px;
   left: 10%;
   width: 80%;
   height: 20px;
-  margin: ;
-}
+} */
 
 /* 여기까지 모바일 Navbar*/
 

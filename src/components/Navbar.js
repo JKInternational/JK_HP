@@ -64,7 +64,7 @@ render() {
 
         <div className="navbar_search">
           <input type="text" placeholder="제품 찾기"/>
-          <button id="searchBtn"><img src={searchBtn} /></button>
+          <Link to="searchpage"><button id="searchBtn"><img src={searchBtn} /></button></Link>
         </div>
       </div>
       {/* 여기까지 Navbar PC화면 */}
@@ -115,7 +115,7 @@ render() {
             </div>
           </div>
         <Link to="/"><img className="navbar_logo_s" src={title_logo} /></Link>
-        <button id="searchBtn"><img className="search_btn_s" src={searchBtn} /></button>
+        <Link to="searchpage"><button id="searchBtn"><img className="search_btn_s" src={searchBtn} /></button></Link>
       </div>
       {/* 여기까지 Navbar 모바일 화면 */}
     </div>

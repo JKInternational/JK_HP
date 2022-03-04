@@ -12,6 +12,7 @@ import TichopPower from "./components/TichopPower";
 import TichopComp from "./components/TichopComp";
 import Worthytool from "./components/Worthytool";
 import Blueshark from "./components/Blueshark";
+import SearchPage from "./components/SearchPage";
 import Etc from "./components/Etc";
 import Movie from "./components/Movie";
 import Notice from "./components/Notice";
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/tichopcomp" element={<TichopComp />} />
           <Route path="/blueshark" element={<Blueshark />} />
           <Route path="/worthytool" element={<Worthytool />} />
+          <Route path="/searchpage" element={<SearchPage />} />
           <Route path="/etc" element={<Etc />} />
           <Route path="/movie" element={<Movie />} />
           <Route path="/notice" element={<Notice />} />
