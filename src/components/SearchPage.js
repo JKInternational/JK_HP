@@ -17,9 +17,9 @@ class SearchPage extends React.Component {
   componentDidMount = async () => {
     try {
       const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=blueshark&filters[category][1]=cutting_stone"
+        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=blueshark&filters[category][1]=polishing_stone"
       );
-      this.setState({ cutting_stone: response });
+      this.setState({ polishing_stone: response });
     } catch (error) {
       this.setState({ error });
     }
@@ -43,6 +43,10 @@ class SearchPage extends React.Component {
       margin: "10px",
       padding: "10px",
     };
+
+    if (this.state.polishing_stone.data) {
+      console.log(this.state.polishing_stone.data.data);
+    }
 
     return (
       <>
