@@ -11,7 +11,7 @@ class SearchPage extends React.Component {
   }
 
   state = {
-    cutting_stone: {},
+    polishing_stone: {},
   };
 
   componentDidMount = async () => {
