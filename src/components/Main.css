@@ -439,7 +439,7 @@ a:active {
 /* 여기까지 mainbanner*/
 
 .fix_width {
-  max-width: 1500px;
+  max-width: 80vw;
 }
 
 .section1 {
