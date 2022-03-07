@@ -439,7 +439,7 @@ a:active {
 /* 여기까지 mainbanner*/
 
 .fix_width {
-  max-width: 80vw;
+  max-width: 600px;
 }
 
 .section1 {
@@ -745,11 +745,16 @@ a:active {
     height: 15px;
   }
 
+  .fix_width {
+    max-width: 90vw;
+  }
+
   #stuffBox {
     transform: scale(60%, 60%);
-    max-width: 600px;
-    height: auto;
+    /* max-width: 600px;
+    height: auto; */
   }
+
   .stuffBoxSwitch {
     display: flex;
     justify-content: center;
