@@ -746,11 +746,11 @@ a:active {
   }
 
   .fix_width {
-    max-width: 90vw;
+    max-width: 600px;
   }
 
   #stuffBox {
-    transform: scale(50%, 50%);
+    transform: scale(60%, 60%);
     /* max-width: 600px;
     height: auto; */
   }
