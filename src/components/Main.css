@@ -747,7 +747,7 @@ a:active {
 
   #stuffBox {
     transform: scale(60%, 60%);
-    max-width: 600px;
+    max-width: 40vw;
     height: auto;
   }
   .stuffBoxSwitch {
