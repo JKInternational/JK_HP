@@ -23,8 +23,8 @@ class Tichop extends React.Component {
       backgroundColor: "none",
       width: "200px",
       height: "50px",
-      margin: "10px",
-      padding: "10px",
+      margin: "0px",
+      padding: "0px",
     };
 
       return <>
