@@ -79,6 +79,7 @@ a:active {
 }
 
 .dropdownBtnAbove {
+  font-family: "NanumGothic", sans-serif;
   color: black;
   font-size: 16px;
   border: none;
