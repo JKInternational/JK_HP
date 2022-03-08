@@ -478,6 +478,12 @@ a:active {
   justify-content: center;
 }
 
+.stuffPairGroup {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
 .Main .container0 {
   max-width: 100vw;
   display: flex;
