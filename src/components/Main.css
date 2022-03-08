@@ -27,6 +27,12 @@ body {
   font-family: "NanumGothic", sans-serif;
 }
 
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 a,
 a:visited,
 a:hover,
@@ -74,7 +80,7 @@ a:active {
 
 .dropdownBtnAbove {
   color: black;
-  font-size: 15.5px;
+  font-size: 16px;
   border: none;
   min-width: 140px;
   height: 45px;
