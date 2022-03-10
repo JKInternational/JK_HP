@@ -23,30 +23,129 @@ class TichopComp extends React.Component {
       const response = await axios.get(
         "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_comp&filters[category][1]=comp_1hp"
       );
+
+      if (
+        response &&
+        response.data &&
+        response.data.data &&
+        response.data.data.map
+      ) {
+        var grouped = [];
+        var each = [];
+        for (var i = 0; i < response.data.data.length; ++i) {
+          if (i % 2 == 0) {
+            each = [response.data.data[i]];
+          } else {
+            each.push(response.data.data[i]);
+            grouped.push(each);
+            each = [];
+          }
+        }
+        if (each.length > 0) {
+          grouped.push(each);
+        }
+        response.data.data = grouped;
+      }
+
       this.setState({ comp_1hp: response });
     } catch (error) {
       this.setState({ error });
     }
+
     try {
       const response = await axios.get(
         "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_comp&filters[category][1]=comp_2hp"
       );
+
+      if (
+        response &&
+        response.data &&
+        response.data.data &&
+        response.data.data.map
+      ) {
+        var grouped = [];
+        var each = [];
+        for (var i = 0; i < response.data.data.length; ++i) {
+          if (i % 2 == 0) {
+            each = [response.data.data[i]];
+          } else {
+            each.push(response.data.data[i]);
+            grouped.push(each);
+            each = [];
+          }
+        }
+        if (each.length > 0) {
+          grouped.push(each);
+        }
+        response.data.data = grouped;
+      }
+
       this.setState({ comp_2hp: response });
     } catch (error) {
       this.setState({ error });
     }
+
     try {
       const response = await axios.get(
         "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_comp&filters[category][1]=comp_4hp"
       );
+
+      if (
+        response &&
+        response.data &&
+        response.data.data &&
+        response.data.data.map
+      ) {
+        var grouped = [];
+        var each = [];
+        for (var i = 0; i < response.data.data.length; ++i) {
+          if (i % 2 == 0) {
+            each = [response.data.data[i]];
+          } else {
+            each.push(response.data.data[i]);
+            grouped.push(each);
+            each = [];
+          }
+        }
+        if (each.length > 0) {
+          grouped.push(each);
+        }
+        response.data.data = grouped;
+      }
+
       this.setState({ comp_4hp: response });
     } catch (error) {
       this.setState({ error });
     }
+
     try {
       const response = await axios.get(
         "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=tichop_comp&filters[category][1]=etc"
       );
+
+      if (
+        response &&
+        response.data &&
+        response.data.data &&
+        response.data.data.map
+      ) {
+        var grouped = [];
+        var each = [];
+        for (var i = 0; i < response.data.data.length; ++i) {
+          if (i % 2 == 0) {
+            each = [response.data.data[i]];
+          } else {
+            each.push(response.data.data[i]);
+            grouped.push(each);
+            each = [];
+          }
+        }
+        if (each.length > 0) {
+          grouped.push(each);
+        }
+        response.data.data = grouped;
+      }
+
       this.setState({ etc: response });
     } catch (error) {
       this.setState({ error });
@@ -113,32 +212,38 @@ class TichopComp extends React.Component {
               <div className="section">1마력</div>
               <div className="stuffgroup">
                 {this.state.comp_1hp.data && this.state.comp_1hp.data.data.map
-                  ? this.state.comp_1hp.data.data.map(item => {
+                  ? this.state.comp_1hp.data.data.map((pairItem) => {
                       return (
-                        <ul className="container0">
-                          <Link
-                            to={"/detail/" + item.id}
-                            className="stuffBoxSwitch"
-                            href=""
-                          >
-                            <li id="stuffBox" style={stuffBox}>
-                              <p>
-                                <img
-                                  className="stuffBoxImg"
-                                  src={
-                                    "http://jkintl.iptime.org:10337" +
-                                    item.attributes.mainImage.data.attributes
-                                      .url
-                                  }
-                                />
-                              </p>
-                              <p id="stuffName">{item.attributes.name}</p>
-                              <p id="stuffSpec" style={textBox}>
-                                {item.attributes.mainDescription}
-                              </p>
-                            </li>
-                          </Link>
-                        </ul>
+                        <div class="stuffPairGroup">
+                          {pairItem.map((item) => {
+                            return (
+                              <ul className="container0">
+                                <Link
+                                  to={"/detail/" + item.id}
+                                  className="stuffBoxSwitch"
+                                  href=""
+                                >
+                                  <li id="stuffBox" style={stuffBox}>
+                                    <p>
+                                      <img
+                                        className="stuffBoxImg"
+                                        src={
+                                          "http://jkintl.iptime.org:10337" +
+                                          item.attributes.mainImage.data
+                                            .attributes.url
+                                        }
+                                      />
+                                    </p>
+                                    <p id="stuffName">{item.attributes.name}</p>
+                                    <p id="stuffSpec" style={textBox}>
+                                      {item.attributes.mainDescription}
+                                    </p>
+                                  </li>
+                                </Link>
+                              </ul>
+                            );
+                          })}
+                        </div>
                       );
                     })
                   : ""}
@@ -147,32 +252,38 @@ class TichopComp extends React.Component {
               <div className="section">2마력</div>
               <div className="stuffgroup">
                 {this.state.comp_2hp.data && this.state.comp_2hp.data.data.map
-                  ? this.state.comp_2hp.data.data.map(item => {
+                  ? this.state.comp_2hp.data.data.map((pairItem) => {
                       return (
-                        <ul className="container0">
-                          <Link
-                            to={"/detail/" + item.id}
-                            className="stuffBoxSwitch"
-                            href=""
-                          >
-                            <li id="stuffBox" style={stuffBox}>
-                              <p>
-                                <img
-                                  className="stuffBoxImg"
-                                  src={
-                                    "http://jkintl.iptime.org:10337" +
-                                    item.attributes.mainImage.data.attributes
-                                      .url
-                                  }
-                                />
-                              </p>
-                              <p id="stuffName">{item.attributes.name}</p>
-                              <p id="stuffSpec" style={textBox}>
-                                {item.attributes.mainDescription}
-                              </p>
-                            </li>
-                          </Link>
-                        </ul>
+                        <div class="stuffPairGroup">
+                          {pairItem.map((item) => {
+                            return (
+                              <ul className="container0">
+                                <Link
+                                  to={"/detail/" + item.id}
+                                  className="stuffBoxSwitch"
+                                  href=""
+                                >
+                                  <li id="stuffBox" style={stuffBox}>
+                                    <p>
+                                      <img
+                                        className="stuffBoxImg"
+                                        src={
+                                          "http://jkintl.iptime.org:10337" +
+                                          item.attributes.mainImage.data
+                                            .attributes.url
+                                        }
+                                      />
+                                    </p>
+                                    <p id="stuffName">{item.attributes.name}</p>
+                                    <p id="stuffSpec" style={textBox}>
+                                      {item.attributes.mainDescription}
+                                    </p>
+                                  </li>
+                                </Link>
+                              </ul>
+                            );
+                          })}
+                        </div>
                       );
                     })
                   : ""}
@@ -181,32 +292,38 @@ class TichopComp extends React.Component {
               <div className="section">4마력</div>
               <div className="stuffgroup">
                 {this.state.comp_4hp.data && this.state.comp_4hp.data.data.map
-                  ? this.state.comp_4hp.data.data.map(item => {
+                  ? this.state.comp_4hp.data.data.map((pairItem) => {
                       return (
-                        <ul className="container0">
-                          <Link
-                            to={"/detail/" + item.id}
-                            className="stuffBoxSwitch"
-                            href=""
-                          >
-                            <li id="stuffBox" style={stuffBox}>
-                              <p>
-                                <img
-                                  className="stuffBoxImg"
-                                  src={
-                                    "http://jkintl.iptime.org:10337" +
-                                    item.attributes.mainImage.data.attributes
-                                      .url
-                                  }
-                                />
-                              </p>
-                              <p id="stuffName">{item.attributes.name}</p>
-                              <p id="stuffSpec" style={textBox}>
-                                {item.attributes.mainDescription}
-                              </p>
-                            </li>
-                          </Link>
-                        </ul>
+                        <div class="stuffPairGroup">
+                          {pairItem.map((item) => {
+                            return (
+                              <ul className="container0">
+                                <Link
+                                  to={"/detail/" + item.id}
+                                  className="stuffBoxSwitch"
+                                  href=""
+                                >
+                                  <li id="stuffBox" style={stuffBox}>
+                                    <p>
+                                      <img
+                                        className="stuffBoxImg"
+                                        src={
+                                          "http://jkintl.iptime.org:10337" +
+                                          item.attributes.mainImage.data
+                                            .attributes.url
+                                        }
+                                      />
+                                    </p>
+                                    <p id="stuffName">{item.attributes.name}</p>
+                                    <p id="stuffSpec" style={textBox}>
+                                      {item.attributes.mainDescription}
+                                    </p>
+                                  </li>
+                                </Link>
+                              </ul>
+                            );
+                          })}
+                        </div>
                       );
                     })
                   : ""}
@@ -215,32 +332,38 @@ class TichopComp extends React.Component {
               <div className="section">기타</div>
               <div className="stuffgroup">
                 {this.state.etc.data && this.state.etc.data.data.map
-                  ? this.state.etc.data.data.map(item => {
+                  ? this.state.etc.data.data.map((pairItem) => {
                       return (
-                        <ul className="container0">
-                          <Link
-                            to={"/detail/" + item.id}
-                            className="stuffBoxSwitch"
-                            href=""
-                          >
-                            <li id="stuffBox" style={stuffBox}>
-                              <p>
-                                <img
-                                  className="stuffBoxImg"
-                                  src={
-                                    "http://jkintl.iptime.org:10337" +
-                                    item.attributes.mainImage.data.attributes
-                                      .url
-                                  }
-                                />
-                              </p>
-                              <p id="stuffName">{item.attributes.name}</p>
-                              <p id="stuffSpec" style={textBox}>
-                                {item.attributes.mainDescription}
-                              </p>
-                            </li>
-                          </Link>
-                        </ul>
+                        <div class="stuffPairGroup">
+                          {pairItem.map((item) => {
+                            return (
+                              <ul className="container0">
+                                <Link
+                                  to={"/detail/" + item.id}
+                                  className="stuffBoxSwitch"
+                                  href=""
+                                >
+                                  <li id="stuffBox" style={stuffBox}>
+                                    <p>
+                                      <img
+                                        className="stuffBoxImg"
+                                        src={
+                                          "http://jkintl.iptime.org:10337" +
+                                          item.attributes.mainImage.data
+                                            .attributes.url
+                                        }
+                                      />
+                                    </p>
+                                    <p id="stuffName">{item.attributes.name}</p>
+                                    <p id="stuffSpec" style={textBox}>
+                                      {item.attributes.mainDescription}
+                                    </p>
+                                  </li>
+                                </Link>
+                              </ul>
+                            );
+                          })}
+                        </div>
                       );
                     })
                   : ""}
