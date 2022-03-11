@@ -87,7 +87,7 @@ class Notice extends React.Component {
             {this.state.notice.data &&
             this.state.notice.data.data &&
             this.state.notice.data.data.map
-              ? this.state.notice.data.data.map(item => {
+              ? this.state.notice.data.data.map((item) => {
                   return (
                     <>
                       <div id="line1" />
@@ -106,7 +106,7 @@ class Notice extends React.Component {
                             </button>
                           </li>
                           <li className="content" id={"content" + item.id}>
-                            {item.attributes.content}
+                            <pre>{item.attributes.content}</pre>
                           </li>
                         </ul>
                         <li id="date">
