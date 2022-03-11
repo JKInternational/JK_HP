@@ -269,7 +269,7 @@ class TichopComp extends React.Component {
                                         className="stuffBoxImg"
                                         src={
                                           "http://jkintl.iptime.org:10337" +
-                                          item.attributes.mainImage.data
+                                          item.attributes.indexImage.data
                                             .attributes.url
                                         }
                                       />
@@ -309,7 +309,7 @@ class TichopComp extends React.Component {
                                         className="stuffBoxImg"
                                         src={
                                           "http://jkintl.iptime.org:10337" +
-                                          item.attributes.mainImage.data
+                                          item.attributes.indexImage.data
                                             .attributes.url
                                         }
                                       />
@@ -349,7 +349,7 @@ class TichopComp extends React.Component {
                                         className="stuffBoxImg"
                                         src={
                                           "http://jkintl.iptime.org:10337" +
-                                          item.attributes.mainImage.data
+                                          item.attributes.indexImage.data
                                             .attributes.url
                                         }
                                       />
