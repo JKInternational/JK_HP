@@ -2,7 +2,8 @@ import bannerBlueshark from "./imgs/bannerBlueshark.jpg";
 
 import React from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import withRouter from "./util.js";
 import "./Brand.css";
 
 class SearchPage extends React.Component {
@@ -15,13 +16,27 @@ class SearchPage extends React.Component {
   };
 
   componentDidMount = async () => {
+    var iserror = false;
+
     try {
+      console.log(this.props.params.query);
       const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/items/?populate=*&_limit=-1&filters[$or][0][description][$containsi]=★★★★★★&filters[$or][1][name][$containsi]=1&filters[$or][2][mainDescription][$containsi]=a"
+        "http://jkintl.iptime.org:10337/api/items/?populate=*&_limit=-1&filters[$or][0][description][$containsi]=" +
+          String(this.props.params.query) +
+          "&filters[$or][1][name][$containsi]=" +
+          String(this.props.params.query) +
+          "&filters[$or][2][mainDescription][$containsi]=" +
+          String(this.props.params.query)
       );
+      console.log(response);
       this.setState({ searchFunction: response });
     } catch (error) {
-      this.setState({ error });
+      iserror = true;
+    }
+    if (iserror) {
+      this.setState({
+        searchFunction: { data: { data: [] } },
+      });
     }
   };
 
@@ -44,9 +59,11 @@ class SearchPage extends React.Component {
       padding: "10px",
     };
 
-    if (this.state.고쳐야할부분.data) {
-      console.log(this.state.고쳐야할부분.data.data);
-    }
+    // if (this.state.searchFunction) {
+    //   console.log("kim");
+    //   console.log(this.state.searchFunction);
+    //   console.log("YO");
+    // }
 
     return (
       <>
@@ -72,42 +89,43 @@ class SearchPage extends React.Component {
             </div>
           </div>
 
-          {/* 여기까지 MainBanner 적용*/}
-
           <div className="fix_width">
             <div className="section">검색결과입니다.</div>
 
             <div className="stuffgroup">
-              {this.state.고쳐야할부분.data &&
-              this.state.고쳐야할부분.data.data.map
-                ? this.state.고쳐야할부분.data.data.map(item => {
-                    return (
-                      <ul className="container0">
-                        <Link
-                          to={"/detail/" + item.id}
-                          className="stuffBoxSwitch"
-                          href=""
-                        >
-                          <li id="stuffBox" style={stuffBox}>
-                            <p>
-                              <img
-                                className="stuffBoxImg"
-                                src={
-                                  "http://jkintl.iptime.org:10337" +
-                                  item.attributes.indexImage.data.attributes.url
-                                }
-                              />
-                            </p>
-                            <p id="stuffName">{item.attributes.name}</p>
-                            <p id="stuffSpec" style={textBox}>
-                              {item.attributes.mainDescription}
-                            </p>
-                          </li>
-                        </Link>
-                      </ul>
-                    );
-                  })
-                : ""}
+              {this.state.searchFunction.data &&
+              this.state.searchFunction.data.data.map &&
+              this.state.searchFunction.data.data.length > 0 ? (
+                this.state.searchFunction.data.data.map(item => {
+                  return (
+                    <ul className="container0">
+                      <Link
+                        to={"/detail/" + item.id}
+                        className="stuffBoxSwitch"
+                        href=""
+                      >
+                        <li id="stuffBox" style={stuffBox}>
+                          <p>
+                            <img
+                              className="stuffBoxImg"
+                              src={
+                                "http://jkintl.iptime.org:10337" +
+                                item.attributes.indexImage.data.attributes.url
+                              }
+                            />
+                          </p>
+                          <p id="stuffName">{item.attributes.name}</p>
+                          <p id="stuffSpec" style={textBox}>
+                            {item.attributes.mainDescription}
+                          </p>
+                        </li>
+                      </Link>
+                    </ul>
+                  );
+                })
+              ) : (
+                <h1>박헌진</h1>
+              )}
             </div>
           </div>
         </div>
@@ -116,4 +134,4 @@ class SearchPage extends React.Component {
   }
 }
 
-export default SearchPage;
+export default withRouter(SearchPage);
