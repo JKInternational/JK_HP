@@ -2,7 +2,7 @@ import bannerBlueshark from "./imgs/bannerBlueshark.jpg";
 
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Brand.css";
 
 class SearchPage extends React.Component {
@@ -11,15 +11,15 @@ class SearchPage extends React.Component {
   }
 
   state = {
-    polishing_stone: {},
+    searchFunction: {},
   };
 
   componentDidMount = async () => {
     try {
       const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=blueshark&filters[category][1]=polishing_stone"
+        "http://jkintl.iptime.org:10337/api/items/?populate=*&_limit=-1&filters[$or][0][description][$containsi]=★★★★★★&filters[$or][1][name][$containsi]=1&filters[$or][2][mainDescription][$containsi]=a"
       );
-      this.setState({ polishing_stone: response });
+      this.setState({ searchFunction: response });
     } catch (error) {
       this.setState({ error });
     }
@@ -44,8 +44,8 @@ class SearchPage extends React.Component {
       padding: "10px",
     };
 
-    if (this.state.polishing_stone.data) {
-      console.log(this.state.polishing_stone.data.data);
+    if (this.state.고쳐야할부분.data) {
+      console.log(this.state.고쳐야할부분.data.data);
     }
 
     return (
@@ -75,13 +75,12 @@ class SearchPage extends React.Component {
           {/* 여기까지 MainBanner 적용*/}
 
           <div className="fix_width">
-
             <div className="section">검색결과입니다.</div>
 
             <div className="stuffgroup">
-              {this.state.polishing_stone.data &&
-              this.state.polishing_stone.data.data.map
-                ? this.state.polishing_stone.data.data.map(item => {
+              {this.state.고쳐야할부분.data &&
+              this.state.고쳐야할부분.data.data.map
+                ? this.state.고쳐야할부분.data.data.map(item => {
                     return (
                       <ul className="container0">
                         <Link

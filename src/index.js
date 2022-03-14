@@ -38,7 +38,10 @@ const App = () => {
           <Route path="/notice" element={<Notice />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/detail/:id" element={<Detail />} />
-          <Route path="/:dummy" element={<h1>정확히 좀 눌러라.</h1>} />
+          <Route
+            path="/:dummy"
+            element={<h1>존재하지 않는 페이지입니다.</h1>}
+          />
         </Routes>
       </ScrollToTop>
       <Footer />
