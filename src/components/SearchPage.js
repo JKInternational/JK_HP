@@ -96,7 +96,7 @@ class SearchPage extends React.Component {
               {this.state.searchFunction.data &&
               this.state.searchFunction.data.data.map &&
               this.state.searchFunction.data.data.length > 0 ? (
-                this.state.searchFunction.data.data.map(item => {
+                this.state.searchFunction.data.data.map((item) => {
                   return (
                     <ul className="container0">
                       <Link
@@ -124,7 +124,7 @@ class SearchPage extends React.Component {
                   );
                 })
               ) : (
-                <h1>박헌진</h1>
+                <h1>검색결과가 없습니다.</h1>
               )}
             </div>
           </div>
