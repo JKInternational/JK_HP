@@ -171,7 +171,7 @@ class SearchPage extends React.Component {
                   );
                 })
               ) : (
-                <h2 id="noStuff">찾으시는 상품이 없습니다.</h2>
+                <h2 id="noStuff"></h2>
               )}
             </div>
           </div>

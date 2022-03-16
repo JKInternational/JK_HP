@@ -40,7 +40,7 @@ class Navbar extends React.Component {
                   </div>
                   <Link to="blueshark">블루샤크</Link>
                   <Link to="worthytool">워디툴</Link>
-                  <Link to="etc">기타</Link>
+                  {/* <Link to="etc">기타</Link> */}
                 </div>
               </li>
               <li className="navbar_menu1">
@@ -104,7 +104,7 @@ class Navbar extends React.Component {
                     </div>
                     <a href="blueshark">블루샤크</a>
                     <a href="worthytool">워디툴</a>
-                    <a href="etc">기타</a>
+                    {/* <a href="etc">기타</a> */}
                   </div>
                 </div>
                 <div id="dcs3">
