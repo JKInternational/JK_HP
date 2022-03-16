@@ -122,7 +122,7 @@ class SearchPage extends React.Component {
 
           <div className="navbar_search1">
             <input type="text" placeholder="제품 찾기" />
-            <Link to="searchpage/:query">
+            <Link to="searchpage">
               <button id="searchBtn">
                 <img src={searchBtn} />
               </button>

@@ -23,7 +23,7 @@ class Navbar extends React.Component {
                   <h4>JK인터내셔널</h4>
                 </button>
                 <div className="dropdownContent">
-                  <Link to="/introduce">회사소개</Link>
+                  <Link to="introduce">회사소개</Link>
                 </div>
               </li>
               <li className="navbar_menu1">
@@ -71,7 +71,7 @@ class Navbar extends React.Component {
 
             <div className="navbar_search">
               <input type="text" placeholder="제품 찾기" />
-              <Link to="searchpage/:query">
+              <Link to="searchpage/">
                 <button id="searchBtn">
                   <img src={searchBtn} />
                 </button>
