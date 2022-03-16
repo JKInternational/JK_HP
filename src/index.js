@@ -32,6 +32,7 @@ const App = () => {
           <Route path="/tichopcomp" element={<TichopComp />} />
           <Route path="/blueshark" element={<Blueshark />} />
           <Route path="/worthytool" element={<Worthytool />} />
+          <Route path="/searchpage" element={<SearchPage />} />
           <Route path="/searchpage/:query" element={<SearchPage />} />
           <Route path="/etc" element={<Etc />} />
           <Route path="/movie" element={<Movie />} />
@@ -40,7 +41,7 @@ const App = () => {
           <Route path="/detail/:id" element={<Detail />} />
           <Route
             path="/:dummy"
-            element={<h1>존재하지 않는 페이지입니다.</h1>}
+            element={<h2>존재하지 않는 페이지입니다.</h2>}
           />
         </Routes>
       </ScrollToTop>

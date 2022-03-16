@@ -55,6 +55,18 @@ button:active {
   cursor: pointer;
 }
 
+.navbar_search1 {
+  display: none;
+  /* display: flex; */
+  align-items: center;
+  padding: 15px 40px;
+}
+
+#searchBtn {
+  border: 0;
+  background-color: transparent;
+}
+
 .Worthytool .container,
 .Blueshark .container,
 .TichopPower .container,
@@ -397,6 +409,17 @@ button:active {
   }
   .mainBannerBack {
     height: 200px;
+  }
+
+  .navbar_search1 {
+    display: block;
+    display: flex;
+    align-items: center;
+    padding: 15px 40px;
+  }
+
+  #noStuff {
+    margin: 50px 0px 80px 0px;
   }
 
   #edge1 {

@@ -71,7 +71,7 @@ class Navbar extends React.Component {
 
             <div className="navbar_search">
               <input type="text" placeholder="제품 찾기" />
-              <Link to="searchpage">
+              <Link to="searchpage/:query">
                 <button id="searchBtn">
                   <img src={searchBtn} />
                 </button>

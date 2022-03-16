@@ -1,4 +1,4 @@
-import bannerBlueshark from "./imgs/bannerBlueshark.jpg";
+import searchBtn from "./imgs/search_btn.png";
 
 import React from "react";
 import axios from "axios";
@@ -111,24 +111,26 @@ class SearchPage extends React.Component {
               <div className="category">
                 <span>Home</span>
                 <span>></span>
-                <span>검색결과</span>
+                <span>상품검색</span>
               </div>
               <p>
-                <h1>검색결과</h1>
+                <h1>상품검색</h1>
               </p>
               <div id="line" />
             </div>
           </div>
 
-          <div className="mainBanner">
-            <div className="mainBannerParents">
-              <img id="mainBannerImg" src={bannerBlueshark} />
-              <div id="mainBannerText">검색결과</div>
-            </div>
+          <div className="navbar_search1">
+            <input type="text" placeholder="제품 찾기" />
+            <Link to="searchpage/:query">
+              <button id="searchBtn">
+                <img src={searchBtn} />
+              </button>
+            </Link>
           </div>
 
           <div className="fix_width">
-            <div className="section">검색결과입니다.</div>
+            {/* <div className="section">검색결과입니다.</div> */}
 
             <div className="stuffgroup">
               {this.state.searchFunction.data &&
@@ -141,7 +143,7 @@ class SearchPage extends React.Component {
                         return (
                           <ul className="container0">
                             <Link
-                              to={"/detail/" + item.id}
+                              to={"/searchpage/" + item.id}
                               className="stuffBoxSwitch"
                               href=""
                             >
@@ -169,7 +171,7 @@ class SearchPage extends React.Component {
                   );
                 })
               ) : (
-                <h1>검색결과가 없습니다.</h1>
+                <h2 id="noStuff">찾으시는 상품이 없습니다.</h2>
               )}
             </div>
           </div>
