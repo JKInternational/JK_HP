@@ -63,8 +63,16 @@ button:active {
 }
 
 #searchBtn {
-  border: 0;
-  background-color: transparent;
+  background-image: url("./imgs/search_btn.png");
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  border: 0px;
+  cursor: pointer;
+  outline: 0;
+  padding: 0px;
+  /* background-color: transparent; */
 }
 
 .Worthytool .container,

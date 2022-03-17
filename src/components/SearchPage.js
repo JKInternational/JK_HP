@@ -1,9 +1,10 @@
-import searchBtn from "./imgs/search_btn.png";
+// import searchBtn from "./imgs/search_btn.png";
 
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import withRouter from "./util.js";
+import QueryString from "qs";
 import "./Brand.css";
 
 class SearchPage extends React.Component {
@@ -13,41 +14,36 @@ class SearchPage extends React.Component {
 
   state = {
     searchFunction: {},
+    searchquery: "",
   };
 
   componentDidMount = async () => {
     var iserror = false;
 
-    try {
-      // console.log(this.props.params.query);
-      const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/items/?populate=*&_limit=-1&filters[$or][0][description][$containsi]=" +
-          String(this.props.params.query) +
-          "&filters[$or][1][name][$containsi]=" +
-          String(this.props.params.query) +
-          "&filters[$or][2][mainDescription][$containsi]=" +
-          String(this.props.params.query)
-      );
-      // console.log(response);
-      // this.setState({ searchFunction: response });
-    } catch (error) {
-      iserror = true;
-    }
-    if (iserror) {
+    var query = QueryString.parse(this.props.location.search, {
+      ignoreQueryPrefix: true,
+    });
+
+    var bbb = query["searchword"] ? query["searchword"] : "";
+
+    if (bbb == "") {
       this.setState({
         searchFunction: { data: { data: [] } },
       });
+      return;
     }
+
+    this.setState({ searchquery: bbb });
 
     try {
       // console.log(this.props.params.query);
       const response = await axios.get(
         "http://jkintl.iptime.org:10337/api/items/?populate=*&_limit=-1&filters[$or][0][description][$containsi]=" +
-          String(this.props.params.query) +
+          bbb +
           "&filters[$or][1][name][$containsi]=" +
-          String(this.props.params.query) +
+          bbb +
           "&filters[$or][2][mainDescription][$containsi]=" +
-          String(this.props.params.query)
+          bbb
       );
 
       if (
@@ -74,7 +70,12 @@ class SearchPage extends React.Component {
       }
       this.setState({ searchFunction: response });
     } catch (error) {
-      this.setState({ error });
+      iserror = true;
+    }
+    if (iserror) {
+      this.setState({
+        searchFunction: { data: { data: [] } },
+      });
     }
   };
 
@@ -114,19 +115,27 @@ class SearchPage extends React.Component {
                 <span>상품검색</span>
               </div>
               <p>
-                <h1>상품검색</h1>
+                <h1>
+                  {this.state.searchquery != ""
+                    ? '"' +
+                      this.state.searchquery +
+                      '"' +
+                      "에 대한 검색 결과입니다."
+                    : "검색어를 입력해주세요."}
+                </h1>
               </p>
               <div id="line" />
             </div>
           </div>
 
           <div className="navbar_search1">
-            <input type="text" placeholder="제품 찾기" />
-            <Link to="searchpage">
-              <button id="searchBtn">
-                <img src={searchBtn} />
-              </button>
-            </Link>
+            <form action="">
+              <input type="text" name="searchWord" placeholder="상품 검색" />
+              {/* <Link to="searchpage"> */}
+              <input type="submit" value="" id="searchBtn" />
+              {/* <img src={searchBtn} /> */}
+              {/* </Link> */}
+            </form>
           </div>
 
           <div className="fix_width">
@@ -171,7 +180,11 @@ class SearchPage extends React.Component {
                   );
                 })
               ) : (
-                <h2 id="noStuff"></h2>
+                <h2 id="noStuff">
+                  {this.state.searchquery == ""
+                    ? ""
+                    : "검색하신 상품이 없습니다."}
+                </h2>
               )}
             </div>
           </div>

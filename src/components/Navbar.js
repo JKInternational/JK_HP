@@ -70,12 +70,13 @@ class Navbar extends React.Component {
             </ul>
 
             <div className="navbar_search">
-              <input type="text" placeholder="제품 찾기" />
-              <Link to="searchpage/">
-                <button id="searchBtn">
-                  <img src={searchBtn} />
-                </button>
-              </Link>
+              <form action="searchpage">
+                <input type="text" name="searchword" placeholder="상품 검색" />
+                {/* <Link to="searchpage"> */}
+                <input type="submit" value="" id="searchBtn" />
+                {/* <img src={searchBtn} /> */}
+                {/* </Link> */}
+              </form>
             </div>
           </div>
           {/* 여기까지 Navbar PC화면 */}
@@ -130,10 +131,9 @@ class Navbar extends React.Component {
             <Link to="/">
               <img className="navbar_logo_s" src={title_logo} />
             </Link>
-            <Link to="/searchpage">
-              <button id="searchBtn">
-                <img className="search_btn_s" src={searchBtn} />
-              </button>
+            <Link to="searchpage">
+              <input type="submit" value="" id="searchBtn" />
+              {/* <img className="search_btn_s" src={searchBtn} /> */}
             </Link>
           </div>
           {/* 여기까지 Navbar 모바일 화면 */}
