@@ -152,7 +152,7 @@ class SearchPage extends React.Component {
                         return (
                           <ul className="container0">
                             <Link
-                              to={"/searchpage/" + item.id}
+                              to={"/detail/" + item.id}
                               className="stuffBoxSwitch"
                               href=""
                             >
