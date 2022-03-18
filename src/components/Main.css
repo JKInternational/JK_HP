@@ -450,9 +450,7 @@ form {
 
 .slideShow .indicator button {
   border: 0;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
+  border-radius: 8px;
   background-color: lightgray;
   width: 15px;
   height: 15px;
