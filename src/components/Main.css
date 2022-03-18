@@ -453,7 +453,8 @@ form {
   border-radius: 50%;
   background-color: lightgray;
   width: 15px;
-  height: 15px !important;
+  height: 15px;
+  overflow: hidden;
 }
 
 .slideShow .indicator button:hover,
