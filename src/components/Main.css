@@ -27,10 +27,15 @@ body {
   font-family: "NanumGothic", sans-serif;
 }
 
+input,
+textarea,
 button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
 }
 
 a,
