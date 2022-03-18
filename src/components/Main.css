@@ -444,7 +444,7 @@ form {
 
 .slideShow .indicator button {
   border: 0;
-  border-radius: 50%;
+  border-radius: 100%;
   background-color: lightgray;
   width: 15px;
   height: 15px;

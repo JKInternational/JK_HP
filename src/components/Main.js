@@ -201,7 +201,9 @@ class Main extends React.Component {
               <a className="slide1 slideElement" href="">
                 <div className="mainBanner">
                   <div className="mainBannerParents">
-                    <img id="mainBannerImg" src={bannerTichop} />
+                    <Link to="tichoppower">
+                      <img id="mainBannerImg" src={bannerTichop} />
+                    </Link>
                   </div>
                 </div>
               </a>
@@ -209,21 +211,27 @@ class Main extends React.Component {
               <a className="slide1 slideElement" href="">
                 <div className="mainBanner">
                   <div className="mainBannerParents">
-                    <img id="mainBannerImg" src={bannerTichopComp} />
+                    <Link to="tichopcomp">
+                      <img id="mainBannerImg" src={bannerTichopComp} />
+                    </Link>
                   </div>
                 </div>
               </a>
               <a className="slide1 slideElement" href="">
                 <div className="mainBanner">
                   <div className="mainBannerParents">
-                    <img id="mainBannerImg" src={bannerBlueshark} />
+                    <Link to="blueshark">
+                      <img id="mainBannerImg" src={bannerBlueshark} />
+                    </Link>
                   </div>
                 </div>
               </a>
               <a className="slide1 slideElement" href="">
                 <div className="mainBanner">
                   <div className="mainBannerParents">
-                    <img id="mainBannerImg" src={bannerWorthytool} />
+                    <Link to="worthytool">
+                      <img id="mainBannerImg" src={bannerWorthytool} />
+                    </Link>
                   </div>
                 </div>
               </a>
