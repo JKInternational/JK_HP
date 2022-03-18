@@ -443,15 +443,16 @@ form {
   display: flex;
   justify-content: center;
   justify-content: space-around;
-  width: 80px;
-  height: 15px;
+  align-items: center;
+  width: 100px;
+  height: 30px;
 }
 
 .slideShow .indicator button {
   border: 0;
-  border-radius: 100%;
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
   background-color: lightgray;
   width: 15px;
   height: 15px;
