@@ -129,8 +129,8 @@ class SearchPage extends React.Component {
           </div>
 
           <div className="navbar_search1">
-            <form action="">
-              <input type="text" name="searchWord" placeholder="상품 검색" />
+            <form action="searchpage">
+              <input type="text" name="searchword" placeholder="상품 검색" />
               {/* <Link to="searchpage"> */}
               <input type="submit" value="" id="searchBtn" />
               {/* <img src={searchBtn} /> */}

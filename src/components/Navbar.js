@@ -1,5 +1,4 @@
 import title_logo from "./imgs/title_logo.png";
-import searchBtn from "./imgs/search_btn.png";
 import ham from "./imgs/hamburger.png";
 import React from "react";
 import "./Main.css";
