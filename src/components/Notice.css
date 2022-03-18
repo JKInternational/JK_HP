@@ -185,6 +185,12 @@ button:active {
   margin-bottom: 10%;
 }
 
+#contentText {
+  font-family: "NanumGothic", sans-serif;
+  color: black;
+  font-size: 16px;
+}
+
 @media screen and (max-width: 600px) {
   .boardTitle li,
   .boardContent li {

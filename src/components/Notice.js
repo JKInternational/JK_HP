@@ -55,7 +55,7 @@ class Notice extends React.Component {
               <p>
                 <h1>소식</h1>
               </p>
-              <div id="search">
+              {/* <div id="search">
                 <form action="#">
                   <select id="select">
                     <option className="select1" value="title">
@@ -72,7 +72,7 @@ class Notice extends React.Component {
                   />
                   <input className="search2" type="submit" value="검색" />
                 </form>
-              </div>
+              </div> */}
               <div id="line" />
             </div>
           </div>
@@ -106,7 +106,9 @@ class Notice extends React.Component {
                             </button>
                           </li>
                           <li className="content" id={"content" + item.id}>
-                            <pre>{item.attributes.content}</pre>
+                            <p id="contentText">
+                              <pre>{item.attributes.content}</pre>
+                            </p>
                           </li>
                         </ul>
                         <li id="date">
