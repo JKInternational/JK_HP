@@ -158,7 +158,7 @@ form {
   cursor: pointer;
   outline: 0;
   padding: 0px;
-  /* background-color: transparent; */
+  background-color: transparent;
 }
 
 /* 여기까지 PC Navbar*/
