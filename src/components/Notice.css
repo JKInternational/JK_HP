@@ -186,7 +186,7 @@ button:active {
 #boardBtn {
   border: 0;
   background-color: white;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .content {
@@ -199,12 +199,13 @@ button:active {
 #contentText {
   font-family: "NanumGothic", sans-serif;
   color: black;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 @media screen and (max-width: 600px) {
   .boardTitle li,
-  .boardContent li {
+  .boardContent li,
+  #boardBtn {
     font-size: 12px;
   }
 }
