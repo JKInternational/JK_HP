@@ -187,6 +187,7 @@ class SearchPage extends React.Component {
                 </h2>
               )}
             </div>
+            <div id="blank" />
           </div>
         </div>
       </>
