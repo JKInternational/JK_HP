@@ -1,11 +1,11 @@
-.Etc {
+/* .Etc {
   width: 100vw;
   min-height: 1000px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .Worthytool,
 .Blueshark,
@@ -406,6 +406,10 @@ button:active {
 #flexMovie {
   position: relative;
   max-width: 100%;
+}
+
+#blank {
+  height: 5vh;
 }
 
 /* 여기서부터 모바일 적용 */

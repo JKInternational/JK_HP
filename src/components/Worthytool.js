@@ -497,6 +497,7 @@ class Worthytool extends React.Component {
                   })
                 : ""}
             </div>
+            <div id="blank" />
           </div>
         </div>
       </>
