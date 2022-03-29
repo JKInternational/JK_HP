@@ -19,6 +19,7 @@ import Notice from "./components/Notice";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Detail from "./components/Detail";
+import Robots from "./components/robots.txt";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/notice" element={<Notice />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/robots.txt" element={<Robots />} />
           <Route
             path="/:dummy"
             element={<h2>존재하지 않는 페이지입니다.</h2>}
