@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import Navbar from "./components/Navbar";
 import Main from "./components/Main";
+import Carousel from "./components/Carousel";
 import Introduce from "./components/Introduce";
 import TichopPower from "./components/TichopPower";
 import TichopComp from "./components/TichopComp";
@@ -28,6 +29,7 @@ const App = () => {
       <ScrollToTop>
         <Routes>
           <Route exact path="/" element={<Main />} />
+          <Route exact path="/carousel" element={<Carousel />} />
           <Route path="/introduce" element={<Introduce />} />
           <Route path="/tichoppower" element={<TichopPower />} />
           <Route path="/tichopcomp" element={<TichopComp />} />

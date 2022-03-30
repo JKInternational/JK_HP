@@ -1,0 +1,93 @@
+.carousel {
+  max-width: 100%;
+  margin: 0;
+  background: rgb(240, 240, 240);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+}
+
+.inner {
+  white-space: nowrap;
+  transition: transform 0.5s;
+}
+
+.carousel-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+}
+
+.slideNav {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  width: 85%;
+  height: auto;
+  position: absolute;
+  z-index: 1;
+  opacity: 70%;
+}
+
+.slideNav button {
+  border: 0;
+  border-radius: 50%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.slideNav:hover,
+.slideNav:active {
+  cursor: pointer;
+  opacity: 100%;
+}
+
+.indicators > button.active {
+  background-color: dimgray;
+  color: lightgray;
+}
+
+.indicators {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  width: 100px;
+  height: 30px;
+  padding-top: 25%;
+  z-index: 1;
+}
+
+.indicators button {
+  border: 0;
+  border-radius: 50%;
+  background-color: lightgray;
+  width: 15px;
+  height: 15px;
+  padding: 0px;
+  margin: 5px;
+}
+
+.indicators button:hover,
+.indicators button:visited {
+  background-color: dimgray;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .slideNav {
+    display: none;
+  }
+}
