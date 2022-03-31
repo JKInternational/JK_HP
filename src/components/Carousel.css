@@ -90,4 +90,15 @@ button {
   .slideNav {
     display: none;
   }
+
+  .indicators {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    width: 100px;
+    height: 30px;
+    padding-top: 90%;
+    z-index: 1;
+  }
 }

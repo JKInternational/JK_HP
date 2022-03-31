@@ -379,6 +379,10 @@ form {
   height: auto;
 }
 
+.carouselContainerMobile {
+  display: none;
+}
+
 /* 여기까지 mainbanner*/
 
 .fix_width {
@@ -692,6 +696,14 @@ form {
   #edge1 {
     width: 100%;
     height: 15px;
+  }
+
+  .carouselContainer {
+    display: none;
+  }
+
+  .carouselContainerMobile {
+    display: block;
   }
 
   .fix_width {

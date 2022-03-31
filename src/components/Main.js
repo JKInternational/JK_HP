@@ -2,8 +2,10 @@ import bannerTichop from "./imgs/bannerTichop.jpg";
 import bannerTichopComp from "./imgs/bannerTichopComp.jpg";
 import bannerBlueshark from "./imgs/bannerBlueshark.jpg";
 import bannerWorthytool from "./imgs/bannerWorthytool.jpg";
-import spriteLeft from "./imgs/spriteLeft.png";
-import spriteRight from "./imgs/spriteRight.png";
+import bannerTichopMobile from "./imgs/bannerTichopMobile.jpg";
+import bannerTichopCompMobile from "./imgs/bannerTichopCompMobile.jpg";
+import bannerBluesharkMobile from "./imgs/bannerBluesharkMobile.jpg";
+import bannerWorthytoolMobile from "./imgs/bannerWorthytoolMobile.jpg";
 import youtube_logo from "./imgs/youtube_logo.png";
 
 import React from "react";
@@ -157,6 +159,23 @@ class Main extends React.Component {
               </CarouselItem>
               <CarouselItem>
                 <img className="bannerImg" src={bannerWorthytool} />
+              </CarouselItem>
+            </Carousel>
+          </div>
+
+          <div className="carouselContainerMobile">
+            <Carousel>
+              <CarouselItem>
+                <img className="bannerImg" src={bannerTichopMobile} />
+              </CarouselItem>
+              <CarouselItem>
+                <img className="bannerImg" src={bannerTichopCompMobile} />
+              </CarouselItem>
+              <CarouselItem>
+                <img className="bannerImg" src={bannerBluesharkMobile} />
+              </CarouselItem>
+              <CarouselItem>
+                <img className="bannerImg" src={bannerWorthytoolMobile} />
               </CarouselItem>
             </Carousel>
           </div>
