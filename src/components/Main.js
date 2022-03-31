@@ -112,9 +112,27 @@ class Main extends React.Component {
     */
 
   render() {
+    const opt = {
+      height: "222.75",
+      width: "396",
+      playerVars: {
+        // https://developers.google.com/youtube/player_parameters
+        autoplay: 0,
+      },
+    };
+
     const opts = {
       height: "130",
       width: "214",
+      playerVars: {
+        // https://developers.google.com/youtube/player_parameters
+        autoplay: 0,
+      },
+    };
+
+    const opts1 = {
+      height: "104.0625",
+      width: "185",
       playerVars: {
         // https://developers.google.com/youtube/player_parameters
         autoplay: 0,
@@ -299,6 +317,9 @@ class Main extends React.Component {
                   <YouTube id="flexMovie" videoId="vkdCwT_zFo8" />
                 </li>
                 <li>
+                  <YouTube id="flexMovie1" videoId="vkdCwT_zFo8" opts={opt} />
+                </li>
+                <li>
                   <ul className="link1_title">
                     <li>
                       <img src={youtube_logo} width="50" height="auto" />
@@ -313,7 +334,16 @@ class Main extends React.Component {
                 <li>
                   <ul className="link2">
                     <li>
-                      <YouTube videoId="oQqUjYhr31U" opts={opts} />
+                      <YouTube
+                        className="flexMovieSmall"
+                        videoId="oQqUjYhr31U"
+                        opts={opts}
+                      />
+                      <YouTube
+                        className="flexMovieSmall1"
+                        videoId="oQqUjYhr31U"
+                        opts={opts1}
+                      />
                     </li>
                     <li>
                       <ul className="link2_title">
@@ -335,7 +365,16 @@ class Main extends React.Component {
                 <li>
                   <ul className="link3">
                     <li>
-                      <YouTube videoId="tV88tMBQhFs" opts={opts} />
+                      <YouTube
+                        className="flexMovieSmall"
+                        videoId="tV88tMBQhFs"
+                        opts={opts}
+                      />
+                      <YouTube
+                        className="flexMovieSmall1"
+                        videoId="tV88tMBQhFs"
+                        opts={opts1}
+                      />
                     </li>
                     <li>
                       <ul className="link2_title">
