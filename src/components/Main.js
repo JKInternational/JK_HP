@@ -166,35 +166,51 @@ class Main extends React.Component {
         <div className="Main">
           <div className="carouselContainer">
             <Carousel>
-              <CarouselItem>
-                <img className="bannerImg" src={bannerTichop} />
-              </CarouselItem>
-              <CarouselItem>
-                <img className="bannerImg" src={bannerTichopComp} />
-              </CarouselItem>
-              <CarouselItem>
-                <img className="bannerImg" src={bannerBlueshark} />
-              </CarouselItem>
-              <CarouselItem>
-                <img className="bannerImg" src={bannerWorthytool} />
-              </CarouselItem>
+              <Link to="/tichoppower">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerTichop} />
+                </CarouselItem>
+              </Link>
+              <Link to="/tichopcomp">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerTichopComp} />
+                </CarouselItem>
+              </Link>
+              <Link to="/blueshark">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerBlueshark} />
+                </CarouselItem>
+              </Link>
+              <Link to="/worthytool">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerWorthytool} />
+                </CarouselItem>
+              </Link>
             </Carousel>
           </div>
 
           <div className="carouselContainerMobile">
             <Carousel>
-              <CarouselItem>
-                <img className="bannerImg" src={bannerTichopMobile} />
-              </CarouselItem>
-              <CarouselItem>
-                <img className="bannerImg" src={bannerTichopCompMobile} />
-              </CarouselItem>
-              <CarouselItem>
-                <img className="bannerImg" src={bannerBluesharkMobile} />
-              </CarouselItem>
-              <CarouselItem>
-                <img className="bannerImg" src={bannerWorthytoolMobile} />
-              </CarouselItem>
+              <Link to="/tichoppower">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerTichopMobile} />
+                </CarouselItem>
+              </Link>
+              <Link to="/tichopcomp">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerTichopCompMobile} />
+                </CarouselItem>
+              </Link>
+              <Link to="/blueshark">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerBluesharkMobile} />
+                </CarouselItem>
+              </Link>
+              <Link to="/worthytool">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerWorthytoolMobile} />
+                </CarouselItem>
+              </Link>
             </Carousel>
           </div>
 

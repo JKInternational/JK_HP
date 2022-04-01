@@ -63,6 +63,7 @@ const CarouselMobile = ({ children }) => {
       </div>
       <div className="slideNav">
         <button
+          id="leftBtn"
           onClick={() => {
             updateIndex(activeIndex - 1);
           }}
@@ -70,6 +71,7 @@ const CarouselMobile = ({ children }) => {
           <img src={spriteLeft} />
         </button>
         <button
+          id="rightBtn"
           onClick={() => {
             updateIndex(activeIndex + 1);
           }}
@@ -81,6 +83,7 @@ const CarouselMobile = ({ children }) => {
         {React.Children.map(children, (child, index) => {
           return (
             <button
+              id="indicatorButton"
               className={`${index === activeIndex ? "active" : ""}`}
               onClick={() => {
                 updateIndex(index);

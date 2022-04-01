@@ -102,8 +102,8 @@ class Navbar extends React.Component {
                         <a href="/tichopcomp">컴프레서</a>
                       </div>
                     </div>
-                    <a href="blueshark">블루샤크</a>
-                    <a href="worthytool">워디툴</a>
+                    <a href="http://www.jkintl.co.kr/blueshark">블루샤크</a>
+                    <a href="http://www.jkintl.co.kr/worthytool">워디툴</a>
                     {/* <a href="etc">기타</a> */}
                   </div>
                 </div>
