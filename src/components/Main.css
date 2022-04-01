@@ -707,7 +707,7 @@ form {
 
   .carouselContainerMobile {
     display: block;
-    width: 100vw
+    width: 100vw;
   }
 
   .fix_width {
