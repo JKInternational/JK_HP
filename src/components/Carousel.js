@@ -77,6 +77,28 @@ const Carousel = ({ children }) => {
           <img src={spriteRight} />
         </button>
       </div>
+
+      {/* <div className="slideNav1">
+        <div id="leftBtn">
+          <button
+            onClick={() => {
+              updateIndex(activeIndex - 1);
+            }}
+          >
+            <img src={spriteLeft} />
+          </button>
+        </div>
+        <div id="rightBtn">
+          <button
+            onClick={() => {
+              updateIndex(activeIndex + 1);
+            }}
+          >
+            <img src={spriteRight} />
+          </button>
+        </div>
+      </div> */}
+
       <div className="indicators">
         {React.Children.map(children, (child, index) => {
           return (
