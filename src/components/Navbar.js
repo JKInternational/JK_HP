@@ -73,7 +73,6 @@ class Navbar extends React.Component {
                 <input type="text" name="searchword" placeholder="상품 검색" />
                 {/* <Link to="searchpage"> */}
                 <input type="submit" value="" id="searchBtn" />
-                {/* <img src={searchBtn} /> */}
                 {/* </Link> */}
               </form>
             </div>
@@ -128,12 +127,10 @@ class Navbar extends React.Component {
               </div>
             </div>
             <Link to="/">
-              {/* <img className="navbar_logo_s" src={title_logo} /> */}
               <TitleLogo className="navbar_logo_s" width="177" height="23" />
             </Link>
             <Link to="searchpage">
               <input type="submit" value="" id="searchBtn" />
-              {/* <img className="search_btn_s" src={searchBtn} /> */}
             </Link>
           </div>
           {/* 여기까지 Navbar 모바일 화면 */}

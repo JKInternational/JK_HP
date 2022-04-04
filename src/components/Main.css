@@ -154,15 +154,16 @@ form {
 }
 
 #searchBtn {
-  background-image: url("./imgs/search_btn.png");
+  background-image: url("./imgs/search_icon.svg");
   background-position: 0px 0px;
   background-repeat: no-repeat;
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   border: 0px;
   cursor: pointer;
   outline: 0;
   padding: 0px;
+  margin: 0px 0px 0px 5px;
   background-color: transparent;
 }
 
