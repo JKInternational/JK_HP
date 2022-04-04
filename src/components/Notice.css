@@ -211,7 +211,7 @@ button:active {
 
   pre {
     font-size: 12px;
-    overflow: auto;
+    white-space: pre-line;
   }
 
 
