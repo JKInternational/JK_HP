@@ -208,4 +208,11 @@ button:active {
   #boardBtn {
     font-size: 12px;
   }
+
+  pre {
+    font-size: 12px;
+    overflow: auto;
+  }
+
+
 }
