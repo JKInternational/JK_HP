@@ -5,7 +5,7 @@ import "./Movie.css";
 
 class Movie extends React.Component {
   render() {
-    const opts = {
+    const movieOpts = {
       height: "288",
       width: "512",
       playerVars: {
@@ -14,7 +14,7 @@ class Movie extends React.Component {
       },
     };
 
-    const opts1 = {
+    const movieOpts1 = {
       height: "180",
       width: "320",
       playerVars: {
@@ -60,10 +60,10 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="o6BhMBs_htI"
                         lazy={1}
-                        opts={opts}
+                        opts={movieOpts}
                       />
                     </li>
                     <li>
@@ -82,9 +82,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="Ag1nHueUAM4"
-                        opts={opts}
+                        opts={movieOpts}
                       />
                     </li>
                     <li>
@@ -107,9 +107,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="oQqUjYhr31U"
-                        opts={opts}
+                        opts={movieOpts}
                       />
                     </li>
                     <li>
@@ -128,9 +128,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="9GUwWBj15Ls"
-                        opts={opts}
+                        opts={movieOpts}
                       />
                     </li>
                     <li>
@@ -154,9 +154,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="wfZDXjgQz6s"
-                        opts={opts}
+                        opts={movieOpts}
                       />
                     </li>
                     <li>
@@ -180,9 +180,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="hOta8UuaJz4"
-                        opts={opts}
+                        opts={movieOpts}
                       />
                     </li>
                     <li>
@@ -201,9 +201,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="kjHQ7aDdXBo"
-                        opts={opts}
+                        opts={movieOpts}
                       />
                     </li>
                     <li>
@@ -226,9 +226,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="lcVIbygFcyQ"
-                        opts={opts}
+                        opts={movieOpts}
                       />
                     </li>
                     <li>
@@ -252,9 +252,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="sGXfLUn0ow4"
-                        opts={opts}
+                        opts={movieOpts}
                       />
                     </li>
                     <li>
@@ -273,9 +273,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="OTJO0XV6dIw"
-                        opts={opts}
+                        opts={movieOpts}
                       />
                     </li>
                     <li>
@@ -296,9 +296,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="vkdCwT_zFo8"
-                        opts={opts}
+                        opts={movieOpts}
                       />
                     </li>
                     <li>
@@ -324,9 +324,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="o6BhMBs_htI"
-                        opts={opts1}
+                        opts={movieOpts1}
                       />
                     </li>
                     <li>
@@ -345,9 +345,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="Ag1nHueUAM4"
-                        opts={opts1}
+                        opts={movieOpts1}
                       />
                     </li>
                     <li>
@@ -370,9 +370,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="oQqUjYhr31U"
-                        opts={opts1}
+                        opts={movieOpts1}
                       />
                     </li>
                     <li>
@@ -391,9 +391,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="9GUwWBj15Ls"
-                        opts={opts1}
+                        opts={movieOpts1}
                       />
                     </li>
                     <li>
@@ -417,9 +417,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="wfZDXjgQz6s"
-                        opts={opts1}
+                        opts={movieOpts1}
                       />
                     </li>
                     <li>
@@ -443,9 +443,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="hOta8UuaJz4"
-                        opts={opts1}
+                        opts={movieOpts1}
                       />
                     </li>
                     <li>
@@ -464,9 +464,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="kjHQ7aDdXBo"
-                        opts={opts1}
+                        opts={movieOpts1}
                       />
                     </li>
                     <li>
@@ -489,9 +489,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="lcVIbygFcyQ"
-                        opts={opts1}
+                        opts={movieOpts1}
                       />
                     </li>
                     <li>
@@ -515,9 +515,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="sGXfLUn0ow4"
-                        opts={opts1}
+                        opts={movieOpts1}
                       />
                     </li>
                     <li>
@@ -536,9 +536,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="OTJO0XV6dIw"
-                        opts={opts1}
+                        opts={movieOpts1}
                       />
                     </li>
                     <li>
@@ -559,9 +559,9 @@ class Movie extends React.Component {
                   <ul className="innerLink1">
                     <li id="moviePadding">
                       <YouTube
-                        id="flexMovie"
+                        id="flexMovieReview"
                         videoId="vkdCwT_zFo8"
-                        opts={opts1}
+                        opts={movieOpts1}
                       />
                     </li>
                     <li>

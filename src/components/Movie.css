@@ -82,6 +82,11 @@ button:active {
   font-size: 5px;
 }
 
+.Movie #flexMovieReview {
+  position: relative;
+  max-width: 100%;
+}
+
 .Movie #search {
   display: flex;
   justify-content: flex-end;
