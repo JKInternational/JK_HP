@@ -1,5 +1,5 @@
-import title_logo from "./imgs/title_logo.png";
-import ham from "./imgs/hamburger.png";
+import { ReactComponent as TitleLogo } from "./imgs/title_logo.svg";
+import { ReactComponent as Hamburger } from "./imgs/hamburger.svg";
 import React from "react";
 import "./Main.css";
 import { Link } from "react-router-dom";
@@ -12,7 +12,7 @@ class Navbar extends React.Component {
           <div className="nav">
             <div className="navbar_logo">
               <Link to="/">
-                <img src={title_logo} />
+                <TitleLogo width="177" height="23" />
               </Link>
             </div>
 
@@ -83,7 +83,7 @@ class Navbar extends React.Component {
           <div className="navSmall">
             <div className="targetHam">
               <button className="dropdownBtn1">
-                <img className="hamburger" src={ham} />
+                <Hamburger id="hamburger" width="29" height="23" />
               </button>
               <div className="dropdownContentS">
                 <div id="dcs1">
@@ -128,7 +128,8 @@ class Navbar extends React.Component {
               </div>
             </div>
             <Link to="/">
-              <img className="navbar_logo_s" src={title_logo} />
+              {/* <img className="navbar_logo_s" src={title_logo} /> */}
+              <TitleLogo className="navbar_logo_s" width="177" height="23" />
             </Link>
             <Link to="searchpage">
               <input type="submit" value="" id="searchBtn" />
