@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import ReactMarkdown from "react-markdown";
 import "./Notice.css";
 
 class Notice extends React.Component {
@@ -106,9 +107,14 @@ class Notice extends React.Component {
                             </button>
                           </li>
                           <li className="content" id={"content" + item.id}>
-                            <p id="contentText">
-                              <pre>{item.attributes.content}</pre>
-                            </p>
+                            <div id="contentText">
+                              {/* {item.attributes.content_editable} */}
+                              <pre>
+                                <ReactMarkdown>
+                                  {item.attributes.content_editable}
+                                </ReactMarkdown>
+                              </pre>
+                            </div>
                           </li>
                         </ul>
                         <li id="date">
