@@ -823,13 +823,10 @@ form {
   }
 }
 
-@media screen and (max-width: 550px) {
-
-
+@media screen and (max-width: 375px) {
   .container0 #stuffBox {
-    transform: scale(0.65, 0.65);
+    transform: scale(0.60, 0.60);
     /* max-width: 600px;
     height: auto; */
   }
-
 }
