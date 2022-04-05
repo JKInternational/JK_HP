@@ -1,5 +1,6 @@
 .carousel {
   width: 100%;
+  height: auto;
   margin: 0;
   background: rgb(240, 240, 240);
   display: flex;
@@ -62,11 +63,11 @@ button {
 .indicators {
   position: absolute;
   display: flex;
-  justify-content: center;
   justify-content: space-around;
+  align-self: flex-end;
   width: 100px;
   height: 30px;
-  padding-top: 25%;
+  padding-bottom: 1%;
   z-index: 1;
 }
 
@@ -94,11 +95,11 @@ button {
   .indicators {
     position: absolute;
     display: flex;
-    justify-content: center;
     justify-content: space-around;
+    align-items: flex-end;
+    padding-bottom: 3%;
     width: 100px;
     height: 30px;
-    padding-top: 90%;
     z-index: 1;
   }
 }
