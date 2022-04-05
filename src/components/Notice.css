@@ -202,6 +202,10 @@ button:active {
   font-size: 15px;
 }
 
+  pre {
+  white-space: pre-line;
+  }
+
 @media screen and (max-width: 600px) {
   .boardTitle li,
   .boardContent li,

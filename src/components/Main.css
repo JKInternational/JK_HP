@@ -822,3 +822,14 @@ form {
     font-weight: lighter;
   }
 }
+
+@media screen and (max-width: 599px) {
+
+
+  .container0 #stuffBox {
+    transform: scale(0.65, 0.65);
+    /* max-width: 600px;
+    height: auto; */
+  }
+
+}

@@ -115,7 +115,7 @@ class Navbar extends React.Component {
                 <div id="dcs4">
                   <p>공지사항</p>
                   <div className="dropdownContentS4">
-                    <a href="notice">알림</a>
+                    <a href="notice">소식</a>
                   </div>
                 </div>
                 <div id="dcs5">
