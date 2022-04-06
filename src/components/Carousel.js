@@ -61,7 +61,7 @@ const Carousel = ({ children }) => {
           return React.cloneElement(child, { width: "100%" });
         })}
       </div>
-      <div className="slideNav">
+      <div className="slideNavLeft">
         <button
           onClick={() => {
             updateIndex(activeIndex - 1);
@@ -69,6 +69,8 @@ const Carousel = ({ children }) => {
         >
           <img src={spriteLeft} />
         </button>
+      </div>
+      <div className="slideNavRight">
         <button
           onClick={() => {
             updateIndex(activeIndex + 1);

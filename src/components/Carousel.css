@@ -31,26 +31,36 @@ button {
   height: auto;
 }
 
-.slideNav {
-  display: flex;
-  justify-content: center;
-  justify-content: space-between;
-  width: 85%;
+.slideNavLeft {
+  width: auto;
   height: auto;
   position: absolute;
+  left: 10%;
   z-index: 1;
   opacity: 70%;
 }
 
-.slideNav button {
+.slideNavRight {
+  width: auto;
+  height: auto;
+  position: absolute;
+  right: 10%;
+  z-index: 1;
+  opacity: 70%;
+}
+
+.slideNavLeft button,
+.slideNavRight button {
   border: 0;
   border-radius: 50%;
   margin: 0px;
   padding: 0px;
 }
 
-.slideNav:hover,
-.slideNav:active {
+.slideNavLeft:hover,
+.slideNavLeft:active,
+.slideNavRight:hover,
+.slideNavRight:active {
   cursor: pointer;
   opacity: 100%;
 }
@@ -88,7 +98,8 @@ button {
 }
 
 @media screen and (max-width: 600px) {
-  .slideNav {
+  .slideNavLeft,
+  .slideNavRight {
     display: none;
   }
 
