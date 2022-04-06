@@ -55,9 +55,12 @@ a:active {
   padding: 8px 12px;
 }
 
-.navbar_logo,
-.navbar_logo_s {
+.navbar_logo {
   padding: 15px 40px;
+}
+
+.navbar_logo_s {
+  padding: 15px 0px;
 }
 
 .navbar_menu {
@@ -153,7 +156,7 @@ form {
   align-items: center;
 }
 
-#searchBtn {
+.navSmall #searchBtn {
   background-image: url("./imgs/search_icon.svg");
   background-position: 0px 0px;
   background-repeat: no-repeat;
@@ -163,16 +166,24 @@ form {
   cursor: pointer;
   outline: 0;
   padding: 0px;
-  margin: 0px 0px 0px 5px;
+  margin: 10px 0px 10px 10px;
   background-color: transparent;
 }
 
 /* 여기까지 PC Navbar*/
 
+/* .Navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+} */
+
 .navSmall {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
+  width: 100%;
 }
 
 #hamburger {
@@ -181,7 +192,7 @@ form {
 
 .dropdownBtn1 {
   color: black;
-  padding: 10px;
+  padding: 10px 10px 10px 0px;
   font-size: 16px;
   border: none;
   background-color: transparent;
