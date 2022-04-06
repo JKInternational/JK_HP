@@ -880,8 +880,12 @@ form {
 
   .link2_3 .link3 {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     justify-content: flex-start;
   }
   
+  .link2_title #yt_logo {
+    margin: 0px;
+    padding: 10px 3px 10px 0px;
+  }
 }
