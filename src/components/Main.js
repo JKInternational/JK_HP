@@ -348,7 +348,7 @@ class Main extends React.Component {
                       <img src={youtube_logo} width="50" height="auto" />
                     </li>
                     <li>
-                      <h4 id="hv_title1">4인치 클린디스크 리뷰</h4>
+                      <h4 id="hv_title1">4인치 클린디스크</h4>
                     </li>
                   </ul>
                 </li>
@@ -384,7 +384,7 @@ class Main extends React.Component {
                           />
                         </li>
                         <li>
-                          <h6>TCS-165BL 리뷰</h6>
+                          <h6>TCS-165BL</h6>
                         </li>
                       </ul>
                     </li>
@@ -420,7 +420,7 @@ class Main extends React.Component {
                           />
                         </li>
                         <li>
-                          <h6>THD/TID-18BL 리뷰</h6>
+                          <h6>THD/TID-18BL</h6>
                         </li>
                       </ul>
                     </li>
