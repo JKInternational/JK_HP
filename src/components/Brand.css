@@ -84,7 +84,7 @@ button:active {
   outline: 0;
   padding: 0px;
   margin: 0px 0px 0px 5px;
-  /* background-color: transparent; */
+  background-color: transparent;
 }
 
 .Worthytool .container,
