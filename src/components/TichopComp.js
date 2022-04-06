@@ -1,4 +1,5 @@
 import bannerTichopComp from "./imgs/bannerTichopComp.jpg";
+import bannerTichopCompMobile from "./imgs/bannerTichopCompMobile.jpg";
 
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -196,6 +197,9 @@ class TichopComp extends React.Component {
             <div className="mainBannerParents">
               <img id="mainBannerImg" src={bannerTichopComp} />
               <div id="mainBannerText">TICHOP</div>
+            </div>
+            <div className="mainBannerParentsMobile">
+              <img id="mainBannerImgMobile" src={bannerTichopCompMobile} />
             </div>
           </div>
 

@@ -1,4 +1,5 @@
 import bannerTichop from "./imgs/bannerTichop.jpg";
+import bannerTichopMobile from "./imgs/bannerTichopMobile.jpg";
 
 import React from "react";
 import axios from "axios";
@@ -185,6 +186,9 @@ class TichopPower extends React.Component {
             <div className="mainBannerParents">
               <img id="mainBannerImg" src={bannerTichop} />
               <div id="mainBannerText">TICHOP</div>
+            </div>
+            <div className="mainBannerParentsMobile">
+              <img id="mainBannerImgMobile" src={bannerTichopMobile} />
             </div>
           </div>
 

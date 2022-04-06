@@ -1,4 +1,5 @@
 import bannerBlueshark from "./imgs/bannerBlueshark.jpg";
+import bannerBluesharkMobile from "./imgs/bannerBluesharkMobile.jpg";
 
 import React from "react";
 import axios from "axios";
@@ -123,6 +124,9 @@ class Blueshark extends React.Component {
             <div className="mainBannerParents">
               <img id="mainBannerImg" src={bannerBlueshark} />
               <div id="mainBannerText">BLUESHARK</div>
+            </div>
+            <div className="mainBannerParentsMobile">
+              <img id="mainBannerImgMobile" src={bannerBluesharkMobile} />
             </div>
           </div>
 

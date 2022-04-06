@@ -144,6 +144,10 @@ button:active {
   height: auto;
 }
 
+.mainBannerParentsMobile {
+  display: none;
+}
+
 #mainBannerImg {
   max-width: 100%;
   height: auto;
@@ -157,6 +161,12 @@ button:active {
   font-size: 5rem;
   text-shadow: 1px 1px 1px black;
   z-index: 1;
+}
+
+#mainBannerImgMobile {
+  max-width: 100%;
+  height: auto;
+  padding: 0;
 }
 
 .TichopComp #mainBannerText {
@@ -433,6 +443,15 @@ button:active {
   }
   .mainBannerBack {
     height: 200px;
+  }
+
+  
+  .mainBannerParents {
+    display: none;
+  }
+
+  .mainBannerParentsMobile {
+    display: block;
   }
 
   .navbar_search1 {
