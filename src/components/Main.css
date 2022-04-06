@@ -650,6 +650,11 @@ form {
   display: none;
 }
 
+.flexMovieSmall2 {
+  display: none;
+}
+
+
 /* 여기부터 footer*/
 
 .footerBack {
@@ -771,8 +776,13 @@ form {
   .flexMovieSmall {
     display: none;
   }
+
   .flexMovieSmall1 {
     display: block;
+  }
+
+  .flexMovieSmall2 {
+    display: none;
   }
 
   .container3 .link2_3 {
@@ -843,4 +853,35 @@ form {
     margin: 0px -4px 15px -4px;
     padding: 0px;
   }
+
+  .flexMovieSmall1 {
+    display: none;
+  }
+
+  .flexMovieSmall2 {
+    display: block;
+  }
+  
+  .link2_3 .link2_title,
+  .link2_3 .link3_title {
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: auto;
+    margin-top: 0px;
+    padding-left: 0px;
+    list-style: none;
+  }
+
+  .link2_3 .link2 {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .link2_3 .link3 {
+    display: flex;
+    justify-content: space-around;
+    justify-content: flex-start;
+  }
+  
 }

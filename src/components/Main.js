@@ -134,7 +134,14 @@ class Main extends React.Component {
       height: "104.0625",
       width: "185",
       playerVars: {
-        // https://developers.google.com/youtube/player_parameters
+        autoplay: 0,
+      },
+    };
+
+    const opts2 = {
+      height: "95.625",
+      width: "170",
+      playerVars: {
         autoplay: 0,
       },
     };
@@ -360,6 +367,11 @@ class Main extends React.Component {
                         videoId="oQqUjYhr31U"
                         opts={opts1}
                       />
+                      <YouTube
+                        className="flexMovieSmall2"
+                        videoId="oQqUjYhr31U"
+                        opts={opts2}
+                      />
                     </li>
                     <li>
                       <ul className="link2_title">
@@ -390,6 +402,11 @@ class Main extends React.Component {
                         className="flexMovieSmall1"
                         videoId="tV88tMBQhFs"
                         opts={opts1}
+                      />
+                      <YouTube
+                        className="flexMovieSmall2"
+                        videoId="tV88tMBQhFs"
+                        opts={opts2}
                       />
                     </li>
                     <li>
