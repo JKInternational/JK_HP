@@ -771,7 +771,7 @@ form {
   .mobileMenuBar {
     display: block;
     width: 100vw;
-    overflow: scroll;
+    overflow: hidden;
   }
 
   .fix_width {
