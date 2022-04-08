@@ -195,12 +195,6 @@ class TichopPower extends React.Component {
           {/* 여기까지 MainBanner 적용*/}
 
           <div className="fix_width">
-            <div id="toTichop">
-              <button id="linkTichop" type="button">
-                <a href="tichopcomp">티찹 컴프레서 보러 가기!</a>
-              </button>
-            </div>
-
             <div className="tichopPower1">
               <div className="section">체결공구</div>
 

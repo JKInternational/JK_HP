@@ -21,11 +21,13 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Detail from "./components/Detail";
 import Robots from "./components/robots.txt";
+import MobileMenuBar from "./components/MobileMenuBar";
 
 const App = () => {
   return (
     <Router>
       <Navbar />
+      <MobileMenuBar />
       <ScrollToTop>
         <Routes>
           <Route exact path="/" element={<Main />} />

@@ -219,32 +219,6 @@ button:active {
   max-width: 1500px;
 }
 
-#toTichop {
-  margin-top: 50px;
-  margin-bottom: -50px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 50px;
-  background-color: rgb(240, 240, 240);
-  z-index: 1;
-}
-
-#linkTichop:hover,
-#linkTichop:visited {
-  background-color: lightgray;
-}
-
-#linkTichop {
-  border: 0;
-  width: 70%;
-  height: 100%;
-  background-color: white;
-  font-size: 20px;
-  font-weight: bolder;
-  padding: 0px, 300px;
-}
-
 .tichopPower1,
 .tichopComp1 {
   background-color: rgb(240, 240, 240);
@@ -262,7 +236,7 @@ button:active {
   color: black;
   font-size: 12px;
   margin: 8px 3%;
-  padding: 100px 30px 30px 30px;
+  padding: 50px 30px 30px 30px;
   font-size: larger;
   font-weight: bold;
   max-width: 100%;
