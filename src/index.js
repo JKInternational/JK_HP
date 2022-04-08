@@ -27,7 +27,7 @@ const App = () => {
   return (
     <Router>
       <Navbar />
-      <MobileMenuBar />
+      {/* <MobileMenuBar /> */}
       <ScrollToTop>
         <Routes>
           <Route exact path="/" element={<Main />} />
