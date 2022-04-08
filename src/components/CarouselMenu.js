@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import "./Carousel.css";
 
-export const CarouselMenuItem = ({ children, width }) => {
+import spriteLeft from "./imgs/spriteLeft.png";
+import spriteRight from "./imgs/spriteRight.png";
+
+export const CarouselItem = ({ children, width }) => {
   return (
     <div className="carousel-item" style={{ width: width }}>
       {children}
@@ -10,7 +13,7 @@ export const CarouselMenuItem = ({ children, width }) => {
   );
 };
 
-const CarouselMenu = ({ children }) => {
+const CarouselMobile = ({ children }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -58,8 +61,41 @@ const CarouselMenu = ({ children }) => {
           return React.cloneElement(child, { width: "100%" });
         })}
       </div>
+      <div className="slideNav">
+        <button
+          id="leftBtn"
+          onClick={() => {
+            updateIndex(activeIndex - 1);
+          }}
+        >
+          <img src={spriteLeft} />
+        </button>
+        <button
+          id="rightBtn"
+          onClick={() => {
+            updateIndex(activeIndex + 1);
+          }}
+        >
+          <img src={spriteRight} />
+        </button>
+      </div>
+      <div className="indicators">
+        {React.Children.map(children, (child, index) => {
+          return (
+            <button
+              id="indicatorButton"
+              className={`${index === activeIndex ? "active" : ""}`}
+              onClick={() => {
+                updateIndex(index);
+              }}
+            >
+              {""}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 };
 
-export default CarouselMenu;
+export default CarouselMobile;
