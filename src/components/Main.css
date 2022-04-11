@@ -191,7 +191,6 @@ form {
 }
 
 .dropdownBtn1 {
-  color: black;
   padding: 10px 10px 10px 0px;
   font-size: 16px;
   border: none;
@@ -228,9 +227,9 @@ form {
   display: block;
 }
 
-.targetHam:hover .dropdownBtn1 {
+/* .targetHam:hover .dropdownBtn1 {
   background-color: #ddd;
-}
+} */
 
 @keyframes dropdownAni {
   from {
@@ -389,6 +388,13 @@ form {
 .mobileMenuBar {
   display: none;
 }
+
+.scrollContainer {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  }
 
 .menuBar {
   display: flex;
