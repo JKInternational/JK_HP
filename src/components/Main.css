@@ -742,7 +742,7 @@ form {
 
 /* 여기서부터 모바일 적용 */
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1124px) {
   .navbar_logo,
   .navbar_search {
     margin: 15px 0px 0px 0px;
