@@ -742,9 +742,17 @@ form {
 
 /* 여기서부터 모바일 적용 */
 
-@media screen and (max-width: 1100px) {
+/* @media screen and (max-width: 1150px) {
   .navbar_search {
-    padding: 8px 50px 50px 40px;
+    padding: 15px 40px;
+  }
+} */
+
+@media screen and (max-width: 1150px) {
+  .navbar_menu {
+    display: flex;
+    order: 1;
+    padding: 0px;
   }
 }
 

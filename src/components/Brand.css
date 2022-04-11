@@ -399,11 +399,11 @@ button:active {
 
 /* 여기서부터 모바일 적용 */
 
-@media screen and (max-width: 1100px) {
+/* @media screen and (max-width: 1100px) {
   .navbar_search {
     padding: 8px 50px 50px 40px;
   }
-}
+} */
 
 @media screen and (min-width: 600px) {
   .navSmall {
