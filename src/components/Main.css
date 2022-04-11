@@ -403,7 +403,7 @@ form {
 }
 
 .menuBar li {
-  padding: 13px;
+  padding: 12px;
   font-size: 14px;
   font-weight: normal;
   color: gray;
@@ -412,8 +412,8 @@ form {
 .menuBar li:hover,
 .menuBar li:active {
   cursor: pointer;
-  color: black;
-  background-color: lightgray;
+  color: dimgray;
+  background-color: rgb(229, 229, 229);
   font-weight: bolder;
 }
 
