@@ -10,8 +10,8 @@ class MobileMenuBar extends React.Component {
     return (
       <>
         <div className="mobileMenuBar">
-          <Draggable disabled={true}>
-            <ScrollContainer className="scrollContainer">
+          <ScrollContainer className="scrollContainer">
+            <Draggable disabled={true}>
               <ul className="menuBar">
                 <Link to="/introduce">
                   <li>회사소개</li>
@@ -38,8 +38,8 @@ class MobileMenuBar extends React.Component {
                   <li>찾아오시는길</li>
                 </Link>
               </ul>
-            </ScrollContainer>
-          </Draggable>
+            </Draggable>
+          </ScrollContainer>
         </div>
       </>
     );
