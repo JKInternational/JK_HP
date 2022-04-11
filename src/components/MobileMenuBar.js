@@ -1,20 +1,14 @@
 import React from "react";
 import "./Main.css";
-// import CarouselMenu, { CarouselMenuItem } from "./CarouselMenu";
 import { Link } from "react-router-dom";
-// import ScrollContainer from "react-indiana-drag-scroll";
-// import Draggable from "react-draggable";
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import "./hideScrollbar.css";
-// import HorizontalScroll from "react-scroll-horizontal";
 
 class MobileMenuBar extends React.Component {
   render() {
     return (
       <>
-        {/* <Draggable disabled={true}> */}
         <div className="mobileMenuBar">
-          {/* <ScrollContainer className="scrollContainer"> */}
           <ScrollMenu>
             <ul className="menuBar">
               <Link to="/introduce">
@@ -43,9 +37,7 @@ class MobileMenuBar extends React.Component {
               </Link>
             </ul>
           </ScrollMenu>
-          {/* </ScrollContainer> */}
         </div>
-        {/* </Draggable> */}
       </>
     );
   }
