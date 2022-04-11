@@ -8,9 +8,9 @@ class MobileMenuBar extends React.Component {
   render() {
     return (
       <>
-        <div className="mobileMenuBar">
+        <div className="mobileMenuBar" draggable="false">
           <ScrollContainer className="scrollContainer" draggable="false">
-            <ul className="menuBar">
+            <ul className="menuBar" draggable="false">
               <Link to="/introduce">
                 <li>회사소개</li>
               </Link>
