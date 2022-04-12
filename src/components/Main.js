@@ -13,6 +13,8 @@ import YouTube from "react-youtube";
 import "./Main.css";
 import { Link } from "react-router-dom";
 import Carousel, { CarouselItem } from "./Carousel";
+import { ScrollMenu } from "react-horizontal-scrolling-menu";
+import "./hideScrollbar.css";
 import axios from "axios";
 
 class Main extends React.Component {
@@ -222,9 +224,10 @@ class Main extends React.Component {
           </div>
 
           <div className="fix_width">
-            <div className="section1">NEW ARRIVAL</div>
-            <div className="stuffgroup">
-              {/*
+            <div className="deskTop">
+              <div className="section1">NEW ARRIVAL</div>
+              <div className="stuffgroup">
+                {/*
                 예전에 데이터가 담긴 array : [item0, item1, item2, item3]
                 예전 map함수는 각각을 <ul class=container0></ul>로 만들어 총 4개의 <ul></ul>을 만든다.
                 하지만 이제 우리의 array는 이렇게 생겼다.
@@ -240,47 +243,48 @@ class Main extends React.Component {
                 굳. b
             
               */}
-              {this.state.newArrival.data && this.state.newArrival.data.data.map
-                ? this.state.newArrival.data.data.map((pairItem) => {
-                    return (
-                      <div class="stuffPairGroup">
-                        {pairItem.map((singleItem) => {
-                          return (
-                            <ul className="container0">
-                              <Link
-                                to={"/detail/" + singleItem.id}
-                                className="stuffBoxSwitch"
-                                href=""
-                              >
-                                <li id="stuffBox" style={stuffBox}>
-                                  <p>
-                                    <img
-                                      className="stuffBoxImg"
-                                      src={
-                                        "http://jkintl.iptime.org:10337" +
-                                        singleItem.attributes.indexImage.data
-                                          .attributes.url
-                                      }
-                                    />
-                                  </p>
-                                  <p id="stuffName">
-                                    {singleItem.attributes.name}
-                                  </p>
-                                  <p id="stuffSpec" style={textBox}>
-                                    {singleItem.attributes.mainDescription}
-                                  </p>
-                                </li>
-                              </Link>
-                            </ul>
-                          );
-                        })}
-                      </div>
-                    );
-                  })
-                : ""}
-            </div>
+                {this.state.newArrival.data &&
+                this.state.newArrival.data.data.map
+                  ? this.state.newArrival.data.data.map((pairItem) => {
+                      return (
+                        <div class="stuffPairGroup">
+                          {pairItem.map((singleItem) => {
+                            return (
+                              <ul className="container0">
+                                <Link
+                                  to={"/detail/" + singleItem.id}
+                                  className="stuffBoxSwitch"
+                                  href=""
+                                >
+                                  <li id="stuffBox" style={stuffBox}>
+                                    <p>
+                                      <img
+                                        className="stuffBoxImg"
+                                        src={
+                                          "http://jkintl.iptime.org:10337" +
+                                          singleItem.attributes.indexImage.data
+                                            .attributes.url
+                                        }
+                                      />
+                                    </p>
+                                    <p id="stuffName">
+                                      {singleItem.attributes.name}
+                                    </p>
+                                    <p id="stuffSpec" style={textBox}>
+                                      {singleItem.attributes.mainDescription}
+                                    </p>
+                                  </li>
+                                </Link>
+                              </ul>
+                            );
+                          })}
+                        </div>
+                      );
+                    })
+                  : ""}
+              </div>
 
-            {/* <ul className="container0">
+              {/* <ul className="container0">
               <Link to="detail/2" className="stuffBoxSwitch" href="">
                 <li id="stuffBox" style={stuffBox}>
                   <p><img className="stuffBoxImg" src={tsd16bl} /></p>
@@ -290,46 +294,138 @@ class Main extends React.Component {
               </Link>
             </ul> */}
 
-            <div className="section2">BEST ITEM</div>
-            <div className="stuffgroup">
-              {this.state.bestItem.data && this.state.bestItem.data.data.map
-                ? this.state.bestItem.data.data.map((pariItem) => {
-                    return (
-                      <div class="stuffPairGroup">
-                        {pariItem.map((singleItem) => {
-                          return (
-                            <ul className="container0">
-                              <Link
-                                to={"/detail/" + singleItem.id}
-                                className="stuffBoxSwitch"
-                                href=""
-                              >
-                                <li id="stuffBox" style={stuffBox}>
-                                  <p>
-                                    <img
-                                      className="stuffBoxImg"
-                                      src={
-                                        "http://jkintl.iptime.org:10337" +
-                                        singleItem.attributes.indexImage.data
-                                          .attributes.url
-                                      }
-                                    />
-                                  </p>
-                                  <p id="stuffName">
-                                    {singleItem.attributes.name}
-                                  </p>
-                                  <p id="stuffSpec" style={textBox}>
-                                    {singleItem.attributes.mainDescription}
-                                  </p>
-                                </li>
-                              </Link>
-                            </ul>
-                          );
-                        })}
-                      </div>
-                    );
-                  })
-                : ""}
+              <div className="section2">BEST ITEM</div>
+              <div className="stuffgroup">
+                {this.state.bestItem.data && this.state.bestItem.data.data.map
+                  ? this.state.bestItem.data.data.map((pariItem) => {
+                      return (
+                        <div class="stuffPairGroup">
+                          {pariItem.map((singleItem) => {
+                            return (
+                              <ul className="container0">
+                                <Link
+                                  to={"/detail/" + singleItem.id}
+                                  className="stuffBoxSwitch"
+                                  href=""
+                                >
+                                  <li id="stuffBox" style={stuffBox}>
+                                    <p>
+                                      <img
+                                        className="stuffBoxImg"
+                                        src={
+                                          "http://jkintl.iptime.org:10337" +
+                                          singleItem.attributes.indexImage.data
+                                            .attributes.url
+                                        }
+                                      />
+                                    </p>
+                                    <p id="stuffName">
+                                      {singleItem.attributes.name}
+                                    </p>
+                                    <p id="stuffSpec" style={textBox}>
+                                      {singleItem.attributes.mainDescription}
+                                    </p>
+                                  </li>
+                                </Link>
+                              </ul>
+                            );
+                          })}
+                        </div>
+                      );
+                    })
+                  : ""}
+              </div>
+            </div>
+
+            <div className="mobileDevices">
+              <div className="section1">NEW ARRIVAL</div>
+              <ScrollMenu>
+                <div className="stuffgroup">
+                  {this.state.newArrival.data &&
+                  this.state.newArrival.data.data.map
+                    ? this.state.newArrival.data.data.map((pairItem) => {
+                        return (
+                          <div class="stuffPairGroup">
+                            {pairItem.map((singleItem) => {
+                              return (
+                                <ul className="container0">
+                                  <Link
+                                    to={"/detail/" + singleItem.id}
+                                    className="stuffBoxSwitch"
+                                    href=""
+                                  >
+                                    <li id="stuffBox" style={stuffBox}>
+                                      <p>
+                                        <img
+                                          className="stuffBoxImg"
+                                          src={
+                                            "http://jkintl.iptime.org:10337" +
+                                            singleItem.attributes.indexImage
+                                              .data.attributes.url
+                                          }
+                                        />
+                                      </p>
+                                      <p id="stuffName">
+                                        {singleItem.attributes.name}
+                                      </p>
+                                      <p id="stuffSpec" style={textBox}>
+                                        {singleItem.attributes.mainDescription}
+                                      </p>
+                                    </li>
+                                  </Link>
+                                </ul>
+                              );
+                            })}
+                          </div>
+                        );
+                      })
+                    : ""}
+                </div>
+              </ScrollMenu>
+
+              <div className="section2">BEST ITEM</div>
+              <ScrollMenu>
+                <div className="stuffgroup">
+                  {this.state.bestItem.data && this.state.bestItem.data.data.map
+                    ? this.state.bestItem.data.data.map((pariItem) => {
+                        return (
+                          <div class="stuffPairGroup">
+                            {pariItem.map((singleItem) => {
+                              return (
+                                <ul className="container0">
+                                  <Link
+                                    to={"/detail/" + singleItem.id}
+                                    className="stuffBoxSwitch"
+                                    href=""
+                                  >
+                                    <li id="stuffBox" style={stuffBox}>
+                                      <p>
+                                        <img
+                                          className="stuffBoxImg"
+                                          src={
+                                            "http://jkintl.iptime.org:10337" +
+                                            singleItem.attributes.indexImage
+                                              .data.attributes.url
+                                          }
+                                        />
+                                      </p>
+                                      <p id="stuffName">
+                                        {singleItem.attributes.name}
+                                      </p>
+                                      <p id="stuffSpec" style={textBox}>
+                                        {singleItem.attributes.mainDescription}
+                                      </p>
+                                    </li>
+                                  </Link>
+                                </ul>
+                              );
+                            })}
+                          </div>
+                        );
+                      })
+                    : ""}
+                </div>
+              </ScrollMenu>
             </div>
 
             <div className="section3">HOT VIDEO</div>

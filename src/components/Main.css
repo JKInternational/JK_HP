@@ -442,6 +442,10 @@ form {
   max-width: 1500px;
 }
 
+.mobileDevices {
+  display: none;
+}
+
 .section1 {
   display: flex;
   flex-basis: 100%;
@@ -785,6 +789,26 @@ form {
 
   .fix_width {
     max-width: 100vw;
+  }
+
+  .deskTop {
+    display: none;
+  }
+
+  .mobileDevices {
+    display: block;
+  }
+
+  .mobileDevices .stuffgroup {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+  }
+
+  .mobileDevices .stuffPairGroup {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
   }
 
   .fix_width .section1 {
