@@ -484,6 +484,7 @@ form {
   align-self: center;
   right: 2%;
   z-index: 1;
+  opacity: 75%;
   animation: motion 0.5s linear 0s infinite alternate;
   margin-right: 0;
 }
