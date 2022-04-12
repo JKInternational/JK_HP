@@ -469,6 +469,30 @@ form {
   margin: 0px 15px;
 }
 
+.scrollArrow {
+  display: flex;
+  overflow-x : auto;
+  overflow-x: auto; 
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scroll-snap-align : start
+}
+
+#arrow {
+  position: absolute;
+  display: flex;
+  align-self: center;
+  right: 2%;
+  z-index: 1;
+  animation: motion 0.5s linear 0s infinite alternate;
+  margin-right: 0;
+}
+
+@keyframes motion {
+	0% {margin-right: 0px;}
+	100% {margin-right: 5px;}
+}
+
 .stuffgroup {
   display: flex;
   flex-flow: row wrap;
