@@ -474,8 +474,6 @@ form {
   overflow-x : auto;
   overflow-x: auto; 
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-  scroll-snap-align : start
 }
 
 #arrow {
