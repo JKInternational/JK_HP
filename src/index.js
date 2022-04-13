@@ -22,6 +22,10 @@ import Footer from "./components/Footer";
 import Detail from "./components/Detail";
 import Robots from "./components/robots.txt";
 import MobileMenuBar from "./components/MobileMenuBar";
+import ScrollTop from "react-scrolltop-button";
+import { ReactComponent as ToTop } from "./components/imgs/toTop.svg";
+
+// const moveToTop = () => (document.documentElement.scrollTop = 0);
 
 const App = () => {
   return (
@@ -52,6 +56,24 @@ const App = () => {
         </Routes>
       </ScrollToTop>
       <Footer />
+      {/* <ScrollTop id="toTop"> */}
+      <ScrollTop
+        text="Top"
+        distance={10}
+        breakpoint={600}
+        style={
+          ({ backgroundColor: "white" }, { border: "0px" }, { opacity: "75%" })
+        }
+        className="toTop"
+        speed={100}
+        target={0}
+        icon={<ToTop id="toTopIcon" width="40" hight="40" />}
+      />
+      {/* <ToTop width="177" height="23" />
+      </ScrollTop> */}
+      {/* <button id="toTop" type="button" onClick={moveToTop}>
+        <ToTop width="40" height="40" />
+      </button> */}
     </Router>
   );
 };
