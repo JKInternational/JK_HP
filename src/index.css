@@ -12,36 +12,17 @@ code {
     monospace;
 }
 
-/* button #toTop {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  border-radius: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-} */
-
 .toTop {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: black; */
-  color: dimgray;
-  border: none;
   background-color: transparent;
   width: 40px;
   height: 40px;
   opacity: 75%;
   z-index: 2;
   box-shadow: 2px 3px 5px gray;
-  /* animation: motionUpDown 0.5s linear 0s infinite alternate;
-  margin-bottom: 0; */
 }
-/* 
-@keyframes motionUpDown {
-	0% {margin-bottom: 0px;}
-	100% {margin-bottom: 3px;}
-} */
 
 @media screen and (max-width: 600px) {
   .toTop {

@@ -61,7 +61,7 @@ const App = () => {
         text="Top"
         distance={20}
         breakpoint={600}
-        style={{ padding: "0px" }}
+        style={{ padding: "0px", border: "0px" }}
         className="toTop"
         speed={100}
         target={0}
