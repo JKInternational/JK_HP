@@ -22,24 +22,34 @@ code {
 } */
 
 .toTop {
+  position: fixed;
+  top: 95%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
+  color: dimgray;
   width: 40px;
   height: 40px;
   opacity: 75%;
   z-index: 2;
-  animation: motionUpDown 0.5s linear 0s infinite alternate;
-  margin-bottom: 0;
+  /* animation: motionUpDown 0.5s linear 0s infinite alternate;
+  margin-bottom: 0; */
 }
-
+/* 
 @keyframes motionUpDown {
 	0% {margin-bottom: 0px;}
 	100% {margin-bottom: 3px;}
-}
-
-/* #toTopIcon {
-  width: 40px;
-  height: 40px;
 } */
 
+@media screen and (max-width: 600px) {
+  .toTop {
+    position: fixed;
+    top: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 75%;
+    z-index: 2;
+  }
+}

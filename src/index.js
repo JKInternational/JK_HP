@@ -59,11 +59,9 @@ const App = () => {
       {/* <ScrollTop id="toTop"> */}
       <ScrollTop
         text="Top"
-        distance={10}
+        distance={20}
         breakpoint={600}
-        style={
-          ({ backgroundColor: "white" }, { border: "0px" }, { opacity: "75%" })
-        }
+        style={{ padding: "0px" }}
         className="toTop"
         speed={100}
         target={0}
