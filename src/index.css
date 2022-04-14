@@ -25,12 +25,15 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  /* background-color: black; */
   color: dimgray;
+  border: none;
+  background-color: transparent;
   width: 40px;
   height: 40px;
   opacity: 75%;
   z-index: 2;
+  box-shadow: 2px 3px 5px gray;
   /* animation: motionUpDown 0.5s linear 0s infinite alternate;
   margin-bottom: 0; */
 }
