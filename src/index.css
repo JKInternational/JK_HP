@@ -22,8 +22,6 @@ code {
 } */
 
 .toTop {
-  position: fixed;
-  top: 95%;
   display: flex;
   justify-content: center;
   align-items: center;
