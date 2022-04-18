@@ -1,3 +1,4 @@
+import bannerDC9915 from "./imgs/bannerDC9915.jpg";
 import bannerTichop from "./imgs/bannerTichop.jpg";
 import bannerTichopComp from "./imgs/bannerTichopComp.jpg";
 import bannerBlueshark from "./imgs/bannerBlueshark.jpg";
@@ -176,6 +177,11 @@ class Main extends React.Component {
         <div className="Main">
           <div className="carouselContainer">
             <Carousel>
+              <Link to="/detail/80">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerDC9915} />
+                </CarouselItem>
+              </Link>
               <Link to="/tichoppower">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerTichop} />
