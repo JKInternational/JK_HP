@@ -451,10 +451,10 @@ class Main extends React.Component {
             <div className="container3">
               <ul className="link1">
                 <li>
-                  <YouTube id="flexMovie" videoId="vkdCwT_zFo8" />
+                  <YouTube id="flexMovie" videoId="fBMWUUYX6qE" />
                 </li>
                 <li>
-                  <YouTube id="flexMovie1" videoId="vkdCwT_zFo8" opts={opt} />
+                  <YouTube id="flexMovie1" videoId="fBMWUUYX6qE" opts={opt} />
                 </li>
                 <li>
                   <ul className="link1_title">
@@ -462,7 +462,7 @@ class Main extends React.Component {
                       <img src={youtube_logo} width="50" height="auto" />
                     </li>
                     <li>
-                      <h4 id="hv_title1">4인치 클린디스크</h4>
+                      <h4 id="hv_title1">DC-9915</h4>
                     </li>
                   </ul>
                 </li>

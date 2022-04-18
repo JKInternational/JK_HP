@@ -61,6 +61,28 @@ class Movie extends React.Component {
                     <li id="moviePadding">
                       <YouTube
                         id="flexMovieReview"
+                        videoId="fBMWUUYX6qE"
+                        lazy={1}
+                        opts={movieOpts}
+                      />
+                    </li>
+                    <li>
+                      <ul className="link_title">
+                        <li>
+                          <img src={youtube_logo} width="30" height="auto" />
+                        </li>
+                        <li>
+                          <h4 id="hv_title1">(다목적)금속절단기 DC-9915</h4>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li className="innerLink">
+                  <ul className="innerLink1">
+                    <li id="moviePadding">
+                      <YouTube
+                        id="flexMovieReview"
                         videoId="o6BhMBs_htI"
                         lazy={1}
                         opts={movieOpts}
@@ -101,8 +123,6 @@ class Movie extends React.Component {
                     </li>
                   </ul>
                 </li>
-              </ul>
-              <ul className="link">
                 <li className="innerLink">
                   <ul className="innerLink1">
                     <li id="moviePadding">
@@ -147,9 +167,6 @@ class Movie extends React.Component {
                     </li>
                   </ul>
                 </li>
-              </ul>
-
-              <ul className="link">
                 <li className="innerLink">
                   <ul className="innerLink1">
                     <li id="moviePadding">
