@@ -75,7 +75,7 @@ button {
   display: flex;
   justify-content: space-around;
   align-self: flex-end;
-  width: 100px;
+  width: 145px;
   height: 30px;
   padding-bottom: 1%;
   z-index: 1;
@@ -109,7 +109,7 @@ button {
     justify-content: space-around;
     align-items: flex-end;
     padding-bottom: 3%;
-    width: 100px;
+    width: 145px;
     height: 30px;
     z-index: 1;
   }

@@ -3,6 +3,7 @@ import bannerTichop from "./imgs/bannerTichop.jpg";
 import bannerTichopComp from "./imgs/bannerTichopComp.jpg";
 import bannerBlueshark from "./imgs/bannerBlueshark.jpg";
 import bannerWorthytool from "./imgs/bannerWorthytool.jpg";
+import bannerDC9915Mobile from "./imgs/bannerDC9915Mobile.jpg";
 import bannerTichopMobile from "./imgs/bannerTichopMobile.jpg";
 import bannerTichopCompMobile from "./imgs/bannerTichopCompMobile.jpg";
 import bannerBluesharkMobile from "./imgs/bannerBluesharkMobile.jpg";
@@ -207,6 +208,11 @@ class Main extends React.Component {
 
           <div className="carouselContainerMobile">
             <Carousel>
+              <Link to="/detail/80">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerDC9915Mobile} />
+                </CarouselItem>
+              </Link>
               <Link to="/tichoppower">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerTichopMobile} />
