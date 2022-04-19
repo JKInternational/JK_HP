@@ -1,0 +1,26 @@
+.shareIcons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.shareIconsList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  border: 0px;
+  border-radius: 50%;
+  margin: 0px 3px;
+  margin-top: 20px;
+  padding: 0px;
+}
