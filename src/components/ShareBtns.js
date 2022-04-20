@@ -23,7 +23,7 @@ class ShareBtns extends React.Component {
       color: white;
       cursor: pointer;
       font-weight: 600;
-      margin: 0px 3px;
+      // margin: 0px 3px;
       background-color: brown;
       &:hover {
         background-color: skyblue;
