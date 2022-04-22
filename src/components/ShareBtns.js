@@ -8,12 +8,9 @@ import {
   TwitterIcon,
   TwitterShareButton,
 } from "react-share";
-import kakao from "./imgs/KakaoTalk.png";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-
 import "./ShareBtns.css";
-// import { useScript } from "./hooks";
-// import { useEffect } from "react";
+import KakaoShareButtonMount from "./Layout.js";
 
 class ShareBtns extends React.Component {
   render() {
@@ -23,7 +20,6 @@ class ShareBtns extends React.Component {
       color: white;
       cursor: pointer;
       font-weight: 600;
-      // margin: 0px 3px;
       background-color: brown;
       &:hover {
         background-color: skyblue;
@@ -34,6 +30,9 @@ class ShareBtns extends React.Component {
       <>
         <div className="shareIcons">
           <ul className="shareIconsList">
+            <li>
+              <KakaoShareButtonMount />
+            </li>
             <li>
               <LineShareButton url={currentUrl}>
                 <LineIcon className="icon" />
