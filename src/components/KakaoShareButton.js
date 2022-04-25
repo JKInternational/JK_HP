@@ -9,16 +9,18 @@ const KakaoShareButton = (props) => {
 
   const createKakaoButton = (itemInfo) => {
     const title =
-      itemInfo.data && itemInfo.data.attributes && itemInfo.data.attributes.name
-        ? itemInfo.data.attributes.name
-        : "no name yet";
+      itemInfo.data &&
+      itemInfo.data.attributes &&
+      itemInfo.data.attributes.name;
+    // ? itemInfo.data.attributes.name
+    // : "no name yet";
 
     const description =
       itemInfo.data &&
       itemInfo.data.attributes &&
-      itemInfo.data.attributes.description
-        ? itemInfo.data.attributes.description
-        : "no name yet";
+      itemInfo.data.attributes.description;
+    // ? itemInfo.data.attributes.description
+    // : "no name yet";
 
     const dataImg =
       itemInfo.data &&
