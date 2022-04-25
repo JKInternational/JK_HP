@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { ReactComponent as KakaotalkLogo } from "./imgs/kakaotalk_logo.svg";
 import "./ShareBtns.css";
 
-const KakaoShareButton = props => {
+const KakaoShareButton = (props) => {
   useEffect(() => {
     createKakaoButton(props.itemInfo || {});
   }, [props]);
 
-  const createKakaoButton = itemInfo => {
+  const createKakaoButton = (itemInfo) => {
     const title =
       itemInfo.data && itemInfo.data.attributes && itemInfo.data.attributes.name
         ? itemInfo.data.attributes.name
@@ -26,7 +26,7 @@ const KakaoShareButton = props => {
       itemInfo.data.attributes.mainImage
         ? "http://jkintl.iptime.org:10337" +
           itemInfo.data.attributes.mainImage.data.attributes.url
-        : "no name yet";
+        : "";
 
     // kakao sdk script이 정상적으로 불러와졌으면 window.Kakao로 접근이 가능합니다
     if (window.Kakao) {
