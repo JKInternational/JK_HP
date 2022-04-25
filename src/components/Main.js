@@ -258,10 +258,10 @@ class Main extends React.Component {
               */}
                 {this.state.newArrival.data &&
                 this.state.newArrival.data.data.map
-                  ? this.state.newArrival.data.data.map((pairItem) => {
+                  ? this.state.newArrival.data.data.map(pairItem => {
                       return (
                         <div class="stuffPairGroup">
-                          {pairItem.map((singleItem) => {
+                          {pairItem.map(singleItem => {
                             return (
                               <ul className="container0">
                                 <Link
@@ -310,10 +310,10 @@ class Main extends React.Component {
               <div className="section2">BEST ITEM</div>
               <div className="stuffgroup">
                 {this.state.bestItem.data && this.state.bestItem.data.data.map
-                  ? this.state.bestItem.data.data.map((pariItem) => {
+                  ? this.state.bestItem.data.data.map(pariItem => {
                       return (
                         <div class="stuffPairGroup">
-                          {pariItem.map((singleItem) => {
+                          {pariItem.map(singleItem => {
                             return (
                               <ul className="container0">
                                 <Link
@@ -360,10 +360,10 @@ class Main extends React.Component {
                   <div className="stuffgroup">
                     {this.state.newArrival.data &&
                     this.state.newArrival.data.data.map
-                      ? this.state.newArrival.data.data.map((pairItem) => {
+                      ? this.state.newArrival.data.data.map(pairItem => {
                           return (
                             <div class="stuffPairGroup">
-                              {pairItem.map((singleItem) => {
+                              {pairItem.map(singleItem => {
                                 return (
                                   <ul className="container0">
                                     <Link
@@ -413,10 +413,10 @@ class Main extends React.Component {
                   <div className="stuffgroup">
                     {this.state.bestItem.data &&
                     this.state.bestItem.data.data.map
-                      ? this.state.bestItem.data.data.map((pariItem) => {
+                      ? this.state.bestItem.data.data.map(pariItem => {
                           return (
                             <div class="stuffPairGroup">
-                              {pariItem.map((singleItem) => {
+                              {pariItem.map(singleItem => {
                                 return (
                                   <ul className="container0">
                                     <Link
@@ -485,17 +485,17 @@ class Main extends React.Component {
                     <li>
                       <YouTube
                         className="flexMovieSmall"
-                        videoId="oQqUjYhr31U"
+                        videoId="vW7_2w1lO-c"
                         opts={opts}
                       />
                       <YouTube
                         className="flexMovieSmall1"
-                        videoId="oQqUjYhr31U"
+                        videoId="vW7_2w1lO-c"
                         opts={opts1}
                       />
                       <YouTube
                         className="flexMovieSmall2"
-                        videoId="oQqUjYhr31U"
+                        videoId="vW7_2w1lO-c"
                         opts={opts2}
                       />
                     </li>
@@ -510,7 +510,7 @@ class Main extends React.Component {
                           />
                         </li>
                         <li>
-                          <h6>TCS-165BL</h6>
+                          <h6>DC-1090M</h6>
                         </li>
                       </ul>
                     </li>
