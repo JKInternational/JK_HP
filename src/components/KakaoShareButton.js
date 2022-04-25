@@ -1,14 +1,33 @@
 import React, { useEffect } from "react";
 import { ReactComponent as KakaotalkLogo } from "./imgs/kakaotalk_logo.svg";
 import "./ShareBtns.css";
-import axios from "axios";
 
-const KakaoShareButton = () => {
+const KakaoShareButton = props => {
   useEffect(() => {
-    createKakaoButton();
-  }, []);
+    createKakaoButton(props.itemInfo || {});
+  }, [props]);
 
-  const createKakaoButton = () => {
+  const createKakaoButton = itemInfo => {
+    const title =
+      itemInfo.data && itemInfo.data.attributes && itemInfo.data.attributes.name
+        ? itemInfo.data.attributes.name
+        : "no name yet";
+
+    const description =
+      itemInfo.data &&
+      itemInfo.data.attributes &&
+      itemInfo.data.attributes.description
+        ? itemInfo.data.attributes.description
+        : "no name yet";
+
+    const dataImg =
+      itemInfo.data &&
+      itemInfo.data.attributes &&
+      itemInfo.data.attributes.mainImage
+        ? "http://jkintl.iptime.org:10337" +
+          itemInfo.data.attributes.mainImage.data.attributes.url
+        : "no name yet";
+
     // kakao sdk script이 정상적으로 불러와졌으면 window.Kakao로 접근이 가능합니다
     if (window.Kakao) {
       const kakao = window.Kakao;
@@ -24,9 +43,9 @@ const KakaoShareButton = () => {
         container: "#kakao-link-btn",
         objectType: "feed",
         content: {
-          title: "",
-          description: "",
-          imageUrl: "", // i.e. process.env.FETCH_URL + '/logo.png'
+          title: title,
+          description: description,
+          imageUrl: dataImg, // i.e. process.env.FETCH_URL + '/logo.png'
           link: {
             mobileWebUrl: window.location.href,
             webUrl: window.location.href,

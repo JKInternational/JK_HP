@@ -14,6 +14,8 @@ import KakaoShareButtonMount from "./Layout.js";
 
 class ShareBtns extends React.Component {
   render() {
+    console.log("shareBtns");
+    console.log(this.props.itemInfo);
     const currentUrl = window.location.href;
 
     const URLShareButton = styled.button`
@@ -31,7 +33,7 @@ class ShareBtns extends React.Component {
         <div className="shareIcons">
           <ul className="shareIconsList">
             <li>
-              <KakaoShareButtonMount />
+              <KakaoShareButtonMount itemInfo={this.props.itemInfo} />
             </li>
             <li>
               <LineShareButton url={currentUrl}>

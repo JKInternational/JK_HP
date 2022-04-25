@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import KakaoShareButton from "./KakaoShareButton.js";
 
-const Layout = () => {
+const Layout = props => {
   useEffect(() => {
+    console.log("layout");
+    console.log(props);
     const script = document.createElement("script");
     script.src = "https://developers.kakao.com/sdk/js/kakao.js";
     script.async = true;
@@ -16,7 +18,7 @@ const Layout = () => {
 
   return (
     <div className="layout">
-      <KakaoShareButton />
+      <KakaoShareButton itemInfo={props.itemInfo} />
     </div>
   );
 };

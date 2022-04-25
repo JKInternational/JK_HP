@@ -65,7 +65,7 @@ class Detail extends React.Component {
                   />
                 </li>
                 <li>
-                  <ShareBtns />
+                  <ShareBtns itemInfo={this.state.data.data || {}} />
                 </li>
                 <li>
                   {this.state.data.data &&
@@ -85,7 +85,7 @@ class Detail extends React.Component {
                       this.state.data.data.data.attributes.Spec &&
                       this.state.data.data.data.attributes.Spec.map
                         ? this.state.data.data.data.attributes.Spec.map(
-                            (item) => {
+                            item => {
                               return (
                                 <tr>
                                   <th>
@@ -137,7 +137,7 @@ class Detail extends React.Component {
           {this.state.data.data &&
           this.state.data.data.data.attributes.detailImage.data
             ? this.state.data.data.data.attributes.detailImage.data.map(
-                (item) => {
+                item => {
                   return (
                     <>
                       <img
