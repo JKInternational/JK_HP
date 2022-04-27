@@ -5,7 +5,11 @@
     <link rel="icon" href="%PUBLIC_URL%/jk_favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Expo" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/phone_icon.png" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/and_phone_icon.png" />
@@ -29,11 +33,11 @@
         
       // 모바일 홈페이지 바로가기 링크 생성
       if(userAgent.match('iphone')) {
-          document.write('<link rel="apple-touch-icon" href="/png 아이콘파일이 있는 경로/icon.png" />')
+          document.write('<link rel="apple-touch-icon" href="/png %PUBLIC_URL%/icon.png" />')
       } else if(userAgent.match('ipad')) {
-          document.write('<link rel="apple-touch-icon" sizes="72*72" href="/png 아이콘파일이 있는 경로/icon.png" />')
+          document.write('<link rel="apple-touch-icon" sizes="72*72" href="/png %PUBLIC_URL%/icon.png" />')
       } else if(userAgent.match('android')) {
-          document.write('<link rel="shortcut icon" href="/png 아이콘파일이 있는 경로/icon.png" />')
+          document.write('<link rel="shortcut icon" href="/png %PUBLIC_URL%/icon.png" />')
       }
       </script>
 
