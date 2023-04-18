@@ -97,6 +97,11 @@ class Footer extends React.Component {
                   <h4>고객지원</h4>
                 </li>
                 <li>
+                  <a href="/leaflet">
+                    <h5>전단지</h5>
+                  </a>
+                </li>
+                <li>
                   <a href="/contact">
                     <h5>찾아오시는 길</h5>
                   </a>

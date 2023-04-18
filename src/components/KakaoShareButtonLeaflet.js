@@ -5,24 +5,25 @@ import "./ShareBtns.css";
 const KakaoShareButtonLeaflet = (props) => {
   useEffect(() => {
     createKakaoButton(props.leaflet || {});
-  }, [props]);
+  }, [props.leaflet]);
 
   const createKakaoButton = (leaflet) => {
+    console.log("leaflet", leaflet);
+    console.log("attributes", leaflet.leaflet.attributes);
     const name =
-      leaflet.attributes?.title ||
+      leaflet.leaflet.attributes?.title ||
       // ? itemInfo.data.attributes.name
       "no name yet";
     console.log(name);
 
     const dataImg =
       "http://jkintl.iptime.org:10337" +
-      props.leaflet?.attributes?.indexImage?.data[0]?.attributes?.url;
+      leaflet.leaflet.attributes?.mainImage?.data?.[0]?.attributes?.url;
     console.log(dataImg);
 
     // kakao sdk script이 정상적으로 불러와졌으면 window.Kakao로 접근이 가능합니다
     if (window.Kakao) {
       const kakao = window.Kakao;
-
       // 중복 initialization 방지
       if (!kakao.isInitialized()) {
         // 두번째 step 에서 가져온 javascript key 를 이용하여 initialize
