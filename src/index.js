@@ -14,7 +14,7 @@ import TichopComp from "./components/TichopComp";
 import Worthytool from "./components/Worthytool";
 import Blueshark from "./components/Blueshark";
 import SearchPage from "./components/SearchPage";
-import Seller from "./components/Seller";
+// import Seller from "./components/Seller";
 // import Etc from "./components/Etc";
 import Movie from "./components/Movie";
 import Notice from "./components/Notice";
