@@ -14,16 +14,19 @@ import TichopComp from "./components/TichopComp";
 import Worthytool from "./components/Worthytool";
 import Blueshark from "./components/Blueshark";
 import SearchPage from "./components/SearchPage";
+import Seller from "./components/Seller";
 // import Etc from "./components/Etc";
 import Movie from "./components/Movie";
 import Notice from "./components/Notice";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Detail from "./components/Detail";
+import LeafletDetail from "./components/LeafletDetail";
 import Robots from "./components/robots.txt";
 import MobileMenuBar from "./components/MobileMenuBar";
 import ScrollTop from "react-scrolltop-button";
 import { ReactComponent as ToTop } from "./components/imgs/toTop.svg";
+import Leaflet from "./components/Leaflet";
 
 // const moveToTop = () => (document.documentElement.scrollTop = 0);
 
@@ -47,7 +50,13 @@ const App = () => {
           <Route path="/movie" element={<Movie />} />
           <Route path="/notice" element={<Notice />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/leaflet" element={<Leaflet />} />
+          <Route path="/seller" element={<Seller />} />
           <Route path="/detail/:id" element={<Detail />} />
+          <Route
+            path="/leaflet/leafletdetail/:id"
+            element={<LeafletDetail />}
+          />
           <Route path="/robots.txt" element={<Robots />} />
           <Route
             path="/:dummy"
