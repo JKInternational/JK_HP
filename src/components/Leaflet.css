@@ -1,0 +1,183 @@
+.Leaflet {
+  max-width: 100vw;
+  margin: 0;
+  background: rgb(240, 240, 240);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: "NanumGothic";
+  src: url("./font/NanumGothic.eot");
+  src: url("./font/NanumGothic.eot?#iefix") format("embedded-opentype"),
+    url("./font/NanumGothic.woff2") format("woff2"),
+    url("./font/NanumGothic.woff") format("woff"),
+    url("./font/NanumGothic.ttf") format("truetype"),
+    url("./font/NanumGothic.svg#NanumGothic") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "NanumGothic", sans-serif;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.Leaflet .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  background-color: white;
+}
+
+.Leaflet .innerContainer1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 80%;
+  margin: 50px;
+}
+
+.Leaflet .category {
+  display: flex;
+  justify-content: flex-start;
+  color: gray;
+  font-size: 5px;
+}
+
+#line {
+  width: 100vw;
+  height: 1px;
+  background-color: dimgray;
+  margin-bottom: 0;
+}
+
+#line1 {
+  width: 100%;
+  height: 1px;
+  background-color: rgb(195, 195, 195);
+  margin-bottom: 0;
+}
+
+.autoNo {
+  display: flex;
+  width: 10px;
+  justify-content: flex-end;
+  margin: 0px 20px 0px 0px;
+}
+
+.indexContainer {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  background-color: white;
+  padding-bottom: 60px;
+}
+
+.indexList {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 80%;
+  padding: 0px;
+  border: 0px;
+  margin: 0px;
+}
+
+.indexListWidth {
+  width: 100%;
+}
+
+.indexImg {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  border: 0px;
+  margin: 0px;
+}
+
+.noAndImage {
+  display: flex;
+  flex-flow: nowrap row;
+  align-items: center;
+}
+
+.edge {
+  margin: 0px;
+  border: 1px outset rgb(182, 182, 182);
+}
+
+.textPadding {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.textAlign1 {
+  display: none;
+}
+
+
+@media screen and (max-width: 600px) {
+
+  .Leaflet .innerContainer1 {
+    margin: 50px 50px 0px 50px;
+  }
+
+  .indexImg {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px 0px 0px 0px;
+    max-width: 100%;
+    margin: 0px;
+  }
+
+  .textPadding {
+    margin: 0px;
+  }
+
+  .edge {
+    display: flex;
+    justify-content: center;
+    margin: 0px 10px;
+  }
+
+  .noAndImage {
+    width: 100%;
+    display: flex;
+    flex-flow: nowrap row;
+    justify-content: space-around;
+  }
+
+  .imgAlign {
+    width: 200%;
+    display: flex;
+    align-self: flex-end;
+  }
+
+  .textAlign {
+    display: none;
+  }
+
+  .textAlign1 {
+    display: block;
+  }
+
+}
+
