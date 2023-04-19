@@ -62,12 +62,35 @@ class Leaflet extends React.Component {
                         <h4 className="textAlign">
                           {leaflet.attributes.title}
                         </h4>
-                        <h5 className="textAlign1">
-                          {leaflet.attributes.title}
-                        </h5>
                       </p>
                     </div>
                   </Link>
+                  <div id="line1" />
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="indexContainer1">
+            <ul className="indexList">
+              {this.state.leaflets.map((leaflet, index) => (
+                <li key={leaflet.id} className="indexListWidth">
+                  <Link to={`/leaflet/leafletdetail/${leaflet.id}`}>
+                    <div className="imgAlign">
+                      <img
+                        src={
+                          "http://jkintl.iptime.org:10337" +
+                          leaflet.attributes.indexImage.data[0].attributes.url
+                        }
+                        className="edge"
+                      />
+                    </div>{" "}
+                  </Link>
+                  <p className="textPadding">
+                    <h5 className="textAlign">
+                      {index + 1}. {leaflet.attributes.title}
+                    </h5>
+                  </p>
+
                   <div id="line1" />
                 </li>
               ))}

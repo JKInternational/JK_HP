@@ -74,7 +74,7 @@ a:active {
   display: flex;
   width: 10px;
   justify-content: flex-end;
-  margin: 0px 20px 0px 0px;
+  margin-right: 20px;
 }
 
 .indexContainer {
@@ -83,6 +83,10 @@ a:active {
   width: 90%;
   background-color: white;
   padding-bottom: 60px;
+}
+
+.indexContainer1 {
+  display: none;
 }
 
 .indexList {
@@ -108,7 +112,12 @@ a:active {
   width: 100%;
   padding: 10px;
   border: 0px;
+  margin-top: 5px;
+}
+
+.imgAlign {
   margin: 0px;
+  padding: 0px;
 }
 
 .noAndImage {
@@ -118,6 +127,7 @@ a:active {
 }
 
 .edge {
+  width: 150px;
   margin: 0px;
   border: 1px outset rgb(182, 182, 182);
 }
@@ -126,10 +136,7 @@ a:active {
   width: 100%;
   display: flex;
   justify-content: center;
-}
-
-.textAlign1 {
-  display: none;
+  margin: 0px 20px;
 }
 
 
@@ -139,45 +146,50 @@ a:active {
     margin: 50px 50px 0px 50px;
   }
 
-  .indexImg {
+  .indexContainer {
+    display: none;
+  }
+  
+  .indexContainer1 {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 50px 0px 0px 0px;
-    max-width: 100%;
-    margin: 0px;
+    justify-content: center;
+    width: 90%;
+    background-color: white;
+    padding-bottom: 60px;  
   }
 
-  .textPadding {
+  .indexImg {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    max-width: 100%;
     margin: 0px;
   }
 
   .edge {
     display: flex;
     justify-content: center;
+    width: 150px;
+    margin-top: 20px;
+  }
+
+  .autoNo {
+    display: flex;
+    align-self: flex-start;
     margin: 0px 10px;
   }
 
-  .noAndImage {
-    width: 100%;
-    display: flex;
-    flex-flow: nowrap row;
-    justify-content: space-around;
-  }
-
   .imgAlign {
-    width: 200%;
     display: flex;
-    align-self: flex-end;
+    justify-content: center;
   }
 
+  .textPadding {
+    padding: 0px;
+    margin: 0px;
+  }
   .textAlign {
-    display: none;
+    margin: 15px 0px;
   }
-
-  .textAlign1 {
-    display: block;
-  }
-
 }
 
