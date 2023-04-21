@@ -185,7 +185,7 @@ class TichopPower extends React.Component {
           <div className="mainBanner">
             <div className="mainBannerParents">
               <img id="mainBannerImg" src={bannerTichop} />
-              <div id="mainBannerText">TICHOP</div>
+              {/* <div id="mainBannerText">TICHOP</div> */}
             </div>
             <div className="mainBannerParentsMobile">
               <img id="mainBannerImgMobile" src={bannerTichopMobile} />
