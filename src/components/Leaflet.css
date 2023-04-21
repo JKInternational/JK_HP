@@ -64,6 +64,9 @@ a:active {
 #sort {
   margin-right: 10%;
   height: 25px;
+  border: 1px solid black;
+  border-radius: 1px;
+  font-size: 15px;
 }
 
 .Leaflet .innerContainer1 {
@@ -173,6 +176,15 @@ a:active {
 
   .indexContainer {
     display: none;
+  }
+
+  .sortContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 90%;
+    background-color: white;
+    padding: 20px 0px;
   }
   
   .indexContainer1 {
