@@ -27,7 +27,8 @@ body {
 
 input,
 textarea,
-button {
+button,
+label {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
