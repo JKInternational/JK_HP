@@ -41,6 +41,19 @@ a:active {
   background-color: white;
 }
 
+.sortContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 90%;
+  background-color: white;
+}
+
+#sort {
+  margin-right: 10%;
+  height: 25px;
+}
+
 .Leaflet .innerContainer1 {
   display: flex;
   flex-direction: column;

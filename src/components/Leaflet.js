@@ -7,6 +7,7 @@ import "./Leaflet.css";
 class Leaflet extends React.Component {
   state = {
     leaflets: [],
+    sort: "asc",
   };
 
   componentDidMount() {
@@ -18,7 +19,22 @@ class Leaflet extends React.Component {
       });
   }
 
+  handleSortChange = (e) => {
+    this.setState({ sort: e.target.value });
+  };
+
   render() {
+    const { leaflets, sort } = this.state;
+
+    // 리스트를 오름차순 또는 내림차순으로 정렬합니다.
+    const sortedLeaflets = leaflets.sort((a, b) => {
+      if (sort === "asc") {
+        return a.attributes.title.localeCompare(b.attributes.title);
+      } else {
+        return b.attributes.title.localeCompare(a.attributes.title);
+      }
+    });
+
     return (
       <>
         <div className="Leaflet">
@@ -37,9 +53,16 @@ class Leaflet extends React.Component {
               <div id="line" />
             </div>
           </div>
+          <div className="sortContainer">
+            <label htmlFor="sort">정렬:&nbsp;</label>
+            <select id="sort" value={sort} onChange={this.handleSortChange}>
+              <option value="asc">오름차순</option>
+              <option value="desc">내림차순</option>
+            </select>
+          </div>
           <div className="indexContainer">
             <ul className="indexList">
-              {this.state.leaflets.map((leaflet, index) => (
+              {sortedLeaflets.map((leaflet, index) => (
                 <li key={leaflet.id} className="indexListWidth">
                   <Link to={`/leaflet/leafletdetail/${leaflet.id}`}>
                     <div className="indexImg">
@@ -90,7 +113,6 @@ class Leaflet extends React.Component {
                       {index + 1}. {leaflet.attributes.title}
                     </h5>
                   </p>
-
                   <div id="line1" />
                 </li>
               ))}
