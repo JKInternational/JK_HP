@@ -8,7 +8,7 @@ import bannerTichopMobile from "./imgs/bannerTichopMobile.jpg";
 import bannerTichopCompMobile from "./imgs/bannerTichopCompMobile1.jpg";
 import bannerBluesharkMobile from "./imgs/bannerBluesharkMobile1.jpg";
 import bannerWorthytoolMobile from "./imgs/bannerWorthytoolMobile1.jpg";
-import noticeBanner from "./imgs/noticeBanner.jpg";
+// import noticeBanner from "./imgs/noticeBanner.jpg";
 import { ReactComponent as Arrow } from "./imgs/arrow.svg";
 import youtube_logo from "./imgs/youtube_logo.png";
 
