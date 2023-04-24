@@ -1,13 +1,14 @@
-import bannerDC9915 from "./imgs/bannerDC9915.jpg";
+import bannerTID1860bl from "./imgs/bannerTID1860bl.jpg";
 import bannerTichop from "./imgs/bannerTichop.jpg";
-import bannerTichopComp from "./imgs/bannerTichopComp.jpg";
-import bannerBlueshark from "./imgs/bannerBlueshark.jpg";
-import bannerWorthytool from "./imgs/bannerWorthytool.jpg";
-import bannerDC9915Mobile from "./imgs/bannerDC9915Mobile.jpg";
+import bannerTichopComp from "./imgs/bannerTichopComp1.jpg";
+import bannerBlueshark from "./imgs/bannerBlueshark1.jpg";
+import bannerWorthytool from "./imgs/bannerWorthytool1.jpg";
+import bannerTID1860blMobile from "./imgs/bannerTID1860blMobile.jpg";
 import bannerTichopMobile from "./imgs/bannerTichopMobile.jpg";
-import bannerTichopCompMobile from "./imgs/bannerTichopCompMobile.jpg";
-import bannerBluesharkMobile from "./imgs/bannerBluesharkMobile.jpg";
-import bannerWorthytoolMobile from "./imgs/bannerWorthytoolMobile.jpg";
+import bannerTichopCompMobile from "./imgs/bannerTichopCompMobile1.jpg";
+import bannerBluesharkMobile from "./imgs/bannerBluesharkMobile1.jpg";
+import bannerWorthytoolMobile from "./imgs/bannerWorthytoolMobile1.jpg";
+import noticeBanner from "./imgs/noticeBanner.jpg";
 import { ReactComponent as Arrow } from "./imgs/arrow.svg";
 import youtube_logo from "./imgs/youtube_logo.png";
 
@@ -176,11 +177,18 @@ class Main extends React.Component {
     return (
       <>
         <div className="Main">
+          {/* <div className="pop">
+            <img className="modal" src={noticeBanner} />
+            <div className="closeModal">
+              <button className="modalBtn"></button>
+            </div>
+          </div> */}
+
           <div className="carouselContainer">
             <Carousel>
-              <Link to="/detail/80">
+              <Link to="/detail/84">
                 <CarouselItem>
-                  <img className="bannerImg" src={bannerDC9915} />
+                  <img className="bannerImg" src={bannerTID1860bl} />
                 </CarouselItem>
               </Link>
               <Link to="/tichoppower">
@@ -208,9 +216,9 @@ class Main extends React.Component {
 
           <div className="carouselContainerMobile">
             <Carousel>
-              <Link to="/detail/80">
+              <Link to="/detail/84">
                 <CarouselItem>
-                  <img className="bannerImg" src={bannerDC9915Mobile} />
+                  <img className="bannerImg" src={bannerTID1860blMobile} />
                 </CarouselItem>
               </Link>
               <Link to="/tichoppower">

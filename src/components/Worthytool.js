@@ -1,5 +1,5 @@
-import bannerWorthytool from "./imgs/bannerWorthytool.jpg";
-import bannerWorthytoolMobile from "./imgs/bannerWorthytoolMobile.jpg";
+import bannerWorthytool from "./imgs/bannerWorthytool1.jpg";
+import bannerWorthytoolMobile from "./imgs/bannerWorthytoolMobile1.jpg";
 
 import React from "react";
 import axios from "axios";
@@ -250,7 +250,7 @@ class Worthytool extends React.Component {
           <div className="mainBanner">
             <div className="mainBannerParents">
               <img id="mainBannerImg" src={bannerWorthytool} />
-              <div id="mainBannerText">WORTHYTOOL</div>
+              {/* <div id="mainBannerText">WORTHYTOOL</div> */}
             </div>
             <div className="mainBannerParentsMobile">
               <img id="mainBannerImgMobile" src={bannerWorthytoolMobile} />
