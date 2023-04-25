@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import _ from "lodash";
 
 import "./Leaflet.css";
 
@@ -8,6 +9,8 @@ class Leaflet extends React.Component {
   state = {
     leaflets: [],
     sort: "asc",
+    search: "",
+    filteredLeaflets: [], // 새로 추가된 상태값
   };
 
   componentDidMount() {
@@ -23,11 +26,41 @@ class Leaflet extends React.Component {
     this.setState({ sort: e.target.value });
   };
 
+  handleSearchChange = (e) => {
+    this.setState({ search: e.target.value });
+  };
+
+  handleSearchEnterPress = (e) => {
+    if (e.key === "Enter") {
+      this.handleSearchButtonClick();
+    }
+  };
+
+  handleSearchButtonClick = () => {
+    // 검색 버튼 클릭 시 검색 수행
+    const { leaflets, search } = this.state;
+
+    // 검색어에 따라 전단지를 필터링합니다.
+    const filteredLeaflets = leaflets.filter((leaflet) =>
+      leaflet.attributes.title.toLowerCase().includes(search.toLowerCase())
+    );
+
+    // 필터링된 전단지 목록을 상태값에 업데이트합니다.
+    this.setState({ filteredLeaflets });
+  };
+
   render() {
-    const { leaflets, sort } = this.state;
+    const { sort, search, filteredLeaflets } = this.state;
+
+    // 검색어에 따라 전단지를 필터링합니다.
+    const sortedLeaflets =
+      filteredLeaflets.length > 0 ? filteredLeaflets : this.state.leaflets;
+    const filteredSortedLeaflets = sortedLeaflets.filter((leaflet) =>
+      leaflet.attributes.title.toLowerCase().includes(search.toLowerCase())
+    );
 
     // 리스트를 오름차순 또는 내림차순으로 정렬합니다.
-    const sortedLeaflets = leaflets.sort((a, b) => {
+    const sortedFilteredLeaflets = filteredSortedLeaflets.sort((a, b) => {
       if (sort === "asc") {
         return a.attributes.title.localeCompare(b.attributes.title);
       } else {
@@ -53,13 +86,26 @@ class Leaflet extends React.Component {
               <div id="line" />
             </div>
           </div>
-          <div className="sortContainer">
-            <label htmlFor="sort">정렬:&nbsp;</label>
-            <select id="sort" value={sort} onChange={this.handleSortChange}>
-              <option value="asc">오름차순</option>
-              <option value="desc">내림차순</option>
-            </select>
-          </div>
+          <ul className="sortAndSearch">
+            <li className="sortContainer">
+              <label htmlFor="sort">정렬:&nbsp;</label>
+              <select id="sort" value={sort} onChange={this.handleSortChange}>
+                <option value="asc">오름차순</option>
+                <option value="desc">내림차순</option>
+              </select>
+            </li>
+            <li className="searchContainer">
+              <input
+                id="searchBox"
+                type="text"
+                placeholder="검색어를 입력하세요"
+                value={search}
+                onChange={this.handleSearchChange}
+                onKeyPress={this.handleSearchEnterPress}
+              />
+              <button id="searchBtn" onClick={this.handleSearchButtonClick} />
+            </li>
+          </ul>
           <div className="indexContainer">
             <ul className="indexList">
               {sortedLeaflets.map((leaflet, index) => (
@@ -95,7 +141,7 @@ class Leaflet extends React.Component {
           </div>
           <div className="indexContainer1">
             <ul className="indexList">
-              {this.state.leaflets.map((leaflet, index) => (
+              {sortedLeaflets.map((leaflet, index) => (
                 <li key={leaflet.id} className="indexListWidth">
                   <Link to={`/leaflet/leafletdetail/${leaflet.id}`}>
                     <div className="imgAlign">
