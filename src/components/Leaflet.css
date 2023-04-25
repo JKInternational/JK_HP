@@ -53,54 +53,77 @@ a:active {
   background-color: white;
 }
 
-.sortAndSearch {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  list-style: none;
+.sortAndSearchContainer {
   width: 90%;
   background-color: white;
-  margin: 0px;
-  padding: 0px;
+}
+
+.sortAndSearch {
+display: flex;
+justify-content: flex-end;
+flex-flow: row wrap;
+align-items: center;
+width: 90%;
+background-color: white;
+margin: 0;
+padding: 0px 0px 10px 0px;
 }
 
 .sortContainer {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 90%;
   background-color: white;
+  padding: 0px;
 }
 
 #sort {
-  margin-right: 1%;
+  margin-right: 5%;
+  height: 27px;
+  border: 1px solid black;
+  border-radius: 1px;
+  font-size: 15px;
+  color: black;
+  background-color: white;
+}
+
+#barndName {
+  font-size: 15px;
+  width: 48px;
+  font-weight: lighter;
+  margin: 0;
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#searchBox {
+  width: 150px;
   height: 25px;
   border: 1px solid black;
   border-radius: 1px;
   font-size: 15px;
   color: black;
   background-color: white;
+  padding: 0px;
 }
 
-.searchContainer {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-  align-items: center;
-  margin-right: 10%;
+#searchBtn1 {
+  background-image: url("./imgs/search_icon1.svg");
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  border: 0px;
+  cursor: pointer;
+  outline: 0;
+  padding: 0px;
+  margin: 0px 5px;
+  background-color: transparent;
 }
-
-#searchBox {
-  width: 150px;
-  height: 21px;
-  border: 1px solid black;
-  border-radius: 1px;
-  font-size: 15px;
-  color: black;
-  background-color: white;
-}
-
-
 
 
 .Leaflet .innerContainer1 {
@@ -218,9 +241,45 @@ a:active {
     align-items: center;
     width: 90%;
     background-color: white;
-    padding: 20px 0px;
+    padding: 20px 0px 5px 0px;
   }
   
+  #sort {
+    margin-right: 0px;
+  }
+
+  .searchContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    border: 1px solid black;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  #searchBox {
+    width: 150px;
+    height: 25px;
+    border: 0px;
+    font-size: 15px;
+    color: black;
+    background-color: white;
+    padding: 0px;
+  }
+
+  #searchBtn1 {
+    background-image: url("./imgs/search_icon1.svg");
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    outline: 0;
+    padding: 0px;
+    margin: 0px 5px;
+    background-color: transparent;
+  }
+
   .indexContainer1 {
     display: flex;
     justify-content: center;

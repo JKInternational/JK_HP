@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import _ from "lodash";
+// import _ from "lodash";
 
 import "./Leaflet.css";
 
@@ -86,26 +86,33 @@ class Leaflet extends React.Component {
               <div id="line" />
             </div>
           </div>
-          <ul className="sortAndSearch">
-            <li className="sortContainer">
-              <label htmlFor="sort">정렬:&nbsp;</label>
-              <select id="sort" value={sort} onChange={this.handleSortChange}>
-                <option value="asc">오름차순</option>
-                <option value="desc">내림차순</option>
-              </select>
-            </li>
-            <li className="searchContainer">
-              <input
-                id="searchBox"
-                type="text"
-                placeholder="검색어를 입력하세요"
-                value={search}
-                onChange={this.handleSearchChange}
-                onKeyPress={this.handleSearchEnterPress}
-              />
-              <button id="searchBtn" onClick={this.handleSearchButtonClick} />
-            </li>
-          </ul>
+          <div className="sortAndSearchContainer">
+            <ul className="sortAndSearch">
+              <li className="sortContainer">
+                <label htmlFor="sort">
+                  <h4 id="barndName">브랜드</h4>
+                </label>
+                <select id="sort" value={sort} onChange={this.handleSortChange}>
+                  <option value="asc">A ▶ Z</option>
+                  <option value="desc">Z ▶ A</option>
+                </select>
+              </li>
+              <li className="searchContainer">
+                <input
+                  id="searchBox"
+                  type="text"
+                  placeholder="검색어를 입력하세요"
+                  value={search}
+                  onChange={this.handleSearchChange}
+                  onKeyPress={this.handleSearchEnterPress}
+                />
+                <button
+                  id="searchBtn1"
+                  onClick={this.handleSearchButtonClick}
+                />
+              </li>
+            </ul>
+          </div>
           <div className="indexContainer">
             <ul className="indexList">
               {sortedLeaflets.map((leaflet, index) => (
