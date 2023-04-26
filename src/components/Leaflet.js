@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-// import _ from "lodash";
 
 import "./Leaflet.css";
 
@@ -10,7 +9,7 @@ class Leaflet extends React.Component {
     leaflets: [],
     sort: "asc",
     search: "",
-    filteredLeaflets: [], // 새로 추가된 상태값
+    filteredLeaflets: [],
   };
 
   componentDidMount() {
@@ -18,12 +17,14 @@ class Leaflet extends React.Component {
       .get("http://jkintl.iptime.org:10337/api/leaflets?populate=*")
       .then((response) => {
         this.setState({ leaflets: response.data.data });
-        console.log(response.data.data);
       });
   }
 
   handleSortChange = (e) => {
-    this.setState({ sort: e.target.value });
+    const sort = e.target.value;
+    this.setState({ sort }, () => {
+      this.sortLeaflets();
+    });
   };
 
   handleSearchChange = (e) => {
@@ -37,16 +38,37 @@ class Leaflet extends React.Component {
   };
 
   handleSearchButtonClick = () => {
-    // 검색 버튼 클릭 시 검색 수행
     const { leaflets, search } = this.state;
 
     // 검색어에 따라 전단지를 필터링합니다.
     const filteredLeaflets = leaflets.filter((leaflet) =>
-      leaflet.attributes.title.toLowerCase().includes(search.toLowerCase())
+      leaflet.attributes.title
+        .toLocaleLowerCase()
+        .includes(search.toLocaleLowerCase())
     );
 
     // 필터링된 전단지 목록을 상태값에 업데이트합니다.
-    this.setState({ filteredLeaflets });
+    this.setState({ filteredLeaflets }, () => {
+      this.sortLeaflets();
+    });
+  };
+
+  sortLeaflets = () => {
+    const { sort, filteredLeaflets, leaflets } = this.state;
+
+    // 리스트를 오름차순 또는 내림차순으로 정렬합니다.
+    const sortedLeaflets =
+      filteredLeaflets.length > 0 ? filteredLeaflets : leaflets;
+    const sortedFilteredLeaflets = sortedLeaflets.sort((a, b) => {
+      if (sort === "asc") {
+        return a.attributes.title.localeCompare(b.attributes.title);
+      } else {
+        return b.attributes.title.localeCompare(a.attributes.title);
+      }
+    });
+
+    // 정렬된 전단지 목록을 상태값에 업데이트합니다.
+    this.setState({ filteredLeaflets: sortedFilteredLeaflets });
   };
 
   render() {
@@ -56,17 +78,10 @@ class Leaflet extends React.Component {
     const sortedLeaflets =
       filteredLeaflets.length > 0 ? filteredLeaflets : this.state.leaflets;
     const filteredSortedLeaflets = sortedLeaflets.filter((leaflet) =>
-      leaflet.attributes.title.toLowerCase().includes(search.toLowerCase())
+      leaflet.attributes.title
+        .toLocaleLowerCase()
+        .includes(search.toLocaleLowerCase())
     );
-
-    // 리스트를 오름차순 또는 내림차순으로 정렬합니다.
-    const sortedFilteredLeaflets = filteredSortedLeaflets.sort((a, b) => {
-      if (sort === "asc") {
-        return a.attributes.title.localeCompare(b.attributes.title);
-      } else {
-        return b.attributes.title.localeCompare(a.attributes.title);
-      }
-    });
 
     return (
       <>
