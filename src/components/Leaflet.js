@@ -116,15 +116,17 @@ class Leaflet extends React.Component {
                 <input
                   id="searchBox"
                   type="text"
-                  placeholder="검색어를 입력하세요"
+                  placeholder=" 검색어를 입력하세요"
                   value={search}
                   onChange={this.handleSearchChange}
                   onKeyPress={this.handleSearchEnterPress}
                 />
-                <button
-                  id="searchBtn1"
-                  onClick={this.handleSearchButtonClick}
-                />
+                <div id="wall">
+                  <button
+                    id="searchBtn1"
+                    onClick={this.handleSearchButtonClick}
+                  />
+                </div>
               </li>
             </ul>
           </div>

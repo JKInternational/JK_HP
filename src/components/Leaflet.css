@@ -250,11 +250,9 @@ padding: 0px 0px 10px 0px;
 
   .searchContainer {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-items: center;
     border: 1px solid black;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
   }
 
   #searchBox {
@@ -265,6 +263,15 @@ padding: 0px 0px 10px 0px;
     color: black;
     background-color: white;
     padding: 0px;
+  }
+
+  #wall {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    background-color: rgb(222, 222, 222);
   }
 
   #searchBtn1 {
