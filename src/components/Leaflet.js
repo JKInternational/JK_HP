@@ -40,17 +40,23 @@ class Leaflet extends React.Component {
   handleSearchButtonClick = () => {
     const { leaflets, search } = this.state;
 
-    // 검색어에 따라 전단지를 필터링합니다.
-    const filteredLeaflets = leaflets.filter((leaflet) =>
-      leaflet.attributes.title
-        .toLocaleLowerCase()
-        .includes(search.toLocaleLowerCase())
-    );
+    if (search === "") {
+      this.setState({ filteredLeaflets: [], search: "" }, () => {
+        this.sortLeaflets();
+      });
+    } else {
+      // 검색어에 따라 전단지를 필터링합니다.
+      const filteredLeaflets = leaflets.filter((leaflet) =>
+        leaflet.attributes.title
+          .toLocaleLowerCase()
+          .includes(search.toLocaleLowerCase())
+      );
 
-    // 필터링된 전단지 목록을 상태값에 업데이트합니다.
-    this.setState({ filteredLeaflets }, () => {
-      this.sortLeaflets();
-    });
+      // 필터링된 전단지 목록을 상태값에 업데이트합니다.
+      this.setState({ filteredLeaflets }, () => {
+        this.sortLeaflets();
+      });
+    }
   };
 
   sortLeaflets = () => {
@@ -70,6 +76,14 @@ class Leaflet extends React.Component {
     // 정렬된 전단지 목록을 상태값에 업데이트합니다.
     this.setState({ filteredLeaflets: sortedFilteredLeaflets });
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.search === "" && prevState.search !== "") {
+      this.setState({ filteredLeaflets: [] }, () => {
+        this.sortLeaflets();
+      });
+    }
+  }
 
   render() {
     const { sort, search, filteredLeaflets } = this.state;
