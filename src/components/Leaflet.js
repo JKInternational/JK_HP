@@ -149,54 +149,26 @@ class Leaflet extends React.Component {
               {sortedLeaflets.map((leaflet, index) => (
                 <li key={leaflet.id} className="indexListWidth">
                   <Link to={`/leaflet/leafletdetail/${leaflet.id}`}>
-                    <div className="indexImg">
-                      <div className="noAndImage">
-                        <p className="textPadding">
-                          <h4 className="autoNo">{index + 1}</h4>
-                        </p>
-                        <div className="imgAlign">
-                          <img
-                            src={
-                              "http://jkintl.iptime.org:10337" +
-                              leaflet.attributes.indexImage.data[0].attributes
-                                .url
-                            }
-                            className="edge"
-                          />
-                        </div>
-                      </div>
-                      <p className="textPadding">
+                    <ul className="indexImg">
+                      <li className="noAndImage">
+                        <h4 className="autoNo">{index + 1}.</h4>
+                      </li>
+                      <li className="imgAlign">
+                        <img
+                          src={
+                            "http://jkintl.iptime.org:10337" +
+                            leaflet.attributes.indexImage.data[0].attributes.url
+                          }
+                          className="edge"
+                        />
+                      </li>
+                      <li className="textPadding">
                         <h4 className="textAlign">
                           {leaflet.attributes.title}
                         </h4>
-                      </p>
-                    </div>
+                      </li>
+                    </ul>
                   </Link>
-                  <div id="line1" />
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="indexContainer1">
-            <ul className="indexList">
-              {sortedLeaflets.map((leaflet, index) => (
-                <li key={leaflet.id} className="indexListWidth">
-                  <Link to={`/leaflet/leafletdetail/${leaflet.id}`}>
-                    <div className="imgAlign">
-                      <img
-                        src={
-                          "http://jkintl.iptime.org:10337" +
-                          leaflet.attributes.indexImage.data[0].attributes.url
-                        }
-                        className="edge"
-                      />
-                    </div>{" "}
-                  </Link>
-                  <p className="textPadding">
-                    <h5 className="textAlign">
-                      {index + 1}. {leaflet.attributes.title}
-                    </h5>
-                  </p>
                   <div id="line1" />
                 </li>
               ))}
