@@ -418,6 +418,35 @@ form {
 
 /* 여기까지 mobile menu */
 
+/* .pop {
+  width: 500px;
+  height: 500px;
+  padding: 0px;
+  margin: 0px;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  z-index: 2;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.closeModal {
+  width: 100%;
+  height: 20px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.modalBtn {
+  padding-right: 10px;
+} */
+
 .carouselContainer {
   max-width: 2000px;
   padding: 0px;
@@ -471,10 +500,12 @@ form {
 
 .scrollArrow {
   display: flex;
-  overflow-x : auto;
+  overflow-x: auto;
   overflow-x: auto; 
   -webkit-overflow-scrolling: touch;
 }
+
+
 
 #arrow {
   position: absolute;

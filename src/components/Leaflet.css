@@ -49,12 +49,12 @@ a:active {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 90%;
+  max-width: 100%;
   background-color: white;
 }
 
 .sortAndSearchContainer {
-  width: 90%;
+  width: 100%;
   background-color: white;
 }
 
@@ -128,23 +128,24 @@ padding: 0px 0px 10px 0px;
 .Leaflet .innerContainer1 {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: 80%;
-  margin: 50px;
+  justify-content: flex-start;
+  max-width: 90%;
+  margin: 0;
 }
 
 .Leaflet .category {
   display: flex;
   justify-content: flex-start;
   color: gray;
-  font-size: 5px;
+  font-size: 12px;
+  margin-top: 20px;
 }
 
 #line {
   width: 100vw;
   height: 1px;
   background-color: dimgray;
-  margin-bottom: 0;
+  margin-bottom: 2%;
 }
 
 #line1 {
@@ -164,7 +165,7 @@ padding: 0px 0px 10px 0px;
 .indexContainer {
   display: flex;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   background-color: white;
   padding-bottom: 60px;
 }
@@ -220,10 +221,6 @@ padding: 0px 0px 10px 0px;
 
 
 @media screen and (max-width: 600px) {
-
-  .Leaflet .innerContainer1 {
-    margin: 50px 50px 0px 50px;
-  }
 
   .sortContainer {
     display: flex;

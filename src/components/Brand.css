@@ -77,8 +77,8 @@ button:active {
   background-image: url("./imgs/search_icon.svg");
   background-position: 0px 0px;
   background-repeat: no-repeat;
-  width: 26px;
-  height: 26px;
+  width: 25px;
+  height: 25px;
   border: 0px;
   cursor: pointer;
   outline: 0;
@@ -120,7 +120,7 @@ button:active {
   display: flex;
   justify-content: flex-start;
   color: gray;
-  font-size: 5px;
+  font-size: 12px;
   margin-top: 20px;
 }
 
