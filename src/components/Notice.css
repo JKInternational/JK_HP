@@ -57,7 +57,7 @@ button:active {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 90%;
+  max-width: 100%;
   background-color: white;
 }
 
@@ -65,15 +65,16 @@ button:active {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  max-width: 80%;
-  margin: 50px;
+  max-width: 90%;
+  margin: 0;
 }
 
 .Notice .category {
   display: flex;
   justify-content: flex-start;
   color: gray;
-  font-size: 5px;
+  font-size: 12px;
+  margin-top: 20px;
 }
 
 #search {
@@ -108,7 +109,7 @@ button:active {
   width: 100vw;
   height: 1px;
   background-color: dimgray;
-  margin-bottom: 0;
+  margin-bottom: 2%;
 }
 
 .Notice .container1 {
@@ -128,6 +129,8 @@ button:active {
   width: 90%;
   height: auto;
   background-color: white;
+  padding-left: 10%;
+  padding-right: 10%;
   padding-bottom: 5%;
 }
 
