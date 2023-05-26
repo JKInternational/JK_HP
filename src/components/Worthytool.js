@@ -24,7 +24,7 @@ class Worthytool extends React.Component {
   componentDidMount = async () => {
     try {
       const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=bit"
+        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=bit"
       );
       if (
         response &&
@@ -55,7 +55,7 @@ class Worthytool extends React.Component {
 
     try {
       const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=cut"
+        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=cut"
       );
       if (
         response &&
@@ -86,7 +86,7 @@ class Worthytool extends React.Component {
 
     try {
       const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=circular_saw_blade"
+        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=circular_saw_blade"
       );
       if (
         response &&
@@ -117,7 +117,7 @@ class Worthytool extends React.Component {
 
     try {
       const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=connect"
+        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=connect"
       );
       if (
         response &&
@@ -148,7 +148,7 @@ class Worthytool extends React.Component {
 
     try {
       const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=lantern"
+        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=lantern"
       );
       if (
         response &&
@@ -179,7 +179,7 @@ class Worthytool extends React.Component {
 
     try {
       const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=etc"
+        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=etc"
       );
       if (
         response &&
@@ -279,7 +279,7 @@ class Worthytool extends React.Component {
                                     <img
                                       className="stuffBoxImg"
                                       src={
-                                        "http://jkintl.iptime.org:10337" +
+                                        "http://jkintl.co.kr:10337" +
                                         item.attributes.indexImage.data
                                           .attributes.url
                                       }
@@ -319,7 +319,7 @@ class Worthytool extends React.Component {
                                     <img
                                       className="stuffBoxImg"
                                       src={
-                                        "http://jkintl.iptime.org:10337" +
+                                        "http://jkintl.co.kr:10337" +
                                         item.attributes.indexImage.data
                                           .attributes.url
                                       }
@@ -360,7 +360,7 @@ class Worthytool extends React.Component {
                                     <img
                                       className="stuffBoxImg"
                                       src={
-                                        "http://jkintl.iptime.org:10337" +
+                                        "http://jkintl.co.kr:10337" +
                                         item.attributes.indexImage.data
                                           .attributes.url
                                       }
@@ -401,7 +401,7 @@ class Worthytool extends React.Component {
                                     <img
                                       className="stuffBoxImg"
                                       src={
-                                        "http://jkintl.iptime.org:10337" +
+                                        "http://jkintl.co.kr:10337" +
                                         item.attributes.indexImage.data
                                           .attributes.url
                                       }
@@ -441,7 +441,7 @@ class Worthytool extends React.Component {
                                     <img
                                       className="stuffBoxImg"
                                       src={
-                                        "http://jkintl.iptime.org:10337" +
+                                        "http://jkintl.co.kr:10337" +
                                         item.attributes.indexImage.data
                                           .attributes.url
                                       }
@@ -481,7 +481,7 @@ class Worthytool extends React.Component {
                                     <img
                                       className="stuffBoxImg"
                                       src={
-                                        "http://jkintl.iptime.org:10337" +
+                                        "http://jkintl.co.kr:10337" +
                                         item.attributes.indexImage.data
                                           .attributes.url
                                       }

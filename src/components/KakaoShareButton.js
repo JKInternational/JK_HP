@@ -26,7 +26,7 @@ const KakaoShareButton = (props) => {
       itemInfo.data &&
       itemInfo.data.attributes &&
       itemInfo.data.attributes.mainImage
-        ? "http://jkintl.iptime.org:10337" +
+        ? "http://jkintl.co.kr:10337" +
           itemInfo.data.attributes.mainImage.data.attributes.url
         : "";
 

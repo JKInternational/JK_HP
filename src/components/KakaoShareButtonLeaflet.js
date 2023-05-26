@@ -17,7 +17,7 @@ const KakaoShareButtonLeaflet = (props) => {
     console.log(name);
 
     const dataImg =
-      "http://jkintl.iptime.org:10337" +
+      "http://jkintl.co.kr:10337" +
       leaflet.leaflet.attributes?.mainImage?.data?.[0]?.attributes?.url;
     console.log(dataImg);
 

@@ -18,7 +18,7 @@ class Detail extends React.Component {
   componentDidMount = async () => {
     try {
       const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/items/" +
+        "http://jkintl.co.kr:10337/api/items/" +
           String(this.props.params.id) +
           "?populate=*"
       );
@@ -57,7 +57,7 @@ class Detail extends React.Component {
                     src={
                       this.state.data.data &&
                       this.state.data.data.data.attributes.mainImage.data
-                        ? "http://jkintl.iptime.org:10337" +
+                        ? "http://jkintl.co.kr:10337" +
                           this.state.data.data.data.attributes.mainImage.data
                             .attributes.url
                         : ""
@@ -85,7 +85,7 @@ class Detail extends React.Component {
                       this.state.data.data.data.attributes.Spec &&
                       this.state.data.data.data.attributes.Spec.map
                         ? this.state.data.data.data.attributes.Spec.map(
-                            item => {
+                            (item) => {
                               return (
                                 <tr>
                                   <th>
@@ -130,21 +130,19 @@ class Detail extends React.Component {
             </li>
           </ul>
           {/* <img className='bottomImg' src={ this.state.data.data && this.state.data.data.data.attributes.detailImage.data ?
-                    "http://jkintl.iptime.org:10337" + this.state.data.data.data.attributes.detailImage.data[0].attributes.url : ""  } />
+                    "http://jkintl.co.kr:10337" + this.state.data.data.data.attributes.detailImage.data[0].attributes.url : ""  } />
           <img className='bottomImg' src={ this.state.data.data && this.state.data.data.data.attributes.detailImage.data ?
-                    "http://jkintl.iptime.org:10337" + this.state.data.data.data.attributes.detailImage.data[1].attributes.url : ""  } /> */}
+                    "http://jkintl.co.kr:10337" + this.state.data.data.data.attributes.detailImage.data[1].attributes.url : ""  } /> */}
 
           {this.state.data.data &&
           this.state.data.data.data.attributes.detailImage.data
             ? this.state.data.data.data.attributes.detailImage.data.map(
-                item => {
+                (item) => {
                   return (
                     <>
                       <img
                         className="bottomImg"
-                        src={
-                          "http://jkintl.iptime.org:10337" + item.attributes.url
-                        }
+                        src={"http://jkintl.co.kr:10337" + item.attributes.url}
                       />
                       <br></br>
                       <br></br>

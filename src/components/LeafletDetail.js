@@ -14,7 +14,7 @@ class LeafletDetail extends React.Component {
   async componentDidMount() {
     try {
       const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/leaflets/" +
+        "http://jkintl.co.kr:10337/api/leaflets/" +
           String(this.props.params.id) +
           "?populate=*"
       );
@@ -53,7 +53,7 @@ class LeafletDetail extends React.Component {
             <li className="imgWrap">
               <img
                 src={
-                  "http://jkintl.iptime.org:10337" +
+                  "http://jkintl.co.kr:10337" +
                   leaflet?.attributes?.mainImage?.data?.[0]?.attributes?.url
                 }
                 className="img800"

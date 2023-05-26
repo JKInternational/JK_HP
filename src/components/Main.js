@@ -31,7 +31,7 @@ class Main extends React.Component {
   componentDidMount = async () => {
     try {
       const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[newArrival]=1&sort[0]=newArrivalOrder:desc"
+        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[newArrival]=1&sort[0]=newArrivalOrder:desc"
       );
       /* 통신이 잘 됐고, 그 결과가 있고, 그 결과에 strapi 에서 주는 data 가 있고, 그 data가 array인경우 (array는 map이라는 함수가 있음) */
       if (
@@ -79,7 +79,7 @@ class Main extends React.Component {
 
     try {
       const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/items/?_limit=-1&populate=*&filters[bestItem]=1&sort[0]=bestItemOrder:desc"
+        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[bestItem]=1&sort[0]=bestItemOrder:desc"
       );
 
       if (
@@ -282,7 +282,7 @@ class Main extends React.Component {
                                       <img
                                         className="stuffBoxImg"
                                         src={
-                                          "http://jkintl.iptime.org:10337" +
+                                          "http://jkintl.co.kr:10337" +
                                           singleItem.attributes.indexImage.data
                                             .attributes.url
                                         }
@@ -334,7 +334,7 @@ class Main extends React.Component {
                                       <img
                                         className="stuffBoxImg"
                                         src={
-                                          "http://jkintl.iptime.org:10337" +
+                                          "http://jkintl.co.kr:10337" +
                                           singleItem.attributes.indexImage.data
                                             .attributes.url
                                         }
@@ -384,7 +384,7 @@ class Main extends React.Component {
                                           <img
                                             className="stuffBoxImg"
                                             src={
-                                              "http://jkintl.iptime.org:10337" +
+                                              "http://jkintl.co.kr:10337" +
                                               singleItem.attributes.indexImage
                                                 .data.attributes.url
                                             }
@@ -437,7 +437,7 @@ class Main extends React.Component {
                                           <img
                                             className="stuffBoxImg"
                                             src={
-                                              "http://jkintl.iptime.org:10337" +
+                                              "http://jkintl.co.kr:10337" +
                                               singleItem.attributes.indexImage
                                                 .data.attributes.url
                                             }

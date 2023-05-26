@@ -36,7 +36,7 @@ class SearchPage extends React.Component {
     try {
       // console.log(this.props.params.query);
       const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/items/?populate=*&_limit=-1&filters[$or][0][description][$containsi]=" +
+        "http://jkintl.co.kr:10337/api/items/?populate=*&_limit=-1&filters[$or][0][description][$containsi]=" +
           bbb +
           "&filters[$or][1][name][$containsi]=" +
           bbb +
@@ -159,7 +159,7 @@ class SearchPage extends React.Component {
                                   <img
                                     className="stuffBoxImg"
                                     src={
-                                      "http://jkintl.iptime.org:10337" +
+                                      "http://jkintl.co.kr:10337" +
                                       item.attributes.indexImage.data.attributes
                                         .url
                                     }

@@ -32,7 +32,7 @@ class Notice extends React.Component {
   componentDidMount = async () => {
     try {
       const response = await axios.get(
-        "http://jkintl.iptime.org:10337/api/notices?sort[0]=no:desc"
+        "http://jkintl.co.kr:10337/api/notices?sort[0]=no:desc"
       );
       this.setState({ notice: response });
     } catch (error) {

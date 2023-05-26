@@ -14,7 +14,7 @@ class Leaflet extends React.Component {
 
   componentDidMount() {
     axios
-      .get("http://jkintl.iptime.org:10337/api/leaflets?populate=*")
+      .get("http://jkintl.co.kr:10337/api/leaflets?populate=*")
       .then((response) => {
         this.setState({ leaflets: response.data.data });
       });
@@ -156,7 +156,7 @@ class Leaflet extends React.Component {
                       <li className="imgAlign">
                         <img
                           src={
-                            "http://jkintl.iptime.org:10337" +
+                            "http://jkintl.co.kr:10337" +
                             leaflet.attributes.indexImage.data[0].attributes.url
                           }
                           className="edge"
