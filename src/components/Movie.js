@@ -407,7 +407,7 @@ class Movie extends React.Component {
                         id="flexMovieReview"
                         videoId="kgUKm6c_rwI"
                         lazy={1}
-                        opts={movieOpts}
+                        opts={movieOpts1}
                       />
                     </li>
                     <li>
@@ -429,7 +429,7 @@ class Movie extends React.Component {
                         id="flexMovieReview"
                         videoId="FySwQHVTXxE"
                         lazy={1}
-                        opts={movieOpts}
+                        opts={movieOpts1}
                       />
                     </li>
                     <li>
