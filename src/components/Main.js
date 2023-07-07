@@ -471,10 +471,10 @@ class Main extends React.Component {
             <div className="container3">
               <ul className="link1">
                 <li>
-                  <YouTube id="flexMovie" videoId="fBMWUUYX6qE" />
+                  <YouTube id="flexMovie" videoId="kgUKm6c_rwI" />
                 </li>
                 <li>
-                  <YouTube id="flexMovie1" videoId="fBMWUUYX6qE" opts={opt} />
+                  <YouTube id="flexMovie1" videoId="kgUKm6c_rwI" opts={opt} />
                 </li>
                 <li>
                   <ul className="link1_title">
@@ -482,7 +482,7 @@ class Main extends React.Component {
                       <img src={youtube_logo} width="50" height="auto" />
                     </li>
                     <li>
-                      <h4 id="hv_title1">DC-9915</h4>
+                      <h4 id="hv_title1">DC-9913</h4>
                     </li>
                   </ul>
                 </li>
@@ -529,17 +529,17 @@ class Main extends React.Component {
                     <li>
                       <YouTube
                         className="flexMovieSmall"
-                        videoId="tV88tMBQhFs"
+                        videoId="FySwQHVTXxE"
                         opts={opts}
                       />
                       <YouTube
                         className="flexMovieSmall1"
-                        videoId="tV88tMBQhFs"
+                        videoId="FySwQHVTXxE"
                         opts={opts1}
                       />
                       <YouTube
                         className="flexMovieSmall2"
-                        videoId="tV88tMBQhFs"
+                        videoId="FySwQHVTXxE"
                         opts={opts2}
                       />
                     </li>
@@ -554,7 +554,7 @@ class Main extends React.Component {
                           />
                         </li>
                         <li>
-                          <h6>THD/TID-18BL</h6>
+                          <h6>TJS-18-B</h6>
                         </li>
                       </ul>
                     </li>
