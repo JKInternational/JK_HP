@@ -1,9 +1,9 @@
-import bannerTID1860bl from "./imgs/bannerTID1860bl.jpg";
+import bannerDC9913 from "./imgs/bannerDC9913.jpg";
 import bannerTichop from "./imgs/bannerTichop.jpg";
 import bannerTichopComp from "./imgs/bannerTichopComp1.jpg";
 import bannerBlueshark from "./imgs/bannerBlueshark1.jpg";
 import bannerWorthytool from "./imgs/bannerWorthytool1.jpg";
-import bannerTID1860blMobile from "./imgs/bannerTID1860blMobile.jpg";
+import bannerDC9913Mobile from "./imgs/bannerDC9913Mobile.jpg";
 import bannerTichopMobile from "./imgs/bannerTichopMobile.jpg";
 import bannerTichopCompMobile from "./imgs/bannerTichopCompMobile1.jpg";
 import bannerBluesharkMobile from "./imgs/bannerBluesharkMobile1.jpg";
@@ -186,9 +186,9 @@ class Main extends React.Component {
 
           <div className="carouselContainer">
             <Carousel>
-              <Link to="/detail/84">
+              <Link to="/detail/99">
                 <CarouselItem>
-                  <img className="bannerImg" src={bannerTID1860bl} />
+                  <img className="bannerImg" src={bannerDC9913} />
                 </CarouselItem>
               </Link>
               <Link to="/tichoppower">
@@ -216,9 +216,9 @@ class Main extends React.Component {
 
           <div className="carouselContainerMobile">
             <Carousel>
-              <Link to="/detail/84">
+              <Link to="/detail/99">
                 <CarouselItem>
-                  <img className="bannerImg" src={bannerTID1860blMobile} />
+                  <img className="bannerImg" src={bannerDC9913Mobile} />
                 </CarouselItem>
               </Link>
               <Link to="/tichoppower">
