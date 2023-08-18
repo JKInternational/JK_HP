@@ -1,8 +1,10 @@
+import bannerCablecutter from "./imgs/cablecutter.jpg";
 import bannerDC9913 from "./imgs/bannerDC9913.jpg";
 import bannerTichop from "./imgs/bannerTichop.jpg";
 import bannerTichopComp from "./imgs/bannerTichopComp1.jpg";
 import bannerBlueshark from "./imgs/bannerBlueshark1.jpg";
 import bannerWorthytool from "./imgs/bannerWorthytool1.jpg";
+import bannerCablecutterMobile from "./imgs/cablecutterMobile.jpg";
 import bannerDC9913Mobile from "./imgs/bannerDC9913Mobile.jpg";
 import bannerTichopMobile from "./imgs/bannerTichopMobile.jpg";
 import bannerTichopCompMobile from "./imgs/bannerTichopCompMobile1.jpg";
@@ -186,6 +188,11 @@ class Main extends React.Component {
 
           <div className="carouselContainer">
             <Carousel>
+              <Link to="/detail/102">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerCablecutter} />
+                </CarouselItem>
+              </Link>
               <Link to="/detail/99">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerDC9913} />
@@ -216,6 +223,11 @@ class Main extends React.Component {
 
           <div className="carouselContainerMobile">
             <Carousel>
+              <Link to="/detail/102">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerCablecutterMobile} />
+                </CarouselItem>
+              </Link>
               <Link to="/detail/99">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerDC9913Mobile} />
@@ -471,10 +483,10 @@ class Main extends React.Component {
             <div className="container3">
               <ul className="link1">
                 <li>
-                  <YouTube id="flexMovie" videoId="kgUKm6c_rwI" />
+                  <YouTube id="flexMovie" videoId="yPGMF9tE1dE" />
                 </li>
                 <li>
-                  <YouTube id="flexMovie1" videoId="kgUKm6c_rwI" opts={opt} />
+                  <YouTube id="flexMovie1" videoId="yPGMF9tE1dE" opts={opt} />
                 </li>
                 <li>
                   <ul className="link1_title">
@@ -482,7 +494,7 @@ class Main extends React.Component {
                       <img src={youtube_logo} width="50" height="auto" />
                     </li>
                     <li>
-                      <h4 id="hv_title1">DC-9913</h4>
+                      <h4 id="hv_title1">1030/1050/135B</h4>
                     </li>
                   </ul>
                 </li>
@@ -490,6 +502,42 @@ class Main extends React.Component {
               <ul className="link2_3">
                 <li>
                   <ul className="link2">
+                    <li>
+                      <YouTube
+                        className="flexMovieSmall"
+                        videoId="kgUKm6c_rwI"
+                        opts={opts}
+                      />
+                      <YouTube
+                        className="flexMovieSmall1"
+                        videoId="kgUKm6c_rwI"
+                        opts={opts1}
+                      />
+                      <YouTube
+                        className="flexMovieSmall2"
+                        videoId="kgUKm6c_rwI"
+                        opts={opts2}
+                      />
+                    </li>
+                    <li>
+                      <ul className="link2_title">
+                        <li>
+                          <img
+                            id="yt_logo"
+                            src={youtube_logo}
+                            width="40"
+                            height="auto"
+                          />
+                        </li>
+                        <li>
+                          <h6>DC-9913</h6>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <ul className="link3">
                     <li>
                       <YouTube
                         className="flexMovieSmall"
@@ -519,42 +567,6 @@ class Main extends React.Component {
                         </li>
                         <li>
                           <h6>DC-1090M</h6>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <ul className="link3">
-                    <li>
-                      <YouTube
-                        className="flexMovieSmall"
-                        videoId="FySwQHVTXxE"
-                        opts={opts}
-                      />
-                      <YouTube
-                        className="flexMovieSmall1"
-                        videoId="FySwQHVTXxE"
-                        opts={opts1}
-                      />
-                      <YouTube
-                        className="flexMovieSmall2"
-                        videoId="FySwQHVTXxE"
-                        opts={opts2}
-                      />
-                    </li>
-                    <li>
-                      <ul className="link2_title">
-                        <li>
-                          <img
-                            id="yt_logo"
-                            src={youtube_logo}
-                            width="40"
-                            height="auto"
-                          />
-                        </li>
-                        <li>
-                          <h6>TJS-18-B</h6>
                         </li>
                       </ul>
                     </li>
