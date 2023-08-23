@@ -84,6 +84,7 @@ a:active {
   font-size: 16px;
   border: none;
   background-color: transparent;
+  border-radius: 5px 5px 0px 0px;
 }
 
 .dropdownBtnAbove {
@@ -129,10 +130,15 @@ a:active {
 .dropdownBtnAbove:visited,
 .dropdownBtnAbove:hover,
 .dropdownContent a:visited,
-.dropdownContent a:hover,
+.dropdownContent a:hover {
+  background-color: #ddd;
+  border-radius: 0px 0px 5px 5px;
+}
+
 .dropdownContent1 a:visited,
 .dropdownContent1 a:hover {
   background-color: #ddd;
+  border-radius: 0px 5px 5px 0px;
 }
 
 .navbar_menu1:hover .dropdownContent {
