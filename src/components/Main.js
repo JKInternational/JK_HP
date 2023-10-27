@@ -541,17 +541,17 @@ class Main extends React.Component {
                     <li>
                       <YouTube
                         className="flexMovieSmall"
-                        videoId="vW7_2w1lO-c"
+                        videoId="3ba8BMIh1xo"
                         opts={opts}
                       />
                       <YouTube
                         className="flexMovieSmall1"
-                        videoId="vW7_2w1lO-c"
+                        videoId="3ba8BMIh1xo"
                         opts={opts1}
                       />
                       <YouTube
                         className="flexMovieSmall2"
-                        videoId="vW7_2w1lO-c"
+                        videoId="3ba8BMIh1xo"
                         opts={opts2}
                       />
                     </li>
@@ -566,7 +566,7 @@ class Main extends React.Component {
                           />
                         </li>
                         <li>
-                          <h6>DC-1090M</h6>
+                          <h6>TPS-140BL-B</h6>
                         </li>
                       </ul>
                     </li>
