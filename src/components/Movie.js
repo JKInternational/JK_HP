@@ -61,6 +61,28 @@ class Movie extends React.Component {
                     <li id="moviePadding">
                       <YouTube
                         id="flexMovieReview"
+                        videoId="AAC9tmjfENY"
+                        lazy={1}
+                        opts={movieOpts}
+                      />
+                    </li>
+                    <li>
+                      <ul className="link_title">
+                        <li>
+                          <img src={youtube_logo} width="30" height="auto" />
+                        </li>
+                        <li>
+                          <h4 id="hv_title1">충전체인톱 TES-36BL-B</h4>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li className="innerLink">
+                  <ul className="innerLink1">
+                    <li id="moviePadding">
+                      <YouTube
+                        id="flexMovieReview"
                         videoId="3ba8BMIh1xo"
                         lazy={1}
                         opts={movieOpts}

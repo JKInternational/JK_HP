@@ -483,10 +483,10 @@ class Main extends React.Component {
             <div className="container3">
               <ul className="link1">
                 <li>
-                  <YouTube id="flexMovie" videoId="yPGMF9tE1dE" />
+                  <YouTube id="flexMovie" videoId="AAC9tmjfENY" />
                 </li>
                 <li>
-                  <YouTube id="flexMovie1" videoId="yPGMF9tE1dE" opts={opt} />
+                  <YouTube id="flexMovie1" videoId="AAC9tmjfENY" opts={opt} />
                 </li>
                 <li>
                   <ul className="link1_title">
@@ -494,7 +494,7 @@ class Main extends React.Component {
                       <img src={youtube_logo} width="50" height="auto" />
                     </li>
                     <li>
-                      <h4 id="hv_title1">1030/1050/135B</h4>
+                      <h4 id="hv_title1">TES-36BL-B</h4>
                     </li>
                   </ul>
                 </li>
@@ -505,17 +505,17 @@ class Main extends React.Component {
                     <li>
                       <YouTube
                         className="flexMovieSmall"
-                        videoId="kgUKm6c_rwI"
+                        videoId="yPGMF9tE1dE"
                         opts={opts}
                       />
                       <YouTube
                         className="flexMovieSmall1"
-                        videoId="kgUKm6c_rwI"
+                        videoId="yPGMF9tE1dE"
                         opts={opts1}
                       />
                       <YouTube
                         className="flexMovieSmall2"
-                        videoId="kgUKm6c_rwI"
+                        videoId="yPGMF9tE1dE"
                         opts={opts2}
                       />
                     </li>
@@ -530,7 +530,7 @@ class Main extends React.Component {
                           />
                         </li>
                         <li>
-                          <h6>DC-9913</h6>
+                          <h6>1030/1050/135B</h6>
                         </li>
                       </ul>
                     </li>
