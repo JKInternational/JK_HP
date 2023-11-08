@@ -75,10 +75,11 @@ button {
   display: flex;
   justify-content: space-around;
   align-self: flex-end;
-  width: 145px;
+  width: 180px;
   height: 30px;
   padding-bottom: 1%;
   z-index: 1;
+  opacity: 0.7;
 }
 
 .indicators button {
@@ -109,8 +110,9 @@ button {
     justify-content: space-around;
     align-items: flex-end;
     padding-bottom: 3%;
-    width: 145px;
+    width: 180px;
     height: 30px;
     z-index: 1;
+    opacity: 0.7;
   }
 }
