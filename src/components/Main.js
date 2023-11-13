@@ -1,3 +1,5 @@
+import bannerTcb36blb from "./imgs/bannerTcb36blb.jpg";
+import bannerTcb36blbMobile from "./imgs/bannerTcb36blbMobile.jpg";
 import bannerTes36blb from "./imgs/bannerTes36blb.jpg";
 import bannerTes36blbMobile from "./imgs/bannerTes36blbMobile.jpg";
 import bannerCablecutter from "./imgs/cablecutter.jpg";
@@ -190,6 +192,11 @@ class Main extends React.Component {
 
           <div className="carouselContainer">
             <Carousel>
+              <Link to="/detail/106">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerTcb36blb} />
+                </CarouselItem>
+              </Link>
               <Link to="/detail/104">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerTes36blb} />
@@ -230,6 +237,11 @@ class Main extends React.Component {
 
           <div className="carouselContainerMobile">
             <Carousel>
+              <Link to="/detail/104">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerTcb36blbMobile} />
+                </CarouselItem>
+              </Link>
               <Link to="/detail/104">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerTes36blbMobile} />
