@@ -237,7 +237,7 @@ class Main extends React.Component {
 
           <div className="carouselContainerMobile">
             <Carousel>
-              <Link to="/detail/104">
+              <Link to="/detail/106">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerTcb36blbMobile} />
                 </CarouselItem>
