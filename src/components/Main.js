@@ -1,3 +1,5 @@
+import bannerDC3090 from "./imgs/bannerDC3090.jpg";
+import bannerDC3090Mobile from "./imgs/bannerDC3090Mobile.jpg";
 import bannerTcb36blb from "./imgs/bannerTcb36blb.jpg";
 import bannerTcb36blbMobile from "./imgs/bannerTcb36blbMobile.jpg";
 import bannerTes36blb from "./imgs/bannerTes36blb.jpg";
@@ -192,6 +194,11 @@ class Main extends React.Component {
 
           <div className="carouselContainer">
             <Carousel>
+              <Link to="/detail/107">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerDC3090} />
+                </CarouselItem>
+              </Link>
               <Link to="/detail/106">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerTcb36blb} />
@@ -207,11 +214,11 @@ class Main extends React.Component {
                   <img className="bannerImg" src={bannerCablecutter} />
                 </CarouselItem>
               </Link>
-              <Link to="/detail/99">
+              {/* <Link to="/detail/99">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerDC9913} />
                 </CarouselItem>
-              </Link>
+              </Link> */}
               <Link to="/tichoppower">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerTichop} />
@@ -237,6 +244,11 @@ class Main extends React.Component {
 
           <div className="carouselContainerMobile">
             <Carousel>
+              <Link to="/detail/107">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerDC3090Mobile} />
+                </CarouselItem>
+              </Link>
               <Link to="/detail/106">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerTcb36blbMobile} />
@@ -252,11 +264,11 @@ class Main extends React.Component {
                   <img className="bannerImg" src={bannerCablecutterMobile} />
                 </CarouselItem>
               </Link>
-              <Link to="/detail/99">
+              {/* <Link to="/detail/99">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerDC9913Mobile} />
                 </CarouselItem>
-              </Link>
+              </Link> */}
               <Link to="/tichoppower">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerTichopMobile} />
