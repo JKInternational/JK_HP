@@ -61,6 +61,30 @@ class Movie extends React.Component {
                     <li id="moviePadding">
                       <YouTube
                         id="flexMovieReview"
+                        videoId="XLBmQWTX26Y"
+                        lazy={1}
+                        opts={movieOpts}
+                      />
+                    </li>
+                    <li>
+                      <ul className="link_title">
+                        <li>
+                          <img src={youtube_logo} width="30" height="auto" />
+                        </li>
+                        <li>
+                          <h4 id="hv_title1">
+                            DC36V 충전대포송풍기 TCB-36BL-B
+                          </h4>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li className="innerLink">
+                  <ul className="innerLink1">
+                    <li id="moviePadding">
+                      <YouTube
+                        id="flexMovieReview"
                         videoId="AAC9tmjfENY"
                         lazy={1}
                         opts={movieOpts}
@@ -72,7 +96,7 @@ class Movie extends React.Component {
                           <img src={youtube_logo} width="30" height="auto" />
                         </li>
                         <li>
-                          <h4 id="hv_title1">충전체인톱 TES-36BL-B</h4>
+                          <h4 id="hv_title1">DC36V 충전체인톱 TES-36BL-B</h4>
                         </li>
                       </ul>
                     </li>
@@ -94,7 +118,7 @@ class Movie extends React.Component {
                           <img src={youtube_logo} width="30" height="auto" />
                         </li>
                         <li>
-                          <h4 id="hv_title1">충전플런지쏘 TPS-140BL-B</h4>
+                          <h4 id="hv_title1">DC18V 충전플런지쏘 TPS-140BL-B</h4>
                         </li>
                       </ul>
                     </li>
@@ -138,7 +162,9 @@ class Movie extends React.Component {
                           <img src={youtube_logo} width="30" height="auto" />
                         </li>
                         <li>
-                          <h4 id="hv_title1">(다목적)금속절단기 DC-9913</h4>
+                          <h4 id="hv_title1">
+                            AC220V(다목적)금속절단기 DC-9913
+                          </h4>
                         </li>
                       </ul>
                     </li>
@@ -160,7 +186,9 @@ class Movie extends React.Component {
                           <img src={youtube_logo} width="30" height="auto" />
                         </li>
                         <li>
-                          <h4 id="hv_title1">(다목적)금속절단기 DC-9914</h4>
+                          <h4 id="hv_title1">
+                            DC36V (다목적)금속절단기 DC-9914
+                          </h4>
                         </li>
                       </ul>
                     </li>
@@ -182,7 +210,7 @@ class Movie extends React.Component {
                           <img src={youtube_logo} width="30" height="auto" />
                         </li>
                         <li>
-                          <h4 id="hv_title1">18V 충전직쏘 TJS-18-B</h4>
+                          <h4 id="hv_title1">DC18V 충전직쏘 TJS-18-B</h4>
                         </li>
                       </ul>
                     </li>
@@ -204,7 +232,9 @@ class Movie extends React.Component {
                           <img src={youtube_logo} width="30" height="auto" />
                         </li>
                         <li>
-                          <h4 id="hv_title1">(다목적)금속절단기 DC-9915</h4>
+                          <h4 id="hv_title1">
+                            DC36V (다목적)금속절단기 DC-9915
+                          </h4>
                         </li>
                       </ul>
                     </li>
@@ -248,7 +278,7 @@ class Movie extends React.Component {
                         </li>
                         <li>
                           <h4 id="hv_title1">
-                            18V 충전해머드릴 TID-18BL/THD-18BL
+                            DC18V 충전해머드릴 TID-18BL/THD-18BL
                           </h4>
                         </li>
                       </ul>
@@ -270,7 +300,7 @@ class Movie extends React.Component {
                           <img src={youtube_logo} width="30" height="auto" />
                         </li>
                         <li>
-                          <h4 id="hv_title1">18V 충전원형톱 TCS-165BL</h4>
+                          <h4 id="hv_title1">DC18V 충전원형톱 TCS-165BL</h4>
                         </li>
                       </ul>
                     </li>
@@ -292,7 +322,7 @@ class Movie extends React.Component {
                         </li>
                         <li>
                           <h4 id="hv_title1">
-                            18V 충전로터리해머드릴 TRD-18BL
+                            DC18V 충전로터리해머드릴 TRD-18BL
                           </h4>
                         </li>
                       </ul>
@@ -314,7 +344,7 @@ class Movie extends React.Component {
                           <img src={youtube_logo} width="30" height="auto" />
                         </li>
                         <li>
-                          <h4 id="hv_title1">16V 충전전동전지가위 WCP-25</h4>
+                          <h4 id="hv_title1">DC16V 충전전동전지가위 WCP-25</h4>
                         </li>
                       </ul>
                     </li>
