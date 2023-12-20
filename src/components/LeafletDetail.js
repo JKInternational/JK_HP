@@ -26,23 +26,17 @@ class LeafletDetail extends React.Component {
 
   render() {
     const { leaflet } = this.state;
-    if (!leaflet) {
+    if (!leaflet || !leaflet.attributes || !leaflet.attributes.mainImage) {
       return <div>Loading...</div>;
     }
+
+    const mainImages = leaflet.attributes.mainImage.data;
+
     return (
       <>
         <div className="LeafletDetail">
           <div className="container">
             <div className="innerContainer1">
-              <div className="category">
-                <span>Home</span>
-                <span>></span>
-                <span>고객지원</span>
-                <span>></span>
-                <span>전단지</span>
-                <span>></span>
-                <span>제품</span>
-              </div>
               <p>
                 <h1>{leaflet?.attributes?.title}</h1>
               </p>
@@ -50,15 +44,15 @@ class LeafletDetail extends React.Component {
             </div>
           </div>
           <ul className="LeafletDetailContainer">
-            <li className="imgWrap">
-              <img
-                src={
-                  "http://jkintl.co.kr:10337" +
-                  leaflet?.attributes?.mainImage?.data?.[0]?.attributes?.url
-                }
-                className="img800"
-              />
-            </li>
+            {mainImages.map((image, index) => (
+              <li className="imgWrap" key={index}>
+                <img
+                  src={"http://jkintl.co.kr:10337" + image?.attributes?.url}
+                  className="img800"
+                  alt={`Image ${index + 1}`}
+                />
+              </li>
+            ))}
             <li className="leafletShares">
               <ShareBtnsLeaflet leaflet={this.state || {}} />
             </li>
