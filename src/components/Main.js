@@ -6,12 +6,12 @@ import bannerTcb36blb from "./imgs/bannerTcb36blb.jpg";
 import bannerTcb36blbMobile from "./imgs/bannerTcb36blbMobile.jpg";
 import bannerTes36blb from "./imgs/bannerTes36blb.jpg";
 import bannerTes36blbMobile from "./imgs/bannerTes36blbMobile.jpg";
-import bannerCablecutter from "./imgs/cablecutter.jpg";
+import bannerTdmMax1 from "./imgs/bannerTdmMax1.jpg";
 import bannerTichop from "./imgs/bannerTichop.jpg";
 import bannerTichopComp from "./imgs/bannerTichopComp1.jpg";
 import bannerBlueshark from "./imgs/bannerBlueshark1.jpg";
 import bannerWorthytool from "./imgs/bannerWorthytool1.jpg";
-import bannerCablecutterMobile from "./imgs/cablecutterMobile.jpg";
+import bannerTdmMax1Mobile from "./imgs/bannerTdmMax1Mobile.jpg";
 import bannerTichopMobile from "./imgs/bannerTichopMobile.jpg";
 import bannerTichopCompMobile from "./imgs/bannerTichopCompMobile1.jpg";
 import bannerBluesharkMobile from "./imgs/bannerBluesharkMobile1.jpg";
@@ -199,6 +199,11 @@ class Main extends React.Component {
                   <img className="bannerImg" src={banner2024Leaflet} />
                 </CarouselItem>
               </Link>
+              <Link to="/detail/103">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerTdmMax1} />
+                </CarouselItem>
+              </Link>
               <Link to="/detail/107">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerDC3090} />
@@ -212,11 +217,6 @@ class Main extends React.Component {
               <Link to="/detail/104">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerTes36blb} />
-                </CarouselItem>
-              </Link>
-              <Link to="/detail/102">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerCablecutter} />
                 </CarouselItem>
               </Link>
               {/* <Link to="/detail/99">
@@ -254,6 +254,11 @@ class Main extends React.Component {
                   <img className="bannerImg" src={banner2024LeafletMobile} />
                 </CarouselItem>
               </Link>
+              <Link to="/detail/103">
+                <CarouselItem>
+                  <img className="bannerImg" src={bannerTdmMax1Mobile} />
+                </CarouselItem>
+              </Link>
               <Link to="/detail/107">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerDC3090Mobile} />
@@ -267,11 +272,6 @@ class Main extends React.Component {
               <Link to="/detail/104">
                 <CarouselItem>
                   <img className="bannerImg" src={bannerTes36blbMobile} />
-                </CarouselItem>
-              </Link>
-              <Link to="/detail/102">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerCablecutterMobile} />
                 </CarouselItem>
               </Link>
               {/* <Link to="/detail/99">

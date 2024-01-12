@@ -360,6 +360,27 @@ class Movie extends React.Component {
                     <li id="moviePadding">
                       <YouTube
                         id="flexMovieReview"
+                        videoId="lrwFe2CfIqA"
+                        opts={movieOpts}
+                      />
+                    </li>
+                    <li>
+                      <ul className="link_title">
+                        <li>
+                          <img src={youtube_logo} width="30" height="auto" />
+                        </li>
+                        <li>
+                          <h4 id="hv_title1">DC-3090</h4>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li className="innerLink">
+                  <ul className="innerLink1">
+                    <li id="moviePadding">
+                      <YouTube
+                        id="flexMovieReview"
                         videoId="vW7_2w1lO-c"
                         opts={movieOpts}
                       />
