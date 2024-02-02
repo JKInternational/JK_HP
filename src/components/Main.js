@@ -529,10 +529,10 @@ class Main extends React.Component {
             <div className="container3">
               <ul className="link1">
                 <li>
-                  <YouTube id="flexMovie" videoId="AAC9tmjfENY" />
+                  <YouTube id="flexMovie" videoId="W2nAzp3QH_0" />
                 </li>
                 <li>
-                  <YouTube id="flexMovie1" videoId="AAC9tmjfENY" opts={opt} />
+                  <YouTube id="flexMovie1" videoId="W2nAzp3QH_0" opts={opt} />
                 </li>
                 <li>
                   <ul className="link1_title">
@@ -540,7 +540,7 @@ class Main extends React.Component {
                       <img src={youtube_logo} width="50" height="auto" />
                     </li>
                     <li>
-                      <h4 id="hv_title1">TES-36BL-B</h4>
+                      <h4 id="hv_title1">TDM-MAX</h4>
                     </li>
                   </ul>
                 </li>
@@ -548,6 +548,42 @@ class Main extends React.Component {
               <ul className="link2_3">
                 <li>
                   <ul className="link2">
+                    <li>
+                      <YouTube
+                        className="flexMovieSmall"
+                        videoId="AAC9tmjfEN"
+                        opts={opts}
+                      />
+                      <YouTube
+                        className="flexMovieSmall1"
+                        videoId="AAC9tmjfEN"
+                        opts={opts1}
+                      />
+                      <YouTube
+                        className="flexMovieSmall2"
+                        videoId="AAC9tmjfEN"
+                        opts={opts2}
+                      />
+                    </li>
+                    <li>
+                      <ul className="link2_title">
+                        <li>
+                          <img
+                            id="yt_logo"
+                            src={youtube_logo}
+                            width="40"
+                            height="auto"
+                          />
+                        </li>
+                        <li>
+                          <h6>TES-36BL-B</h6>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <ul className="link3">
                     <li>
                       <YouTube
                         className="flexMovieSmall"
@@ -577,42 +613,6 @@ class Main extends React.Component {
                         </li>
                         <li>
                           <h6>1030/1050/135B</h6>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <ul className="link3">
-                    <li>
-                      <YouTube
-                        className="flexMovieSmall"
-                        videoId="3ba8BMIh1xo"
-                        opts={opts}
-                      />
-                      <YouTube
-                        className="flexMovieSmall1"
-                        videoId="3ba8BMIh1xo"
-                        opts={opts1}
-                      />
-                      <YouTube
-                        className="flexMovieSmall2"
-                        videoId="3ba8BMIh1xo"
-                        opts={opts2}
-                      />
-                    </li>
-                    <li>
-                      <ul className="link2_title">
-                        <li>
-                          <img
-                            id="yt_logo"
-                            src={youtube_logo}
-                            width="40"
-                            height="auto"
-                          />
-                        </li>
-                        <li>
-                          <h6>TPS-140BL-B</h6>
                         </li>
                       </ul>
                     </li>
