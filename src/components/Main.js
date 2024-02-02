@@ -551,17 +551,17 @@ class Main extends React.Component {
                     <li>
                       <YouTube
                         className="flexMovieSmall"
-                        videoId="7RcNU_zh4vo&t"
+                        videoId="7RcNU_zh4vo"
                         opts={opts}
                       />
                       <YouTube
                         className="flexMovieSmall1"
-                        videoId="7RcNU_zh4vo&t"
+                        videoId="7RcNU_zh4vo"
                         opts={opts1}
                       />
                       <YouTube
                         className="flexMovieSmall2"
-                        videoId="7RcNU_zh4vo&t"
+                        videoId="7RcNU_zh4vo"
                         opts={opts2}
                       />
                     </li>

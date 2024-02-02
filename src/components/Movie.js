@@ -61,7 +61,7 @@ class Movie extends React.Component {
                     <li id="moviePadding">
                       <YouTube
                         id="flexMovieReview"
-                        videoId="7RcNU_zh4vo&t"
+                        videoId="7RcNU_zh4vo"
                         lazy={1}
                         opts={movieOpts}
                       />
