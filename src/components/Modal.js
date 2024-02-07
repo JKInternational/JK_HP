@@ -35,14 +35,14 @@ class Modal extends React.Component {
 
     return (
       <div className="modal">
-        <div className="modalContent">
+        <ul className="modalContent">
           {/* <span className="close" onClick={this.closeModal}>
             &times;
           </span> */}
-          <div className="popUpImg">
+          <li className="popUpImg">
             <img className="noticeBanner" src={noticePopUp} />
-          </div>
-          <div className="closeBtn">
+          </li>
+          <li className="closeBtn">
             <button className="close" onClick={this.closeModal}>
               닫기 X
             </button>
@@ -51,8 +51,8 @@ class Modal extends React.Component {
                 오늘 하루 보지 않기
               </button>
             )}
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     );
   }
