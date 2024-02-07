@@ -1,0 +1,40 @@
+.modal {
+  box-shadow: 5px 5px 10px -5px;
+}
+
+.closeBtn {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: white;
+  padding: 0px;
+  margin: 0px;
+}
+
+.popUpImg {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+.close {
+  color: white;
+  border: none;
+  background-color: gray;
+  margin: 5px;
+}
+
+.todayClose {
+border: none;
+background-color: white;
+}
+
+
+@media screen and (max-width: 1125px) {
+  /* .modal {
+    width: 60%;
+  } */
+
+  .noticeBanner {
+    width: 100%;
+  }
+}
