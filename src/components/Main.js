@@ -20,7 +20,7 @@ import bannerWorthytoolMobile from "./imgs/bannerWorthytoolMobile1.jpg";
 import { ReactComponent as Arrow } from "./imgs/arrow.svg";
 import youtube_logo from "./imgs/youtube_logo.png";
 
-import Modal from "./Modal";
+// import Modal from "./Modal";
 
 import React from "react";
 import YouTube from "react-youtube";
@@ -193,9 +193,9 @@ class Main extends React.Component {
               <button className="modalBtn"></button>
             </div>
           </div> */}
-          <div className="popup">
+          {/* <div className="popup">
             <Modal />
-          </div>
+          </div> */}
 
           <div className="carouselContainer">
             <Carousel>
