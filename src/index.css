@@ -22,6 +22,16 @@ code {
   opacity: 75%;
   z-index: 2;
   box-shadow: 2px 3px 5px gray;
+  animation: moveUpDown 1s infinite alternate;
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(8px);
+  }
 }
 
 @media screen and (max-width: 600px) {
