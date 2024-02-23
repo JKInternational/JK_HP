@@ -159,6 +159,11 @@ a:active {
   padding: 15px 40px;
 }
 
+#search_blank {
+  border-width: 1.5px;
+  border-color: lightgray;
+}
+
 form {
   display: flex;
   align-items: center;
@@ -211,11 +216,11 @@ form {
   right: 0px;
   background-color: #f1f1f1;
   width: 100vw;
-  height: 100%;
+  height: 450px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 2;
   padding: 0px 0px;
-  animation-duration: 0.5s;
+  animation-duration: 0.3s;
   animation-name: dropdownAni;
 }
 
@@ -656,7 +661,7 @@ form {
 }
 
 .container3 {
-  max-width: 100%;
+  max-width: 900%;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;

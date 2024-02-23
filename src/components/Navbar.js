@@ -72,7 +72,12 @@ class Navbar extends React.Component {
 
             <div className="navbar_search">
               <form action="http://jkintl.co.kr/searchpage">
-                <input type="text" name="searchword" placeholder="상품 검색" />
+                <input
+                  type="text"
+                  name="searchword"
+                  placeholder="상품 검색"
+                  id="search_blank"
+                />
                 {/* <Link to="searchpage"> */}
                 <input type="submit" value="" id="searchBtn" />
                 {/* </Link> */}
