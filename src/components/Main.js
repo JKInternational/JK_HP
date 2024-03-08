@@ -2,8 +2,8 @@ import banner2024Leaflet from "./imgs/banner2024Leaflet.jpg";
 import banner2024LeafletMobile from "./imgs/banner2024LeafletMobile.jpg";
 import bannerDC3090 from "./imgs/bannerDC3090.jpg";
 import bannerDC3090Mobile from "./imgs/bannerDC3090Mobile.jpg";
-import bannerTcb36blb from "./imgs/bannerTcb36blb.jpg";
-import bannerTcb36blbMobile from "./imgs/bannerTcb36blbMobile.jpg";
+import cablecutter from "./imgs/cablecutter.jpg";
+import cablecutterMobile from "./imgs/cablecutterMobile.jpg";
 import bannerTes36blb from "./imgs/bannerTes36blb.jpg";
 import bannerTes36blbMobile from "./imgs/bannerTes36blbMobile.jpg";
 import bannerTdmMax1 from "./imgs/bannerTdmMax1.jpg";
@@ -36,6 +36,9 @@ class Main extends React.Component {
     newArrival: {},
     bestItem: {},
     error: null,
+    firstMovie: null,
+    secondMovie: null,
+    thirdMovie: null,
   };
 
   componentDidMount = async () => {
@@ -118,6 +121,40 @@ class Main extends React.Component {
     } catch (error) {
       this.setState({ error });
     }
+
+    try {
+      const response = await axios.get(
+        "http://jkintl.co.kr:10337/api/movies?populate=*"
+      );
+      const movies = response.data.data;
+
+      // "first", "second", "third" 항목을 가진 영화를 찾습니다.
+      const firstMovie = movies.find(
+        (movie) => movie.attributes.main_section === "first"
+      );
+      const secondMovie = movies.find(
+        (movie) => movie.attributes.main_section === "second"
+      );
+      const thirdMovie = movies.find(
+        (movie) => movie.attributes.main_section === "third"
+      );
+
+      // "first", "second", "third" 항목을 가진 영화가 없을 경우 오류 처리
+      if (!firstMovie || !secondMovie || !thirdMovie) {
+        throw new Error("Some movies not found");
+      }
+
+      // 모든 항목이 존재할 경우 state에 저장
+      this.setState({
+        firstMovie,
+        secondMovie,
+        thirdMovie,
+        error: null, // 오류가 없으므로 error 상태를 null로 설정
+      });
+    } catch (error) {
+      console.error("Error fetching movies: ", error);
+      this.setState({ error });
+    }
   };
   /*
     componentDidMount() {
@@ -180,9 +217,15 @@ class Main extends React.Component {
       padding: "0px",
     };
 
-    // if (this.state.newArrival.data) {
-    //   console.log(this.state.newArrival.data.data);
-    // }
+    const { firstMovie, secondMovie, thirdMovie, error } = this.state;
+
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    }
+
+    if (!firstMovie || !secondMovie || !thirdMovie) {
+      return <div>Loading...</div>;
+    }
 
     return (
       <>
@@ -214,9 +257,9 @@ class Main extends React.Component {
                   <img className="bannerImg" src={bannerDC3090} />
                 </CarouselItem>
               </Link>
-              <Link to="/detail/106">
+              <Link to="/detail/101">
                 <CarouselItem>
-                  <img className="bannerImg" src={bannerTcb36blb} />
+                  <img className="bannerImg" src={cablecutter} />
                 </CarouselItem>
               </Link>
               <Link to="/detail/104">
@@ -269,9 +312,9 @@ class Main extends React.Component {
                   <img className="bannerImg" src={bannerDC3090Mobile} />
                 </CarouselItem>
               </Link>
-              <Link to="/detail/106">
+              <Link to="/detail/101">
                 <CarouselItem>
-                  <img className="bannerImg" src={bannerTcb36blbMobile} />
+                  <img className="bannerImg" src={cablecutterMobile} />
                 </CarouselItem>
               </Link>
               <Link to="/detail/104">
@@ -534,10 +577,17 @@ class Main extends React.Component {
             <div className="container3">
               <ul className="link1">
                 <li>
-                  <YouTube id="flexMovie" videoId="W2nAzp3QH_0" />
+                  <YouTube
+                    id="flexMovie"
+                    videoId={firstMovie.attributes.video_id}
+                  />
                 </li>
                 <li>
-                  <YouTube id="flexMovie1" videoId="W2nAzp3QH_0" opts={opt} />
+                  <YouTube
+                    id="flexMovie1"
+                    videoId={firstMovie.attributes.video_id}
+                    opts={opt}
+                  />
                 </li>
                 <li>
                   <ul className="link1_title">
@@ -545,7 +595,7 @@ class Main extends React.Component {
                       <img src={youtube_logo} width="50" height="auto" />
                     </li>
                     <li>
-                      <h4 id="hv_title1">TDM-MAX</h4>
+                      <h4 id="hv_title1">{firstMovie.attributes.title}</h4>
                     </li>
                   </ul>
                 </li>
@@ -556,17 +606,17 @@ class Main extends React.Component {
                     <li>
                       <YouTube
                         className="flexMovieSmall"
-                        videoId="7RcNU_zh4vo"
+                        videoId={secondMovie.attributes.video_id}
                         opts={opts}
                       />
                       <YouTube
                         className="flexMovieSmall1"
-                        videoId="7RcNU_zh4vo"
+                        videoId={secondMovie.attributes.video_id}
                         opts={opts1}
                       />
                       <YouTube
                         className="flexMovieSmall2"
-                        videoId="7RcNU_zh4vo"
+                        videoId={secondMovie.attributes.video_id}
                         opts={opts2}
                       />
                     </li>
@@ -581,7 +631,7 @@ class Main extends React.Component {
                           />
                         </li>
                         <li>
-                          <h6>DC-966D</h6>
+                          <h6>{secondMovie.attributes.title}</h6>
                         </li>
                       </ul>
                     </li>
@@ -592,17 +642,17 @@ class Main extends React.Component {
                     <li>
                       <YouTube
                         className="flexMovieSmall"
-                        videoId="yPGMF9tE1dE"
+                        videoId={thirdMovie.attributes.video_id}
                         opts={opts}
                       />
                       <YouTube
                         className="flexMovieSmall1"
-                        videoId="yPGMF9tE1dE"
+                        videoId={thirdMovie.attributes.video_id}
                         opts={opts1}
                       />
                       <YouTube
                         className="flexMovieSmall2"
-                        videoId="yPGMF9tE1dE"
+                        videoId={thirdMovie.attributes.video_id}
                         opts={opts2}
                       />
                     </li>
@@ -617,7 +667,7 @@ class Main extends React.Component {
                           />
                         </li>
                         <li>
-                          <h6>1030/1050/135B</h6>
+                          <h6>{thirdMovie.attributes.title}</h6>
                         </li>
                       </ul>
                     </li>
