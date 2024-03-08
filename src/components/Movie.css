@@ -224,6 +224,11 @@ button:active {
     font-size: 12px;
   }
 
+  #thumbnailImg {
+    width: 320px;
+    height: 240px;
+  }
+
   .container1 {
     display: none;
   }

@@ -6,54 +6,68 @@ import "./Movie.css";
 
 class Movie extends Component {
   state = {
-    movies: [], // Strapi에서 받아온 영화 데이터를 저장할 배열
+    movies: [],
+    thumbnails: {},
+    selectedVideo: null,
   };
 
   componentDidMount() {
     axios
       .get("http://jkintl.co.kr:10337/api/movies?populate=*")
       .then((response) => {
-        // Strapi에서 받아온 데이터를 movies 상태에 저장합니다.
-        this.setState({ movies: response.data.data });
+        const movies = response.data.data;
+        const thumbnails = {};
+
+        movies.forEach((movie) => {
+          const videoId = movie.attributes.video_id;
+          const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+          thumbnails[videoId] = thumbnailUrl;
+        });
+
+        this.setState({ movies, thumbnails });
       })
+
       .catch((error) => {
         console.error("Error fetching movies: ", error);
       });
   }
 
+  selectVideo = (videoId) => {
+    const selectedVideo = this.state.movies.find(
+      (movie) => movie.attributes.video_id === videoId
+    );
+    this.setState({ selectedVideo });
+  };
+
   render() {
-    const { movies } = this.state;
+    const { movies, thumbnails, selectedVideo } = this.state;
 
     const movieOpts = {
-      height: "288",
-      width: "512",
+      height: "360",
+      width: "480",
       playerVars: {
         autoplay: 0,
       },
     };
 
     const movieOpts1 = {
-      height: "180",
+      height: "240",
       width: "320",
       playerVars: {
-        // https://developers.google.com/youtube/player_parameters
         autoplay: 0,
       },
     };
 
-    // Enumeration 값에 대한 한글 표시 딕셔너리
     const sectionMap = {
       power: "티찹 전동공구",
       comp: "티찹 컴프레서",
       etc: "기타",
     };
 
-    // 영문 enumeration 값을 한글로 변환하는 함수. strapi enumeration에서 한글 입력 안 됨.
     const getKoreanSection = (englishSection) => {
-      return sectionMap[englishSection] || englishSection; // 해당하는 한글 값이 없을 경우 기본값으로 영어 값을 반환
+      return sectionMap[englishSection] || englishSection;
     };
 
-    // section 별로 그룹화된 영화 객체 배열 생성
     const groupedMovies = {};
     movies.forEach((movie) => {
       const section = getKoreanSection(movie.attributes.section);
@@ -63,7 +77,6 @@ class Movie extends Component {
       groupedMovies[section].push(movie);
     });
 
-    // 영상 우선순위 적용을 위해 그룹화된 영화 객체 배열 내 각 섹션의 영상을 내림차순으로 정렬
     for (const section in groupedMovies) {
       groupedMovies[section].sort((a, b) => {
         const aPriority = parseInt(a.attributes.new);
@@ -91,7 +104,17 @@ class Movie extends Component {
         </div>
 
         <div className="fix_width">
-          {/* 그룹화된 영화 객체 배열을 기반으로 섹션별로 렌더링 */}
+          {/* 선택된 비디오가 있을 때만 비디오를 렌더링
+          {selectedVideo && (
+            <div className="video-container">
+              <YouTube
+                videoId={selectedVideo.attributes.video_id}
+                opts={{ width: "560", height: "315" }}
+              />
+            </div>
+          )} */}
+
+          {/* 썸네일 이미지와 해당 영상을 클릭했을 때 영상이 썸네일과 교체되며, 썸네일이 있던 자리에 동일한 크기의 영상이 로드됨 */}
           <div className="groupAlign">
             {Object.entries(groupedMovies).map(
               ([section, moviesInSection], index) => (
@@ -101,22 +124,38 @@ class Movie extends Component {
                     {moviesInSection.map((movie, movieIndex) => (
                       <li key={movieIndex} className="innerLink">
                         <ul className="innerLink1">
-                          <li id={`moviePadding-${index}-${movieIndex}`}>
-                            <YouTube
-                              id={`flexMovieReview-${index}-${movieIndex}`}
-                              videoId={movie.attributes.video_id}
-                              opts={movieOpts}
-                            />
+                          <li>
+                            {selectedVideo &&
+                            selectedVideo.attributes.video_id ===
+                              movie.attributes.video_id ? (
+                              // 선택된 영상일 경우 영상 플레이어로 교체
+                              <YouTube
+                                videoId={selectedVideo.attributes.video_id}
+                                opts={movieOpts}
+                              />
+                            ) : (
+                              // 선택되지 않은 영상일 경우 썸네일 이미지 표시
+                              <img
+                                className="thumbnail"
+                                src={thumbnails[movie.attributes.video_id]} // 썸네일 이미지 URL 사용
+                                alt={movie.attributes.title}
+                                onClick={() =>
+                                  this.selectVideo(movie.attributes.video_id)
+                                } // 이미지를 클릭했을 때 영상을 선택하도록 함
+                              />
+                            )}
                           </li>
                           <li>
                             <ul className="link_title">
                               <li>
-                                <img className="ytb_logo" src={youtube_logo} />
+                                <img
+                                  className="ytb_logo"
+                                  src={youtube_logo}
+                                  alt="YouTube Logo"
+                                />
                               </li>
                               <li>
-                                <h4 id={`hv_title1-${index}-${movieIndex}`}>
-                                  {movie.attributes.title}
-                                </h4>
+                                <h4>{movie.attributes.title}</h4>
                               </li>
                             </ul>
                           </li>
@@ -138,22 +177,39 @@ class Movie extends Component {
                     {moviesInSection.map((movie, movieIndex) => (
                       <li key={movieIndex} className="innerLink">
                         <ul className="innerLink1">
-                          <li id={`moviePadding-${index}-${movieIndex}`}>
-                            <YouTube
-                              id={`flexMovieReview-${index}-${movieIndex}`}
-                              videoId={movie.attributes.video_id}
-                              opts={movieOpts1}
-                            />
+                          <li>
+                            {selectedVideo &&
+                            selectedVideo.attributes.video_id ===
+                              movie.attributes.video_id ? (
+                              // 선택된 영상일 경우 영상 플레이어로 교체
+                              <YouTube
+                                videoId={selectedVideo.attributes.video_id}
+                                opts={movieOpts1}
+                              />
+                            ) : (
+                              // 선택되지 않은 영상일 경우 썸네일 이미지 표시
+                              <img
+                                id="thumbnailImg"
+                                className="thumbnail"
+                                src={thumbnails[movie.attributes.video_id]} // 썸네일 이미지 URL 사용
+                                alt={movie.attributes.title}
+                                onClick={() =>
+                                  this.selectVideo(movie.attributes.video_id)
+                                } // 이미지를 클릭했을 때 영상을 선택하도록 함
+                              />
+                            )}
                           </li>
                           <li>
                             <ul className="link_title">
                               <li>
-                                <img className="ytb_logo" src={youtube_logo} />
+                                <img
+                                  className="ytb_logo"
+                                  src={youtube_logo}
+                                  alt="YouTube Logo"
+                                />
                               </li>
                               <li>
-                                <h4 id={`hv_title1-${index}-${movieIndex}`}>
-                                  {movie.attributes.title}
-                                </h4>
+                                <h4>{movie.attributes.title}</h4>
                               </li>
                             </ul>
                           </li>
