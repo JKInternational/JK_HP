@@ -33,10 +33,24 @@ class Movie extends Component {
   }
 
   selectVideo = (videoId) => {
+    // 선택된 동영상이 변경되었을 때 YouTube 동영상을 자동으로 재생
     const selectedVideo = this.state.movies.find(
       (movie) => movie.attributes.video_id === videoId
     );
-    this.setState({ selectedVideo });
+    this.setState({ selectedVideo }, () => {
+      if (this.player) {
+        this.player.loadVideoById(selectedVideo.attributes.video_id);
+      }
+    });
+  };
+
+  onReady = (event) => {
+    // YouTube 플레이어 객체를 얻음
+    this.player = event.target;
+    // 선택된 동영상이 있을 경우 해당 동영상을 로드하고 재생
+    if (this.state.selectedVideo) {
+      this.player.loadVideoById(this.state.selectedVideo.attributes.video_id);
+    }
   };
 
   render() {
@@ -132,6 +146,7 @@ class Movie extends Component {
                               <YouTube
                                 videoId={selectedVideo.attributes.video_id}
                                 opts={movieOpts}
+                                onReady={this.onReady}
                               />
                             ) : (
                               // 선택되지 않은 영상일 경우 썸네일 이미지 표시
@@ -185,6 +200,7 @@ class Movie extends Component {
                               <YouTube
                                 videoId={selectedVideo.attributes.video_id}
                                 opts={movieOpts1}
+                                onReady={this.onReady}
                               />
                             ) : (
                               // 선택되지 않은 영상일 경우 썸네일 이미지 표시
