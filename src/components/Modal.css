@@ -1,9 +1,17 @@
 .modal {
-  box-shadow: 5px 5px 10px -5px;
+  position: fixed; /* 고정 위치 */
+  top: 10%; /* 화면 상단에서 절반 떨어진 위치 */
+  left: 10%; /* 왼쪽에서 10px 떨어진 위치 */
+
+  z-index: 2; /* 가장 상위 레이어로 설정 */
+  background-color: white;
+  padding: 0px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
 }
 
 .modalContent {
   display: flex;
+  justify-content: flex-start;
   flex-direction: column;
   list-style: none;
   margin: 0;
@@ -18,10 +26,6 @@
   margin: 0px; */
 }
 
-/* .noticeBanner {
-  padding: 0px;
-  margin: 0px;
-} */
 
 .popUpImg {
   max-height: 500px;
@@ -41,12 +45,17 @@ background-color: white;
 }
 
 
-@media screen and (max-width: 1125px) {
+@media screen and (max-width: 520px) {
 
   .noticeBanner {
     width: 100%;
     max-height: 500px;
   }
+
+  .modal {
+    left: 0%; /* 왼쪽에서 10px 떨어진 위치 */
+  }
+
 
   .closeBtn {
     margin-top: -4px;

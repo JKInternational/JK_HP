@@ -431,45 +431,7 @@ form {
 
 /* 여기까지 mobile menu */
 
-/* .pop {
-  width: 500px;
-  height: 500px;
-  padding: 0px;
-  margin: 0px;
-  position: absolute;
-  top: 100px;
-  left: 100px;
-  z-index: 2;
-}
 
-.modal {
-  width: 100%;
-  height: 100%;
-  padding: 0px;
-  margin: 0px;
-}
-
-.closeModal {
-  width: 100%;
-  height: 20px;
-  padding: 0px;
-  margin: 0px;
-}
-
-.modalBtn {
-  padding-right: 10px;
-} */
-
-.popup {
-  display: block;
-  position: fixed;
-  left: 10%;
-  top: 10%;
-  /* margin-left: -10%; */
-
-  /* margin-top: -150px; */
-  z-index: 10;
-}
 
 .carouselContainer {
   max-width: 2000px;

@@ -1,26 +1,7 @@
-import banner2024Leaflet from "./imgs/banner2024Leaflet.jpg";
-import banner2024LeafletMobile from "./imgs/banner2024LeafletMobile.jpg";
-import bannerDC3090 from "./imgs/bannerDC3090.jpg";
-import bannerDC3090Mobile from "./imgs/bannerDC3090Mobile.jpg";
-import cablecutter from "./imgs/cablecutter.jpg";
-import cablecutterMobile from "./imgs/cablecutterMobile.jpg";
-import bannerTes36blb from "./imgs/bannerTes36blb.jpg";
-import bannerTes36blbMobile from "./imgs/bannerTes36blbMobile.jpg";
-import bannerTdmMax1 from "./imgs/bannerTdmMax1.jpg";
-import bannerTichop from "./imgs/bannerTichop.jpg";
-import bannerTichopComp from "./imgs/bannerTichopComp1.jpg";
-import bannerBlueshark from "./imgs/bannerBlueshark1.jpg";
-import bannerWorthytool from "./imgs/bannerWorthytool1.jpg";
-import bannerTdmMax1Mobile from "./imgs/bannerTdmMax1Mobile.jpg";
-import bannerTichopMobile from "./imgs/bannerTichopMobile.jpg";
-import bannerTichopCompMobile from "./imgs/bannerTichopCompMobile1.jpg";
-import bannerBluesharkMobile from "./imgs/bannerBluesharkMobile1.jpg";
-import bannerWorthytoolMobile from "./imgs/bannerWorthytoolMobile1.jpg";
-// import noticeBanner from "./imgs/noticeBanner.jpg";
 import { ReactComponent as Arrow } from "./imgs/arrow.svg";
 import youtube_logo from "./imgs/youtube_logo.png";
 
-// import Modal from "./Modal";
+import Modal from "./Modal";
 
 import React from "react";
 import YouTube from "react-youtube";
@@ -33,6 +14,7 @@ import axios from "axios";
 
 class Main extends React.Component {
   state = {
+    carousels: [],
     newArrival: {},
     bestItem: {},
     error: null,
@@ -42,6 +24,19 @@ class Main extends React.Component {
   };
 
   componentDidMount = async () => {
+    try {
+      const response = await axios.get(
+        "http://jkintl.co.kr:10337/api/carousels?populate=*&sort=priority:desc&filters[post]=on"
+      );
+      const carousels = response.data.data; // response.data.data로 수정
+
+      // Strapi로부터 가져온 carousel 데이터를 사용하여 state 업데이트
+      this.setState({ carousels });
+    } catch (error) {
+      console.error("Error fetching carousels: ", error);
+      this.setState({ error });
+    }
+
     try {
       const response = await axios.get(
         "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[newArrival]=1&sort[0]=newArrivalOrder:desc"
@@ -156,13 +151,6 @@ class Main extends React.Component {
       this.setState({ error });
     }
   };
-  /*
-    componentDidMount() {
-        this is function that intended to run after dom is rendred,
-        but in practically, it is executed duing dom is rendering.
-        do not use this function to add eventhandler.
-    }
-    */
 
   render() {
     const opt = {
@@ -217,136 +205,63 @@ class Main extends React.Component {
       padding: "0px",
     };
 
-    const { firstMovie, secondMovie, thirdMovie, error } = this.state;
+    const { carousels, firstMovie, secondMovie, thirdMovie, error } =
+      this.state;
 
     if (error) {
       return <div>Error: {error.message}</div>;
     }
 
-    if (!firstMovie || !secondMovie || !thirdMovie) {
+    if (!carousels.length || !firstMovie || !secondMovie || !thirdMovie) {
       return <div>Loading...</div>;
     }
 
     return (
       <>
         <div className="Main">
-          {/* <div className="pop">
-            <img className="modal" src={noticeBanner} />
-            <div className="closeModal">
-              <button className="modalBtn"></button>
-            </div>
-          </div> */}
-          {/* <div className="popup">
-            <Modal />
-          </div> */}
-
+          <Modal />
           <div className="carouselContainer">
             <Carousel>
-              <Link to="/leaflet/leafletdetail/17">
-                <CarouselItem>
-                  <img className="bannerImg" src={banner2024Leaflet} />
-                </CarouselItem>
-              </Link>
-              <Link to="/detail/103">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerTdmMax1} />
-                </CarouselItem>
-              </Link>
-              <Link to="/detail/107">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerDC3090} />
-                </CarouselItem>
-              </Link>
-              <Link to="/detail/101">
-                <CarouselItem>
-                  <img className="bannerImg" src={cablecutter} />
-                </CarouselItem>
-              </Link>
-              <Link to="/detail/104">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerTes36blb} />
-                </CarouselItem>
-              </Link>
-              {/* <Link to="/detail/99">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerDC9913} />
-                </CarouselItem>
-              </Link> */}
-              <Link to="/tichoppower">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerTichop} />
-                </CarouselItem>
-              </Link>
-              <Link to="/tichopcomp">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerTichopComp} />
-                </CarouselItem>
-              </Link>
-              <Link to="/blueshark">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerBlueshark} />
-                </CarouselItem>
-              </Link>
-              <Link to="/worthytool">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerWorthytool} />
-                </CarouselItem>
-              </Link>
+              {carousels.map((carousel) => (
+                <Link to={carousel.attributes.address} key={carousel.id}>
+                  <CarouselItem key={carousel.id}>
+                    {/* 이미지 호출 주소 생성 */}
+                    <img
+                      className="bannerImg"
+                      src={
+                        "http://jkintl.co.kr:10337" +
+                        carousel.attributes.image_deskTop.data[0].attributes.url
+                      }
+                      alt={
+                        carousel.attributes.image_deskTop.data[0].attributes
+                          .caption
+                      }
+                    />
+                  </CarouselItem>
+                </Link>
+              ))}
             </Carousel>
           </div>
 
           <div className="carouselContainerMobile">
             <Carousel>
-              <Link to="/leaflet/leafletdetail/17">
-                <CarouselItem>
-                  <img className="bannerImg" src={banner2024LeafletMobile} />
-                </CarouselItem>
-              </Link>
-              <Link to="/detail/103">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerTdmMax1Mobile} />
-                </CarouselItem>
-              </Link>
-              <Link to="/detail/107">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerDC3090Mobile} />
-                </CarouselItem>
-              </Link>
-              <Link to="/detail/101">
-                <CarouselItem>
-                  <img className="bannerImg" src={cablecutterMobile} />
-                </CarouselItem>
-              </Link>
-              <Link to="/detail/104">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerTes36blbMobile} />
-                </CarouselItem>
-              </Link>
-              {/* <Link to="/detail/99">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerDC9913Mobile} />
-                </CarouselItem>
-              </Link> */}
-              <Link to="/tichoppower">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerTichopMobile} />
-                </CarouselItem>
-              </Link>
-              <Link to="/tichopcomp">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerTichopCompMobile} />
-                </CarouselItem>
-              </Link>
-              <Link to="/blueshark">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerBluesharkMobile} />
-                </CarouselItem>
-              </Link>
-              <Link to="/worthytool">
-                <CarouselItem>
-                  <img className="bannerImg" src={bannerWorthytoolMobile} />
-                </CarouselItem>
-              </Link>
+              {carousels.map((carousel) => (
+                <Link to={carousel.attributes.address} key={carousel.id}>
+                  <CarouselItem key={carousel.id}>
+                    <img
+                      className="bannerImg"
+                      src={
+                        "http://jkintl.co.kr:10337" +
+                        carousel.attributes.image_Mobile.data[0].attributes.url
+                      }
+                      alt={
+                        carousel.attributes.image_Mobile.data[0].attributes
+                          .caption
+                      }
+                    />
+                  </CarouselItem>
+                </Link>
+              ))}
             </Carousel>
           </div>
 
@@ -410,16 +325,6 @@ class Main extends React.Component {
                     })
                   : ""}
               </div>
-
-              {/* <ul className="container0">
-              <Link to="detail/2" className="stuffBoxSwitch" href="">
-                <li id="stuffBox" style={stuffBox}>
-                  <p><img className="stuffBoxImg" src={tsd16bl} /></p>
-                  <p id="stuffName">TSD-16BL</p>
-                  <p id="stuffSpec" style={textBox}>스크류드라이버 / 16V / 2.0Ah / 2단 속도</p>
-                </li>
-              </Link>
-            </ul> */}
 
               <div className="section2">BEST ITEM</div>
               <div className="stuffgroup">
