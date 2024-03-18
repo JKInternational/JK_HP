@@ -8,11 +8,14 @@ class Movie extends Component {
   state = {
     movies: [],
     thumbnails: {},
-    selectedVideo: null,
+    selectedVideoId: null,
     player: null,
+    isMobile: window.innerWidth <= 768, // 초기 모바일 환경 여부 확인
   };
 
   componentDidMount() {
+    window.addEventListener("resize", this.handleResize); // resize 이벤트 리스너 추가
+
     axios
       .get("http://jkintl.co.kr:10337/api/movies?populate=*")
       .then((response) => {
@@ -32,17 +35,17 @@ class Movie extends Component {
       });
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize); // 컴포넌트 언마운트 시 리스너 제거
+  }
+
+  handleResize = () => {
+    // 화면 크기 변경 시 모바일 환경 여부 업데이트
+    this.setState({ isMobile: window.innerWidth <= 768 });
+  };
+
   selectVideo = (videoId) => {
-    const selectedVideo = this.state.movies.find(
-      (movie) => movie.attributes.video_id === videoId
-    );
-    this.setState({ selectedVideo }, () => {
-      if (this.state.player) {
-        this.state.player.loadVideoById(
-          this.state.selectedVideo.attributes.video_id
-        );
-      }
-    });
+    this.setState({ selectedVideoId: videoId });
   };
 
   onReady = (event) => {
@@ -50,13 +53,13 @@ class Movie extends Component {
   };
 
   render() {
-    const { movies, thumbnails, selectedVideo } = this.state;
+    const { movies, thumbnails, selectedVideoId, isMobile } = this.state;
 
     const movieOpts = {
       height: "270",
       width: "480",
       playerVars: {
-        autoplay: 0,
+        autoplay: 1,
       },
     };
 
@@ -64,7 +67,7 @@ class Movie extends Component {
       height: "180",
       width: "320",
       playerVars: {
-        autoplay: 0,
+        autoplay: 1,
       },
     };
 
@@ -117,22 +120,21 @@ class Movie extends Component {
           <div className="groupAlign">
             {Object.entries(groupedMovies).map(
               ([section, moviesInSection], index) => (
-                <div key={index} className="container1">
+                <div
+                  key={index}
+                  className={isMobile ? "container2" : "container1"}
+                >
                   <div className="section">{section}</div>
                   <ul className="link">
                     {moviesInSection.map((movie, movieIndex) => (
                       <li key={movieIndex} className="innerLink">
                         <ul className="innerLink1">
                           <li>
-                            {selectedVideo &&
-                            selectedVideo.attributes.video_id ===
-                              movie.attributes.video_id ? (
+                            {selectedVideoId === movie.attributes.video_id ? (
                               <YouTube
-                                videoId={selectedVideo.attributes.video_id}
-                                opts={movieOpts}
+                                videoId={selectedVideoId}
+                                opts={isMobile ? movieOpts1 : movieOpts}
                                 onReady={this.onReady}
-                                onPlay={this.onPlay}
-                                onPause={this.onPause}
                               />
                             ) : (
                               <div
@@ -146,69 +148,8 @@ class Movie extends Component {
                                   alt={movie.attributes.title}
                                   style={{
                                     objectFit: "cover",
-                                    width: "480px",
-                                    height: "270px",
-                                  }}
-                                />
-                              </div>
-                            )}
-                          </li>
-                          <li>
-                            <ul className="link_title">
-                              <li>
-                                <img
-                                  className="ytb_logo"
-                                  src={youtube_logo}
-                                  alt="YouTube Logo"
-                                />
-                              </li>
-                              <li>
-                                <h4>{movie.attributes.title}</h4>
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )
-            )}
-          </div>
-          <div className="groupAlign">
-            {Object.entries(groupedMovies).map(
-              ([section, moviesInSection], index) => (
-                <div key={index} className="container2">
-                  <div className="section">{section}</div>
-                  <ul className="link">
-                    {moviesInSection.map((movie, movieIndex) => (
-                      <li key={movieIndex} className="innerLink">
-                        <ul className="innerLink1">
-                          <li>
-                            {selectedVideo &&
-                            selectedVideo.attributes.video_id ===
-                              movie.attributes.video_id ? (
-                              <YouTube
-                                videoId={selectedVideo.attributes.video_id}
-                                opts={movieOpts1}
-                                onReady={this.onReady}
-                                onPlay={this.onPlay}
-                                onPause={this.onPause}
-                              />
-                            ) : (
-                              <div
-                                className="thumbnail"
-                                onClick={() =>
-                                  this.selectVideo(movie.attributes.video_id)
-                                }
-                              >
-                                <img
-                                  src={thumbnails[movie.attributes.video_id]}
-                                  alt={movie.attributes.title}
-                                  style={{
-                                    objectFit: "cover",
-                                    width: "320px",
-                                    height: "180px",
+                                    width: isMobile ? "320px" : "480px",
+                                    height: isMobile ? "180px" : "270px",
                                   }}
                                 />
                               </div>

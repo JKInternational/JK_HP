@@ -217,25 +217,3 @@ button:active {
 #moviePadding {
   margin: 0, 5%;
 }
-
-@media screen and (max-width: 600px) {
-  .boardTitle li,
-  .boardContent li {
-    font-size: 12px;
-  }
-
-  #thumbnailImg {
-    width: 320px;
-    height: 240px;
-  }
-
-  .container1 {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 600px) {
-  .container2 {
-    display: none;
-  }
-}
