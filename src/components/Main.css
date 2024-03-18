@@ -431,7 +431,18 @@ form {
 
 /* 여기까지 mobile menu */
 
+.tichopLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
 
+.tichopLogoImg {
+  width: 50%;
+  height: auto;
+}
 
 .carouselContainer {
   max-width: 2000px;

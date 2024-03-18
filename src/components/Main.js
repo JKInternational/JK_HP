@@ -1,5 +1,6 @@
 import { ReactComponent as Arrow } from "./imgs/arrow.svg";
 import youtube_logo from "./imgs/youtube_logo.png";
+import tichop_logo from "./imgs/tichop_logo.jpg";
 
 import Modal from "./Modal";
 
@@ -213,7 +214,11 @@ class Main extends React.Component {
     }
 
     if (!carousels.length || !firstMovie || !secondMovie || !thirdMovie) {
-      return <div>Loading...</div>;
+      return (
+        <div className="tichopLogo">
+          <img className="tichopLogoImg" src={tichop_logo} />
+        </div>
+      );
     }
 
     return (
