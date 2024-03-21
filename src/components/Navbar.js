@@ -129,7 +129,7 @@ class Navbar extends React.Component {
                   <p>고객지원</p>
                   <div className="dropdownContentS5">
                     <a href="leaflet">전단지</a>
-                    <a href="seller">대리점안내</a>
+                    {/* <a href="seller">대리점안내</a> */}
                     <a href="contact">찾아오시는길</a>
                   </div>
                 </div>
