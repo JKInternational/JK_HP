@@ -9,78 +9,64 @@ import "./Brand.css";
 class Blueshark extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      error: null,
+      loading: false,
+      page: 1,
+      sectionTitles: {}, // 카테고리의 한국어명을 저장할 객체
+      category: "", // 동적으로 설정될 카테고리 값
+      scrolled: false,
+    };
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
-  state = {
-    cutting_stone: {},
-    polishing_stone: {},
-  };
+  componentDidMount() {
+    this.fetchData(); // 카테고리 불러오기
+    window.addEventListener("scroll", this.handleScroll);
+  }
 
-  componentDidMount = async () => {
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  async fetchData() {
     try {
-      const response = await axios.get(
-        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=blueshark&filters[category][1]=cutting_stone"
-      );
-
-      if (
-        response &&
-        response.data &&
-        response.data.data &&
-        response.data.data.map
-      ) {
-        var grouped = [];
-        var each = [];
-        for (var i = 0; i < response.data.data.length; ++i) {
-          if (i % 2 == 0) {
-            each = [response.data.data[i]];
-          } else {
-            each.push(response.data.data[i]);
-            grouped.push(each);
-            each = [];
-          }
-        }
-        if (each.length > 0) {
-          grouped.push(each);
-        }
-        response.data.data = grouped;
+      this.setState({ loading: true });
+      const { category } = this.state;
+      let apiUrl = `http://jkintl.co.kr:10337/api/items/?populate=*&filters[brand][0]=blueshark&pagination[page]=1&pagination[pageSize]=200`;
+      if (category) {
+        apiUrl += `&filters[category][0]=${category}`;
       }
-      this.setState({ cutting_stone: response });
-    } catch (error) {
-      this.setState({ error });
-    }
-
-    try {
-      const response = await axios.get(
-        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=blueshark&filters[category][1]=polishing_stone"
-      );
-
-      if (
-        response &&
-        response.data &&
-        response.data.data &&
-        response.data.data.map
-      ) {
-        var grouped = [];
-        var each = [];
-        for (var i = 0; i < response.data.data.length; ++i) {
-          if (i % 2 == 0) {
-            each = [response.data.data[i]];
-          } else {
-            each.push(response.data.data[i]);
-            grouped.push(each);
-            each = [];
+      console.log("API URL:", apiUrl); // 확인용 출력
+      const response = await axios.get(apiUrl);
+      if (response && response.data && response.data.data) {
+        // 데이터를 받아온 후, 카테고리별로 분류하여 저장
+        const sectionTitles = {};
+        response.data.data.forEach((item) => {
+          const category = item.attributes.categoryKorean;
+          if (!sectionTitles[category]) {
+            sectionTitles[category] = [];
           }
-        }
-        if (each.length > 0) {
-          grouped.push(each);
-        }
-        response.data.data = grouped;
+          sectionTitles[category].push(item);
+        });
+
+        this.setState({
+          sectionTitles,
+          loading: false,
+        });
       }
-      this.setState({ polishing_stone: response });
     } catch (error) {
-      this.setState({ error });
+      console.error("Error fetching data: ", error);
+      this.setState({ error, loading: false });
     }
-  };
+  }
+
+  handleScroll() {
+    const { loading } = this.state;
+    if (!loading && this.state.scrolled) {
+      // 스크롤 이벤트 핸들링
+    }
+  }
 
   render() {
     const stuffBox = {
@@ -101,124 +87,72 @@ class Blueshark extends React.Component {
       padding: "0px",
     };
 
+    const { sectionTitles } = this.state;
+
     return (
-      <>
-        <div className="Blueshark">
-          <div className="container">
-            <div className="innerContainer1">
-              <div className="category">
-                <span>Home</span>
-                <span>></span>
-                <span>브랜드</span>
-                <span>></span>
-                <span>블루샤크</span>
-              </div>
-              <p>
-                <h1>블루샤크</h1>
-              </p>
-              <div id="line" />
+      <div className="brandItems">
+        <div className="container">
+          <div className="innerContainer1">
+            <div className="category">
+              <span>Home</span>
+              <span>></span>
+              <span>브랜드</span>
+              <span>></span>
+              <span>블루샤크</span>
             </div>
-          </div>
-
-          <div className="mainBanner">
-            <div className="mainBannerParents">
-              <img id="mainBannerImg" src={bannerBlueshark} />
-              {/* <div id="mainBannerText">BLUESHARK</div> */}
-            </div>
-            <div className="mainBannerParentsMobile">
-              <img id="mainBannerImgMobile" src={bannerBluesharkMobile} />
-            </div>
-          </div>
-
-          {/* 여기까지 MainBanner 적용*/}
-
-          <div className="fix_width">
-            <div className="section">절단석</div>
-            <div className="stuffgroup">
-              {this.state.cutting_stone.data &&
-              this.state.cutting_stone.data.data.map
-                ? this.state.cutting_stone.data.data.map((pairItem) => {
-                    return (
-                      <div class="stuffPairGroup">
-                        {pairItem.map((item) => {
-                          return (
-                            <ul className="container0">
-                              <Link
-                                to={"/detail/" + item.id}
-                                className="stuffBoxSwitch"
-                                href=""
-                              >
-                                <li id="stuffBox" style={stuffBox}>
-                                  <p>
-                                    <img
-                                      className="stuffBoxImg"
-                                      src={
-                                        "http://jkintl.co.kr:10337" +
-                                        item.attributes.indexImage.data
-                                          .attributes.url
-                                      }
-                                    />
-                                  </p>
-                                  <p id="stuffName">{item.attributes.name}</p>
-                                  <p id="stuffSpec" style={textBox}>
-                                    {item.attributes.mainDescription}
-                                  </p>
-                                </li>
-                              </Link>
-                            </ul>
-                          );
-                        })}
-                      </div>
-                    );
-                  })
-                : ""}
-            </div>
-
-            <div className="section">연마석</div>
-
-            <div className="stuffgroup">
-              {this.state.polishing_stone.data &&
-              this.state.polishing_stone.data.data.map
-                ? this.state.polishing_stone.data.data.map((pairItem) => {
-                    return (
-                      <div class="stuffPairGroup">
-                        {pairItem.map((item) => {
-                          return (
-                            <ul className="container0">
-                              <Link
-                                to={"/detail/" + item.id}
-                                className="stuffBoxSwitch"
-                                href=""
-                              >
-                                <li id="stuffBox" style={stuffBox}>
-                                  <p>
-                                    <img
-                                      className="stuffBoxImg"
-                                      src={
-                                        "http://jkintl.co.kr:10337" +
-                                        item.attributes.indexImage.data
-                                          .attributes.url
-                                      }
-                                    />
-                                  </p>
-                                  <p id="stuffName">{item.attributes.name}</p>
-                                  <p id="stuffSpec" style={textBox}>
-                                    {item.attributes.mainDescription}
-                                  </p>
-                                </li>
-                              </Link>
-                            </ul>
-                          );
-                        })}
-                      </div>
-                    );
-                  })
-                : ""}
-            </div>
-            <div id="blank" />
+            <p>
+              <h1>블루샤크</h1>
+            </p>
+            <div id="line" />
           </div>
         </div>
-      </>
+
+        <div className="mainBanner">
+          <div className="mainBannerParents">
+            <img id="mainBannerImg" src={bannerBlueshark} />
+          </div>
+          <div className="mainBannerParentsMobile">
+            <img id="mainBannerImgMobile" src={bannerBluesharkMobile} />
+          </div>
+        </div>
+
+        <div className="fix_width">
+          {Object.entries(sectionTitles).map(([category, items]) => (
+            <div key={category} className="brandItems1">
+              <div className="section">{category}</div>
+              {/* 카테고리 한국어명으로 변경 */}
+              <div className="stuffgroup">
+                {items.map((item, index) => (
+                  <ul key={index} className="container0">
+                    <Link
+                      to={"/detail/" + item.id}
+                      className="stuffBoxSwitch"
+                      href=""
+                    >
+                      <li id="stuffBox" style={stuffBox}>
+                        <p>
+                          <img
+                            className="stuffBoxImg"
+                            src={
+                              "http://jkintl.co.kr:10337" +
+                              item.attributes.indexImage.data.attributes.url
+                            }
+                            alt={item.attributes.name} // alt 속성 추가
+                          />
+                        </p>
+                        <p id="stuffName">{item.attributes.name}</p>
+                        <p id="stuffSpec" style={textBox}>
+                          {item.attributes.mainDescription}
+                        </p>
+                      </li>
+                    </Link>
+                  </ul>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     );
   }
 }

@@ -65,6 +65,7 @@ class Navbar extends React.Component {
                 <div className="dropdownContent">
                   <Link to="leaflet">전단지</Link>
                   {/* <Link to="seller">대리점안내</Link> */}
+                  <Link to="as">A/S안내</Link>
                   <Link to="contact">찾아오시는길</Link>
                 </div>
               </li>
@@ -130,6 +131,7 @@ class Navbar extends React.Component {
                   <div className="dropdownContentS5">
                     <a href="leaflet">전단지</a>
                     {/* <a href="seller">대리점안내</a> */}
+                    <a href="as">A/S안내</a>
                     <a href="contact">찾아오시는길</a>
                   </div>
                 </div>

@@ -141,7 +141,7 @@ button:active {
   justify-content: center;
   flex-wrap: wrap;
   list-style: none;
-  margin: 20px 0px 150px 0px;
+  margin-top: 20px;
   padding: 0%;
 }
 

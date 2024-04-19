@@ -1,4 +1,5 @@
 import { ReactComponent as Arrow } from "./imgs/arrow.svg";
+import gear from "./imgs/gear.svg";
 import youtube_logo from "./imgs/youtube_logo.png";
 import tichop_logo from "./imgs/tichop_logo.jpg";
 
@@ -273,8 +274,13 @@ class Main extends React.Component {
           <div className="fix_width">
             <div className="deskTop">
               <div className="section1">NEW ARRIVAL</div>
-              <div className="stuffgroup">
-                {/*
+              <div className="scrollArrow">
+                <div id="arrow">
+                  <Arrow width="40" height="40" />
+                </div>
+                <ScrollMenu>
+                  <div className="mainStuffgroup" id="stuffGroupMobile">
+                    {/*
                 예전에 데이터가 담긴 array : [item0, item1, item2, item3]
                 예전 map함수는 각각을 <ul class=container0></ul>로 만들어 총 4개의 <ul></ul>을 만든다.
                 하지만 이제 우리의 array는 이렇게 생겼다.
@@ -290,103 +296,14 @@ class Main extends React.Component {
                 굳. b
             
               */}
-                {this.state.newArrival.data &&
-                this.state.newArrival.data.data.map
-                  ? this.state.newArrival.data.data.map((pairItem) => {
-                      return (
-                        <div class="stuffPairGroup">
-                          {pairItem.map((singleItem) => {
-                            return (
-                              <ul className="container0">
-                                <Link
-                                  to={"/detail/" + singleItem.id}
-                                  className="stuffBoxSwitch"
-                                  href=""
-                                >
-                                  <li id="stuffBox" style={stuffBox}>
-                                    <p>
-                                      <img
-                                        className="stuffBoxImg"
-                                        src={
-                                          "http://jkintl.co.kr:10337" +
-                                          singleItem.attributes.indexImage.data
-                                            .attributes.url
-                                        }
-                                      />
-                                    </p>
-                                    <p id="stuffName">
-                                      {singleItem.attributes.name}
-                                    </p>
-                                    <p id="stuffSpec" style={textBox}>
-                                      {singleItem.attributes.mainDescription}
-                                    </p>
-                                  </li>
-                                </Link>
-                              </ul>
-                            );
-                          })}
-                        </div>
-                      );
-                    })
-                  : ""}
-              </div>
-
-              <div className="section2">BEST ITEM</div>
-              <div className="stuffgroup">
-                {this.state.bestItem.data && this.state.bestItem.data.data.map
-                  ? this.state.bestItem.data.data.map((pariItem) => {
-                      return (
-                        <div class="stuffPairGroup">
-                          {pariItem.map((singleItem) => {
-                            return (
-                              <ul className="container0">
-                                <Link
-                                  to={"/detail/" + singleItem.id}
-                                  className="stuffBoxSwitch"
-                                  href=""
-                                >
-                                  <li id="stuffBox" style={stuffBox}>
-                                    <p>
-                                      <img
-                                        className="stuffBoxImg"
-                                        src={
-                                          "http://jkintl.co.kr:10337" +
-                                          singleItem.attributes.indexImage.data
-                                            .attributes.url
-                                        }
-                                      />
-                                    </p>
-                                    <p id="stuffName">
-                                      {singleItem.attributes.name}
-                                    </p>
-                                    <p id="stuffSpec" style={textBox}>
-                                      {singleItem.attributes.mainDescription}
-                                    </p>
-                                  </li>
-                                </Link>
-                              </ul>
-                            );
-                          })}
-                        </div>
-                      );
-                    })
-                  : ""}
-              </div>
-            </div>
-
-            <div className="mobileDevices">
-              <div className="section1">NEW ARRIVAL</div>
-              <div className="scrollArrow">
-                <div id="arrow">
-                  <Arrow width="40" height="40" />
-                </div>
-                <ScrollMenu>
-                  <div className="stuffgroup">
                     {this.state.newArrival.data &&
                     this.state.newArrival.data.data.map
                       ? this.state.newArrival.data.data.map((pairItem) => {
                           return (
-                            <div class="stuffPairGroup">
+                            <div
+                              class="stuffPairGroup"
+                              id="stuffPairGroupMobile"
+                            >
                               {pairItem.map((singleItem) => {
                                 return (
                                   <ul className="container0">
@@ -428,18 +345,21 @@ class Main extends React.Component {
                 </ScrollMenu>
               </div>
 
-              <div className="section2">BEST ITEM</div>
+              <div className="section1">BEST ITEM</div>
               <div className="scrollArrow">
                 <div id="arrow">
                   <Arrow width="40" height="40" />
                 </div>
                 <ScrollMenu>
-                  <div className="stuffgroup">
+                  <div className="mainStuffgroup" id="stuffGroupMobile">
                     {this.state.bestItem.data &&
                     this.state.bestItem.data.data.map
                       ? this.state.bestItem.data.data.map((pariItem) => {
                           return (
-                            <div class="stuffPairGroup">
+                            <div
+                              class="stuffPairGroup"
+                              id="stuffPairGroupMobile"
+                            >
                               {pariItem.map((singleItem) => {
                                 return (
                                   <ul className="container0">
@@ -480,116 +400,128 @@ class Main extends React.Component {
                   </div>
                 </ScrollMenu>
               </div>
-            </div>
 
-            <div className="section3">HOT VIDEO</div>
-
-            <div className="container3">
-              <ul className="link1">
-                <li>
-                  <YouTube
-                    id="flexMovie"
-                    videoId={firstMovie.attributes.video_id}
-                  />
-                </li>
-                <li>
-                  <YouTube
-                    id="flexMovie1"
-                    videoId={firstMovie.attributes.video_id}
-                    opts={opt}
-                  />
-                </li>
-                <li>
-                  <ul className="link1_title">
-                    <li>
-                      <img src={youtube_logo} width="50" height="auto" />
-                    </li>
-                    <li>
-                      <h4 id="hv_title1">{firstMovie.attributes.title}</h4>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-              <ul className="link2_3">
-                <li>
-                  <ul className="link2">
-                    <li>
-                      <YouTube
-                        className="flexMovieSmall"
-                        videoId={secondMovie.attributes.video_id}
-                        opts={opts}
-                      />
-                      <YouTube
-                        className="flexMovieSmall1"
-                        videoId={secondMovie.attributes.video_id}
-                        opts={opts1}
-                      />
-                      <YouTube
-                        className="flexMovieSmall2"
-                        videoId={secondMovie.attributes.video_id}
-                        opts={opts2}
-                      />
-                    </li>
-                    <li>
-                      <ul className="link2_title">
-                        <li>
-                          <img
-                            id="yt_logo"
-                            src={youtube_logo}
-                            width="40"
-                            height="auto"
-                          />
-                        </li>
-                        <li>
-                          <h6>{secondMovie.attributes.title}</h6>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <ul className="link3">
-                    <li>
-                      <YouTube
-                        className="flexMovieSmall"
-                        videoId={thirdMovie.attributes.video_id}
-                        opts={opts}
-                      />
-                      <YouTube
-                        className="flexMovieSmall1"
-                        videoId={thirdMovie.attributes.video_id}
-                        opts={opts1}
-                      />
-                      <YouTube
-                        className="flexMovieSmall2"
-                        videoId={thirdMovie.attributes.video_id}
-                        opts={opts2}
-                      />
-                    </li>
-                    <li>
-                      <ul className="link2_title">
-                        <li>
-                          <img
-                            id="yt_logo"
-                            src={youtube_logo}
-                            width="40"
-                            height="auto"
-                          />
-                        </li>
-                        <li>
-                          <h6>{thirdMovie.attributes.title}</h6>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <h5 id="more">
-                    <Link to="movie">+ 더보기</Link>
-                  </h5>
-                </li>
-              </ul>
+              <div className="section1">HOT VIDEO</div>
+              <div className="container3" id="mainContainer3">
+                <ul className="link1">
+                  <li>
+                    <YouTube
+                      id="flexMovie"
+                      videoId={firstMovie.attributes.video_id}
+                    />
+                  </li>
+                  <li>
+                    <YouTube
+                      id="flexMovie1"
+                      videoId={firstMovie.attributes.video_id}
+                      opts={opt}
+                    />
+                  </li>
+                  <li>
+                    <ul className="link1_title">
+                      <li>
+                        <img src={youtube_logo} width="50" height="auto" />
+                      </li>
+                      <li>
+                        <h4 id="hv_title1">{firstMovie.attributes.title}</h4>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <ul className="link2_3">
+                  <li>
+                    <ul className="link2">
+                      <li>
+                        <YouTube
+                          className="flexMovieSmall"
+                          videoId={secondMovie.attributes.video_id}
+                          opts={opts}
+                        />
+                        <YouTube
+                          className="flexMovieSmall1"
+                          videoId={secondMovie.attributes.video_id}
+                          opts={opts1}
+                        />
+                        <YouTube
+                          className="flexMovieSmall2"
+                          videoId={secondMovie.attributes.video_id}
+                          opts={opts2}
+                        />
+                      </li>
+                      <li>
+                        <ul className="link2_title">
+                          <li>
+                            <img
+                              id="yt_logo"
+                              src={youtube_logo}
+                              width="40"
+                              height="auto"
+                            />
+                          </li>
+                          <li>
+                            <h6>{secondMovie.attributes.title}</h6>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul className="link3">
+                      <li>
+                        <YouTube
+                          className="flexMovieSmall"
+                          videoId={thirdMovie.attributes.video_id}
+                          opts={opts}
+                        />
+                        <YouTube
+                          className="flexMovieSmall1"
+                          videoId={thirdMovie.attributes.video_id}
+                          opts={opts1}
+                        />
+                        <YouTube
+                          className="flexMovieSmall2"
+                          videoId={thirdMovie.attributes.video_id}
+                          opts={opts2}
+                        />
+                      </li>
+                      <li>
+                        <ul className="link2_title">
+                          <li>
+                            <img
+                              id="yt_logo"
+                              src={youtube_logo}
+                              width="40"
+                              height="auto"
+                            />
+                          </li>
+                          <li>
+                            <h6>{thirdMovie.attributes.title}</h6>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h5 id="more">
+                      <Link to="movie">+ 더보기</Link>
+                    </h5>
+                  </li>
+                </ul>
+              </div>
             </div>
+            <Link to="/as">
+              <div className="asInfo">
+                <div>
+                  <img
+                    className="gearIcon"
+                    src={gear}
+                    width="50"
+                    height="auto"
+                  />
+                </div>
+                <h1 className="asInfoText">A/S 안내</h1>
+              </div>
+            </Link>
           </div>
         </div>
       </>

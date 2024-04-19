@@ -382,21 +382,7 @@ form {
   }
 }
 
-/* #dcsSearch {
-  position: absolute;
-  top: 40px;
-  left: 10%;
-  width: 80%;
-  height: 20px;
-} */
-
 /* 여기까지 모바일 Navbar*/
-
-
-/* .topMenu {
-  display: flex;
-  align-self: flex-start;
-} */
 
 .mobileMenuBar {
   display: none;
@@ -465,7 +451,7 @@ form {
 /* 여기까지 mainbanner*/
 
 .fix_width {
-  max-width: 1500px;
+  max-width: 1310px;
 }
 
 .mobileDevices {
@@ -502,8 +488,6 @@ form {
   -webkit-overflow-scrolling: touch;
 }
 
-
-
 #arrow {
   position: absolute;
   display: flex;
@@ -520,7 +504,7 @@ form {
 	100% {margin-right: 5px;}
 }
 
-.stuffgroup {
+.mainStuffgroup {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -568,40 +552,6 @@ form {
   color: gray;
 }
 
-#na_image1,
-#na_image2,
-#na_image3,
-#na_image4 {
-  max-width: 100%;
-  display: flex;
-  flex-wrap: center;
-  margin: 0px;
-  padding: 10px 10px;
-}
-
-.section2 {
-  display: flex;
-  flex-basis: 100%;
-  align-items: center;
-  color: black;
-  font-size: 12px;
-  margin: 8px 20px;
-  padding: 100px 30px 30px 30px;
-  font-size: larger;
-  font-weight: bold;
-}
-
-.section2::before,
-.section2::after {
-  content: "";
-  flex-grow: 1;
-  background: dimgray;
-  height: 2px;
-  font-size: 0px;
-  line-height: 0px;
-  margin: 0px 15px;
-}
-
 #bi_image1,
 #bi_image2,
 #bi_image3,
@@ -610,37 +560,14 @@ form {
   padding: 10px 10px;
 }
 
-.section3 {
-  display: flex;
-  flex-basis: 100%;
-  align-items: center;
-  color: black;
-  font-size: 12px;
-  margin: 8px 20px;
-  padding: 100px 30px 30px 30px;
-  font-size: larger;
-  font-weight: bold;
-}
-
-.section3::before,
-.section3::after {
-  content: "";
-  flex-grow: 1;
-  background: dimgray;
-  height: 2px;
-  font-size: 0px;
-  line-height: 0px;
-  margin: 0px 15px;
-}
-
-.container3 {
+#mainContainer3 {
   max-width: 900%;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
   list-style: none;
-  margin: 20px 0px 60px 0px;
+  margin: 0px 0px 60px 0px;
   padding: 0%;
 }
 
@@ -747,6 +674,24 @@ form {
   display: none;
 }
 
+.asInfo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100px;
+  max-width: 100%;
+  background-color: rgb(248, 181, 0);
+  margin-top: 20px;
+}
+
+.gearIcon {
+  margin-left: 50px;
+}
+
+.asInfoText {
+  margin-left: 10px;
+  color: white;
+}
 
 /* 여기부터 footer*/
 
@@ -814,9 +759,9 @@ form {
 }
 
 @media screen and (min-width: 600px) {
-  .navSmall {
-    display: none;
-  }
+#arrow {
+  display: none;
+}
 }
 
 @media screen and (max-width: 600px) {
@@ -843,49 +788,34 @@ form {
     position: fixed;
     left: 0%;
     top: 7.8%;
-    /* margin-left: -10%; */
-  
-    /* margin-top: -150px; */
     z-index: 10;
   }
 
 
   .fix_width {
     max-width: 100vw;
+    margin-top: 25px;
   }
 
-  .deskTop {
-    display: none;
+  .section1 {
+    padding: 60px 0px 25px 0px;
   }
 
-  .mobileDevices {
-    display: block;
-  }
-
-  .mobileDevices .stuffgroup {
+  #stuffGroupMobile {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
+    margin-top: 25px;
   }
 
-  .mobileDevices .stuffPairGroup {
+  #stuffPairGroupMobile {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
-  }
-
-  .fix_width .section1 {
-    margin: 20px 0px 0px 0px;
-  }
-
-  .fix_width .section2 {
-    margin: 0px;
   }
 
   .container0 #stuffBox {
     transform: scale(0.7, 0.7);
-    /* max-width: 600px;
-    height: auto; */
   }
 
   .container0 .stuffBoxSwitch {
@@ -896,12 +826,6 @@ form {
     max-height: 300px;
     margin: 0px 5px 48px 5px;
     padding: 0px;
-  }
-
-  .section1,
-  .section2,
-  .section3 {
-    padding: 30px 40px 20px 40px;
   }
 
   #flexMovie {
@@ -959,16 +883,27 @@ form {
     padding: 10px 10px 10px 0px;
   }
 
-  .container3 {
-    max-width: 100%;
+  .asInfo {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 20px 0px 40px 0px;
-    padding: 0%;
+    justify-content: flex-start;
+    align-items: center;
+    height: 70px;
+    max-width: 100%;
+    background-color: rgb(248, 181, 0);
+    margin-top: 10px;
   }
+  
+  .gearIcon {
+    margin-left: 30px;
+    width: 30px;
+  }
+  
+  .asInfoText {
+    font-size: 150%;
+    margin-left: 10px;
+    color: white;
+  }
+
 
   .sitemap {
     display: none;

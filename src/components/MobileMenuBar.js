@@ -35,6 +35,9 @@ class MobileMenuBar extends React.Component {
               <Link to="/leaflet">
                 <li>전단지</li>
               </Link>
+              <Link to="/as">
+                <li>A/S안내</li>
+              </Link>
               <Link to="/contact">
                 <li>찾아오시는길</li>
               </Link>

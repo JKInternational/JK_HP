@@ -9,205 +9,64 @@ import "./Brand.css";
 class Worthytool extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      error: null,
+      loading: false,
+      page: 1,
+      sectionTitles: {}, // 카테고리의 한국어명을 저장할 객체
+      category: "", // 동적으로 설정될 카테고리 값
+      scrolled: false,
+    };
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
-  state = {
-    bit: {},
-    cut: {},
-    circular_saw_blade: {},
-    connect: {},
-    lantern: {},
-    etc: {},
-    error: null,
-  };
+  componentDidMount() {
+    this.fetchData(); // 카테고리 불러오기
+    window.addEventListener("scroll", this.handleScroll);
+  }
 
-  componentDidMount = async () => {
-    try {
-      const response = await axios.get(
-        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=bit"
-      );
-      if (
-        response &&
-        response.data &&
-        response.data.data &&
-        response.data.data.map
-      ) {
-        var grouped = [];
-        var each = [];
-        for (var i = 0; i < response.data.data.length; ++i) {
-          if (i % 2 == 0) {
-            each = [response.data.data[i]];
-          } else {
-            each.push(response.data.data[i]);
-            grouped.push(each);
-            each = [];
-          }
-        }
-        if (each.length > 0) {
-          grouped.push(each);
-        }
-        response.data.data = grouped;
-      }
-      this.setState({ bit: response });
-    } catch (error) {
-      this.setState({ error });
-    }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
 
+  async fetchData() {
     try {
-      const response = await axios.get(
-        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=cut"
-      );
-      if (
-        response &&
-        response.data &&
-        response.data.data &&
-        response.data.data.map
-      ) {
-        var grouped = [];
-        var each = [];
-        for (var i = 0; i < response.data.data.length; ++i) {
-          if (i % 2 == 0) {
-            each = [response.data.data[i]];
-          } else {
-            each.push(response.data.data[i]);
-            grouped.push(each);
-            each = [];
-          }
-        }
-        if (each.length > 0) {
-          grouped.push(each);
-        }
-        response.data.data = grouped;
+      this.setState({ loading: true });
+      const { category } = this.state;
+      let apiUrl = `http://jkintl.co.kr:10337/api/items/?populate=*&filters[brand][0]=worthytool&pagination[page]=1&pagination[pageSize]=200`;
+      if (category) {
+        apiUrl += `&filters[category][0]=${category}`;
       }
-      this.setState({ cut: response });
-    } catch (error) {
-      this.setState({ error });
-    }
+      console.log("API URL:", apiUrl); // 확인용 출력
+      const response = await axios.get(apiUrl);
+      if (response && response.data && response.data.data) {
+        // 데이터를 받아온 후, 카테고리별로 분류하여 저장
+        const sectionTitles = {};
+        response.data.data.forEach((item) => {
+          const category = item.attributes.categoryKorean;
+          if (!sectionTitles[category]) {
+            sectionTitles[category] = [];
+          }
+          sectionTitles[category].push(item);
+        });
 
-    try {
-      const response = await axios.get(
-        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=circular_saw_blade"
-      );
-      if (
-        response &&
-        response.data &&
-        response.data.data &&
-        response.data.data.map
-      ) {
-        var grouped = [];
-        var each = [];
-        for (var i = 0; i < response.data.data.length; ++i) {
-          if (i % 2 == 0) {
-            each = [response.data.data[i]];
-          } else {
-            each.push(response.data.data[i]);
-            grouped.push(each);
-            each = [];
-          }
-        }
-        if (each.length > 0) {
-          grouped.push(each);
-        }
-        response.data.data = grouped;
+        this.setState({
+          sectionTitles,
+          loading: false,
+        });
       }
-      this.setState({ circular_saw_blade: response });
     } catch (error) {
-      this.setState({ error });
+      console.error("Error fetching data: ", error);
+      this.setState({ error, loading: false });
     }
+  }
 
-    try {
-      const response = await axios.get(
-        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=connect"
-      );
-      if (
-        response &&
-        response.data &&
-        response.data.data &&
-        response.data.data.map
-      ) {
-        var grouped = [];
-        var each = [];
-        for (var i = 0; i < response.data.data.length; ++i) {
-          if (i % 2 == 0) {
-            each = [response.data.data[i]];
-          } else {
-            each.push(response.data.data[i]);
-            grouped.push(each);
-            each = [];
-          }
-        }
-        if (each.length > 0) {
-          grouped.push(each);
-        }
-        response.data.data = grouped;
-      }
-      this.setState({ connect: response });
-    } catch (error) {
-      this.setState({ error });
+  handleScroll() {
+    const { loading } = this.state;
+    if (!loading && this.state.scrolled) {
+      // 스크롤 이벤트 핸들링
     }
-
-    try {
-      const response = await axios.get(
-        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=lantern"
-      );
-      if (
-        response &&
-        response.data &&
-        response.data.data &&
-        response.data.data.map
-      ) {
-        var grouped = [];
-        var each = [];
-        for (var i = 0; i < response.data.data.length; ++i) {
-          if (i % 2 == 0) {
-            each = [response.data.data[i]];
-          } else {
-            each.push(response.data.data[i]);
-            grouped.push(each);
-            each = [];
-          }
-        }
-        if (each.length > 0) {
-          grouped.push(each);
-        }
-        response.data.data = grouped;
-      }
-      this.setState({ lantern: response });
-    } catch (error) {
-      this.setState({ error });
-    }
-
-    try {
-      const response = await axios.get(
-        "http://jkintl.co.kr:10337/api/items/?_limit=-1&populate=*&filters[brand][0]=worthytool&filters[category][1]=etc"
-      );
-      if (
-        response &&
-        response.data &&
-        response.data.data &&
-        response.data.data.map
-      ) {
-        var grouped = [];
-        var each = [];
-        for (var i = 0; i < response.data.data.length; ++i) {
-          if (i % 2 == 0) {
-            each = [response.data.data[i]];
-          } else {
-            each.push(response.data.data[i]);
-            grouped.push(each);
-            each = [];
-          }
-        }
-        if (each.length > 0) {
-          grouped.push(each);
-        }
-        response.data.data = grouped;
-      }
-      this.setState({ etc: response });
-    } catch (error) {
-      this.setState({ error });
-    }
-  };
+  }
 
   render() {
     const stuffBox = {
@@ -228,283 +87,72 @@ class Worthytool extends React.Component {
       padding: "0px",
     };
 
+    const { sectionTitles } = this.state;
+
     return (
-      <>
-        <div className="Worthytool">
-          <div className="container">
-            <div className="innerContainer1">
-              <div className="category">
-                <span>Home</span>
-                <span>></span>
-                <span>브랜드</span>
-                <span>></span>
-                <span>워디툴</span>
-              </div>
-              <p>
-                <h1>워디툴</h1>
-              </p>
-              <div id="line" />
+      <div className="brandItems">
+        <div className="container">
+          <div className="innerContainer1">
+            <div className="category">
+              <span>Home</span>
+              <span>></span>
+              <span>브랜드</span>
+              <span>></span>
+              <span>워디툴</span>
             </div>
-          </div>
-
-          <div className="mainBanner">
-            <div className="mainBannerParents">
-              <img id="mainBannerImg" src={bannerWorthytool} />
-              {/* <div id="mainBannerText">WORTHYTOOL</div> */}
-            </div>
-            <div className="mainBannerParentsMobile">
-              <img id="mainBannerImgMobile" src={bannerWorthytoolMobile} />
-            </div>
-          </div>
-
-          {/* 여기까지 MainBanner 적용*/}
-
-          <div className="fix_width">
-            <div className="section">비트</div>
-            <div className="stuffgroup">
-              {this.state.bit.data && this.state.bit.data.data.map
-                ? this.state.bit.data.data.map((pairItem) => {
-                    return (
-                      <div class="stuffPairGroup">
-                        {pairItem.map((item) => {
-                          return (
-                            <ul className="container0">
-                              <Link
-                                to={"/detail/" + item.id}
-                                className="stuffBoxSwitch"
-                                href=""
-                              >
-                                <li id="stuffBox" style={stuffBox}>
-                                  <p>
-                                    <img
-                                      className="stuffBoxImg"
-                                      src={
-                                        "http://jkintl.co.kr:10337" +
-                                        item.attributes.indexImage.data
-                                          .attributes.url
-                                      }
-                                    />
-                                  </p>
-                                  <p id="stuffName">{item.attributes.name}</p>
-                                  <p id="stuffSpec" style={textBox}>
-                                    {item.attributes.mainDescription}
-                                  </p>
-                                </li>
-                              </Link>
-                            </ul>
-                          );
-                        })}
-                      </div>
-                    );
-                  })
-                : ""}
-            </div>
-
-            <div className="section">절삭공구</div>
-            <div className="stuffgroup">
-              {this.state.cut.data && this.state.cut.data.data.map
-                ? this.state.cut.data.data.map((pairItem) => {
-                    return (
-                      <div class="stuffPairGroup">
-                        {pairItem.map((item) => {
-                          return (
-                            <ul className="container0">
-                              <Link
-                                to={"/detail/" + item.id}
-                                className="stuffBoxSwitch"
-                                href=""
-                              >
-                                <li id="stuffBox" style={stuffBox}>
-                                  <p>
-                                    <img
-                                      className="stuffBoxImg"
-                                      src={
-                                        "http://jkintl.co.kr:10337" +
-                                        item.attributes.indexImage.data
-                                          .attributes.url
-                                      }
-                                    />
-                                  </p>
-                                  <p id="stuffName">{item.attributes.name}</p>
-                                  <p id="stuffSpec" style={textBox}>
-                                    {item.attributes.mainDescription}
-                                  </p>
-                                </li>
-                              </Link>
-                            </ul>
-                          );
-                        })}
-                      </div>
-                    );
-                  })
-                : ""}
-            </div>
-
-            <div className="section">원형톱날</div>
-            <div className="stuffgroup">
-              {this.state.circular_saw_blade.data &&
-              this.state.circular_saw_blade.data.data.map
-                ? this.state.circular_saw_blade.data.data.map((pairItem) => {
-                    return (
-                      <div class="stuffPairGroup">
-                        {pairItem.map((item) => {
-                          return (
-                            <ul className="container0">
-                              <Link
-                                to={"/detail/" + item.id}
-                                className="stuffBoxSwitch"
-                                href=""
-                              >
-                                <li id="stuffBox" style={stuffBox}>
-                                  <p>
-                                    <img
-                                      className="stuffBoxImg"
-                                      src={
-                                        "http://jkintl.co.kr:10337" +
-                                        item.attributes.indexImage.data
-                                          .attributes.url
-                                      }
-                                    />
-                                  </p>
-                                  <p id="stuffName">{item.attributes.name}</p>
-                                  <p id="stuffSpec" style={textBox}>
-                                    {item.attributes.mainDescription}
-                                  </p>
-                                </li>
-                              </Link>
-                            </ul>
-                          );
-                        })}
-                      </div>
-                    );
-                  })
-                : ""}
-            </div>
-
-            <div className="section">체결공구</div>
-
-            <div className="stuffgroup">
-              {this.state.connect.data && this.state.connect.data.data.map
-                ? this.state.connect.data.data.map((pairItem) => {
-                    return (
-                      <div class="stuffPairGroup">
-                        {pairItem.map((item) => {
-                          return (
-                            <ul className="container0">
-                              <Link
-                                to={"/detail/" + item.id}
-                                className="stuffBoxSwitch"
-                                href=""
-                              >
-                                <li id="stuffBox" style={stuffBox}>
-                                  <p>
-                                    <img
-                                      className="stuffBoxImg"
-                                      src={
-                                        "http://jkintl.co.kr:10337" +
-                                        item.attributes.indexImage.data
-                                          .attributes.url
-                                      }
-                                    />
-                                  </p>
-                                  <p id="stuffName">{item.attributes.name}</p>
-                                  <p id="stuffSpec" style={textBox}>
-                                    {item.attributes.mainDescription}
-                                  </p>
-                                </li>
-                              </Link>
-                            </ul>
-                          );
-                        })}
-                      </div>
-                    );
-                  })
-                : ""}
-            </div>
-
-            <div className="section">랜턴</div>
-            <div className="stuffgroup">
-              {this.state.lantern.data && this.state.lantern.data.data.map
-                ? this.state.lantern.data.data.map((pairItem) => {
-                    return (
-                      <div class="stuffPairGroup">
-                        {pairItem.map((item) => {
-                          return (
-                            <ul className="container0">
-                              <Link
-                                to={"/detail/" + item.id}
-                                className="stuffBoxSwitch"
-                                href=""
-                              >
-                                <li id="stuffBox" style={stuffBox}>
-                                  <p>
-                                    <img
-                                      className="stuffBoxImg"
-                                      src={
-                                        "http://jkintl.co.kr:10337" +
-                                        item.attributes.indexImage.data
-                                          .attributes.url
-                                      }
-                                    />
-                                  </p>
-                                  <p id="stuffName">{item.attributes.name}</p>
-                                  <p id="stuffSpec" style={textBox}>
-                                    {item.attributes.mainDescription}
-                                  </p>
-                                </li>
-                              </Link>
-                            </ul>
-                          );
-                        })}
-                      </div>
-                    );
-                  })
-                : ""}
-            </div>
-
-            <div className="section">기타</div>
-            <div className="stuffgroup">
-              {this.state.etc.data && this.state.etc.data.data.map
-                ? this.state.etc.data.data.map((pairItem) => {
-                    return (
-                      <div class="stuffPairGroup">
-                        {pairItem.map((item) => {
-                          return (
-                            <ul className="container0">
-                              <Link
-                                to={"/detail/" + item.id}
-                                className="stuffBoxSwitch"
-                                href=""
-                              >
-                                <li id="stuffBox" style={stuffBox}>
-                                  <p>
-                                    <img
-                                      className="stuffBoxImg"
-                                      src={
-                                        "http://jkintl.co.kr:10337" +
-                                        item.attributes.indexImage.data
-                                          .attributes.url
-                                      }
-                                    />
-                                  </p>
-                                  <p id="stuffName">{item.attributes.name}</p>
-                                  <p id="stuffSpec" style={textBox}>
-                                    {item.attributes.mainDescription}
-                                  </p>
-                                </li>
-                              </Link>
-                            </ul>
-                          );
-                        })}
-                      </div>
-                    );
-                  })
-                : ""}
-            </div>
-            <div id="blank" />
+            <p>
+              <h1>워디툴</h1>
+            </p>
+            <div id="line" />
           </div>
         </div>
-      </>
+
+        <div className="mainBanner">
+          <div className="mainBannerParents">
+            <img id="mainBannerImg" src={bannerWorthytool} />
+          </div>
+          <div className="mainBannerParentsMobile">
+            <img id="mainBannerImgMobile" src={bannerWorthytoolMobile} />
+          </div>
+        </div>
+
+        <div className="fix_width">
+          {Object.entries(sectionTitles).map(([category, items]) => (
+            <div key={category} className="brandItems1">
+              <div className="section">{category}</div>
+              {/* 카테고리 한국어명으로 변경 */}
+              <div className="stuffgroup">
+                {items.map((item, index) => (
+                  <ul key={index} className="container0">
+                    <Link
+                      to={"/detail/" + item.id}
+                      className="stuffBoxSwitch"
+                      href=""
+                    >
+                      <li id="stuffBox" style={stuffBox}>
+                        <p>
+                          <img
+                            className="stuffBoxImg"
+                            src={
+                              "http://jkintl.co.kr:10337" +
+                              item.attributes.indexImage.data.attributes.url
+                            }
+                            alt={item.attributes.name} // alt 속성 추가
+                          />
+                        </p>
+                        <p id="stuffName">{item.attributes.name}</p>
+                        <p id="stuffSpec" style={textBox}>
+                          {item.attributes.mainDescription}
+                        </p>
+                      </li>
+                    </Link>
+                  </ul>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     );
   }
 }

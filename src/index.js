@@ -18,6 +18,7 @@ import SearchPage from "./components/SearchPage";
 // import Etc from "./components/Etc";
 import Movie from "./components/Movie";
 import Notice from "./components/Notice";
+import As from "./components/As";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Detail from "./components/Detail";
@@ -48,7 +49,9 @@ const App = () => {
           {/* <Route path="/searchpage/:query" element={<SearchPage />} /> */}
           {/* <Route path="/etc" element={<Etc />} /> */}
           <Route path="/movie" element={<Movie />} />
+          {/* <Route path="/MovieTestPage" element={<MovieTestPage />} /> */}
           <Route path="/notice" element={<Notice />} />
+          <Route path="/as" element={<As />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/leaflet" element={<Leaflet />} />
           {/* <Route path="/seller" element={<Seller />} /> */}

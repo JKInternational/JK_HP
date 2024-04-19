@@ -7,10 +7,7 @@
   align-items: center;
 } */
 
-.Worthytool,
-.Blueshark,
-.TichopPower,
-.TichopComp,
+.brandItems,
 .SearchPage {
   max-width: 100vw;
   margin: 0;
@@ -88,10 +85,7 @@ button:active {
 }
 
 
-.Worthytool .container,
-.Blueshark .container,
-.TichopPower .container,
-.TichopComp .container,
+.brandItems .container,
 .SearchPage .container {
   display: flex;
   justify-content: flex-start;
@@ -100,10 +94,7 @@ button:active {
   background-color: white;
 }
 
-.Worthytool .innerContainer1,
-.Blueshark .innerContainer1,
-.TichopPower .innerContainer1,
-.TichopComp .innerContainer1,
+.brandItems .innerContainer1,
 .SearchPage .innerContainer1 {
   display: flex;
   flex-direction: column;
@@ -112,10 +103,7 @@ button:active {
   margin: 0;
 }
 
-.Worthytool .category,
-.Blueshark .category,
-.TichopPower .category,
-.TichopComp .category,
+.brandItems .category,
 .SearchPage .category {
   display: flex;
   justify-content: flex-start;
@@ -124,10 +112,7 @@ button:active {
   margin-top: 20px;
 }
 
-.TichopPower #line,
-.TichopComp #line,
-.Blueshark #line,
-.Worthytool #line,
+.brandItems #line,
 .SearchPage #line,
 .Etc #line {
   width: 100vw;
@@ -170,65 +155,28 @@ button:active {
   padding: 0;
 }
 
-.TichopComp #mainBannerText {
-  position: absolute;
-  color: rgb(255, 183, 0);
-  font-weight: bolder;
-  font-size: 5rem;
-  text-shadow: 1px 1px 1px black;
-  z-index: 1;
-}
-
-.Blueshark #mainBannerText {
-  position: absolute;
-  color: rgb(23, 87, 182);
-  font-weight: bolder;
-  font-size: 4em;
-  text-shadow: 1px 1px 1px black;
-  z-index: 1;
-}
-
-.Worthytool #mainBannerText {
-  position: absolute;
-  color: rgb(212, 61, 41);
-  font-weight: bolder;
-  font-size: 3em;
-  text-shadow: 1px 1px 1px black;
-  z-index: 1;
-}
-
-.SearchPage #mainBannerText {
-  position: absolute;
-  color: rgb(212, 61, 41);
-  font-weight: bolder;
-  font-size: 3em;
-  text-shadow: 1px 1px 1px black;
-  z-index: 1;
-}
 
 /* 여기까지 mainbanner*/
 
-.TichopPower .fix_width,
-.TichopComp .fix_width,
-.Blueshark .fix_width,
-.Worthytool .fix_width,
+.brandItems .fix_width,
 .SearchPage .fix_width,
 .Etc .fix_width {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  max-width: 1500px;
-}
-
-.tichopPower1,
-.tichopComp1 {
+  max-width: 1310px;
+  padding-bottom: 100px;
   background-color: rgb(240, 240, 240);
 }
 
-.TichopPower .section,
-.TichopComp .section,
-.Blueshark .section,
-.Worthytool .section,
+.brandItems1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(240, 240, 240);
+}
+
+.brandItems1 .section,
 .SearchPage .section,
 .Etc .section {
   display: flex;
@@ -236,8 +184,8 @@ button:active {
   align-items: center;
   color: black;
   font-size: 12px;
-  margin: 8px 3%;
-  padding: 50px 30px 30px 30px;
+  margin: 8px 20px;
+  padding: 100px 30px 30px 30px;
   font-size: larger;
   font-weight: bold;
   max-width: 100%;
@@ -450,6 +398,7 @@ button:active {
     /* max-width: 600px;
     height: auto; */
   }
+  
   .stuffBoxSwitch {
     display: flex;
     justify-content: center;
@@ -459,11 +408,11 @@ button:active {
     margin: 0px 0px 0px 0px;
     padding: 0px;
   }
-  .section1,
-  .section2,
-  .section3 {
-    padding: 30px 40px 20px 40px;
+
+  .brandItems1 .section {
+    padding: 60px 0px 50px 0px;
   }
+
   .link2_3 {
     display: flex;
     flex-direction: row;
@@ -472,6 +421,7 @@ button:active {
     margin-top: 0px;
     padding-left: 20px;
   }
+
   .link3 {
     display: flex;
     justify-content: center;
@@ -481,6 +431,7 @@ button:active {
     margin: 0px;
     padding: 0px 0px 0px 0px;
   }
+
   .container3 {
     max-width: 100%;
     display: flex;
