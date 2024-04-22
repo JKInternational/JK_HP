@@ -511,15 +511,20 @@ class Main extends React.Component {
             </div>
             <Link to="/as">
               <div className="asInfo">
-                <div>
+                <div className="gearText">
                   <img
                     className="gearIcon"
                     src={gear}
                     width="50"
                     height="auto"
                   />
+                  <h1 className="asInfoText">A/S 안내</h1>
                 </div>
-                <h1 className="asInfoText">A/S 안내</h1>
+                <h4 className="consultation">
+                  상담시간: 평일 오전 10시 ~ 오후 5시
+                  <br />
+                  점심시간: 평일 오후 12시 ~ 오후 1시
+                </h4>
               </div>
             </Link>
           </div>

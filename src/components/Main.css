@@ -676,7 +676,7 @@ form {
 
 .asInfo {
   display: flex;
-  justify-content: flex-start;
+  justify-content:space-between;
   align-items: center;
   height: 100px;
   max-width: 100%;
@@ -684,12 +684,24 @@ form {
   margin-top: 20px;
 }
 
+.gearText {
+  display: flex;
+  flex-direction: row;
+}
+
 .gearIcon {
   margin-left: 50px;
 }
 
 .asInfoText {
+  font-weight: 500;
   margin-left: 10px;
+  color: white;
+}
+
+.consultation {
+  font-weight: 500;
+  margin-right: 50px;
   color: white;
 }
 
@@ -884,12 +896,7 @@ form {
   }
 
   .asInfo {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
     height: 70px;
-    max-width: 100%;
-    background-color: rgb(248, 181, 0);
     margin-top: 10px;
   }
   
@@ -904,6 +911,12 @@ form {
     color: white;
   }
 
+  .consultation {
+    font-size: 70%;
+    font-weight: 400;
+    margin-right: 30px;
+    color: white;
+  }
 
   .sitemap {
     display: none;
