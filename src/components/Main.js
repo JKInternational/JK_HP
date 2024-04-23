@@ -1,5 +1,6 @@
 import { ReactComponent as Arrow } from "./imgs/arrow.svg";
-import gear from "./imgs/gear.svg";
+import gear1 from "./imgs/gear1.svg";
+import gear2 from "./imgs/gear2.svg";
 import youtube_logo from "./imgs/youtube_logo.png";
 import tichop_logo from "./imgs/tichop_logo.jpg";
 
@@ -459,7 +460,9 @@ class Main extends React.Component {
                             />
                           </li>
                           <li>
-                            <h6>{secondMovie.attributes.title}</h6>
+                            <h6 className="mainMovieTitle">
+                              {secondMovie.attributes.title}
+                            </h6>
                           </li>
                         </ul>
                       </li>
@@ -495,7 +498,9 @@ class Main extends React.Component {
                             />
                           </li>
                           <li>
-                            <h6>{thirdMovie.attributes.title}</h6>
+                            <h6 className="mainMovieTitle">
+                              {thirdMovie.attributes.title}
+                            </h6>
                           </li>
                         </ul>
                       </li>
@@ -512,12 +517,20 @@ class Main extends React.Component {
             <Link to="/as">
               <div className="asInfo">
                 <div className="gearText">
-                  <img
-                    className="gearIcon"
-                    src={gear}
-                    width="50"
-                    height="auto"
-                  />
+                  <div id="gearIcons">
+                    <img
+                      className="gearIcon1"
+                      src={gear1}
+                      width="37"
+                      height="37"
+                    />
+                    <img
+                      className="gearIcon2"
+                      src={gear2}
+                      width="20.6"
+                      height="auto"
+                    />
+                  </div>
                   <h1 className="asInfoText">A/S 안내</h1>
                 </div>
                 <h4 className="consultation">
