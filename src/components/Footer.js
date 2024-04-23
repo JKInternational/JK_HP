@@ -22,7 +22,10 @@ class Footer extends React.Component {
                 </h5>
               </li>
               <li>
-                <h5>Tel. 031-973-3788 / Fax. 031-979-3788</h5>
+                <h5>
+                  <a href="tel:0319733788">Tel. 031-973-3788</a> / Fax.
+                  031-979-3788
+                </h5>
               </li>
               <li>
                 <h5>E-mail. j-kinternational@naver.com</h5>
