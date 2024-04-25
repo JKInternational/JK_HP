@@ -57,6 +57,7 @@ button:active {
   display: flex;
   justify-content: space-around;
   max-width: 1600px;
+  margin: 0px;
 }
 
 .Movie .container {
