@@ -116,6 +116,10 @@ a:active {
     font-size: 10px;
   }
 
+  .tel {
+    margin-right: 5px;
+  }
+
   .phoneIcon1 {
     width: 9px;
     height: auto;
