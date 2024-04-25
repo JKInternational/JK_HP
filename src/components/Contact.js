@@ -1,3 +1,4 @@
+import phone1 from "./imgs/phone1.svg";
 import React from "react";
 import "./Contact.css";
 
@@ -22,11 +23,17 @@ class Contact extends React.Component {
             </div>
 
             <ul className="adress">
-              <li>
-                Tel.{" "}
-                <span id="bold">
+              <li className="telAlign2">
+                <div className="tel">Tel.</div>
+                <span className="telAlign1" id="bold">
                   <a href="tel:0319733788">031-973-3788</a>
-                </span>{" "}
+                  <img
+                    className="phoneIcon1"
+                    src={phone1}
+                    width="12"
+                    height="auto"
+                  />
+                </span>
                 (AS문의)
               </li>
               <br />
@@ -39,7 +46,7 @@ class Contact extends React.Component {
               </li>
               <br />
               <li>
-                신주소.{" "}
+                신주소.
                 <span id="bold">
                   경기도 고양시 고봉로658번길 61-36 나동 JK인터내셔널
                 </span>

@@ -1,3 +1,4 @@
+import phone2 from "./imgs/phone2.svg";
 import { ReactComponent as FooterLogo } from "./imgs/footer_logo.svg";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -21,10 +22,16 @@ class Footer extends React.Component {
                   경기도 고양시 일산동구 고봉로 658번길 61-36, 나동(성석동)
                 </h5>
               </li>
-              <li>
+              <li className="telAlign">
                 <h5>
-                  <a href="tel:0319733788">Tel. 031-973-3788</a> / Fax.
-                  031-979-3788
+                  <a href="tel:0319733788">Tel. 031-973-3788</a>
+                  <img
+                    className="phoneIcon2"
+                    src={phone2}
+                    width="10"
+                    height="auto"
+                  />
+                  / Fax. 031-979-3788
                 </h5>
               </li>
               <li>

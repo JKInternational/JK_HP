@@ -795,6 +795,19 @@ form {
   list-style: none;
 }
 
+.telAlign {
+  display: flex;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  height: 22px;
+}
+
+.phoneIcon2 {
+  margin: 0px 5px 0px 5px;
+  padding: 0px;
+}
+
 /* 여기서부터 모바일 적용 */
 
 @media screen and (max-width: 1124px) {
@@ -996,6 +1009,16 @@ form {
   .information {
     font-size: 50%;
     font-weight: lighter;
+  }
+
+  .telAlign {
+    height: 5px;
+  }
+
+  .phoneIcon2 {
+    margin: 0px 5px 0px 2px;
+    padding: 0px;
+    width: 8px;
   }
 }
 

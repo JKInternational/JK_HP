@@ -74,6 +74,25 @@ a:active {
   padding: 0;
 }
 
+.telAlign1 {
+  display: flex;
+  align-items: center;
+}
+
+.telAlign2 {
+  display: flex;
+  align-items: center;
+  height: 16px;
+}
+
+.tel {
+  margin-right: 9px;
+}
+
+.phoneIcon1 {
+  margin: 0px 5px 0px 5px;
+}
+
 #bold {
   font-weight: 1000;
 }
@@ -95,5 +114,11 @@ a:active {
   .adress,
   #blank {
     font-size: 10px;
+  }
+
+  .phoneIcon1 {
+    width: 9px;
+    height: auto;
+    margin: 0px 5px 0px 5px;
   }
 }
