@@ -25,14 +25,14 @@ class Footer extends React.Component {
               <li className="telAlign">
                 <h5>
                   <a href="tel:0319733788">Tel. 031-973-3788</a>
-                  <img
-                    className="phoneIcon2"
-                    src={phone2}
-                    width="10"
-                    height="auto"
-                  />
-                  / Fax. 031-979-3788
                 </h5>
+                <img
+                  className="phoneIcon2"
+                  src={phone2}
+                  width="10"
+                  height="auto"
+                />
+                <h5>/ Fax. 031-979-3788</h5>
               </li>
               <li>
                 <h5>E-mail. j-kinternational@naver.com</h5>
