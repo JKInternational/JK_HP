@@ -2,7 +2,9 @@ import { ReactComponent as Arrow } from "./imgs/arrow.svg";
 import gear1 from "./imgs/gear1.svg";
 import gear2 from "./imgs/gear2.svg";
 import youtube_logo from "./imgs/youtube_logo.png";
-import tichop_logo from "./imgs/tichop_logo.jpg";
+import tichop_logo from "./imgs/tichop_logo.svg";
+import blueshark_logo from "./imgs/blueshark_logo.svg";
+import worthytool_logo from "./imgs/worthytool_logo.svg";
 
 import Modal from "./Modal";
 
@@ -24,6 +26,7 @@ class Main extends React.Component {
     firstMovie: null,
     secondMovie: null,
     thirdMovie: null,
+    currentLogoIndex: 0,
   };
 
   componentDidMount = async () => {
@@ -155,7 +158,21 @@ class Main extends React.Component {
     }
   };
 
+  componentWillUnmount() {
+    // 컴포넌트가 언마운트 될 때 타이머 제거
+    clearInterval(this.logoTimer);
+  }
+
+  // 로고 변경 함수
+  changeLogo = () => {
+    this.setState((prevState) => ({
+      currentLogoIndex: (prevState.currentLogoIndex + 1) % 3, // 3은 로고 이미지의 개수입니다.
+    }));
+  };
+
   render() {
+    this.logoTimer = setInterval(this.changeLogo, 300);
+
     const opt = {
       height: "222.75",
       width: "396",
@@ -217,8 +234,23 @@ class Main extends React.Component {
 
     if (!carousels.length || !firstMovie || !secondMovie || !thirdMovie) {
       return (
-        <div className="tichopLogo">
-          <img className="tichopLogoImg" src={tichop_logo} />
+        <div>
+          {/* 시간에 따라 변경되는 로고 이미지 */}
+          {this.state.currentLogoIndex === 0 && (
+            <div className="Logos">
+              <img className="LogosImg" src={tichop_logo} />
+            </div>
+          )}
+          {this.state.currentLogoIndex === 1 && (
+            <div className="Logos">
+              <img className="LogosImg" src={blueshark_logo} />
+            </div>
+          )}
+          {this.state.currentLogoIndex === 2 && (
+            <div className="Logos">
+              <img className="LogosImg" src={worthytool_logo} />
+            </div>
+          )}
         </div>
       );
     }

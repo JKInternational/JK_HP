@@ -417,7 +417,7 @@ form {
 
 /* 여기까지 mobile menu */
 
-.tichopLogo {
+.Logos {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -425,7 +425,7 @@ form {
   height: 100vh;
 }
 
-.tichopLogoImg {
+.LogosImg {
   width: 50%;
   height: auto;
 }
