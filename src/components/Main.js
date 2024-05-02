@@ -171,7 +171,7 @@ class Main extends React.Component {
   };
 
   render() {
-    this.logoTimer = setInterval(this.changeLogo, 300);
+    this.logoTimer = setInterval(this.changeLogo, 500);
 
     const opt = {
       height: "222.75",
