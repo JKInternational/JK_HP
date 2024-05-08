@@ -32,7 +32,7 @@ class CountingMachine extends Component {
   updateVisitorCounts = () => {
     const { dailyVisitors } = this.state;
 
-    fetch("http://jkintl.co.kr:10337/api/admins/:2", {
+    fetch("http://jkintl.co.kr:10337/api/admins/:day", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
