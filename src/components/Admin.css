@@ -1,0 +1,62 @@
+/* Admin.css */
+
+.Admin {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.passwordForm {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.passwordForm label {
+  margin-right: 10px;
+}
+
+.passwordForm input {
+  margin-right: 10px;
+}
+
+.adminContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.visitorContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.visitorCount {
+  font-size: 18px;
+}
+
+.graphContainer {
+  flex: 1;
+}
+
+.clickedListContainer {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.listHeader {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.listItem {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  padding: 10px;
+}
+
+.listItem:nth-child(even) {
+  background-color: #f9f9f9;
+}

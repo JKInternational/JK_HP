@@ -5,6 +5,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import reportWebVitals from "./reportWebVitals";
 
 import "./index.css";
+import Admin from "./components/Admin";
 import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import Carousel from "./components/Carousel";
@@ -60,6 +61,7 @@ const App = () => {
             path="/leaflet/leafletdetail/:id"
             element={<LeafletDetail />}
           />
+          <Route exact path="/admin" element={<Admin />} />
           <Route path="/robots.txt" element={<Robots />} />
           <Route
             path="/:dummy"
