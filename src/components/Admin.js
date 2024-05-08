@@ -51,7 +51,33 @@ class Admin extends Component {
             <div className="visitorContainer">
               <CountingMachine /> {/* CountingMachine 모듈 사용 */}
             </div>
-            {/* 클릭된 게시물과 시간대별 방문자 수는 추가로 구현 */}
+            <div className="graphContainer">
+              {/* 그래프 표시 */}
+              그래프가 표시됩니다.
+            </div>
+            <div className="clickedListContainer">
+              <h2>게시물 검색 순위</h2>
+              <button>확인하기</button>
+              <div className="listHeader">
+                <div>순번</div>
+                <div>이미지</div>
+                <div>모델명</div>
+                <div>검색 수</div>
+              </div>
+              <div className="listItem whiteBackground">
+                <div>1</div>
+                <div>이미지</div>
+                <div>모델명</div>
+                <div>검색 수</div>
+              </div>
+              <div className="listItem lightGrayBackground">
+                <div>2</div>
+                <div>이미지</div>
+                <div>모델명</div>
+                <div>검색 수</div>
+              </div>
+              {/* 클릭된 게시물의 리스트 */}
+            </div>
           </div>
         )}
       </div>

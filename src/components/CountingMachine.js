@@ -32,7 +32,7 @@ class CountingMachine extends Component {
   updateVisitorCounts = () => {
     const { dailyVisitors } = this.state;
 
-    fetch("http://jkintl.co.kr:10337/api/admins/2", {
+    fetch("http://jkintl.co.kr:10337/api/admins/:2", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +41,7 @@ class CountingMachine extends Component {
     })
       .then(() => {
         // API에 성공적으로 업데이트된 후, 다시 방문자 수를 가져옴
-        this.fetchVisitorCounts();
+        this.fetchVisitorCounts(); // 업데이트 후에 호출
       })
       .catch((error) => console.error("Error updating visitor counts:", error));
   };
