@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class CountingMachine extends Component {
   state = {
@@ -10,14 +11,15 @@ class CountingMachine extends Component {
   };
 
   componentDidMount() {
-    this.fetchVisitorCounts();
+    this.fetchVisitorCounts(); // 페이지가 로드될 때 방문자 수 호출
   }
 
   fetchVisitorCounts = () => {
-    fetch("http://jkintl.co.kr:10337/api/admins")
-      .then((response) => response.json())
-      .then((data) => {
-        const { day, week, month, year, total } = data.data[0].attributes;
+    axios
+      .get("http://jkintl.co.kr:10337/api/admins")
+      .then((response) => {
+        const { day, week, month, year, total } =
+          response.data.data[0].attributes;
         this.setState({
           dailyVisitors: parseInt(day),
           weeklyVisitors: parseInt(week),
@@ -29,21 +31,8 @@ class CountingMachine extends Component {
       .catch((error) => console.error("Error fetching visitor counts:", error));
   };
 
-  updateVisitorCounts = () => {
-    const { dailyVisitors } = this.state;
-
-    fetch("http://jkintl.co.kr:10337/api/admins/1", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ day: dailyVisitors + 1 }),
-    })
-      .then(() => {
-        // API에 성공적으로 업데이트된 후, 다시 방문자 수를 가져옴
-        this.fetchVisitorCounts(); // 업데이트 후에 호출
-      })
-      .catch((error) => console.error("Error updating visitor counts:", error));
+  handleCheckButton = () => {
+    this.fetchVisitorCounts(); // 데이터 다시 호출
   };
 
   render() {
@@ -70,9 +59,7 @@ class CountingMachine extends Component {
           {currentYear}년 방문자: {yearlyVisitors}
         </p>
         <p>총 누적 방문자: {totalVisitors}</p>
-
-        {/* 방문자 수 업데이트 버튼 */}
-        <button onClick={this.updateVisitorCounts}>방문자 수 업데이트</button>
+        <button onClick={this.handleCheckButton}>확인하기</button>
       </div>
     );
   }

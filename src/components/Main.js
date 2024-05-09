@@ -24,9 +24,12 @@ class Main extends React.Component {
     firstMovie: null,
     secondMovie: null,
     thirdMovie: null,
+    previousValue: 0, // previousValue를 초기화
   };
 
   componentDidMount = async () => {
+    this.updateVisitorCounts();
+
     try {
       const response = await axios.get(
         "http://jkintl.co.kr:10337/api/carousels?populate=*&sort=priority:desc&filters[post]=on"
@@ -153,6 +156,31 @@ class Main extends React.Component {
       console.error("Error fetching movies: ", error);
       this.setState({ error });
     }
+  };
+
+  updateVisitorCounts = () => {
+    const { previousValue } = this.state;
+
+    // 현재 previousValue가 NaN이면 0으로 초기화
+    const currentValue = isNaN(previousValue) ? 0 : previousValue;
+
+    const requestData = {
+      data: {
+        day: currentValue + 1, // 이전 값에 1을 더함
+      },
+    };
+
+    axios
+      .put("http://jkintl.co.kr:10337/api/admins/1", requestData)
+      .then(() => {
+        console.log("Data sent successfully");
+        this.setState((prevState) => ({
+          previousValue: (prevState.previousValue || 0) + 1, // 이전 값 업데이트 (NaN일 경우 0으로 초기화)
+        }));
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
   };
 
   render() {
