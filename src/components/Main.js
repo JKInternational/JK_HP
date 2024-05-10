@@ -24,14 +24,12 @@ class Main extends React.Component {
     firstMovie: null,
     secondMovie: null,
     thirdMovie: null,
-    previousValue: undefined, // previousValue를 초기화하지 않음
+    previousValue: null, // previousValue를 초기화하지 않음
   };
 
   componentDidMount = async () => {
-    // 이전 값이 설정되어 있지 않다면 초기화하지 않음
-    if (this.state.previousValue !== undefined) {
-      this.updateVisitorCounts();
-    }
+    // 이전 값으로 데이터 업데이트
+    this.fetchPreviousValue();
 
     try {
       const response = await axios.get(
@@ -161,26 +159,47 @@ class Main extends React.Component {
     }
   };
 
+  fetchPreviousValue = () => {
+    axios
+      .get("http://jkintl.co.kr:10337/api/admins")
+      .then((response) => {
+        const { day } = response.data.data[0].attributes;
+        const previousValue = parseInt(day);
+        this.setState({ previousValue });
+      })
+      .catch((error) => {
+        console.error("이전 값 가져오기 에러:", error);
+      })
+      .finally(() => {
+        // 이전 값이 정상적으로 가져와졌을 때 방문자 수를 업데이트
+        this.updateVisitorCounts();
+      });
+  };
+
   updateVisitorCounts = () => {
     const { previousValue } = this.state;
 
-    const requestData = {
-      data: {
-        day: previousValue + 1, // 이전 값에 1을 더함
-      },
-    };
+    if (previousValue !== null) {
+      const updatedValue = previousValue + 1;
 
-    axios
-      .put("http://jkintl.co.kr:10337/api/admins/1", requestData)
-      .then(() => {
-        console.log("Data sent successfully"); // 데이터 전송 성공 시 콘솔에 출력
-        this.setState((prevState) => ({
-          previousValue: (prevState.previousValue || 0) + 1, // 이전 값 업데이트 (NaN일 경우 0으로 초기화)
-        }));
-      })
-      .catch((error) => {
-        console.error("Error sending data:", error);
-      });
+      const requestData = {
+        data: {
+          day: updatedValue,
+        },
+      };
+
+      axios
+        .put("http://jkintl.co.kr:10337/api/admins/1", requestData)
+        .then(() => {
+          console.log("데이터 전송 성공");
+          this.setState({ previousValue: updatedValue });
+        })
+        .catch((error) => {
+          console.error("데이터 전송 에러:", error);
+        });
+    } else {
+      console.error("이전 값이 없습니다.");
+    }
   };
 
   render() {
