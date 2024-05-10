@@ -24,11 +24,14 @@ class Main extends React.Component {
     firstMovie: null,
     secondMovie: null,
     thirdMovie: null,
-    previousValue: 0, // previousValue를 초기화
+    previousValue: undefined, // previousValue를 초기화하지 않음
   };
 
   componentDidMount = async () => {
-    this.updateVisitorCounts();
+    // 이전 값이 설정되어 있지 않다면 초기화하지 않음
+    if (this.state.previousValue !== undefined) {
+      this.updateVisitorCounts();
+    }
 
     try {
       const response = await axios.get(
@@ -161,19 +164,16 @@ class Main extends React.Component {
   updateVisitorCounts = () => {
     const { previousValue } = this.state;
 
-    // 현재 previousValue가 NaN이면 0으로 초기화
-    const currentValue = isNaN(previousValue) ? 0 : previousValue;
-
     const requestData = {
       data: {
-        day: currentValue + 1, // 이전 값에 1을 더함
+        day: previousValue + 1, // 이전 값에 1을 더함
       },
     };
 
     axios
       .put("http://jkintl.co.kr:10337/api/admins/1", requestData)
       .then(() => {
-        console.log("Data sent successfully");
+        console.log("Data sent successfully"); // 데이터 전송 성공 시 콘솔에 출력
         this.setState((prevState) => ({
           previousValue: (prevState.previousValue || 0) + 1, // 이전 값 업데이트 (NaN일 경우 0으로 초기화)
         }));
