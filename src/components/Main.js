@@ -24,12 +24,22 @@ class Main extends React.Component {
     firstMovie: null,
     secondMovie: null,
     thirdMovie: null,
-    previousValue: null, // previousValue를 초기화하지 않음
+    day: null,
+    week: null,
+    month: null,
+    year: null,
+    total: null,
+    previousDay: null,
+    previousWeek: null,
+    previousMonth: null,
+    previousYear: null,
+    previousTotal: null, // previousValue를 초기화하지 않음
   };
 
   componentDidMount = async () => {
     // 이전 값으로 데이터 업데이트
-    this.fetchPreviousValue();
+    await this.fetchPreviousValue();
+    this.updateVisitorCounts();
 
     try {
       const response = await axios.get(
@@ -159,47 +169,69 @@ class Main extends React.Component {
     }
   };
 
-  fetchPreviousValue = () => {
-    axios
-      .get("http://jkintl.co.kr:10337/api/admins")
-      .then((response) => {
-        const { day } = response.data.data[0].attributes;
-        const previousValue = parseInt(day);
-        this.setState({ previousValue });
-      })
-      .catch((error) => {
-        console.error("이전 값 가져오기 에러:", error);
-      })
-      .finally(() => {
-        // 이전 값이 정상적으로 가져와졌을 때 방문자 수를 업데이트
-        this.updateVisitorCounts();
+  fetchPreviousValue = async () => {
+    try {
+      const response = await axios.get("http://jkintl.co.kr:10337/api/admins");
+      const data = response.data.data[0].attributes;
+
+      this.setState({
+        day: Number(data.day),
+        week: Number(data.week),
+        month: Number(data.month),
+        year: Number(data.year),
+        total: Number(data.total),
+        previousDay: Number(data.day),
+        previousWeek: Number(data.week),
+        previousMonth: Number(data.month),
+        previousYear: Number(data.year),
+        previousTotal: Number(data.total),
       });
+    } catch (error) {
+      console.error("이전 값 가져오기 에러:", error);
+    }
   };
 
-  updateVisitorCounts = () => {
-    const { previousValue } = this.state;
+  updateVisitorCounts = async () => {
+    const {
+      previousDay,
+      previousWeek,
+      previousMonth,
+      previousYear,
+      previousTotal,
+    } = this.state;
+    const updatedValues = {
+      day: previousDay + 1,
+      week: previousWeek + 1,
+      month: previousMonth + 1,
+      year: previousYear + 1,
+      total: previousTotal + 1,
+    };
 
-    if (previousValue !== null) {
-      const updatedValue = previousValue + 1;
+    const requestData = {
+      data: updatedValues,
+    };
 
-      const requestData = {
-        data: {
-          day: updatedValue,
-        },
-      };
-
-      axios
-        .put("http://jkintl.co.kr:10337/api/admins/1", requestData)
-        .then(() => {
-          console.log("데이터 전송 성공");
-          this.setState({ previousValue: updatedValue });
-        })
-        .catch((error) => {
-          console.error("데이터 전송 에러:", error);
-        });
-    } else {
-      console.error("이전 값이 없습니다.");
+    try {
+      await axios.put("http://jkintl.co.kr:10337/api/admins/1", requestData);
+      console.log("데이터 전송 성공");
+      this.setState(updatedValues);
+    } catch (error) {
+      console.error("데이터 전송 에러:", error);
     }
+  };
+
+  resetCounts = () => {
+    const now = new Date();
+    const currentDay = now.getDay(); // 일요일 체크
+    const currentDate = now.getDate(); // 월 첫날 체크
+    const currentMonth = now.getMonth(); // 연 첫날 체크
+
+    this.setState((prevState) => ({
+      day: 0, // 매일 자정에 리셋
+      week: currentDay === 0 ? 0 : prevState.week, // 일요일에 리셋
+      month: currentDate === 1 ? 0 : prevState.month, // 월 첫날에 리셋
+      year: currentMonth === 0 && currentDate === 1 ? 0 : prevState.year, // 연 첫날에 리셋
+    }));
   };
 
   render() {
