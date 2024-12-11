@@ -32,8 +32,6 @@ import ScrollTop from "react-scrolltop-button";
 import { ReactComponent as ToTop } from "./components/imgs/toTop.svg";
 import Leaflet from "./components/Leaflet";
 
-import MapTest from "./components/mapTest";
-
 // const moveToTop = () => (document.documentElement.scrollTop = 0);
 
 const App = () => {
@@ -58,7 +56,6 @@ const App = () => {
           <Route path="/notice" element={<Notice />} />
           <Route path="/as" element={<As />} />
           <Route path="/asagency" element={<AsAgency />} />
-          <Route path="/maptest" element={<MapTest />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/leaflet" element={<Leaflet />} />
           {/* <Route path="/seller" element={<Seller />} /> */}
