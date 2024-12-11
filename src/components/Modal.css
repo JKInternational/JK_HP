@@ -2,11 +2,15 @@
   position: fixed; /* 고정 위치 */
   top: 10%; /* 화면 상단에서 절반 떨어진 위치 */
   left: 10%; /* 왼쪽에서 10px 떨어진 위치 */
-
+  cursor: pointer; /* 기본 상태에서 포인터 커서를 적용 */
   z-index: 2; /* 가장 상위 레이어로 설정 */
   background-color: white;
   padding: 0px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+.modal:hover {
+  cursor: pointer; /* 호버 상태에서 손가락 모양 */
 }
 
 .modalContent {
@@ -37,11 +41,13 @@
   border: none;
   background-color: gray;
   margin: 5px;
+  cursor: default; /* 버튼 영역에서는 기본 커서 */
 }
 
 .todayClose {
 border: none;
 background-color: white;
+cursor: default; /* 버튼 영역에서는 기본 커서 */
 }
 
 

@@ -7,6 +7,7 @@ class Modal extends React.Component {
     super(props);
     this.state = {
       modalImageUrl: "", // 모달에 표시할 이미지 URL
+      modalRedirectUrl: "", // 클릭 시 이동할 페이지 URL
       loading: true, // 이미지 로딩 상태
       error: null, // 에러 메시지
       showModal: false, // 모달 표시 여부
@@ -14,10 +15,10 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchModalImage();
+    this.fetchModalContent();
   }
 
-  fetchModalImage = () => {
+  fetchModalContent = () => {
     axios
       .get("http://jkintl.co.kr:10337/api/modals?populate=*")
       .then((response) => {
@@ -25,16 +26,18 @@ class Modal extends React.Component {
         if (data && data.length > 0) {
           const modalImageUrl =
             data[0]?.attributes?.content?.data?.attributes?.url;
+          const modalRedirectUrl = data[0]?.attributes?.address;
           const displayModal = data[0]?.attributes?.display || false;
-          if (modalImageUrl && displayModal) {
+          if (modalImageUrl && modalRedirectUrl && displayModal) {
             this.setState({
               modalImageUrl: `http://jkintl.co.kr:10337${modalImageUrl}`,
+              modalRedirectUrl,
               loading: false,
               showModal: true,
             });
           } else {
             this.setState({
-              error: "No image URL found or display is false",
+              error: "No image URL or redirect URL found, or display is false",
               loading: false,
             });
           }
@@ -60,9 +63,11 @@ class Modal extends React.Component {
     this.closeModal();
   };
 
-  handleClose = () => {
-    localStorage.removeItem("hideModalUntil"); // hideModalUntil 값을 제거하여 모달이 다시 표시되도록 함
-    this.closeModal();
+  handleRedirect = () => {
+    const { modalRedirectUrl } = this.state;
+    if (modalRedirectUrl) {
+      window.location.href = modalRedirectUrl; // 특정 페이지로 이동
+    }
   };
 
   render() {
@@ -76,12 +81,12 @@ class Modal extends React.Component {
     const shouldShowModal =
       showModal && (!hideModalUntil || currentTime > parseInt(hideModalUntil));
 
-    if (!shouldShowModal || !modalImageUrl || loading || error) {
+    if (!shouldShowModal || loading || error) {
       return null;
     }
 
     return (
-      <div className="modal">
+      <div className="modal" onClick={this.handleRedirect}>
         <ul className="modalContent">
           <li className="popUpImg">
             <img
@@ -91,10 +96,16 @@ class Modal extends React.Component {
             />
           </li>
           <li className="closeBtn">
-            <button className="close" onClick={this.handleClose}>
+            <button
+              className="close"
+              onClick={(e) => e.stopPropagation() || this.closeModal()}
+            >
               닫기 X
             </button>
-            <button className="todayClose" onClick={this.handleCloseToday}>
+            <button
+              className="todayClose"
+              onClick={(e) => e.stopPropagation() || this.handleCloseToday()}
+            >
               오늘 하루 보지 않기
             </button>
           </li>
