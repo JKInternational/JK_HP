@@ -12,7 +12,7 @@ import Carousel from "./components/Carousel";
 import Introduce from "./components/Introduce";
 import TichopPower from "./components/TichopPower";
 import TichopComp from "./components/TichopComp";
-import TichopHandTool from "./components/TichopHandTool";
+// import TichopHandTool from "./components/TichopHandTool";
 import Worthytool from "./components/Worthytool";
 import Blueshark from "./components/Blueshark";
 import SearchPage from "./components/SearchPage";
