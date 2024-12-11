@@ -66,6 +66,7 @@ class Navbar extends React.Component {
                   <Link to="leaflet">전단지</Link>
                   {/* <Link to="seller">대리점안내</Link> */}
                   <Link to="as">A/S안내</Link>
+                  <Link to="asagency">A/S대리점</Link>
                   <Link to="contact">찾아오시는길</Link>
                 </div>
               </li>
@@ -107,6 +108,7 @@ class Navbar extends React.Component {
                       <div className="dropdownContentS6">
                         <a href="/tichoppower">파워툴</a>
                         <a href="/tichopcomp">컴프레서</a>
+                        <a href="/tichophandtool">수공구</a>
                       </div>
                     </div>
                     <a href="http://www.jkintl.co.kr/blueshark">블루샤크</a>
@@ -132,6 +134,7 @@ class Navbar extends React.Component {
                     <a href="leaflet">전단지</a>
                     {/* <a href="seller">대리점안내</a> */}
                     <a href="as">A/S안내</a>
+                    <a href="asagency">A/S대리점</a>
                     <a href="contact">찾아오시는길</a>
                   </div>
                 </div>

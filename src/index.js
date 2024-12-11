@@ -12,6 +12,7 @@ import Carousel from "./components/Carousel";
 import Introduce from "./components/Introduce";
 import TichopPower from "./components/TichopPower";
 import TichopComp from "./components/TichopComp";
+import TichopHandTool from "./components/TichopHandTool";
 import Worthytool from "./components/Worthytool";
 import Blueshark from "./components/Blueshark";
 import SearchPage from "./components/SearchPage";
@@ -20,6 +21,7 @@ import SearchPage from "./components/SearchPage";
 import Movie from "./components/Movie";
 import Notice from "./components/Notice";
 import As from "./components/As";
+import AsAgency from "./components/AsAgency";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Detail from "./components/Detail";
@@ -29,6 +31,8 @@ import MobileMenuBar from "./components/MobileMenuBar";
 import ScrollTop from "react-scrolltop-button";
 import { ReactComponent as ToTop } from "./components/imgs/toTop.svg";
 import Leaflet from "./components/Leaflet";
+
+import MapTest from "./components/mapTest";
 
 // const moveToTop = () => (document.documentElement.scrollTop = 0);
 
@@ -53,6 +57,8 @@ const App = () => {
           {/* <Route path="/MovieTestPage" element={<MovieTestPage />} /> */}
           <Route path="/notice" element={<Notice />} />
           <Route path="/as" element={<As />} />
+          <Route path="/asagency" element={<AsAgency />} />
+          <Route path="/maptest" element={<MapTest />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/leaflet" element={<Leaflet />} />
           {/* <Route path="/seller" element={<Seller />} /> */}
