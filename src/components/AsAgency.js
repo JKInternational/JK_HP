@@ -118,62 +118,65 @@ class AsAgency extends Component {
       return acc;
     }, {});
 
-    return Object.entries(groupedCenters).map(([region, centers]) => (
-      <div key={region} className="service-center">
-        <h2>{region} 서비스 센터</h2>
+    return Object.entries(groupedCenters).map(([region, centers], index) => {
+      const groupClassName =
+        index % 2 === 0 ? "service-center even" : "service-center odd"; // 짝수 그룹에 'even', 홀수 그룹에 'odd' 클래스 추가
 
-        {errorMessage && <div className="error-message">{errorMessage}</div>}
+      return (
+        <div key={region} className={groupClassName}>
+          <h2>{region} 서비스 센터</h2>
 
-        <ul className="center-list">
-          {centers.map((center) => {
-            const id = center.id || center.attributes?.id;
-            const name = center.attributes?.name;
-            const address = center.attributes?.address;
-            const phonenumber = center.attributes?.phonenumber;
-            const isSelected = this.state.selectedId === id; // 선택 여부 확인
+          {errorMessage && <div className="error-message">{errorMessage}</div>}
 
-            console.log("Center ID:", id); // ID 값 확인 로그 추가
+          <ul className="center-list">
+            {centers.map((center) => {
+              const id = center.id || center.attributes?.id;
+              const name = center.attributes?.name;
+              const address = center.attributes?.address;
+              const phonenumber = center.attributes?.phonenumber;
+              const isSelected = this.state.selectedId === id; // 선택 여부 확인
 
-            return (
-              <React.Fragment key={id}>
-                <li className="center-item">
-                  <span className="agencyName">• {name}</span>
-                  <div className="addressItem">
-                    <span>{address}</span>
+              return (
+                <React.Fragment key={id}>
+                  <li className="center-item">
+                    <span className="agencyName">• {name}</span>
+                    <div className="addressItem">
+                      <span>{address}</span>
 
-                    <button
-                      className="map-btn"
-                      onClick={() => this.handleMapClick(address, region, id)}
-                    >
-                      {isSelected ? "닫기" : "지도보기"}
-                    </button>
-                  </div>
-                  {phonenumber && (
-                    <a href={`tel:${phonenumber}`} className="phone-link">
-                      <img
-                        src={phone2}
-                        alt="전화 아이콘"
-                        className="phoneIcon"
+                      <button
+                        className="map-btn"
+                        onClick={() => this.handleMapClick(address, region, id)}
+                      >
+                        {isSelected ? "닫기" : "지도보기"}
+                      </button>
+                    </div>
+                    {phonenumber && (
+                      <a href={`tel:${phonenumber}`} className="phone-link">
+                        <img
+                          src={phone2}
+                          alt="전화 아이콘"
+                          className="phoneIcon"
+                        />
+                        {phonenumber}
+                      </a>
+                    )}
+                  </li>
+
+                  {isSelected && (
+                    <div className="map-container">
+                      <div
+                        id={`kakaoMap-${id}`}
+                        style={{ width: "100%", height: "400px" }}
                       />
-                      {phonenumber}
-                    </a>
+                    </div>
                   )}
-                </li>
-
-                {isSelected && (
-                  <div className="map-container">
-                    <div
-                      id={`kakaoMap-${id}`}
-                      style={{ width: "100%", height: "400px" }}
-                    />
-                  </div>
-                )}
-              </React.Fragment>
-            );
-          })}
-        </ul>
-      </div>
-    ));
+                </React.Fragment>
+              );
+            })}
+          </ul>
+        </div>
+      );
+    });
   }
 
   render() {
