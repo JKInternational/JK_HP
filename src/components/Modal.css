@@ -1,8 +1,8 @@
 .modal {
-  position: fixed; /* 고정 위치 */
-  top: 10%; /* 화면 상단에서 절반 떨어진 위치 */
-  left: 10%; /* 왼쪽에서 10px 떨어진 위치 */
-  cursor: pointer; /* 기본 상태에서 포인터 커서를 적용 */
+  position: absolute; /* 위치를 절대값으로 설정하여 스크롤 이동 반영 */
+  top: 10%; /* 화면 상단에서 10% 위치 */
+  left: 10%; /* 왼쪽에서 10% 위치 */
+  cursor: move; /* 드래그 이동 커서 적용 */
   z-index: 2; /* 가장 상위 레이어로 설정 */
   background-color: white;
   padding: 0px;
@@ -10,7 +10,7 @@
 }
 
 .modal:hover {
-  cursor: pointer; /* 호버 상태에서 손가락 모양 */
+  cursor: move; /* 드래그 가능 상태에서 이동 커서 적용 */
 }
 
 .modalContent {
@@ -45,13 +45,17 @@
 }
 
 .todayClose {
-border: none;
-background-color: white;
-cursor: default; /* 버튼 영역에서는 기본 커서 */
+  border: none;
+  background-color: white;
+  cursor: default; /* 버튼 영역에서는 기본 커서 */
 }
 
 
 @media screen and (max-width: 520px) {
+
+  .modal {
+    top: 11%; /* 화면 상단에서 10% 위치 */
+  }
 
   .noticeBanner {
     width: 100%;
@@ -59,7 +63,7 @@ cursor: default; /* 버튼 영역에서는 기본 커서 */
   }
 
   .modal {
-    left: 0%; /* 왼쪽에서 10px 떨어진 위치 */
+    left: 0%; /* 왼쪽에서 0% 위치 */
   }
 
 
