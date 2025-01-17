@@ -6,41 +6,149 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalImageUrl: "", // 모달에 표시할 이미지 URL
-      modalRedirectUrl: "", // 클릭 시 이동할 페이지 URL
-      loading: true, // 이미지 로딩 상태
-      error: null, // 에러 메시지
-      showModal: false, // 모달 표시 여부
+      isDragging: false, // 드래그 상태
+      startX: 0, // 드래그 시작 시 마우스 X 좌표
+      startY: 0, // 드래그 시작 시 마우스 Y 좌표
+      modalX: 0, // 모달 X 좌표
+      modalY: 0, // 모달 Y 좌표
+      wasDragging: false, // 드래그가 발생했는지 여부
+    };
+    this.modalRef = React.createRef();
+  }
+
+  handleMouseDown = (e) => {
+    // 드래그 시작
+    e.preventDefault();
+    this.setState({
+      isDragging: true,
+      startX: e.clientX,
+      startY: e.clientY,
+      wasDragging: false, // 초기화
+    });
+    document.addEventListener("mousemove", this.handleMouseMove);
+    document.addEventListener("mouseup", this.handleMouseUp);
+  };
+
+  handleMouseMove = (e) => {
+    // 드래그 중
+    if (!this.state.isDragging) return;
+
+    const { startX, startY, modalX, modalY } = this.state;
+    const deltaX = e.clientX - startX; // 마우스 이동 X 변화량
+    const deltaY = e.clientY - startY; // 마우스 이동 Y 변화량
+
+    this.setState({
+      modalX: modalX + deltaX, // 모달 위치 업데이트
+      modalY: modalY + deltaY,
+      startX: e.clientX, // 현재 위치를 시작 위치로 업데이트
+      startY: e.clientY,
+      wasDragging: true, // 드래그 발생으로 설정
+    });
+  };
+
+  handleMouseUp = () => {
+    // 드래그 종료
+    this.setState({ isDragging: false });
+    document.removeEventListener("mousemove", this.handleMouseMove);
+    document.removeEventListener("mouseup", this.handleMouseUp);
+  };
+
+  handleRedirect = (e) => {
+    // 드래그 중이었으면 링크 이동 방지
+    if (this.state.wasDragging) {
+      e.preventDefault();
+      this.setState({ wasDragging: false }); // 드래그 상태 초기화
+      return;
+    }
+    const { modalRedirectUrl } = this.props;
+    if (modalRedirectUrl) {
+      window.location.href = modalRedirectUrl;
+    }
+  };
+
+  render() {
+    const { modalImageUrl, closeModal, handleCloseToday } = this.props;
+    const { modalX, modalY } = this.state;
+
+    return (
+      <div
+        className="modal"
+        ref={this.modalRef}
+        style={{
+          transform: `translate(${modalX}px, ${modalY}px)`,
+          cursor: this.state.isDragging ? "grabbing" : "grab",
+          position: "absolute",
+        }}
+        onMouseDown={(e) => {
+          e.stopPropagation();
+          this.handleMouseDown(e);
+        }}
+        onClick={(e) => {
+          e.stopPropagation();
+          this.handleRedirect(e);
+        }}
+      >
+        <ul className="modalContent">
+          <li className="popUpImg">
+            <img
+              className="noticeBanner"
+              src={modalImageUrl}
+              alt="Modal Content"
+            />
+          </li>
+          <li className="closeBtn">
+            <button
+              className="close"
+              onClick={(e) => e.stopPropagation() || closeModal()}
+            >
+              닫기 X
+            </button>
+            <button
+              className="todayClose"
+              onClick={(e) => e.stopPropagation() || handleCloseToday()}
+            >
+              오늘 하루 보지 않기
+            </button>
+          </li>
+        </ul>
+      </div>
+    );
+  }
+}
+
+class ModalContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalsData: [],
+      loading: true,
+      error: null,
+      hiddenModals: new Set(),
     };
   }
 
   componentDidMount() {
-    this.fetchModalContent();
+    this.fetchModalsData();
   }
 
-  fetchModalContent = () => {
+  fetchModalsData = () => {
     axios
       .get("http://jkintl.co.kr:10337/api/modals?populate=*")
       .then((response) => {
         const data = response.data.data;
         if (data && data.length > 0) {
-          const modalImageUrl =
-            data[0]?.attributes?.content?.data?.attributes?.url;
-          const modalRedirectUrl = data[0]?.attributes?.address;
-          const displayModal = data[0]?.attributes?.display || false;
-          if (modalImageUrl && modalRedirectUrl && displayModal) {
-            this.setState({
-              modalImageUrl: `http://jkintl.co.kr:10337${modalImageUrl}`,
-              modalRedirectUrl,
-              loading: false,
-              showModal: true,
-            });
-          } else {
-            this.setState({
-              error: "No image URL or redirect URL found, or display is false",
-              loading: false,
-            });
-          }
+          const modalsData = data
+            .filter(
+              (item) =>
+                item?.attributes?.content?.data?.attributes?.url &&
+                item?.attributes?.address &&
+                item?.attributes?.display
+            )
+            .map((item) => ({
+              modalImageUrl: `http://jkintl.co.kr:10337${item.attributes.content.data.attributes.url}`,
+              modalRedirectUrl: item.attributes.address,
+            }));
+          this.setState({ modalsData, loading: false });
         } else {
           this.setState({ error: "No data found", loading: false });
         }
@@ -54,65 +162,55 @@ class Modal extends React.Component {
       });
   };
 
-  closeModal = () => {
-    this.setState({ showModal: false });
+  closeModal = (index) => {
+    this.setState((prevState) => {
+      const hiddenModals = new Set(prevState.hiddenModals);
+      hiddenModals.add(index);
+      return { hiddenModals };
+    });
   };
 
-  handleCloseToday = () => {
-    localStorage.setItem("hideModalUntil", Date.now() + 24 * 60 * 60 * 1000); // 현재 시간으로부터 24시간 뒤의 시간을 저장
-    this.closeModal();
-  };
-
-  handleRedirect = () => {
-    const { modalRedirectUrl } = this.state;
-    if (modalRedirectUrl) {
-      window.location.href = modalRedirectUrl; // 특정 페이지로 이동
-    }
+  handleCloseToday = (index) => {
+    localStorage.setItem(
+      `hideModalUntil_${index}`,
+      Date.now() + 24 * 60 * 60 * 1000
+    );
+    this.closeModal(index);
   };
 
   render() {
-    const { modalImageUrl, loading, error, showModal } = this.state;
+    const { modalsData, loading, error, hiddenModals } = this.state;
 
-    // 현재 시간
-    const currentTime = Date.now();
-    // 로컬 스토리지에서 저장된 시간 가져오기
-    const hideModalUntil = localStorage.getItem("hideModalUntil");
-    // 모달을 보여줘야 하는지 여부 확인
-    const shouldShowModal =
-      showModal && (!hideModalUntil || currentTime > parseInt(hideModalUntil));
-
-    if (!shouldShowModal || loading || error) {
+    if (loading || error) {
       return null;
     }
 
     return (
-      <div className="modal" onClick={this.handleRedirect}>
-        <ul className="modalContent">
-          <li className="popUpImg">
-            <img
-              className="noticeBanner"
-              src={modalImageUrl}
-              alt="Modal Content"
-            />
-          </li>
-          <li className="closeBtn">
-            <button
-              className="close"
-              onClick={(e) => e.stopPropagation() || this.closeModal()}
-            >
-              닫기 X
-            </button>
-            <button
-              className="todayClose"
-              onClick={(e) => e.stopPropagation() || this.handleCloseToday()}
-            >
-              오늘 하루 보지 않기
-            </button>
-          </li>
-        </ul>
+      <div>
+        {modalsData.map((modal, index) => {
+          const hideModalUntil = localStorage.getItem(
+            `hideModalUntil_${index}`
+          );
+          const currentTime = Date.now();
+          const shouldShowModal =
+            !hiddenModals.has(index) &&
+            (!hideModalUntil || currentTime > parseInt(hideModalUntil));
+
+          return (
+            shouldShowModal && (
+              <Modal
+                key={index}
+                modalImageUrl={modal.modalImageUrl}
+                modalRedirectUrl={modal.modalRedirectUrl}
+                closeModal={() => this.closeModal(index)}
+                handleCloseToday={() => this.handleCloseToday(index)}
+              />
+            )
+          );
+        })}
       </div>
     );
   }
 }
 
-export default Modal;
+export default ModalContainer;
