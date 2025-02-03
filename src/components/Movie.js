@@ -17,7 +17,9 @@ class Movie extends Component {
     window.addEventListener("resize", this.handleResize); // resize 이벤트 리스너 추가
 
     axios
-      .get("http://jkintl.co.kr:10337/api/movies?populate=*")
+      .get(
+        "http://jkintl.co.kr:10337/api/movies?populate=&pagination[limit]=-1"
+      )
       .then((response) => {
         const movies = response.data.data;
         const thumbnails = {};
