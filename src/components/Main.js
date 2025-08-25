@@ -40,6 +40,8 @@ class Main extends React.Component {
     // 이전 값으로 데이터 업데이트
     await this.fetchPreviousValue();
     this.updateVisitorCounts();
+    // 1분마다 시간을 확인하여 리셋
+    this.interval = setInterval(this.checkTimeAndResetCounts, 60000); // 1분마다 확인
 
     try {
       const response = await axios.get(
@@ -136,25 +138,25 @@ class Main extends React.Component {
 
     try {
       const response = await axios.get(
-        "http://jkintl.co.kr:10337/api/movies?populate=*"
+        "http://jkintl.co.kr:10337/api/movies?populate=*&pagination[limit]=-1"
       );
       const movies = response.data.data;
 
       // "first", "second", "third" 항목을 가진 영화를 찾습니다.
-      const firstMovie = movies.find(
-        (movie) => movie.attributes.main_section === "first"
-      );
-      const secondMovie = movies.find(
-        (movie) => movie.attributes.main_section === "second"
-      );
-      const thirdMovie = movies.find(
-        (movie) => movie.attributes.main_section === "third"
-      );
+      const firstMovie =
+        movies.find((movie) => movie.attributes.main_section === "first") ||
+        null;
+      const secondMovie =
+        movies.find((movie) => movie.attributes.main_section === "second") ||
+        null;
+      const thirdMovie =
+        movies.find((movie) => movie.attributes.main_section === "third") ||
+        null;
 
       // "first", "second", "third" 항목을 가진 영화가 없을 경우 오류 처리
-      if (!firstMovie || !secondMovie || !thirdMovie) {
-        throw new Error("Some movies not found");
-      }
+      // if (!firstMovie || !secondMovie || !thirdMovie) {
+      //   throw new Error("Some movies not found");
+      // }
 
       // 모든 항목이 존재할 경우 state에 저장
       this.setState({
@@ -168,6 +170,32 @@ class Main extends React.Component {
       this.setState({ error });
     }
   };
+
+  fetchPreviousValue = async () => {
+    try {
+      const response = await axios.get("http://jkintl.co.kr:10337/api/admins");
+      const data = response.data.data[0].attributes;
+
+      this.setState({
+        day: Number(data.day),
+        week: Number(data.week),
+        month: Number(data.month),
+        year: Number(data.year),
+        total: Number(data.total),
+        previousDay: Number(data.day),
+        previousWeek: Number(data.week),
+        previousMonth: Number(data.month),
+        previousYear: Number(data.year),
+        previousTotal: Number(data.total),
+      });
+    } catch (error) {
+      console.error("이전 값 가져오기 에러:", error);
+    }
+  };
+
+  componentWillUnmount() {
+    clearInterval(this.interval); // 컴포넌트가 언마운트될 때 interval 정리
+  }
 
   fetchPreviousValue = async () => {
     try {
@@ -217,6 +245,39 @@ class Main extends React.Component {
       this.setState(updatedValues);
     } catch (error) {
       console.error("데이터 전송 에러:", error);
+    }
+  };
+
+  checkTimeAndResetCounts = () => {
+    const now = new Date();
+    const currentDay = now.getDay(); // 일요일 체크
+    const currentDate = now.getDate(); // 월 첫날 체크
+    const currentMonth = now.getMonth(); // 연 첫날 체크
+
+    // 만약 현재 시간이 자정이고, 분도 0분이면 방문자 수를 리셋합니다.
+    if (now.getHours() === 0 && now.getMinutes() === 0) {
+      // 서버에 방문자 수를 리셋하는 요청을 보냅니다.
+      this.resetVisitorCounts();
+    } else {
+      // 시간이 변경된 경우에만 리셋
+      this.setState((prevState) => ({
+        day: currentDay === 0 ? 0 : prevState.day, // 다음주가 시작되면 리셋
+        week: currentDay === 0 ? 0 : prevState.week, // 다음주가 시작되면 리셋
+        month: currentDate === 1 ? 0 : prevState.month, // 다음달이 시작되면 리셋
+        year: currentMonth === 0 && currentDate === 1 ? 0 : prevState.year, // 다음해가 시작되면 리셋
+      }));
+    }
+  };
+
+  resetVisitorCounts = async () => {
+    try {
+      // 서버에 방문자 수를 리셋하는 POST 요청을 보냅니다.
+      await axios.post("http://jkintl.co.kr:10337/api/reset-visitors");
+      console.log("방문자 수 초기화 요청 성공");
+      // 필요한 경우 초기화 성공 메시지를 사용자에게 표시할 수 있습니다.
+    } catch (error) {
+      console.error("방문자 수 초기화 요청 에러:", error);
+      // 초기화 요청 실패 시 에러 메시지를 처리할 수 있습니다.
     }
   };
 
